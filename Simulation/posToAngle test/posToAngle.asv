@@ -1,0 +1,40 @@
+function [alpha, beta, psi] = posToAngle(pos1, pos2, pos3)
+    % Physical Constants
+    r = 0.17;                 % Radius to joints (m)
+    T_height = 0.322;         % Resting height (m)
+    theta = deg2rad(120);
+    
+    % Joint positions on the Motion Plate (relative to plate center) 
+    p1 = [r; 0; 0];
+    p2 = [r*cos(theta); r*sin(theta); 0];
+    p3 = [r*cos(theta); -r*sin(theta); 0];
+
+    % Reconstruction of the Plate Unit Vectors 
+    % We find where the joints are in the world frame by using the inputs
+    % If pos = 0.322, the joints are exactly T_height above the base.
+    P1_global = [r; 0; pos1];
+    P2_global = [r*cos(theta); r*sin(theta); pos2];
+    P3_global = [r*cos(theta); -r*sin(theta); pos3];
+
+    % Find the center of the tilted plate
+    % The average of the three joint positions gives the center of the motion plate
+    center = (P1_global + P2_global + P3_global) / 3;
+
+    % 5. Vectors from the plate center to the joints
+    % This isolates the tilt of the plate surface
+    v1 = P1_global - center;
+    v2 = P2_global - center;
+    v3 = P3_global - center;
+
+    % 6. Compute Unit Vectors
+    uX = v1 / norm(v1);             % Plate X-axis
+    u_temp = cross(uX, v3);         % Temporary vector to find normal
+    uZ = u_temp / norm(u_temp);     % Plate Z-axis (Normal)
+    uY = cross(uZ, uX);             % Plate Y-axis
+
+    % 7. Extract Tait-Bryan Angles
+    beta = asin(-uX(3));
+    % cos(beta) handles the numeric scaling for alpha and psi
+    alpha = asin(uY(3) / cos(beta));
+    psi = asin(uX(2) / cos(beta));
+end

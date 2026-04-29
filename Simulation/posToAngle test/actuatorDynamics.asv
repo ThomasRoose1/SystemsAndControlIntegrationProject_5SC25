@@ -1,0 +1,32 @@
+function [h_new, next_x_plant] = actuatorDynamics(I, x_plant, dt)
+    % A, B, C, D matrices for the motor plant [cite: 415, 827]
+    persistent Ap Bp Cp
+    if isempty(Ap)
+        m = 0.417;     % Slider mass + 1/3 plate mass [cite: 830]
+        Km = 11;       % Force constant [cite: 348]
+        Cv = 16.5;     % Viscous friction [cite: 348]
+        num = [Km/m];
+        den = [1 Cv/m 0];
+        [Ap, Bp, Cp, ~] = tf2ss(num, den);
+    end
+
+    % Physical state update
+    dx = Ap * x_plant + Bp * I;
+    next_x_plant = x_plant + dx * dt;
+
+    % Resting height is 0.322m [cite: 1032]
+    % Stroke is +/- 30mm from the center 
+    h_min = 0.322 - 0.030; 
+    h_max = 0.322 + 0.030;
+    
+    % Saturation for the physical position state
+    next_x_plant(1) = max(min(x_plant(1), h_max), h_min);
+    
+    % Also reset velocity to 0 if it hits a hard physical stop
+    if (x_plant(1) == h_max || x_plant(1) == h_min)
+        x_plant(2) = 0; 
+    end
+    
+    % New physical position
+    h_new = Cp * next_x_plant;
+end
