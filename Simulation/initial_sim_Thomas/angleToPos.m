@@ -7,7 +7,6 @@ function [pos1, pos2, pos3] = angleToPos(alpha, beta, psi)
     T = [0; 0; 0.322];  % Resting height vector (m)
     
     % Joint positions on base and plate (equilateral triangle)
-    % These match the definitions in your posToAngle function
     theta = [0, deg2rad(240), deg2rad(120)];
     B = [r*cos(theta); r*sin(theta); zeros(1,3)]; % Base joints (b_i)
     P = [r*cos(theta); r*sin(theta); zeros(1,3)]; % Plate joints (p_i)

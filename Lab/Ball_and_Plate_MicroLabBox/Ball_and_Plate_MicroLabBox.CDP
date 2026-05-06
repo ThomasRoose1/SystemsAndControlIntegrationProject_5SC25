@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Root>
+	<creator type="key">ControlDesk 7.3</creator>
+	<project>
+		<Creator type="key">ControlDesk</Creator>
+		<MigrationHistory type="key"/>
+		<Name type="key">Ball_and_Plate_MicroLabBox.CDP</Name>
+		<DisplayName type="key">Ball_and_Plate_MicroLabBox</DisplayName>
+		<Flags type="key">4096</Flags>
+		<Type type="key">1</Type>
+		<UniqueID type="key">381675437</UniqueID>
+		<EntityID type="key">{B32A0B76-0B4A-4119-818E-CA9FDDD31AEE}</EntityID>
+		<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+		<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+		<ItemInfoDescr type="key"/>
+		<ItemInfoAddInfoDb type="key"/>
+		<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+		<item>
+			<Targets type="key">project</Targets>
+			<Name type="key">Ball_and_Plate_MicroLabBox</Name>
+			<DisplayName type="key">Ball_and_Plate_MicroLabBox</DisplayName>
+			<Path type="key">..</Path>
+			<Flags type="key">4100</Flags>
+			<Type type="key">3</Type>
+			<UniqueID type="key">100315807</UniqueID>
+			<EntityID type="key">{5F2392A3-B44A-465E-9A67-12D1C4E1EB72}</EntityID>
+			<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+			<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+			<ItemInfoDescr type="key"/>
+			<ItemInfoAddInfoDb type="key"/>
+			<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			<item>
+				<Docs type="key">.doc,.docx,.pdf</Docs>
+				<Name type="key">Specifications</Name>
+				<DisplayName type="key">Specifications</DisplayName>
+				<Path type="key">.</Path>
+				<Type type="key">3</Type>
+				<UniqueID type="key">237600383</UniqueID>
+				<EntityID type="key">{9FAEBFDD-B33C-4894-922D-4C801BF7F42A}</EntityID>
+				<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDocs type="key">.doc,.docx,.pdf</ItemInfoDocs>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			</item>
+			<item>
+				<Docs type="key">.mpp</Docs>
+				<Name type="key">Project Plans</Name>
+				<DisplayName type="key">Project Plans</DisplayName>
+				<Path type="key">.</Path>
+				<Type type="key">3</Type>
+				<UniqueID type="key">712040087</UniqueID>
+				<EntityID type="key">{194461A4-16E7-4407-90CD-E17463D67C61}</EntityID>
+				<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDocs type="key">.mpp</ItemInfoDocs>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			</item>
+			<item>
+				<Targets type="key">variablesmanagement</Targets>
+				<Name type="key">Variable Descriptions</Name>
+				<DisplayName type="key">Variable Descriptions</DisplayName>
+				<Path type="key">.</Path>
+				<Flags type="key">256</Flags>
+				<ExtendedFlags type="key">4</ExtendedFlags>
+				<Type type="key">3</Type>
+				<UniqueID type="key">262682586</UniqueID>
+				<EntityID type="key">{4E9AA429-D128-4439-967B-3E13BF9A4887}</EntityID>
+				<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+				<item>
+					<Component type="key">VariablesManagement</Component>
+					<Name type="key">Ball_and_Plate_MicroLabBox.vdb</Name>
+					<DisplayName type="key">C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ControlDeskProjects\Ball_and_Plate_MicroLabBox\Variable Descriptions\Ball_and_Plate_MicroLabBox.vdb</DisplayName>
+					<Path type="key">.\Variable Descriptions</Path>
+					<Flags type="key">276</Flags>
+					<Type type="key">18</Type>
+					<UniqueID type="key">837441347</UniqueID>
+					<EntityID type="key">{A36C6EB1-81ED-4790-B4B9-E7FC71BF3BF3}</EntityID>
+					<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">VariablesManagement</Component>
+					<Name type="key">ball_and_plate_microlabbox.sdf</Name>
+					<DisplayName type="key">ball_and_plate_microlabbox.sdf</DisplayName>
+					<Path type="key">.\Variable Descriptions\ball_and_plate_microlabbox.sdf</Path>
+					<Flags type="key">18704</Flags>
+					<Type type="key">7</Type>
+					<UniqueID type="key">135179195</UniqueID>
+					<EntityID type="key">{02C62766-CD36-484A-9848-BFA9815CA1BD}</EntityID>
+					<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-07 08:29:04 (UTC)]
+
+Variable description reloaded on 07.04.2021 13:35:17 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-07 11:34:32 (UTC)]
+
+Variable description reloaded on 07.04.2021 13:46:55 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-07 11:45:49 (UTC)]
+
+Variable description reloaded on 07.04.2021 14:05:59 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-07 12:05:22 (UTC)]
+
+Variable description reloaded on 07.04.2021 14:37:43 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-07 12:34:40 (UTC)]
+
+Variable description reloaded on 07.04.2021 16:23:57 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-07 14:22:58 (UTC)]
+
+Variable description reloaded on 07.04.2021 16:27:49 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-07 14:27:23 (UTC)]
+
+Variable description reloaded on 08.04.2021 09:44:05 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-08 07:40:29 (UTC)]
+
+Variable description reloaded on 08.04.2021 10:00:16 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-08 07:54:16 (UTC)]
+
+Variable description reloaded on 08.04.2021 10:37:56 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-08 08:37:24 (UTC)]
+
+Variable description reloaded on 08.04.2021 12:04:47 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-08 10:02:38 (UTC)]
+
+Variable description reloaded on 08.04.2021 13:22:06 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-08 10:33:07 (UTC)]
+
+Variable description reloaded on 08.04.2021 16:22:48 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-08 14:22:17 (UTC)]
+
+Variable description reloaded on 08.04.2021 16:28:12 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-08 14:27:43 (UTC)]
+
+Variable description reloaded on 09.04.2021 09:46:39 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-09 07:45:46 (UTC)]
+
+Variable description reloaded on 09.04.2021 10:57:00 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-09 08:56:20 (UTC)]
+
+Variable description reloaded on 09.04.2021 13:13:27 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-09 10:41:59 (UTC)]
+
+Variable description reloaded on 14.04.2021 08:57:09 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-14 06:54:53 (UTC)]
+
+Variable description reloaded on 15.04.2021 15:00:31 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-15 13:00:02 (UTC)]
+
+Variable description reloaded on 23.04.2021 09:27:21 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-23 07:23:01 (UTC)]
+
+Variable description reloaded on 23.04.2021 13:25:17 (C:\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-23 11:23:54 (UTC)]
+
+Variable description reloaded on 04.05.2021 13:12:40 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-04-30 08:04:38 (UTC)]
+
+Variable description reloaded on 04.05.2021 13:16:29 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-05-04 11:15:28 (UTC)]
+
+Variable description reloaded on 06.05.2021 13:28:43 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-05-06 11:26:19 (UTC)]
+
+Variable description reloaded on 19.05.2021 08:59:20 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-05-19 06:52:08 (UTC)]
+
+Variable description reloaded on 28.05.2021 09:28:59 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-05-28 07:26:48 (UTC)]
+
+Variable description reloaded on 28.05.2021 09:50:48 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-05-28 07:49:34 (UTC)]
+
+Variable description reloaded on 28.05.2021 13:21:07 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-05-28 11:18:19 (UTC)]
+
+Variable description reloaded on 04.06.2021 09:18:49 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-06-04 07:17:07 (UTC)]
+
+Variable description reloaded on 11.06.2021 10:56:37 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-06-11 08:54:50 (UTC)]
+
+Variable description reloaded on 17.06.2021 09:06:53 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-06-17 07:05:30 (UTC)]
+
+Variable description reloaded on 17.06.2021 13:20:40 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-06-17 11:19:33 (UTC)]
+
+Variable description reloaded on 18.06.2021 16:01:42 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-06-18 13:58:57 (UTC)]
+
+Variable description reloaded on 29.06.2021 09:17:37 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-06-29 07:16:06 (UTC)]
+
+Variable description reloaded on 06.07.2021 15:39:12 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-07-06 13:37:25 (UTC)]
+
+Variable description reloaded on 06.07.2021 17:14:11 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox_2.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox_2.sdf [2021-07-06 15:09:32 (UTC)]
+
+Variable description reloaded on 07.07.2021 11:49:58 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox_2.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox_2.sdf [2021-07-07 09:47:57 (UTC)]
+
+Variable description reloaded on 07.07.2021 17:34:24 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-07-07 13:44:40 (UTC)]
+
+Variable description reloaded on 08.07.2021 10:50:05 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-07-08 08:47:40 (UTC)]
+
+Variable description reloaded on 09.07.2021 14:20:46 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-07-09 12:07:37 (UTC)]
+
+Variable description reloaded on 12.07.2021 11:31:48 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-07-12 09:16:23 (UTC)]
+
+Variable description reloaded on 13.07.2021 13:52:34 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-07-13 11:48:38 (UTC)]
+
+Variable description reloaded on 22.07.2021 14:14:03 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-07-20 11:55:00 (UTC)]
+
+Variable description reloaded on 26.07.2021 10:06:06 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2021-07-26 07:57:36 (UTC)]
+
+Variable description reloaded on 02.03.2022 10:20:12 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-03-02 09:09:44 (UTC)]
+
+Variable description reloaded on 07.03.2022 09:48:30 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-03-07 08:40:30 (UTC)]
+
+Variable description reloaded on 17.03.2022 14:30:45 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-03-17 13:29:36 (UTC)]
+
+Variable description reloaded on 26.04.2022 11:25:42 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-04-26 09:08:51 (UTC)]
+
+Variable description reloaded on 02.05.2022 09:09:30 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-02 07:07:07 (UTC)]
+
+Variable description reloaded on 02.05.2022 10:20:32 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-02 08:16:07 (UTC)]
+
+Variable description reloaded on 03.05.2022 09:46:21 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-03 07:43:13 (UTC)]
+
+Variable description reloaded on 09.05.2022 14:30:52 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-09 12:29:24 (UTC)]
+
+Variable description reloaded on 10.05.2022 10:30:14 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-10 08:28:47 (UTC)]
+
+Variable description reloaded on 11.05.2022 10:42:55 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-11 08:41:12 (UTC)]
+
+Variable description reloaded on 11.05.2022 12:37:08 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-11 10:36:15 (UTC)]
+
+Variable description reloaded on 12.05.2022 13:16:12 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-12 11:15:00 (UTC)]
+
+Variable description reloaded on 13.05.2022 13:09:38 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-13 11:07:52 (UTC)]
+
+Variable description reloaded on 13.05.2022 13:14:59 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-13 11:14:21 (UTC)]
+
+Variable description reloaded on 16.05.2022 15:15:15 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-16 13:13:13 (UTC)]
+
+Variable description reloaded on 17.05.2022 16:00:24 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-17 13:59:44 (UTC)]
+
+Variable description reloaded on 18.05.2022 13:08:06 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-18 11:06:17 (UTC)]
+
+Variable description reloaded on 18.05.2022 13:25:16 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-18 11:24:44 (UTC)]
+
+Variable description reloaded on 18.05.2022 14:21:31 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-18 12:19:40 (UTC)]
+
+Variable description reloaded on 19.05.2022 13:16:43 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-19 11:15:44 (UTC)]
+
+Variable description reloaded on 20.05.2022 09:22:25 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-20 07:19:38 (UTC)]
+
+Variable description reloaded on 30.05.2022 09:02:57 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-30 06:55:15 (UTC)]
+
+Variable description reloaded on 31.05.2022 09:15:55 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-05-31 07:14:15 (UTC)]
+
+Variable description reloaded on 02.06.2022 09:58:37 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-06-02 07:57:44 (UTC)]
+
+Variable description reloaded on 09.06.2022 11:03:50 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-06-09 09:01:40 (UTC)]
+
+Variable description reloaded on 09.06.2022 14:20:44 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-06-09 12:17:59 (UTC)]
+
+Variable description reloaded on 23.06.2022 08:55:05 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-06-23 06:53:41 (UTC)]
+
+Variable description reloaded on 23.06.2022 16:10:02 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-06-23 14:09:04 (UTC)]
+
+Variable description reloaded on 24.06.2022 15:00:03 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-06-24 12:59:06 (UTC)]
+
+Variable description reloaded on 28.06.2022 11:50:07 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-06-28 09:49:19 (UTC)]
+
+Variable description reloaded on 12.07.2022 15:53:00 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-07-12 13:52:12 (UTC)]
+
+Variable description reloaded on 24.08.2022 14:22:08 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-08-24 12:19:02 (UTC)]
+
+Variable description reloaded on 06.09.2022 15:54:11 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-09-06 13:50:26 (UTC)]
+
+Variable description reloaded on 02.11.2022 11:45:24 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-11-02 10:41:33 (UTC)]
+
+Variable description reloaded on 02.11.2022 11:54:48 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2022-11-02 10:54:13 (UTC)]
+
+Variable description reloaded on 15.02.2023 10:36:03 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2023-02-15 09:30:38 (UTC)]
+
+Variable description reloaded on 20.01.2025 12:24:27 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\..\ball_and_plate_microlabbox.sdf [2025-01-20 11:20:24 (UTC)]
+
+Variable description reloaded on 20.01.2025 13:14:27 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\..\ball_and_plate_microlabbox.sdf [2025-01-20 12:13:09 (UTC)]
+
+Variable description reloaded on 20.01.2025 13:16:16 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\..\ball_and_plate_microlabbox.sdf [2025-01-20 12:13:09 (UTC)]
+
+Variable description reloaded on 20.01.2025 13:38:42 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2025-01-20 12:25:02 (UTC)]
+
+Variable description reloaded on 20.01.2025 14:42:47 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2025-01-20 12:25:02 (UTC)]
+
+Variable description reloaded on 20.01.2025 15:42:13 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\..\ball_and_plate_microlabbox.sdf [2025-01-20 14:16:05 (UTC)]
+
+Variable description reloaded on 20.01.2025 16:15:09 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox_Matlab2022a\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\..\..\Ball_and_Plate_MicroLabBox_Matlab2022a\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf [2025-01-20 15:06:37 (UTC)]
+
+Variable description reloaded on 27.01.2025 10:32:18 (C:\Users\20201603\Documents\Ball_and_Plate_MicroLabBox\Total_System_MicroLabBox\ball_and_plate_microlabbox.sdf)
+Original file added from ..\..\ball_and_plate_microlabbox.sdf [2025-01-27 09:27:36 (UTC)]
+</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+					<item>
+						<Component type="key">VariablesManagement</Component>
+						<Name type="key">ball_and_plate_microlabbox.trc</Name>
+						<DisplayName type="key">ball_and_plate_microlabbox.trc</DisplayName>
+						<Path type="key">.\Variable Descriptions\ball_and_plate_microlabbox.sdf</Path>
+						<Flags type="key">18692</Flags>
+						<ExtendedFlags type="key">1</ExtendedFlags>
+						<Type type="key">4</Type>
+						<UniqueID type="key">258822319</UniqueID>
+						<EntityID type="key">{E7834835-C16B-4CE0-BB59-3EF0C24A6031}</EntityID>
+						<ItemInfoDate type="key">27/01/2025 10:32:18</ItemInfoDate>
+						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+						<ItemInfoDescr type="key"/>
+						<ItemInfoAddInfoDb type="key"/>
+						<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+					</item>
+					<item>
+						<Component type="key">VariablesManagement</Component>
+						<Name type="key">ball_and_plate_microlabbox.map</Name>
+						<DisplayName type="key">ball_and_plate_microlabbox.map</DisplayName>
+						<Path type="key">.\Variable Descriptions\ball_and_plate_microlabbox.sdf</Path>
+						<Flags type="key">18692</Flags>
+						<ExtendedFlags type="key">1</ExtendedFlags>
+						<Type type="key">4</Type>
+						<UniqueID type="key">801354435</UniqueID>
+						<EntityID type="key">{12641975-7C4E-4A28-8755-0B45AD903BD3}</EntityID>
+						<ItemInfoDate type="key">27/01/2025 10:32:18</ItemInfoDate>
+						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+						<ItemInfoDescr type="key"/>
+						<ItemInfoAddInfoDb type="key"/>
+						<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+					</item>
+					<item>
+						<Component type="key">VariablesManagement</Component>
+						<Name type="key">ball_and_plate_microlabbox.rta</Name>
+						<DisplayName type="key">ball_and_plate_microlabbox.rta</DisplayName>
+						<Path type="key">.\Variable Descriptions\ball_and_plate_microlabbox.sdf</Path>
+						<Flags type="key">18692</Flags>
+						<ExtendedFlags type="key">1</ExtendedFlags>
+						<Type type="key">30</Type>
+						<UniqueID type="key">392947729</UniqueID>
+						<EntityID type="key">{DF49D09B-7ECF-4EA1-B3C0-979695E4F0F9}</EntityID>
+						<ItemInfoDate type="key">27/01/2025 10:32:18</ItemInfoDate>
+						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+						<ItemInfoDescr type="key"/>
+						<ItemInfoAddInfoDb type="key"/>
+						<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+					</item>
+				</item>
+			</item>
+			<item>
+				<Targets type="key">.vfe</Targets>
+				<Name type="key">Variable Filters</Name>
+				<DisplayName type="key">Variable Filters</DisplayName>
+				<Path type="key">.</Path>
+				<Flags type="key">2304</Flags>
+				<Type type="key">3</Type>
+				<UniqueID type="key">565150281</UniqueID>
+				<EntityID type="key">{A9088607-3AB6-4E98-BD3C-3940F409A106}</EntityID>
+				<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			</item>
+			<item>
+				<Targets type="key">.lab</Targets>
+				<Docs type="key">.lab,.txt</Docs>
+				<Name type="key">Label Lists</Name>
+				<DisplayName type="key">Label Lists</DisplayName>
+				<Path type="key">.</Path>
+				<Type type="key">3</Type>
+				<UniqueID type="key">328359548</UniqueID>
+				<EntityID type="key">{1F8B04B0-2492-4E3B-8B3C-EB14224AA5A2}</EntityID>
+				<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDocs type="key">.lab,.txt</ItemInfoDocs>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			</item>
+			<item>
+				<Targets type="key">interpreter,.py</Targets>
+				<Docs type="key">.py</Docs>
+				<Name type="key">Python Scripts</Name>
+				<DisplayName type="key">Python Scripts</DisplayName>
+				<Path type="key">.</Path>
+				<Flags type="key">256</Flags>
+				<ExtendedFlags type="key">4224</ExtendedFlags>
+				<Type type="key">3</Type>
+				<UniqueID type="key">734034629</UniqueID>
+				<EntityID type="key">{AA57A6C0-EEAA-445D-B283-94C5437D060F}</EntityID>
+				<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDocs type="key">.py</ItemInfoDocs>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			</item>
+			<item>
+				<Targets type="key">signaleditor</Targets>
+				<Name type="key">Signal Description Sets</Name>
+				<DisplayName type="key">Signal Description Sets</DisplayName>
+				<Path type="key">.</Path>
+				<Flags type="key">256</Flags>
+				<Type type="key">3</Type>
+				<UniqueID type="key">828452038</UniqueID>
+				<EntityID type="key">{61AE7E7A-C4E9-40E1-BF44-0F540B9B1977}</EntityID>
+				<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			</item>
+		</item>
+		<item>
+			<Name type="key">Events</Name>
+			<DisplayName type="key">Events</DisplayName>
+			<Path type="key">.</Path>
+			<Flags type="key">4</Flags>
+			<ExtendedFlags type="key">4</ExtendedFlags>
+			<Type type="key">3</Type>
+			<UniqueID type="key">77221636</UniqueID>
+			<EntityID type="key">{063492A3-19CD-471A-B7AF-3BFABE1A61AE}</EntityID>
+			<ItemInfoDate type="key">07/04/2021 10:45:00</ItemInfoDate>
+			<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+			<ItemInfoDescr type="key"/>
+			<ItemInfoAddInfoDb type="key"/>
+			<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			<item>
+				<Name type="key">Project.events</Name>
+				<DisplayName type="key">Project.events</DisplayName>
+				<Path type="key">.\Events</Path>
+				<Flags type="key">4</Flags>
+				<Type type="key">52</Type>
+				<UniqueID type="key">610734874</UniqueID>
+				<EntityID type="key">{91BBB7A3-E86A-4B94-AE42-C6B6C59C14AD}</EntityID>
+				<ItemInfoDate type="key">07/04/2021 10:45:00</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+			</item>
+		</item>
+	</project>
+	<experiments>
+		<experiment>
+			<Creator type="key">ControlDesk</Creator>
+			<MigrationHistory type="key"/>
+			<Name type="key">Experiment_001.CDE</Name>
+			<DisplayName type="key">Experiment_001</DisplayName>
+			<Path type="key">.\Experiment_001</Path>
+			<Flags type="key">4096</Flags>
+			<Type type="key">2</Type>
+			<UniqueID type="key">65043600</UniqueID>
+			<EntityID type="key">{A8501B2E-D62C-4A7C-A8F4-AC755F38A3EF}</EntityID>
+			<ItemInfoDate type="key">07/04/2021 10:44:59</ItemInfoDate>
+			<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+			<ItemInfoDescr type="key"/>
+			<ItemInfoAddInfoDb type="key"/>
+			<ItemInfoAuthor type="key">20201603</ItemInfoAuthor>
+		</experiment>
+	</experiments>
+	<BusNavigator/>
+	<VariablesManagement/>
+	<UserManager/>
+	<XILAPIEESPort/>
+	<SignalEditor/>
+	<Interpreter>
+		<PythonVersion type="key">3.6</PythonVersion>
+	</Interpreter>
+	<ProjectExperiment>
+		<LastActiveExperiment type="key">Experiment_001</LastActiveExperiment>
+	</ProjectExperiment>
+	<Instrumentation Version="1">
+		<UniqueIds Version="3">
+			<Count type="key">3</Count>
+			<File1 type="key">Experiment_002/Layout1</File1>
+			<Id1 type="key">0</Id1>
+			<File2 type="key">Experiment_001/Layout1</File2>
+			<Id2 type="key">1</Id2>
+			<File3 type="key">Experiment_001/Layout1_1</File3>
+			<Id3 type="key">2</Id3>
+		</UniqueIds>
+	</Instrumentation>
+	<DiagnosticsManagement/>
+	<PlatformManagement/>
+	<MeasurementConfiguration/>
+	<MeasureDataManagement/>
+	<DataSetManager>
+		<Version>
+			<Version type="key">2</Version>
+		</Version>
+		<Work/>
+		<ActiveWork/>
+		<Reference/>
+		<ActiveReference/>
+		<Master/>
+		<ActiveMaster/>
+		<InitialMaster/>
+		<Incomplete/>
+		<IncompleteReadonly/>
+		<DataSet/>
+		<Readonly/>
+		<AutomaticDownload/>
+	</DataSetManager>
+</Root>
