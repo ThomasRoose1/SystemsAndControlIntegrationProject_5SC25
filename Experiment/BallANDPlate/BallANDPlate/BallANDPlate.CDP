@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Root>
+	<creator type="key">ControlDesk 7.3</creator>
+	<project>
+		<Creator type="key">ControlDesk</Creator>
+		<MigrationHistory type="key"/>
+		<Name type="key">BallANDPlate.CDP</Name>
+		<DisplayName type="key">BallANDPlate</DisplayName>
+		<Flags type="key">4096</Flags>
+		<Type type="key">1</Type>
+		<UniqueID type="key">903928329</UniqueID>
+		<EntityID type="key">{4FC6F41D-C1A9-49A0-8971-F7960791A03F}</EntityID>
+		<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+		<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+		<ItemInfoDescr type="key"/>
+		<ItemInfoAddInfoDb type="key"/>
+		<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+		<item>
+			<Targets type="key">project</Targets>
+			<Name type="key">BallANDPlate</Name>
+			<DisplayName type="key">BallANDPlate</DisplayName>
+			<Path type="key">..</Path>
+			<Flags type="key">4100</Flags>
+			<Type type="key">3</Type>
+			<UniqueID type="key">798169328</UniqueID>
+			<EntityID type="key">{C79230A8-7B8B-472C-AB18-B57AC53BB061}</EntityID>
+			<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+			<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+			<ItemInfoDescr type="key"/>
+			<ItemInfoAddInfoDb type="key"/>
+			<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			<item>
+				<Docs type="key">.doc,.docx,.pdf</Docs>
+				<Name type="key">Specifications</Name>
+				<DisplayName type="key">Specifications</DisplayName>
+				<Path type="key">.</Path>
+				<Type type="key">3</Type>
+				<UniqueID type="key">700268495</UniqueID>
+				<EntityID type="key">{EAC213A4-03CD-4D04-B8BC-E145E2A0D386}</EntityID>
+				<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDocs type="key">.doc,.docx,.pdf</ItemInfoDocs>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			</item>
+			<item>
+				<Docs type="key">.mpp</Docs>
+				<Name type="key">Project Plans</Name>
+				<DisplayName type="key">Project Plans</DisplayName>
+				<Path type="key">.</Path>
+				<Type type="key">3</Type>
+				<UniqueID type="key">515114704</UniqueID>
+				<EntityID type="key">{B5143FE5-B880-4AA1-970D-905F8BB1F49A}</EntityID>
+				<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDocs type="key">.mpp</ItemInfoDocs>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			</item>
+			<item>
+				<Targets type="key">variablesmanagement</Targets>
+				<Name type="key">Variable Descriptions</Name>
+				<DisplayName type="key">Variable Descriptions</DisplayName>
+				<Path type="key">.</Path>
+				<Flags type="key">256</Flags>
+				<ExtendedFlags type="key">4</ExtendedFlags>
+				<Type type="key">3</Type>
+				<UniqueID type="key">800629455</UniqueID>
+				<EntityID type="key">{48C5CA06-E2E7-4C5D-9C97-867D99F585E3}</EntityID>
+				<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+				<item>
+					<Component type="key">VariablesManagement</Component>
+					<Name type="key">BallANDPlate.vdb</Name>
+					<DisplayName type="key">C:\BallANDPlate\BallANDPlate\Variable Descriptions\BallANDPlate.vdb</DisplayName>
+					<Path type="key">.\Variable Descriptions</Path>
+					<Flags type="key">276</Flags>
+					<Type type="key">18</Type>
+					<UniqueID type="key">308222440</UniqueID>
+					<EntityID type="key">{C1FCBE64-7E6F-4DD4-A413-5B5B6AC0A672}</EntityID>
+					<ItemInfoDate type="key">06/05/2026 11:35:15</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">VariablesManagement</Component>
+					<Name type="key">ball_and_plate_microlabbox_student.sdf</Name>
+					<DisplayName type="key">ball_and_plate_microlabbox_student.sdf</DisplayName>
+					<Path type="key">.\Variable Descriptions\ball_and_plate_microlabbox_student.sdf</Path>
+					<Flags type="key">18704</Flags>
+					<Type type="key">7</Type>
+					<UniqueID type="key">885430817</UniqueID>
+					<EntityID type="key">{B75C3188-F95F-4E49-9825-CDA9E3AE97DB}</EntityID>
+					<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-06 09:32:35 (UTC)]
+
+Variable description reloaded on 06.05.2026 12:08:20 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-06 10:05:52 (UTC)]
+
+Variable description reloaded on 06.05.2026 12:15:43 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-06 10:15:17 (UTC)]
+
+Variable description reloaded on 07.05.2026 11:26:42 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-07 09:25:34 (UTC)]
+
+Variable description reloaded on 07.05.2026 11:35:24 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-07 09:34:48 (UTC)]
+
+Variable description reloaded on 07.05.2026 12:18:13 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-07 10:17:30 (UTC)]
+
+Variable description reloaded on 07.05.2026 12:27:59 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-07 10:27:25 (UTC)]
+
+Variable description reloaded on 07.05.2026 12:48:24 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-07 10:47:44 (UTC)]
+
+Variable description reloaded on 07.05.2026 12:54:55 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-07 10:54:30 (UTC)]
+
+Variable description reloaded on 07.05.2026 12:58:43 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-07 10:58:04 (UTC)]
+
+Variable description reloaded on 11.05.2026 16:56:43 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-11 14:56:06 (UTC)]
+
+Variable description reloaded on 11.05.2026 17:05:13 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-11 15:04:47 (UTC)]
+
+Variable description reloaded on 11.05.2026 17:23:07 (C:\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-11 15:22:41 (UTC)]
+</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+					<item>
+						<Component type="key">VariablesManagement</Component>
+						<Name type="key">ball_and_plate_microlabbox_student.trc</Name>
+						<DisplayName type="key">ball_and_plate_microlabbox_student.trc</DisplayName>
+						<Path type="key">.\Variable Descriptions\ball_and_plate_microlabbox_student.sdf</Path>
+						<Flags type="key">18692</Flags>
+						<ExtendedFlags type="key">1</ExtendedFlags>
+						<Type type="key">4</Type>
+						<UniqueID type="key">1044802091</UniqueID>
+						<EntityID type="key">{E91BA90E-BBA0-48EE-B2E2-0989A607B716}</EntityID>
+						<ItemInfoDate type="key">11/05/2026 17:23:07</ItemInfoDate>
+						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+						<ItemInfoDescr type="key"/>
+						<ItemInfoAddInfoDb type="key"/>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+					</item>
+					<item>
+						<Component type="key">VariablesManagement</Component>
+						<Name type="key">ball_and_plate_microlabbox_student.map</Name>
+						<DisplayName type="key">ball_and_plate_microlabbox_student.map</DisplayName>
+						<Path type="key">.\Variable Descriptions\ball_and_plate_microlabbox_student.sdf</Path>
+						<Flags type="key">18692</Flags>
+						<ExtendedFlags type="key">1</ExtendedFlags>
+						<Type type="key">4</Type>
+						<UniqueID type="key">994582998</UniqueID>
+						<EntityID type="key">{47CD8BEB-1D4F-4B29-8736-F9CE3EA1AF70}</EntityID>
+						<ItemInfoDate type="key">11/05/2026 17:23:07</ItemInfoDate>
+						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+						<ItemInfoDescr type="key"/>
+						<ItemInfoAddInfoDb type="key"/>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+					</item>
+					<item>
+						<Component type="key">VariablesManagement</Component>
+						<Name type="key">ball_and_plate_microlabbox_student.rta</Name>
+						<DisplayName type="key">ball_and_plate_microlabbox_student.rta</DisplayName>
+						<Path type="key">.\Variable Descriptions\ball_and_plate_microlabbox_student.sdf</Path>
+						<Flags type="key">18692</Flags>
+						<ExtendedFlags type="key">1</ExtendedFlags>
+						<Type type="key">30</Type>
+						<UniqueID type="key">648148444</UniqueID>
+						<EntityID type="key">{FE4A5CD4-CF14-4340-8F37-015B2577A7F1}</EntityID>
+						<ItemInfoDate type="key">11/05/2026 17:23:07</ItemInfoDate>
+						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+						<ItemInfoDescr type="key"/>
+						<ItemInfoAddInfoDb type="key"/>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+					</item>
+				</item>
+			</item>
+			<item>
+				<Targets type="key">.vfe</Targets>
+				<Name type="key">Variable Filters</Name>
+				<DisplayName type="key">Variable Filters</DisplayName>
+				<Path type="key">.</Path>
+				<Flags type="key">2304</Flags>
+				<Type type="key">3</Type>
+				<UniqueID type="key">1068334701</UniqueID>
+				<EntityID type="key">{4C18415A-E430-42AF-B9DC-9DC1FFD19D60}</EntityID>
+				<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			</item>
+			<item>
+				<Targets type="key">.lab</Targets>
+				<Docs type="key">.lab,.txt</Docs>
+				<Name type="key">Label Lists</Name>
+				<DisplayName type="key">Label Lists</DisplayName>
+				<Path type="key">.</Path>
+				<Type type="key">3</Type>
+				<UniqueID type="key">783822034</UniqueID>
+				<EntityID type="key">{DEAFD390-C8E4-4165-B1EA-DB0AC29D926E}</EntityID>
+				<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDocs type="key">.lab,.txt</ItemInfoDocs>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			</item>
+			<item>
+				<Targets type="key">interpreter,.py</Targets>
+				<Docs type="key">.py</Docs>
+				<Name type="key">Python Scripts</Name>
+				<DisplayName type="key">Python Scripts</DisplayName>
+				<Path type="key">.</Path>
+				<Flags type="key">256</Flags>
+				<ExtendedFlags type="key">4224</ExtendedFlags>
+				<Type type="key">3</Type>
+				<UniqueID type="key">1015946350</UniqueID>
+				<EntityID type="key">{CDCE3467-C118-43AC-83ED-260F9CCFE6E6}</EntityID>
+				<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDocs type="key">.py</ItemInfoDocs>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			</item>
+			<item>
+				<Targets type="key">signaleditor</Targets>
+				<Name type="key">Signal Description Sets</Name>
+				<DisplayName type="key">Signal Description Sets</DisplayName>
+				<Path type="key">.</Path>
+				<Flags type="key">256</Flags>
+				<Type type="key">3</Type>
+				<UniqueID type="key">68761433</UniqueID>
+				<EntityID type="key">{3B661D93-82AD-4998-AA50-20B50820A647}</EntityID>
+				<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			</item>
+		</item>
+		<item>
+			<Name type="key">Events</Name>
+			<DisplayName type="key">Events</DisplayName>
+			<Path type="key">.</Path>
+			<Flags type="key">4</Flags>
+			<ExtendedFlags type="key">4</ExtendedFlags>
+			<Type type="key">3</Type>
+			<UniqueID type="key">580620081</UniqueID>
+			<EntityID type="key">{D89C1EC1-5A2B-4AF4-A2F3-7701E21C58A9}</EntityID>
+			<ItemInfoDate type="key">06/05/2026 11:35:15</ItemInfoDate>
+			<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+			<ItemInfoDescr type="key"/>
+			<ItemInfoAddInfoDb type="key"/>
+			<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			<item>
+				<Name type="key">Project.events</Name>
+				<DisplayName type="key">Project.events</DisplayName>
+				<Path type="key">.\Events</Path>
+				<Flags type="key">4</Flags>
+				<Type type="key">52</Type>
+				<UniqueID type="key">124109402</UniqueID>
+				<EntityID type="key">{41D76A1C-D5CE-4429-AFC1-56B1CAA0AD53}</EntityID>
+				<ItemInfoDate type="key">06/05/2026 11:35:15</ItemInfoDate>
+				<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+				<ItemInfoDescr type="key"/>
+				<ItemInfoAddInfoDb type="key"/>
+				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+			</item>
+		</item>
+	</project>
+	<experiments>
+		<experiment>
+			<Creator type="key">ControlDesk</Creator>
+			<MigrationHistory type="key"/>
+			<Name type="key">Experiment_001.CDE</Name>
+			<DisplayName type="key">Experiment_001</DisplayName>
+			<Path type="key">.\Experiment_001</Path>
+			<Flags type="key">4096</Flags>
+			<Type type="key">2</Type>
+			<UniqueID type="key">142520375</UniqueID>
+			<EntityID type="key">{FEF477F5-01D0-4A8C-9C0C-B46F3AA03FE1}</EntityID>
+			<ItemInfoDate type="key">06/05/2026 11:35:14</ItemInfoDate>
+			<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+			<ItemInfoDescr type="key"/>
+			<ItemInfoAddInfoDb type="key"/>
+			<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+		</experiment>
+	</experiments>
+	<BusNavigator/>
+	<VariablesManagement/>
+	<UserManager/>
+	<XILAPIEESPort/>
+	<SignalEditor/>
+	<Interpreter>
+		<PythonVersion type="key">3.6</PythonVersion>
+	</Interpreter>
+	<ProjectExperiment>
+		<LastActiveExperiment type="key">Experiment_001</LastActiveExperiment>
+	</ProjectExperiment>
+	<Instrumentation Version="1">
+		<UniqueIds Version="3">
+			<Count type="key">1</Count>
+			<File1 type="key">Experiment_001/Layout1</File1>
+			<Id1 type="key">0</Id1>
+		</UniqueIds>
+	</Instrumentation>
+	<DiagnosticsManagement/>
+	<PlatformManagement/>
+	<MeasurementConfiguration/>
+	<MeasureDataManagement/>
+	<DataSetManager>
+		<Version>
+			<Version type="key">2</Version>
+		</Version>
+		<Work/>
+		<ActiveWork/>
+		<Reference/>
+		<ActiveReference/>
+		<Master/>
+		<ActiveMaster/>
+		<InitialMaster/>
+		<Incomplete/>
+		<IncompleteReadonly/>
+		<DataSet/>
+		<Readonly/>
+		<AutomaticDownload/>
+	</DataSetManager>
+</Root>
