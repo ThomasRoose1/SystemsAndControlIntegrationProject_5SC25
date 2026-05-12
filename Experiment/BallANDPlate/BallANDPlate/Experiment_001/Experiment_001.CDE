@@ -639,23 +639,7 @@ ControlDesk version: 7.3</ItemInfoLog>
 		<SortAscending type="key">-1</SortAscending>
 		<SignalList>
 			<Variable>
-				<Name type="key">Model Root/Innerloop_Actuator/AngleToPos\n/pos1</Name>
-				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-				<Active type="key">-1</Active>
-				<Signal>
-					<Raster type="key">HostService</Raster>
-				</Signal>
-			</Variable>
-			<Variable>
-				<Name type="key">Model Root/Innerloop_Actuator/AngleToPos\n/pos2</Name>
-				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-				<Active type="key">-1</Active>
-				<Signal>
-					<Raster type="key">HostService</Raster>
-				</Signal>
-			</Variable>
-			<Variable>
-				<Name type="key">Model Root/Innerloop_Actuator/AngleToPos\n/pos3</Name>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_ref\n/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -703,6 +687,14 @@ ControlDesk version: 7.3</ItemInfoLog>
 				</Signal>
 			</Variable>
 			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Switch/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Switch3/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
@@ -720,6 +712,14 @@ ControlDesk version: 7.3</ItemInfoLog>
 			</Variable>
 			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Position Measurement/Position [m]</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -885,25 +885,7 @@ ControlDesk version: 7.3</ItemInfoLog>
 				</StorageInformation>
 				<SignalList>
 					<Variable>
-						<Name type="key">Model Root/Innerloop_Actuator/AngleToPos\n/pos1</Name>
-						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
-						<Signal>
-							<Raster type="key">HostService</Raster>
-						</Signal>
-					</Variable>
-					<Variable>
-						<Name type="key">Model Root/Innerloop_Actuator/AngleToPos\n/pos2</Name>
-						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
-						<Signal>
-							<Raster type="key">HostService</Raster>
-						</Signal>
-					</Variable>
-					<Variable>
-						<Name type="key">Model Root/Innerloop_Actuator/AngleToPos\n/pos3</Name>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_ref\n/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>
@@ -957,6 +939,15 @@ ControlDesk version: 7.3</ItemInfoLog>
 						</Signal>
 					</Variable>
 					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Switch/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Switch3/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
@@ -976,6 +967,15 @@ ControlDesk version: 7.3</ItemInfoLog>
 					</Variable>
 					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Position Measurement/Position [m]</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>
