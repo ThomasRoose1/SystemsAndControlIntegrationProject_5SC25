@@ -110,7 +110,7 @@ EXT_MODE                       = 0
 MULTITASKING                   = 0
 # Support for parallel computing
 MASTER_ANCHOR_DIR              = 
-START_DIR                      = C:\BallANDPlate
+START_DIR                      = C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate
 # Shared library for utility code
 RTW_SHARED_LIB_SRCS_WILD       = 
 RTW_SHARED_LIB_SRCS_DIR        = 

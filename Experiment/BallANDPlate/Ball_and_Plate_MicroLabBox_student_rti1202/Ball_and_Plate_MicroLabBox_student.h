@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.6
+ * Model version              : 1.10
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Mon May 11 17:22:35 2026
+ * C source code generated on : Tue May 12 11:19:46 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -179,51 +179,51 @@
 # define rtmGetTimeOfLastOutput(rtm)   ((rtm)->Timing.timeOfLastOutput)
 #endif
 
-/* Block signals for system '<S13>/MATLAB Function' */
-typedef struct {
-  real_T y;                            /* '<S13>/MATLAB Function' */
-} B_MATLABFunction_Ball_and_Pla_T;
-
-/* Block states (default storage) for system '<S13>/MATLAB Function' */
-typedef struct {
-  real_T index;                        /* '<S13>/MATLAB Function' */
-  real_T previous_enable;              /* '<S13>/MATLAB Function' */
-} DW_MATLABFunction_Ball_and_Pl_T;
-
-/* Block signals for system '<S13>/MATLAB Function2' */
-typedef struct {
-  real_T path;                         /* '<S13>/MATLAB Function2' */
-} B_MATLABFunction2_Ball_and_Pl_T;
-
 /* Block signals for system '<S14>/MATLAB Function' */
 typedef struct {
   real_T y;                            /* '<S14>/MATLAB Function' */
-} B_MATLABFunction_Ball_and_P_m_T;
+} B_MATLABFunction_Ball_and_Pla_T;
 
 /* Block states (default storage) for system '<S14>/MATLAB Function' */
 typedef struct {
   real_T index;                        /* '<S14>/MATLAB Function' */
   real_T previous_enable;              /* '<S14>/MATLAB Function' */
+} DW_MATLABFunction_Ball_and_Pl_T;
+
+/* Block signals for system '<S14>/MATLAB Function2' */
+typedef struct {
+  real_T path;                         /* '<S14>/MATLAB Function2' */
+} B_MATLABFunction2_Ball_and_Pl_T;
+
+/* Block signals for system '<S15>/MATLAB Function' */
+typedef struct {
+  real_T y;                            /* '<S15>/MATLAB Function' */
+} B_MATLABFunction_Ball_and_P_m_T;
+
+/* Block states (default storage) for system '<S15>/MATLAB Function' */
+typedef struct {
+  real_T index;                        /* '<S15>/MATLAB Function' */
+  real_T previous_enable;              /* '<S15>/MATLAB Function' */
 } DW_MATLABFunction_Ball_and__j_T;
 
-/* Block signals for system '<S23>/Enabled Subsystem' */
+/* Block signals for system '<S24>/Enabled Subsystem' */
 typedef struct {
-  real_T OutportBufferForOut1;         /* '<S24>/Constant' */
+  real_T OutportBufferForOut1;         /* '<S25>/Constant' */
 } B_EnabledSubsystem_Ball_and_P_T;
 
-/* Block states (default storage) for system '<S23>/Enabled Subsystem' */
+/* Block states (default storage) for system '<S24>/Enabled Subsystem' */
 typedef struct {
-  boolean_T EnabledSubsystem_MODE;     /* '<S23>/Enabled Subsystem' */
+  boolean_T EnabledSubsystem_MODE;     /* '<S24>/Enabled Subsystem' */
 } DW_EnabledSubsystem_Ball_and__T;
 
-/* Block signals for system '<S23>/Enabled Subsystem1' */
+/* Block signals for system '<S24>/Enabled Subsystem1' */
 typedef struct {
-  real_T In1;                          /* '<S25>/In1' */
+  real_T In1;                          /* '<S26>/In1' */
 } B_EnabledSubsystem1_Ball_and__T;
 
-/* Block states (default storage) for system '<S23>/Enabled Subsystem1' */
+/* Block states (default storage) for system '<S24>/Enabled Subsystem1' */
 typedef struct {
-  boolean_T EnabledSubsystem1_MODE;    /* '<S23>/Enabled Subsystem1' */
+  boolean_T EnabledSubsystem1_MODE;    /* '<S24>/Enabled Subsystem1' */
 } DW_EnabledSubsystem1_Ball_and_T;
 
 /* Block signals (default storage) */
@@ -239,69 +239,75 @@ typedef struct {
   real_T Divide1;                      /* '<S3>/Divide1' */
   real_T Divide2;                      /* '<S3>/Divide2' */
   real_T Divide3;                      /* '<S3>/Divide3' */
-  real_T Sum1;                         /* '<S9>/Sum1' */
-  real_T Gain1;                        /* '<S12>/Gain1' */
-  real_T Dctleadlag2;                  /* '<S12>/Dctleadlag2' */
-  real_T Dct1lowpass3;                 /* '<S12>/Dct1lowpass3' */
-  real_T Switch2;                      /* '<S9>/Switch2' */
-  real_T Sum;                          /* '<S9>/Sum' */
-  real_T Switch3;                      /* '<S9>/Switch3' */
-  real_T Switch;                       /* '<S13>/Switch' */
-  real_T Constant1;                    /* '<S13>/Constant1' */
-  real_T Constant2;                    /* '<S13>/Constant2' */
-  real_T Sum1_f;                       /* '<S10>/Sum1' */
-  real_T Gain1_o;                      /* '<S26>/Gain1' */
-  real_T Dctleadlag2_g;                /* '<S26>/Dctleadlag2' */
-  real_T Dct1lowpass3_c;               /* '<S26>/Dct1lowpass3' */
-  real_T Switch2_p;                    /* '<S10>/Switch2' */
-  real_T Sum_g;                        /* '<S10>/Sum' */
-  real_T Switch3_d;                    /* '<S10>/Switch3' */
-  real_T Switch_n;                     /* '<S27>/Switch' */
-  real_T Constant1_c;                  /* '<S27>/Constant1' */
-  real_T Constant2_b;                  /* '<S27>/Constant2' */
-  real_T Sum1_h;                       /* '<S11>/Sum1' */
-  real_T Gain1_e;                      /* '<S40>/Gain1' */
-  real_T Dctleadlag2_b;                /* '<S40>/Dctleadlag2' */
-  real_T Dct1lowpass3_l;               /* '<S40>/Dct1lowpass3' */
-  real_T Switch2_h;                    /* '<S11>/Switch2' */
-  real_T Sum_h;                        /* '<S11>/Sum' */
-  real_T Switch3_l;                    /* '<S11>/Switch3' */
-  real_T Switch_e;                     /* '<S41>/Switch' */
-  real_T Constant1_h;                  /* '<S41>/Constant1' */
-  real_T Constant2_h;                  /* '<S41>/Constant2' */
+  real_T enable_ref;                   /* '<S10>/enable_ref ' */
+  real_T Sum1;                         /* '<S10>/Sum1' */
+  real_T Gain1;                        /* '<S13>/Gain1' */
+  real_T Dctleadlag2;                  /* '<S13>/Dctleadlag2' */
+  real_T Dct1lowpass3;                 /* '<S13>/Dct1lowpass3' */
+  real_T Switch2;                      /* '<S10>/Switch2' */
+  real_T Sum;                          /* '<S10>/Sum' */
+  real_T Switch3;                      /* '<S10>/Switch3' */
+  real_T Switch;                       /* '<S14>/Switch' */
+  real_T Constant1;                    /* '<S14>/Constant1' */
+  real_T Constant2;                    /* '<S14>/Constant2' */
+  real_T Switch_j;                     /* '<S11>/Switch' */
+  real_T Sum1_f;                       /* '<S11>/Sum1' */
+  real_T Gain1_o;                      /* '<S27>/Gain1' */
+  real_T Dctleadlag2_g;                /* '<S27>/Dctleadlag2' */
+  real_T Dct1lowpass3_c;               /* '<S27>/Dct1lowpass3' */
+  real_T Switch2_p;                    /* '<S11>/Switch2' */
+  real_T Sum_g;                        /* '<S11>/Sum' */
+  real_T Switch3_d;                    /* '<S11>/Switch3' */
+  real_T Switch_n;                     /* '<S28>/Switch' */
+  real_T Constant1_c;                  /* '<S28>/Constant1' */
+  real_T Constant2_b;                  /* '<S28>/Constant2' */
+  real_T Switch_jo;                    /* '<S12>/Switch' */
+  real_T Sum1_h;                       /* '<S12>/Sum1' */
+  real_T Gain1_e;                      /* '<S41>/Gain1' */
+  real_T Dctleadlag2_b;                /* '<S41>/Dctleadlag2' */
+  real_T Dct1lowpass3_l;               /* '<S41>/Dct1lowpass3' */
+  real_T Switch2_h;                    /* '<S12>/Switch2' */
+  real_T Sum_h;                        /* '<S12>/Sum' */
+  real_T Switch3_l;                    /* '<S12>/Switch3' */
+  real_T Switch_e;                     /* '<S42>/Switch' */
+  real_T Constant1_h;                  /* '<S42>/Constant1' */
+  real_T Constant2_h;                  /* '<S42>/Constant2' */
   real_T reser_integrator;             /* '<S3>/reser_integrator' */
   real_T x_2;                          /* '<Root>/coordinates_ball' */
   real_T y_2;                          /* '<Root>/coordinates_ball' */
-  real_T SFunction1_o1;                /* '<S51>/S-Function1' */
-  real_T SFunction1_o2;                /* '<S51>/S-Function1' */
-  real_T Inc2Pos;                      /* '<S45>/Inc2Pos' */
-  real_T AbsPosition;                  /* '<S45>/AbsPosition' */
-  real_T Abs;                          /* '<S53>/Abs' */
-  real_T TransferFcn;                  /* '<S53>/Transfer Fcn' */
-  real_T mm2m;                         /* '<S45>/mm2m' */
-  real_T Saturation;                   /* '<S44>/Saturation' */
-  real_T Current2V;                    /* '<S44>/Current2V' */
-  real_T DSPscale;                     /* '<S44>/DSPscale' */
-  real_T SFunction1_o1_i;              /* '<S35>/S-Function1' */
-  real_T SFunction1_o2_p;              /* '<S35>/S-Function1' */
-  real_T Inc2Pos_e;                    /* '<S30>/Inc2Pos' */
-  real_T AbsPosition_i;                /* '<S30>/AbsPosition' */
-  real_T Abs_j;                        /* '<S37>/Abs' */
-  real_T TransferFcn_o;                /* '<S37>/Transfer Fcn' */
-  real_T mm2m_p;                       /* '<S30>/mm2m' */
-  real_T Saturation_l;                 /* '<S29>/Saturation' */
-  real_T Current2V_f;                  /* '<S29>/Current2V' */
-  real_T DSPscale_o;                   /* '<S29>/DSPscale' */
-  real_T SFunction1_o1_p;              /* '<S21>/S-Function1' */
-  real_T SFunction1_o2_d;              /* '<S21>/S-Function1' */
-  real_T Inc2Pos_p;                    /* '<S16>/Inc2Pos' */
-  real_T AbsPosition_m;                /* '<S16>/AbsPosition' */
-  real_T Abs_h;                        /* '<S23>/Abs' */
-  real_T TransferFcn_f;                /* '<S23>/Transfer Fcn' */
-  real_T mm2m_po;                      /* '<S16>/mm2m' */
-  real_T Saturation_a;                 /* '<S15>/Saturation' */
-  real_T Current2V_h;                  /* '<S15>/Current2V' */
-  real_T DSPscale_m;                   /* '<S15>/DSPscale' */
+  real_T SFunction1_o1;                /* '<S52>/S-Function1' */
+  real_T SFunction1_o2;                /* '<S52>/S-Function1' */
+  real_T Inc2Pos;                      /* '<S46>/Inc2Pos' */
+  real_T AbsPosition;                  /* '<S46>/AbsPosition' */
+  real_T Abs;                          /* '<S54>/Abs' */
+  real_T TransferFcn;                  /* '<S54>/Transfer Fcn' */
+  real_T mm2m;                         /* '<S46>/mm2m' */
+  real_T Saturation;                   /* '<S45>/Saturation' */
+  real_T Current2V;                    /* '<S45>/Current2V' */
+  real_T DSPscale;                     /* '<S45>/DSPscale' */
+  real_T SFunction1_o1_i;              /* '<S36>/S-Function1' */
+  real_T SFunction1_o2_p;              /* '<S36>/S-Function1' */
+  real_T Inc2Pos_e;                    /* '<S31>/Inc2Pos' */
+  real_T AbsPosition_i;                /* '<S31>/AbsPosition' */
+  real_T Abs_j;                        /* '<S38>/Abs' */
+  real_T TransferFcn_o;                /* '<S38>/Transfer Fcn' */
+  real_T mm2m_p;                       /* '<S31>/mm2m' */
+  real_T Saturation_l;                 /* '<S30>/Saturation' */
+  real_T Current2V_f;                  /* '<S30>/Current2V' */
+  real_T DSPscale_o;                   /* '<S30>/DSPscale' */
+  real_T SFunction1_o1_p;              /* '<S22>/S-Function1' */
+  real_T SFunction1_o2_d;              /* '<S22>/S-Function1' */
+  real_T Inc2Pos_p;                    /* '<S17>/Inc2Pos' */
+  real_T AbsPosition_m;                /* '<S17>/AbsPosition' */
+  real_T Abs_h;                        /* '<S24>/Abs' */
+  real_T TransferFcn_f;                /* '<S24>/Transfer Fcn' */
+  real_T mm2m_po;                      /* '<S17>/mm2m' */
+  real_T Saturation_a;                 /* '<S16>/Saturation' */
+  real_T Current2V_h;                  /* '<S16>/Current2V' */
+  real_T DSPscale_m;                   /* '<S16>/DSPscale' */
+  real_T pos1;                         /* '<S3>/AngleToPos ' */
+  real_T pos2;                         /* '<S3>/AngleToPos ' */
+  real_T pos3;                         /* '<S3>/AngleToPos ' */
   uint32_T SFunction1_o4;              /* '<S7>/S-Function1' */
   uint32_T SFunction1_o1_m[3];         /* '<S6>/S-Function1' */
   uint16_T SFunction1_o6;              /* '<S7>/S-Function1' */
@@ -315,31 +321,31 @@ typedef struct {
   uint8_T SFunction1_o5[4];            /* '<S7>/S-Function1' */
   uint8_T SFunction1_o2_f[4];          /* '<S6>/S-Function1' */
   boolean_T DataTypeConversion;        /* '<S2>/Data Type Conversion' */
-  boolean_T RelationalOperator1;       /* '<S53>/Relational Operator1' */
-  boolean_T RelationalOperator;        /* '<S53>/Relational Operator' */
-  boolean_T LogicalOperator2;          /* '<S53>/Logical Operator2' */
-  boolean_T RelationalOperator1_c;     /* '<S37>/Relational Operator1' */
-  boolean_T RelationalOperator_n;      /* '<S37>/Relational Operator' */
-  boolean_T LogicalOperator2_l;        /* '<S37>/Logical Operator2' */
-  boolean_T RelationalOperator1_f;     /* '<S23>/Relational Operator1' */
-  boolean_T RelationalOperator_a;      /* '<S23>/Relational Operator' */
-  boolean_T LogicalOperator2_a;        /* '<S23>/Logical Operator2' */
-  B_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_b;/* '<S53>/Enabled Subsystem1' */
-  B_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_n;/* '<S53>/Enabled Subsystem' */
-  B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_hg;/* '<S43>/MATLAB Function' */
-  B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_g;/* '<S42>/MATLAB Function' */
-  B_MATLABFunction2_Ball_and_Pl_T sf_MATLABFunction2_e;/* '<S41>/MATLAB Function2' */
-  B_MATLABFunction_Ball_and_Pla_T sf_MATLABFunction_h;/* '<S41>/MATLAB Function' */
-  B_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_f;/* '<S37>/Enabled Subsystem1' */
-  B_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_a;/* '<S37>/Enabled Subsystem' */
-  B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_ko;/* '<S28>/MATLAB Function' */
-  B_MATLABFunction2_Ball_and_Pl_T sf_MATLABFunction2_m;/* '<S27>/MATLAB Function2' */
-  B_MATLABFunction_Ball_and_Pla_T sf_MATLABFunction_k;/* '<S27>/MATLAB Function' */
-  B_EnabledSubsystem1_Ball_and__T EnabledSubsystem1;/* '<S23>/Enabled Subsystem1' */
-  B_EnabledSubsystem_Ball_and_P_T EnabledSubsystem;/* '<S23>/Enabled Subsystem' */
-  B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_e;/* '<S14>/MATLAB Function' */
-  B_MATLABFunction2_Ball_and_Pl_T sf_MATLABFunction2;/* '<S13>/MATLAB Function2' */
-  B_MATLABFunction_Ball_and_Pla_T sf_MATLABFunction;/* '<S13>/MATLAB Function' */
+  boolean_T RelationalOperator1;       /* '<S54>/Relational Operator1' */
+  boolean_T RelationalOperator;        /* '<S54>/Relational Operator' */
+  boolean_T LogicalOperator2;          /* '<S54>/Logical Operator2' */
+  boolean_T RelationalOperator1_c;     /* '<S38>/Relational Operator1' */
+  boolean_T RelationalOperator_n;      /* '<S38>/Relational Operator' */
+  boolean_T LogicalOperator2_l;        /* '<S38>/Logical Operator2' */
+  boolean_T RelationalOperator1_f;     /* '<S24>/Relational Operator1' */
+  boolean_T RelationalOperator_a;      /* '<S24>/Relational Operator' */
+  boolean_T LogicalOperator2_a;        /* '<S24>/Logical Operator2' */
+  B_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_b;/* '<S54>/Enabled Subsystem1' */
+  B_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_n;/* '<S54>/Enabled Subsystem' */
+  B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_hg;/* '<S44>/MATLAB Function' */
+  B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_g;/* '<S43>/MATLAB Function' */
+  B_MATLABFunction2_Ball_and_Pl_T sf_MATLABFunction2_e;/* '<S42>/MATLAB Function2' */
+  B_MATLABFunction_Ball_and_Pla_T sf_MATLABFunction_h;/* '<S42>/MATLAB Function' */
+  B_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_f;/* '<S38>/Enabled Subsystem1' */
+  B_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_a;/* '<S38>/Enabled Subsystem' */
+  B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_ko;/* '<S29>/MATLAB Function' */
+  B_MATLABFunction2_Ball_and_Pl_T sf_MATLABFunction2_m;/* '<S28>/MATLAB Function2' */
+  B_MATLABFunction_Ball_and_Pla_T sf_MATLABFunction_k;/* '<S28>/MATLAB Function' */
+  B_EnabledSubsystem1_Ball_and__T EnabledSubsystem1;/* '<S24>/Enabled Subsystem1' */
+  B_EnabledSubsystem_Ball_and_P_T EnabledSubsystem;/* '<S24>/Enabled Subsystem' */
+  B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_e;/* '<S15>/MATLAB Function' */
+  B_MATLABFunction2_Ball_and_Pl_T sf_MATLABFunction2;/* '<S14>/MATLAB Function2' */
+  B_MATLABFunction_Ball_and_Pla_T sf_MATLABFunction;/* '<S14>/MATLAB Function' */
 } B_Ball_and_Plate_MicroLabBox_student_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -354,56 +360,56 @@ typedef struct {
     real_T RX_DROPPED_FRAMES[2];
   } SFunction1_RWORK_l;                /* '<S8>/S-Function1' */
 
-  real_T Dctleadlag2_RWORK[2];         /* '<S12>/Dctleadlag2' */
-  real_T Dct1lowpass3_RWORK[2];        /* '<S12>/Dct1lowpass3' */
-  real_T Dctleadlag2_RWORK_k[2];       /* '<S26>/Dctleadlag2' */
-  real_T Dct1lowpass3_RWORK_c[2];      /* '<S26>/Dct1lowpass3' */
-  real_T Dctleadlag2_RWORK_kg[2];      /* '<S40>/Dctleadlag2' */
-  real_T Dct1lowpass3_RWORK_ci[2];     /* '<S40>/Dct1lowpass3' */
+  real_T Dctleadlag2_RWORK[2];         /* '<S13>/Dctleadlag2' */
+  real_T Dct1lowpass3_RWORK[2];        /* '<S13>/Dct1lowpass3' */
+  real_T Dctleadlag2_RWORK_k[2];       /* '<S27>/Dctleadlag2' */
+  real_T Dct1lowpass3_RWORK_c[2];      /* '<S27>/Dct1lowpass3' */
+  real_T Dctleadlag2_RWORK_kg[2];      /* '<S41>/Dctleadlag2' */
+  real_T Dct1lowpass3_RWORK_ci[2];     /* '<S41>/Dct1lowpass3' */
   uint32_T Add1_DWORK1;                /* '<S2>/Add1' */
   uint16_T Add_DWORK1;                 /* '<S2>/Add' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
-  DW_EnabledSubsystem1_Ball_and_T EnabledSubsystem1_b;/* '<S53>/Enabled Subsystem1' */
-  DW_EnabledSubsystem_Ball_and__T EnabledSubsystem_n;/* '<S53>/Enabled Subsystem' */
-  DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_hg;/* '<S43>/MATLAB Function' */
-  DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_g;/* '<S42>/MATLAB Function' */
-  DW_MATLABFunction_Ball_and_Pl_T sf_MATLABFunction_h;/* '<S41>/MATLAB Function' */
-  DW_EnabledSubsystem1_Ball_and_T EnabledSubsystem1_f;/* '<S37>/Enabled Subsystem1' */
-  DW_EnabledSubsystem_Ball_and__T EnabledSubsystem_a;/* '<S37>/Enabled Subsystem' */
-  DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_ko;/* '<S28>/MATLAB Function' */
-  DW_MATLABFunction_Ball_and_Pl_T sf_MATLABFunction_k;/* '<S27>/MATLAB Function' */
-  DW_EnabledSubsystem1_Ball_and_T EnabledSubsystem1;/* '<S23>/Enabled Subsystem1' */
-  DW_EnabledSubsystem_Ball_and__T EnabledSubsystem;/* '<S23>/Enabled Subsystem' */
-  DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_e;/* '<S14>/MATLAB Function' */
-  DW_MATLABFunction_Ball_and_Pl_T sf_MATLABFunction;/* '<S13>/MATLAB Function' */
+  DW_EnabledSubsystem1_Ball_and_T EnabledSubsystem1_b;/* '<S54>/Enabled Subsystem1' */
+  DW_EnabledSubsystem_Ball_and__T EnabledSubsystem_n;/* '<S54>/Enabled Subsystem' */
+  DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_hg;/* '<S44>/MATLAB Function' */
+  DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_g;/* '<S43>/MATLAB Function' */
+  DW_MATLABFunction_Ball_and_Pl_T sf_MATLABFunction_h;/* '<S42>/MATLAB Function' */
+  DW_EnabledSubsystem1_Ball_and_T EnabledSubsystem1_f;/* '<S38>/Enabled Subsystem1' */
+  DW_EnabledSubsystem_Ball_and__T EnabledSubsystem_a;/* '<S38>/Enabled Subsystem' */
+  DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_ko;/* '<S29>/MATLAB Function' */
+  DW_MATLABFunction_Ball_and_Pl_T sf_MATLABFunction_k;/* '<S28>/MATLAB Function' */
+  DW_EnabledSubsystem1_Ball_and_T EnabledSubsystem1;/* '<S24>/Enabled Subsystem1' */
+  DW_EnabledSubsystem_Ball_and__T EnabledSubsystem;/* '<S24>/Enabled Subsystem' */
+  DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_e;/* '<S15>/MATLAB Function' */
+  DW_MATLABFunction_Ball_and_Pl_T sf_MATLABFunction;/* '<S14>/MATLAB Function' */
 } DW_Ball_and_Plate_MicroLabBox_student_T;
 
 /* Continuous states (default storage) */
 typedef struct {
-  real_T TransferFcn_CSTATE;           /* '<S53>/Transfer Fcn' */
-  real_T TransferFcn_CSTATE_h;         /* '<S37>/Transfer Fcn' */
-  real_T TransferFcn_CSTATE_l;         /* '<S23>/Transfer Fcn' */
+  real_T TransferFcn_CSTATE;           /* '<S54>/Transfer Fcn' */
+  real_T TransferFcn_CSTATE_h;         /* '<S38>/Transfer Fcn' */
+  real_T TransferFcn_CSTATE_l;         /* '<S24>/Transfer Fcn' */
 } X_Ball_and_Plate_MicroLabBox_student_T;
 
 /* State derivatives (default storage) */
 typedef struct {
-  real_T TransferFcn_CSTATE;           /* '<S53>/Transfer Fcn' */
-  real_T TransferFcn_CSTATE_h;         /* '<S37>/Transfer Fcn' */
-  real_T TransferFcn_CSTATE_l;         /* '<S23>/Transfer Fcn' */
+  real_T TransferFcn_CSTATE;           /* '<S54>/Transfer Fcn' */
+  real_T TransferFcn_CSTATE_h;         /* '<S38>/Transfer Fcn' */
+  real_T TransferFcn_CSTATE_l;         /* '<S24>/Transfer Fcn' */
 } XDot_Ball_and_Plate_MicroLabBox_student_T;
 
 /* State disabled  */
 typedef struct {
-  boolean_T TransferFcn_CSTATE;        /* '<S53>/Transfer Fcn' */
-  boolean_T TransferFcn_CSTATE_h;      /* '<S37>/Transfer Fcn' */
-  boolean_T TransferFcn_CSTATE_l;      /* '<S23>/Transfer Fcn' */
+  boolean_T TransferFcn_CSTATE;        /* '<S54>/Transfer Fcn' */
+  boolean_T TransferFcn_CSTATE_h;      /* '<S38>/Transfer Fcn' */
+  boolean_T TransferFcn_CSTATE_l;      /* '<S24>/Transfer Fcn' */
 } XDis_Ball_and_Plate_MicroLabBox_student_T;
 
 /* Zero-crossing (trigger) state */
 typedef struct {
-  ZCSigState EMC_ENCODER_POS_SET_BL1_Trig_ZC;/* '<S45>/EMC_ENCODER_POS_SET_BL1' */
-  ZCSigState EMC_ENCODER_POS_SET_BL1_Trig__f;/* '<S30>/EMC_ENCODER_POS_SET_BL1' */
-  ZCSigState EMC_ENCODER_POS_SET_BL1_Trig_fh;/* '<S16>/EMC_ENCODER_POS_SET_BL1' */
+  ZCSigState EMC_ENCODER_POS_SET_BL1_Trig_ZC;/* '<S46>/EMC_ENCODER_POS_SET_BL1' */
+  ZCSigState EMC_ENCODER_POS_SET_BL1_Trig__f;/* '<S31>/EMC_ENCODER_POS_SET_BL1' */
+  ZCSigState EMC_ENCODER_POS_SET_BL1_Trig_fh;/* '<S17>/EMC_ENCODER_POS_SET_BL1' */
 } PrevZCX_Ball_and_Plate_MicroLabBox_student_T;
 
 #ifndef ODE1_INTG
@@ -423,20 +429,20 @@ typedef struct {
   real_T FrameRate;                    /* '<Root>/FrameRate ' */
 } ExtY_Ball_and_Plate_MicroLabBox_student_T;
 
-/* Parameters for system: '<S23>/Enabled Subsystem' */
+/* Parameters for system: '<S24>/Enabled Subsystem' */
 struct P_EnabledSubsystem_Ball_and_P_T_ {
   real_T Out1_Y0;                      /* Expression: [0]
-                                        * Referenced by: '<S24>/Out1'
+                                        * Referenced by: '<S25>/Out1'
                                         */
   real_T Constant_Value;               /* Expression: -1
-                                        * Referenced by: '<S24>/Constant'
+                                        * Referenced by: '<S25>/Constant'
                                         */
 };
 
-/* Parameters for system: '<S23>/Enabled Subsystem1' */
+/* Parameters for system: '<S24>/Enabled Subsystem1' */
 struct P_EnabledSubsystem1_Ball_and__T_ {
   real_T Out1_Y0;                      /* Expression: [0]
-                                        * Referenced by: '<S25>/Out1'
+                                        * Referenced by: '<S26>/Out1'
                                         */
 };
 
@@ -447,164 +453,170 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T path[3001];                   /* Variable: path
                                         * Referenced by:
-                                        *   '<S13>/Constant4'
-                                        *   '<S27>/Constant4'
-                                        *   '<S41>/Constant4'
+                                        *   '<S14>/Constant4'
+                                        *   '<S28>/Constant4'
+                                        *   '<S42>/Constant4'
                                         */
-  real_T uA[30000];                    /* Variable: uA
+  real_T uA[200000];                   /* Variable: uA
                                         * Referenced by:
-                                        *   '<S14>/Constant'
-                                        *   '<S42>/Constant'
+                                        *   '<S15>/Constant'
+                                        *   '<S43>/Constant'
                                         */
-  real_T uB[30000];                    /* Variable: uB
-                                        * Referenced by: '<S28>/Constant'
+  real_T uB[200000];                   /* Variable: uB
+                                        * Referenced by: '<S29>/Constant'
                                         */
-  real_T uC[30000];                    /* Variable: uC
-                                        * Referenced by: '<S43>/Constant'
+  real_T uC[200000];                   /* Variable: uC
+                                        * Referenced by: '<S44>/Constant'
                                         */
   real_T Difference_ICPrevInput;       /* Mask Parameter: Difference_ICPrevInput
                                         * Referenced by: '<S1>/UD'
                                         */
   real_T Constant_Value;               /* Expression: 0
-                                        * Referenced by: '<S9>/Constant'
+                                        * Referenced by: '<S10>/Constant'
                                         */
   real_T Constant3_Value;              /* Expression: 0
-                                        * Referenced by: '<S13>/Constant3'
+                                        * Referenced by: '<S14>/Constant3'
                                         */
   real_T Saturation_UpperSat;          /* Expression: 3
-                                        * Referenced by: '<S15>/Saturation'
+                                        * Referenced by: '<S16>/Saturation'
                                         */
   real_T Saturation_LowerSat;          /* Expression: -3
-                                        * Referenced by: '<S15>/Saturation'
+                                        * Referenced by: '<S16>/Saturation'
                                         */
   real_T Current2V_Gain;               /* Expression: 10/3
-                                        * Referenced by: '<S15>/Current2V'
+                                        * Referenced by: '<S16>/Current2V'
                                         */
   real_T DSPscale_Gain;                /* Expression: 1/10
-                                        * Referenced by: '<S15>/DSPscale'
+                                        * Referenced by: '<S16>/DSPscale'
                                         */
   real_T Constant_Value_j;             /* Expression: 10
-                                        * Referenced by: '<S16>/Constant'
+                                        * Referenced by: '<S17>/Constant'
                                         */
   real_T ZP_Value;                     /* Expression: 29
-                                        * Referenced by: '<S16>/ZP'
+                                        * Referenced by: '<S17>/ZP'
                                         */
   real_T Inc2Pos_Gain;                 /* Expression: 8e-3
-                                        * Referenced by: '<S16>/Inc2Pos'
+                                        * Referenced by: '<S17>/Inc2Pos'
                                         */
   real_T Pos_offset_Value;             /* Expression: 0
-                                        * Referenced by: '<S16>/Pos_offset'
+                                        * Referenced by: '<S17>/Pos_offset'
                                         */
   real_T Const_Value;                  /* Expression: 0.01
-                                        * Referenced by: '<S23>/Const'
+                                        * Referenced by: '<S24>/Const'
                                         */
   real_T Const1_Value;                 /* Expression: -0.98
-                                        * Referenced by: '<S23>/Const1'
+                                        * Referenced by: '<S24>/Const1'
                                         */
   real_T TransferFcn_A;                /* Computed Parameter: TransferFcn_A
-                                        * Referenced by: '<S23>/Transfer Fcn'
+                                        * Referenced by: '<S24>/Transfer Fcn'
                                         */
   real_T TransferFcn_C;                /* Computed Parameter: TransferFcn_C
-                                        * Referenced by: '<S23>/Transfer Fcn'
+                                        * Referenced by: '<S24>/Transfer Fcn'
                                         */
   real_T mm2m_Gain;                    /* Expression: 0.001
-                                        * Referenced by: '<S16>/mm2m'
+                                        * Referenced by: '<S17>/mm2m'
                                         */
   real_T Constant1_Value;              /* Expression: 0
-                                        * Referenced by: '<S10>/Constant1'
+                                        * Referenced by: '<S11>/Constant1'
                                         */
   real_T Constant3_Value_i;            /* Expression: 0
-                                        * Referenced by: '<S27>/Constant3'
+                                        * Referenced by: '<S28>/Constant3'
                                         */
   real_T Saturation_UpperSat_e;        /* Expression: 3
-                                        * Referenced by: '<S29>/Saturation'
+                                        * Referenced by: '<S30>/Saturation'
                                         */
   real_T Saturation_LowerSat_f;        /* Expression: -3
-                                        * Referenced by: '<S29>/Saturation'
+                                        * Referenced by: '<S30>/Saturation'
                                         */
   real_T Current2V_Gain_f;             /* Expression: 10/3
-                                        * Referenced by: '<S29>/Current2V'
+                                        * Referenced by: '<S30>/Current2V'
                                         */
   real_T DSPscale_Gain_d;              /* Expression: 1/10
-                                        * Referenced by: '<S29>/DSPscale'
+                                        * Referenced by: '<S30>/DSPscale'
                                         */
   real_T Constant_Value_j0;            /* Expression: 10
-                                        * Referenced by: '<S30>/Constant'
+                                        * Referenced by: '<S31>/Constant'
                                         */
   real_T ZP_Value_m;                   /* Expression: 29
-                                        * Referenced by: '<S30>/ZP'
+                                        * Referenced by: '<S31>/ZP'
                                         */
   real_T Inc2Pos_Gain_k;               /* Expression: 8e-3
-                                        * Referenced by: '<S30>/Inc2Pos'
+                                        * Referenced by: '<S31>/Inc2Pos'
                                         */
   real_T Pos_offset_Value_k;           /* Expression: 0
-                                        * Referenced by: '<S30>/Pos_offset'
+                                        * Referenced by: '<S31>/Pos_offset'
                                         */
   real_T Const_Value_g;                /* Expression: 0.01
-                                        * Referenced by: '<S37>/Const'
+                                        * Referenced by: '<S38>/Const'
                                         */
   real_T Const1_Value_a;               /* Expression: -0.98
-                                        * Referenced by: '<S37>/Const1'
+                                        * Referenced by: '<S38>/Const1'
                                         */
   real_T TransferFcn_A_g;              /* Computed Parameter: TransferFcn_A_g
-                                        * Referenced by: '<S37>/Transfer Fcn'
+                                        * Referenced by: '<S38>/Transfer Fcn'
                                         */
   real_T TransferFcn_C_e;              /* Computed Parameter: TransferFcn_C_e
-                                        * Referenced by: '<S37>/Transfer Fcn'
+                                        * Referenced by: '<S38>/Transfer Fcn'
                                         */
   real_T mm2m_Gain_f;                  /* Expression: 0.001
-                                        * Referenced by: '<S30>/mm2m'
+                                        * Referenced by: '<S31>/mm2m'
                                         */
   real_T Constant_Value_e;             /* Expression: 0
-                                        * Referenced by: '<S11>/Constant'
+                                        * Referenced by: '<S12>/Constant'
                                         */
   real_T Constant3_Value_p;            /* Expression: 0
-                                        * Referenced by: '<S41>/Constant3'
+                                        * Referenced by: '<S42>/Constant3'
                                         */
   real_T Saturation_UpperSat_h;        /* Expression: 3
-                                        * Referenced by: '<S44>/Saturation'
+                                        * Referenced by: '<S45>/Saturation'
                                         */
   real_T Saturation_LowerSat_p;        /* Expression: -3
-                                        * Referenced by: '<S44>/Saturation'
+                                        * Referenced by: '<S45>/Saturation'
                                         */
   real_T Current2V_Gain_p;             /* Expression: 10/3
-                                        * Referenced by: '<S44>/Current2V'
+                                        * Referenced by: '<S45>/Current2V'
                                         */
   real_T DSPscale_Gain_h;              /* Expression: 1/10
-                                        * Referenced by: '<S44>/DSPscale'
+                                        * Referenced by: '<S45>/DSPscale'
                                         */
   real_T Constant_Value_f;             /* Expression: 10
-                                        * Referenced by: '<S45>/Constant'
+                                        * Referenced by: '<S46>/Constant'
                                         */
   real_T ZP_Value_p;                   /* Expression: 29
-                                        * Referenced by: '<S45>/ZP'
+                                        * Referenced by: '<S46>/ZP'
                                         */
   real_T Inc2Pos_Gain_h;               /* Expression: 8e-3
-                                        * Referenced by: '<S45>/Inc2Pos'
+                                        * Referenced by: '<S46>/Inc2Pos'
                                         */
   real_T Pos_offset_Value_f;           /* Expression: 0
-                                        * Referenced by: '<S45>/Pos_offset'
+                                        * Referenced by: '<S46>/Pos_offset'
                                         */
   real_T Const_Value_m;                /* Expression: 0.01
-                                        * Referenced by: '<S53>/Const'
+                                        * Referenced by: '<S54>/Const'
                                         */
   real_T Const1_Value_p;               /* Expression: -0.98
-                                        * Referenced by: '<S53>/Const1'
+                                        * Referenced by: '<S54>/Const1'
                                         */
   real_T TransferFcn_A_m;              /* Computed Parameter: TransferFcn_A_m
-                                        * Referenced by: '<S53>/Transfer Fcn'
+                                        * Referenced by: '<S54>/Transfer Fcn'
                                         */
   real_T TransferFcn_C_c;              /* Computed Parameter: TransferFcn_C_c
-                                        * Referenced by: '<S53>/Transfer Fcn'
+                                        * Referenced by: '<S54>/Transfer Fcn'
                                         */
   real_T mm2m_Gain_o;                  /* Expression: 0.001
-                                        * Referenced by: '<S45>/mm2m'
+                                        * Referenced by: '<S46>/mm2m'
                                         */
   real_T Constant_Value_i;             /* Expression: 1
                                         * Referenced by: '<S2>/Constant'
                                         */
-  real_T Constant3_Value_c;            /* Expression: 0.030
-                                        * Referenced by: '<S3>/Constant3'
+  real_T Alpha_ref_Value;              /* Expression: 0
+                                        * Referenced by: '<Root>/Alpha_ref '
+                                        */
+  real_T Beta_ref_Value;               /* Expression: 0
+                                        * Referenced by: '<Root>/Beta_ref '
+                                        */
+  real_T Psi_ref_Value;                /* Expression: 0
+                                        * Referenced by: '<Root>/Psi_ref '
                                         */
   real_T Constant_Value_o;             /* Expression: 0.32
                                         * Referenced by: '<S3>/Constant'
@@ -624,188 +636,194 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T controller_disable_Value;     /* Expression: 1
                                         * Referenced by: '<S3>/controller_disable'
                                         */
-  real_T start_m1_Value;               /* Expression: 0
-                                        * Referenced by: '<S13>/start_m1 '
+  real_T enable_start_Value;           /* Expression: 0
+                                        * Referenced by: '<S3>/enable_start '
+                                        */
+  real_T enable_ref_Value;             /* Expression: 0
+                                        * Referenced by: '<S3>/enable_ref '
+                                        */
+  real_T enable_ref_Threshold;         /* Expression: 0
+                                        * Referenced by: '<S10>/enable_ref '
                                         */
   real_T Gain1_Gain;                   /* Expression: 60
-                                        * Referenced by: '<S12>/Gain1'
+                                        * Referenced by: '<S13>/Gain1'
                                         */
   real_T Dctleadlag2_P1_Size[2];      /* Computed Parameter: Dctleadlag2_P1_Size
-                                       * Referenced by: '<S12>/Dctleadlag2'
+                                       * Referenced by: '<S13>/Dctleadlag2'
                                        */
   real_T Dctleadlag2_P1;               /* Expression: f_num
-                                        * Referenced by: '<S12>/Dctleadlag2'
+                                        * Referenced by: '<S13>/Dctleadlag2'
                                         */
   real_T Dctleadlag2_P2_Size[2];      /* Computed Parameter: Dctleadlag2_P2_Size
-                                       * Referenced by: '<S12>/Dctleadlag2'
+                                       * Referenced by: '<S13>/Dctleadlag2'
                                        */
   real_T Dctleadlag2_P2;               /* Expression: f_den
-                                        * Referenced by: '<S12>/Dctleadlag2'
+                                        * Referenced by: '<S13>/Dctleadlag2'
                                         */
   real_T Dctleadlag2_P3_Size[2];      /* Computed Parameter: Dctleadlag2_P3_Size
-                                       * Referenced by: '<S12>/Dctleadlag2'
+                                       * Referenced by: '<S13>/Dctleadlag2'
                                        */
   real_T Dctleadlag2_P3;               /* Expression: 0.001
-                                        * Referenced by: '<S12>/Dctleadlag2'
+                                        * Referenced by: '<S13>/Dctleadlag2'
                                         */
   real_T Dct1lowpass3_P1_Size[2];    /* Computed Parameter: Dct1lowpass3_P1_Size
-                                      * Referenced by: '<S12>/Dct1lowpass3'
+                                      * Referenced by: '<S13>/Dct1lowpass3'
                                       */
   real_T Dct1lowpass3_P1;              /* Expression: f_den
-                                        * Referenced by: '<S12>/Dct1lowpass3'
+                                        * Referenced by: '<S13>/Dct1lowpass3'
                                         */
   real_T Dct1lowpass3_P2_Size[2];    /* Computed Parameter: Dct1lowpass3_P2_Size
-                                      * Referenced by: '<S12>/Dct1lowpass3'
+                                      * Referenced by: '<S13>/Dct1lowpass3'
                                       */
   real_T Dct1lowpass3_P2;              /* Expression: 0.001
-                                        * Referenced by: '<S12>/Dct1lowpass3'
+                                        * Referenced by: '<S13>/Dct1lowpass3'
                                         */
   real_T Switch2_Threshold;            /* Expression: 0.5
-                                        * Referenced by: '<S9>/Switch2'
-                                        */
-  real_T u_to_enable_id_Value;         /* Expression: 0
-                                        * Referenced by: '<S9>/1_to_enable_id'
-                                        */
-  real_T Switch3_Threshold;            /* Expression: 0.5
-                                        * Referenced by: '<S9>/Switch3'
-                                        */
-  real_T u_no_0_init_motion_Value;     /* Expression: 1
-                                        * Referenced by: '<S9>/1_no_0_init_motion'
-                                        */
-  real_T Constant4_Value;              /* Expression: -0.0289
-                                        * Referenced by: '<S9>/Constant4'
-                                        */
-  real_T Switch_Threshold;             /* Expression: 0.5
-                                        * Referenced by: '<S13>/Switch'
-                                        */
-  real_T Constant1_Value_i;            /* Expression: 3
-                                        * Referenced by: '<S13>/Constant1'
-                                        */
-  real_T Constant2_Value_e;            /* Expression: 0.001
-                                        * Referenced by: '<S13>/Constant2'
-                                        */
-  real_T start_m1_Value_h;             /* Expression: 0
-                                        * Referenced by: '<S27>/start_m1 '
-                                        */
-  real_T Gain1_Gain_n;                 /* Expression: 60
-                                        * Referenced by: '<S26>/Gain1'
-                                        */
-  real_T Dctleadlag2_P1_Size_i[2];  /* Computed Parameter: Dctleadlag2_P1_Size_i
-                                     * Referenced by: '<S26>/Dctleadlag2'
-                                     */
-  real_T Dctleadlag2_P1_p;             /* Expression: f_num
-                                        * Referenced by: '<S26>/Dctleadlag2'
-                                        */
-  real_T Dctleadlag2_P2_Size_f[2];  /* Computed Parameter: Dctleadlag2_P2_Size_f
-                                     * Referenced by: '<S26>/Dctleadlag2'
-                                     */
-  real_T Dctleadlag2_P2_i;             /* Expression: f_den
-                                        * Referenced by: '<S26>/Dctleadlag2'
-                                        */
-  real_T Dctleadlag2_P3_Size_g[2];  /* Computed Parameter: Dctleadlag2_P3_Size_g
-                                     * Referenced by: '<S26>/Dctleadlag2'
-                                     */
-  real_T Dctleadlag2_P3_b;             /* Expression: 0.001
-                                        * Referenced by: '<S26>/Dctleadlag2'
-                                        */
-  real_T Dct1lowpass3_P1_Size_e[2];/* Computed Parameter: Dct1lowpass3_P1_Size_e
-                                    * Referenced by: '<S26>/Dct1lowpass3'
-                                    */
-  real_T Dct1lowpass3_P1_a;            /* Expression: f_den
-                                        * Referenced by: '<S26>/Dct1lowpass3'
-                                        */
-  real_T Dct1lowpass3_P2_Size_p[2];/* Computed Parameter: Dct1lowpass3_P2_Size_p
-                                    * Referenced by: '<S26>/Dct1lowpass3'
-                                    */
-  real_T Dct1lowpass3_P2_i;            /* Expression: 0.001
-                                        * Referenced by: '<S26>/Dct1lowpass3'
-                                        */
-  real_T Switch2_Threshold_k;          /* Expression: 0.5
                                         * Referenced by: '<S10>/Switch2'
                                         */
-  real_T u_to_enable_id_Value_b;       /* Expression: 0
-                                        * Referenced by: '<S10>/1_to_enable_id'
+  real_T enable_ID_A_Value;            /* Expression: 0
+                                        * Referenced by: '<S10>/enable_ID_A '
                                         */
-  real_T Switch3_Threshold_m;          /* Expression: 0.5
+  real_T Switch3_Threshold;            /* Expression: 0.5
                                         * Referenced by: '<S10>/Switch3'
                                         */
-  real_T u_no_0_init_motion_Value_e;   /* Expression: 1
+  real_T u_no_0_init_motion_Value;     /* Expression: 1
                                         * Referenced by: '<S10>/1_no_0_init_motion'
                                         */
-  real_T Constant4_Value_b;            /* Expression: -0.0289
+  real_T Constant4_Value;              /* Expression: -0.0289
                                         * Referenced by: '<S10>/Constant4'
                                         */
-  real_T Switch_Threshold_k;           /* Expression: 0.5
-                                        * Referenced by: '<S27>/Switch'
+  real_T Switch_Threshold;             /* Expression: 0.5
+                                        * Referenced by: '<S14>/Switch'
                                         */
-  real_T Constant1_Value_p;            /* Expression: 3
-                                        * Referenced by: '<S27>/Constant1'
+  real_T Constant1_Value_i;            /* Expression: 3
+                                        * Referenced by: '<S14>/Constant1'
                                         */
-  real_T Constant2_Value_g;            /* Expression: 0.001
-                                        * Referenced by: '<S27>/Constant2'
+  real_T Constant2_Value_e;            /* Expression: 0.001
+                                        * Referenced by: '<S14>/Constant2'
                                         */
-  real_T start_m1_Value_f;             /* Expression: 0
-                                        * Referenced by: '<S41>/start_m1 '
+  real_T Switch_Threshold_a;           /* Expression: 0
+                                        * Referenced by: '<S11>/Switch'
                                         */
-  real_T Gain1_Gain_m;                 /* Expression: 60
-                                        * Referenced by: '<S40>/Gain1'
+  real_T Gain1_Gain_n;                 /* Expression: 60
+                                        * Referenced by: '<S27>/Gain1'
                                         */
-  real_T Dctleadlag2_P1_Size_o[2];  /* Computed Parameter: Dctleadlag2_P1_Size_o
-                                     * Referenced by: '<S40>/Dctleadlag2'
+  real_T Dctleadlag2_P1_Size_i[2];  /* Computed Parameter: Dctleadlag2_P1_Size_i
+                                     * Referenced by: '<S27>/Dctleadlag2'
                                      */
-  real_T Dctleadlag2_P1_l;             /* Expression: f_num
-                                        * Referenced by: '<S40>/Dctleadlag2'
+  real_T Dctleadlag2_P1_p;             /* Expression: f_num
+                                        * Referenced by: '<S27>/Dctleadlag2'
                                         */
-  real_T Dctleadlag2_P2_Size_fd[2];/* Computed Parameter: Dctleadlag2_P2_Size_fd
-                                    * Referenced by: '<S40>/Dctleadlag2'
-                                    */
-  real_T Dctleadlag2_P2_o;             /* Expression: f_den
-                                        * Referenced by: '<S40>/Dctleadlag2'
-                                        */
-  real_T Dctleadlag2_P3_Size_b[2];  /* Computed Parameter: Dctleadlag2_P3_Size_b
-                                     * Referenced by: '<S40>/Dctleadlag2'
+  real_T Dctleadlag2_P2_Size_f[2];  /* Computed Parameter: Dctleadlag2_P2_Size_f
+                                     * Referenced by: '<S27>/Dctleadlag2'
                                      */
-  real_T Dctleadlag2_P3_j;             /* Expression: 0.001
-                                        * Referenced by: '<S40>/Dctleadlag2'
+  real_T Dctleadlag2_P2_i;             /* Expression: f_den
+                                        * Referenced by: '<S27>/Dctleadlag2'
                                         */
-  real_T Dct1lowpass3_P1_Size_m[2];/* Computed Parameter: Dct1lowpass3_P1_Size_m
-                                    * Referenced by: '<S40>/Dct1lowpass3'
+  real_T Dctleadlag2_P3_Size_g[2];  /* Computed Parameter: Dctleadlag2_P3_Size_g
+                                     * Referenced by: '<S27>/Dctleadlag2'
+                                     */
+  real_T Dctleadlag2_P3_b;             /* Expression: 0.001
+                                        * Referenced by: '<S27>/Dctleadlag2'
+                                        */
+  real_T Dct1lowpass3_P1_Size_e[2];/* Computed Parameter: Dct1lowpass3_P1_Size_e
+                                    * Referenced by: '<S27>/Dct1lowpass3'
                                     */
-  real_T Dct1lowpass3_P1_c;            /* Expression: f_den
-                                        * Referenced by: '<S40>/Dct1lowpass3'
+  real_T Dct1lowpass3_P1_a;            /* Expression: f_den
+                                        * Referenced by: '<S27>/Dct1lowpass3'
                                         */
-  real_T Dct1lowpass3_P2_Size_g[2];/* Computed Parameter: Dct1lowpass3_P2_Size_g
-                                    * Referenced by: '<S40>/Dct1lowpass3'
+  real_T Dct1lowpass3_P2_Size_p[2];/* Computed Parameter: Dct1lowpass3_P2_Size_p
+                                    * Referenced by: '<S27>/Dct1lowpass3'
                                     */
-  real_T Dct1lowpass3_P2_j;            /* Expression: 0.001
-                                        * Referenced by: '<S40>/Dct1lowpass3'
+  real_T Dct1lowpass3_P2_i;            /* Expression: 0.001
+                                        * Referenced by: '<S27>/Dct1lowpass3'
                                         */
-  real_T Switch2_Threshold_b;          /* Expression: 0.5
+  real_T Switch2_Threshold_k;          /* Expression: 0.5
                                         * Referenced by: '<S11>/Switch2'
                                         */
-  real_T u_to_enable_id1_Value;        /* Expression: 0
-                                        * Referenced by: '<S11>/1_to_enable_id1'
+  real_T enable_ID_B_Value;            /* Expression: 0
+                                        * Referenced by: '<S11>/enable_ID_B '
                                         */
-  real_T Switch3_Threshold_g;          /* Expression: 0.5
+  real_T Switch3_Threshold_m;          /* Expression: 0.5
                                         * Referenced by: '<S11>/Switch3'
                                         */
-  real_T u_no_0_init_motion_Value_n;   /* Expression: 1
+  real_T u_no_0_init_motion_Value_e;   /* Expression: 1
                                         * Referenced by: '<S11>/1_no_0_init_motion'
                                         */
-  real_T Constant4_Value_c;            /* Expression: -0.0289
+  real_T Constant4_Value_b;            /* Expression: -0.0289
                                         * Referenced by: '<S11>/Constant4'
                                         */
+  real_T Switch_Threshold_k;           /* Expression: 0.5
+                                        * Referenced by: '<S28>/Switch'
+                                        */
+  real_T Constant1_Value_p;            /* Expression: 3
+                                        * Referenced by: '<S28>/Constant1'
+                                        */
+  real_T Constant2_Value_g;            /* Expression: 0.001
+                                        * Referenced by: '<S28>/Constant2'
+                                        */
+  real_T Switch_Threshold_e;           /* Expression: 0
+                                        * Referenced by: '<S12>/Switch'
+                                        */
+  real_T Gain1_Gain_m;                 /* Expression: 60
+                                        * Referenced by: '<S41>/Gain1'
+                                        */
+  real_T Dctleadlag2_P1_Size_o[2];  /* Computed Parameter: Dctleadlag2_P1_Size_o
+                                     * Referenced by: '<S41>/Dctleadlag2'
+                                     */
+  real_T Dctleadlag2_P1_l;             /* Expression: f_num
+                                        * Referenced by: '<S41>/Dctleadlag2'
+                                        */
+  real_T Dctleadlag2_P2_Size_fd[2];/* Computed Parameter: Dctleadlag2_P2_Size_fd
+                                    * Referenced by: '<S41>/Dctleadlag2'
+                                    */
+  real_T Dctleadlag2_P2_o;             /* Expression: f_den
+                                        * Referenced by: '<S41>/Dctleadlag2'
+                                        */
+  real_T Dctleadlag2_P3_Size_b[2];  /* Computed Parameter: Dctleadlag2_P3_Size_b
+                                     * Referenced by: '<S41>/Dctleadlag2'
+                                     */
+  real_T Dctleadlag2_P3_j;             /* Expression: 0.001
+                                        * Referenced by: '<S41>/Dctleadlag2'
+                                        */
+  real_T Dct1lowpass3_P1_Size_m[2];/* Computed Parameter: Dct1lowpass3_P1_Size_m
+                                    * Referenced by: '<S41>/Dct1lowpass3'
+                                    */
+  real_T Dct1lowpass3_P1_c;            /* Expression: f_den
+                                        * Referenced by: '<S41>/Dct1lowpass3'
+                                        */
+  real_T Dct1lowpass3_P2_Size_g[2];/* Computed Parameter: Dct1lowpass3_P2_Size_g
+                                    * Referenced by: '<S41>/Dct1lowpass3'
+                                    */
+  real_T Dct1lowpass3_P2_j;            /* Expression: 0.001
+                                        * Referenced by: '<S41>/Dct1lowpass3'
+                                        */
+  real_T Switch2_Threshold_b;          /* Expression: 0.5
+                                        * Referenced by: '<S12>/Switch2'
+                                        */
+  real_T Enable_ID_C_Value;            /* Expression: 0
+                                        * Referenced by: '<S12>/Enable_ID_C '
+                                        */
+  real_T Switch3_Threshold_g;          /* Expression: 0.5
+                                        * Referenced by: '<S12>/Switch3'
+                                        */
+  real_T u_no_0_init_motion_Value_n;   /* Expression: 1
+                                        * Referenced by: '<S12>/1_no_0_init_motion'
+                                        */
+  real_T Constant4_Value_c;            /* Expression: -0.0289
+                                        * Referenced by: '<S12>/Constant4'
+                                        */
   real_T Switch_Threshold_l;           /* Expression: 0.5
-                                        * Referenced by: '<S41>/Switch'
+                                        * Referenced by: '<S42>/Switch'
                                         */
   real_T Constant1_Value_f;            /* Expression: 3
-                                        * Referenced by: '<S41>/Constant1'
+                                        * Referenced by: '<S42>/Constant1'
                                         */
   real_T Constant2_Value_i;            /* Expression: 0.001
-                                        * Referenced by: '<S41>/Constant2'
+                                        * Referenced by: '<S42>/Constant2'
                                         */
-  real_T u_to_enable_id_Value_m;       /* Expression: 0
-                                        * Referenced by: '<S11>/1_to_enable_id'
+  real_T u_to_enable_id_Value;         /* Expression: 0
+                                        * Referenced by: '<S12>/1_to_enable_id'
                                         */
   real_T reser_integrator_Value;       /* Expression: 0
                                         * Referenced by: '<S3>/reser_integrator'
@@ -816,12 +834,12 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   uint8_T Gain1_Gain_j;                /* Computed Parameter: Gain1_Gain_j
                                         * Referenced by: '<S2>/Gain1'
                                         */
-  P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_b;/* '<S53>/Enabled Subsystem1' */
-  P_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_n;/* '<S53>/Enabled Subsystem' */
-  P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_f;/* '<S37>/Enabled Subsystem1' */
-  P_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_a;/* '<S37>/Enabled Subsystem' */
-  P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1;/* '<S23>/Enabled Subsystem1' */
-  P_EnabledSubsystem_Ball_and_P_T EnabledSubsystem;/* '<S23>/Enabled Subsystem' */
+  P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_b;/* '<S54>/Enabled Subsystem1' */
+  P_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_n;/* '<S54>/Enabled Subsystem' */
+  P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_f;/* '<S38>/Enabled Subsystem1' */
+  P_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_a;/* '<S38>/Enabled Subsystem' */
+  P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1;/* '<S24>/Enabled Subsystem1' */
+  P_EnabledSubsystem_Ball_and_P_T EnabledSubsystem;/* '<S24>/Enabled Subsystem' */
 };
 
 /* Real-time Model Data Structure */
@@ -1086,55 +1104,56 @@ extern RT_MODEL_Ball_and_Plate_MicroLabBox_student_T *const
  * '<S6>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_SETUP_BL1'
  * '<S7>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_UDP_RX_BL1'
  * '<S8>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_UDP_SETUP_BL1'
- * '<S9>'   : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A'
- * '<S10>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B'
- * '<S11>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C'
- * '<S12>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Controller_10_05'
- * '<S13>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Init_motion'
- * '<S14>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Multisine'
- * '<S15>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Outputs to Amplifier'
- * '<S16>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement'
- * '<S17>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Init_motion/MATLAB Function'
- * '<S18>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Init_motion/MATLAB Function2'
- * '<S19>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Multisine/MATLAB Function'
- * '<S20>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Outputs to Amplifier/DAC_CLASS1_BL1'
- * '<S21>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/EMC_ENCODER_BL1'
- * '<S22>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/EMC_ENCODER_POS_SET_BL1'
- * '<S23>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/Initial'
- * '<S24>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/Initial/Enabled Subsystem'
- * '<S25>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/Initial/Enabled Subsystem1'
- * '<S26>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Controller_10_05'
- * '<S27>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Init_motion'
- * '<S28>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Multisine'
- * '<S29>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Outputs to Amplifier'
- * '<S30>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement'
- * '<S31>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Init_motion/MATLAB Function'
- * '<S32>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Init_motion/MATLAB Function2'
- * '<S33>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Multisine/MATLAB Function'
- * '<S34>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Outputs to Amplifier/DAC_CLASS1_BL1'
- * '<S35>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/EMC_ENCODER_BL1'
- * '<S36>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/EMC_ENCODER_POS_SET_BL1'
- * '<S37>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/Initial'
- * '<S38>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/Initial/Enabled Subsystem'
- * '<S39>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/Initial/Enabled Subsystem1'
- * '<S40>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Controller_10_05'
- * '<S41>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Init_motion'
- * '<S42>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Multisine'
- * '<S43>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Multisine1'
- * '<S44>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Outputs to Amplifier'
- * '<S45>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement'
- * '<S46>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Init_motion/MATLAB Function'
- * '<S47>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Init_motion/MATLAB Function2'
- * '<S48>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Multisine/MATLAB Function'
- * '<S49>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Multisine1/MATLAB Function'
- * '<S50>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Outputs to Amplifier/DAC_CLASS1_BL1'
- * '<S51>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/EMC_ENCODER_BL1'
- * '<S52>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/EMC_ENCODER_POS_SET_BL1'
- * '<S53>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/Initial'
- * '<S54>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/Initial/Enabled Subsystem'
- * '<S55>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/Initial/Enabled Subsystem1'
- * '<S56>'  : 'Ball_and_Plate_MicroLabBox_student/RTI Data/RTI Data Store'
- * '<S57>'  : 'Ball_and_Plate_MicroLabBox_student/RTI Data/RTI Data Store/RTI Data Store'
- * '<S58>'  : 'Ball_and_Plate_MicroLabBox_student/RTI Data/RTI Data Store/RTI Data Store/RTI Data Store'
+ * '<S9>'   : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/AngleToPos '
+ * '<S10>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A'
+ * '<S11>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B'
+ * '<S12>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C'
+ * '<S13>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Controller_10_05'
+ * '<S14>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Init_motion'
+ * '<S15>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Multisine'
+ * '<S16>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Outputs to Amplifier'
+ * '<S17>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement'
+ * '<S18>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Init_motion/MATLAB Function'
+ * '<S19>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Init_motion/MATLAB Function2'
+ * '<S20>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Multisine/MATLAB Function'
+ * '<S21>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Outputs to Amplifier/DAC_CLASS1_BL1'
+ * '<S22>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/EMC_ENCODER_BL1'
+ * '<S23>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/EMC_ENCODER_POS_SET_BL1'
+ * '<S24>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/Initial'
+ * '<S25>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/Initial/Enabled Subsystem'
+ * '<S26>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/Initial/Enabled Subsystem1'
+ * '<S27>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Controller_10_05'
+ * '<S28>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Init_motion'
+ * '<S29>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Multisine'
+ * '<S30>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Outputs to Amplifier'
+ * '<S31>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement'
+ * '<S32>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Init_motion/MATLAB Function'
+ * '<S33>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Init_motion/MATLAB Function2'
+ * '<S34>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Multisine/MATLAB Function'
+ * '<S35>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Outputs to Amplifier/DAC_CLASS1_BL1'
+ * '<S36>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/EMC_ENCODER_BL1'
+ * '<S37>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/EMC_ENCODER_POS_SET_BL1'
+ * '<S38>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/Initial'
+ * '<S39>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/Initial/Enabled Subsystem'
+ * '<S40>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/Initial/Enabled Subsystem1'
+ * '<S41>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Controller_10_05'
+ * '<S42>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Init_motion'
+ * '<S43>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Multisine'
+ * '<S44>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Multisine1'
+ * '<S45>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Outputs to Amplifier'
+ * '<S46>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement'
+ * '<S47>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Init_motion/MATLAB Function'
+ * '<S48>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Init_motion/MATLAB Function2'
+ * '<S49>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Multisine/MATLAB Function'
+ * '<S50>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Multisine1/MATLAB Function'
+ * '<S51>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Outputs to Amplifier/DAC_CLASS1_BL1'
+ * '<S52>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/EMC_ENCODER_BL1'
+ * '<S53>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/EMC_ENCODER_POS_SET_BL1'
+ * '<S54>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/Initial'
+ * '<S55>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/Initial/Enabled Subsystem'
+ * '<S56>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/Initial/Enabled Subsystem1'
+ * '<S57>'  : 'Ball_and_Plate_MicroLabBox_student/RTI Data/RTI Data Store'
+ * '<S58>'  : 'Ball_and_Plate_MicroLabBox_student/RTI Data/RTI Data Store/RTI Data Store'
+ * '<S59>'  : 'Ball_and_Plate_MicroLabBox_student/RTI Data/RTI Data Store/RTI Data Store/RTI Data Store'
  */
 #endif                    /* RTW_HEADER_Ball_and_Plate_MicroLabBox_student_h_ */

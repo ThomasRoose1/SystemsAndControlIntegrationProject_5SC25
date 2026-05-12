@@ -40,6 +40,22 @@
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
 							<item>
+								<Name type="key">rec1_003.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec1_004.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec1_005.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec1_006.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
 								<Name type="key">Data Sets</Name>
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
@@ -59,6 +75,22 @@
 					</item>
 					<item>
 						<Name type="key">rec1_002.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec1_003.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec1_004.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec1_005.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec1_006.mf4</Name>
 						<ViewFlags type="key">1</ViewFlags>
 					</item>
 				</item>

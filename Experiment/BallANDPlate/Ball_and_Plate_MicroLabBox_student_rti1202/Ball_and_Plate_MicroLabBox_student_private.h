@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.6
+ * Model version              : 1.10
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Mon May 11 17:22:35 2026
+ * C source code generated on : Tue May 12 11:19:46 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -108,7 +108,7 @@ extern void Ball_and_Plate__MATLABFunction2(real_T rtu_y, real_T rtu_start,
 extern void Ball_and__MATLABFunction_o_Init(DW_MATLABFunction_Ball_and__j_T
   *localDW);
 extern void Ball_and_Plate_MATLABFunction_e(real_T rtu_enable, const real_T
-  rtu_u[30000], B_MATLABFunction_Ball_and_P_m_T *localB,
+  rtu_u[200000], B_MATLABFunction_Ball_and_P_m_T *localB,
   DW_MATLABFunction_Ball_and__j_T *localDW);
 extern void Ball_and__EnabledSubsystem_Init(B_EnabledSubsystem_Ball_and_P_T
   *localB, P_EnabledSubsystem_Ball_and_P_T *localP);
