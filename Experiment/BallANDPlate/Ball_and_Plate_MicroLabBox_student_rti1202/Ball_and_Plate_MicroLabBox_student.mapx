@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<!--Generic MAP information file.-->
+<NormalizedMapFile Version="1.0.0.0">
+  <MetaData>
+    <Files>
+      <File Type="GNU x86 Compiler" Name="C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\Ball_and_Plate_MicroLabBox_student.map" Date="2026-05-12 11:19:19" ParsingDate="2026-05-12 11:20:00" />
+    </Files>
+  </MetaData>
+  <Sections>
+    <Section StartAddress="0x48040134" Size="0x00000014" Name=".interp" />
+    <Section StartAddress="0x48040150" Size="0x00000018" Name=".note" />
+    <Section StartAddress="0x48040168" Size="0x00000020" Name=".note.gnu.build-id" />
+    <Section StartAddress="0x48040188" Size="0x0000037C" Name=".hash" />
+    <Section StartAddress="0x48040504" Size="0x000007C0" Name=".dynsym" />
+    <Section StartAddress="0x48040CC4" Size="0x000009E3" Name=".dynstr" />
+    <Section StartAddress="0x480416A8" Size="0x00000000" Name=".gnu.version" />
+    <Section StartAddress="0x480416A8" Size="0x00000000" Name=".gnu.version_d" />
+    <Section StartAddress="0x480416A8" Size="0x00000000" Name=".gnu.version_r" />
+    <Section StartAddress="0x480416A8" Size="0x0000006C" Name=".rela.dyn" />
+    <Section StartAddress="0x48041714" Size="0x000004EC" Name=".rela.plt" />
+    <Section StartAddress="0x48041C00" Size="0x00000024" Name=".init" />
+    <Section StartAddress="0x48041C30" Size="0x0000643C" Name=".text" />
+    <Section StartAddress="0x4804806C" Size="0x00000020" Name=".fini" />
+    <Section StartAddress="0x48048090" Size="0x00000908" Name=".rodata" />
+    <Section StartAddress="0x48048998" Size="0x00000000" Name=".sdata2" />
+    <Section StartAddress="0x48048998" Size="0x00000014" Name=".eh_frame_hdr" />
+    <Section StartAddress="0x480489AC" Size="0x0000002C" Name=".eh_frame" />
+    <Section StartAddress="0x480499D8" Size="0x00000000" Name=".preinit_array" />
+    <Section StartAddress="0x480499D8" Size="0x00000000" Name=".init_array" />
+    <Section StartAddress="0x480499D8" Size="0x00000000" Name=".fini_array" />
+    <Section StartAddress="0x480499D8" Size="0x00000008" Name=".ctors" />
+    <Section StartAddress="0x480499E0" Size="0x00000008" Name=".dtors" />
+    <Section StartAddress="0x480499E8" Size="0x00000004" Name=".jcr" />
+    <Section StartAddress="0x480499EC" Size="0x00000100" Name=".dynamic" />
+    <Section StartAddress="0x48049AF0" Size="0x0049A080" Name=".data" />
+    <Section StartAddress="0x484E3B70" Size="0x00000000" Name=".tm_clone_table" />
+    <Section StartAddress="0x484E3B70" Size="0x00000054" Name=".got" />
+    <Section StartAddress="0x484E3BC4" Size="0x00000000" Name=".sdata" />
+    <Section StartAddress="0x484E3BC4" Size="0x00000000" Name=".sbss" />
+    <Section StartAddress="0x484E3BC4" Size="0x00000534" Name=".plt" />
+    <Section StartAddress="0x484E40F8" Size="0x0000295C" Name=".bss" />
+    <Section StartAddress="0x484E6A60" Size="0x00000000" Name=".iplt" />
+    <Section StartAddress="0x00000000" Size="0x00000047" Name=".comment" />
+    <Section StartAddress="0x00000000" Size="0x00000018" Name=".PPC.EMB.apuinfo" />
+    <Section StartAddress="0x00000000" Size="0x00000014" Name=".gnu.attributes" />
+  </Sections>
+  <Symbols>
+    <Symbol Address="0x480423C0" Name="Ball__EnabledSubsystem1_Disable" />
+    <Symbol Address="0x48042310" Name="Ball_a_EnabledSubsystem_Disable" />
+    <Symbol Address="0x480423D0" Name="Ball_an_EnabledSubsystem1_Start" />
+    <Symbol Address="0x480423B0" Name="Ball_and_EnabledSubsystem1_Init" />
+    <Symbol Address="0x48042330" Name="Ball_and_EnabledSubsystem_Start" />
+    <Symbol Address="0x48042110" Name="Ball_and_Pl_MATLABFunction_Init" />
+    <Symbol Address="0x480423E0" Name="Ball_and_Plat_EnabledSubsystem1" />
+    <Symbol Address="0x48042340" Name="Ball_and_Plate_EnabledSubsystem" />
+    <Symbol Address="0x48042260" Name="Ball_and_Plate_MATLABFunction_e" />
+    <Symbol Address="0x48042130" Name="Ball_and_Plate_M_MATLABFunction" />
+    <Symbol Address="0x484E6040" Name="Ball_and_Plate_MicroLabBox_student_B" />
+    <Symbol Address="0x484E63B0" Name="Ball_and_Plate_MicroLabBox_student_DW" />
+    <Symbol Address="0x480480F8" Name="Ball_and_Plate_MicroLabBox_student_M" />
+    <Symbol Address="0x484E4130" Name="Ball_and_Plate_MicroLabBox_student_M_" />
+    <Symbol Address="0x48049AF8" Name="Ball_and_Plate_MicroLabBox_student_P" />
+    <Symbol Address="0x484E64C8" Name="Ball_and_Plate_MicroLabBox_student_PrevZCX" />
+    <Symbol Address="0x484E64D0" Name="Ball_and_Plate_MicroLabBox_student_X" />
+    <Symbol Address="0x484E6398" Name="Ball_and_Plate_MicroLabBox_student_Y" />
+    <Symbol Address="0x480437F0" Name="Ball_and_Plate_MicroLabBox_student_derivatives" />
+    <Symbol Address="0x48043A70" Name="Ball_and_Plate_MicroLabBox_student_initialize" />
+    <Symbol Address="0x48042440" Name="Ball_and_Plate_MicroLabBox_student_output" />
+    <Symbol Address="0x48045A28" Name="Ball_and_Plate_MicroLabBox_student_rti_init_trc_pointers" />
+    <Symbol Address="0x48044E10" Name="Ball_and_Plate_MicroLabBox_student_terminate" />
+    <Symbol Address="0x48043880" Name="Ball_and_Plate_MicroLabBox_student_update" />
+    <Symbol Address="0x480421F0" Name="Ball_and_Plate__MATLABFunction2" />
+    <Symbol Address="0x48042300" Name="Ball_and__EnabledSubsystem_Init" />
+    <Symbol Address="0x48042240" Name="Ball_and__MATLABFunction_o_Init" />
+    <Symbol Address="0x000004B2" Name="DS_TARGET_PLATFORM" />
+    <Symbol Address="0x484E3D0C" Name="DacCl1AnalogOut_apply" />
+    <Symbol Address="0x484E3C6C" Name="DacCl1AnalogOut_create" />
+    <Symbol Address="0x484E3EF4" Name="DacCl1AnalogOut_setOutputHighZ" />
+    <Symbol Address="0x484E3E5C" Name="DacCl1AnalogOut_setOutputValue" />
+    <Symbol Address="0x484E3DFC" Name="DacCl1AnalogOut_start" />
+    <Symbol Address="0x484E3DAC" Name="DacCl1AnalogOut_stop" />
+    <Symbol Address="0x484E3D94" Name="DacCl1AnalogOut_write" />
+    <Symbol Address="0x484E3E9C" Name="DioCl2EncoderIn_apply" />
+    <Symbol Address="0x484E3C24" Name="DioCl2EncoderIn_create" />
+    <Symbol Address="0x484E3E2C" Name="DioCl2EncoderIn_getEncPosition" />
+    <Symbol Address="0x484E3EA4" Name="DioCl2EncoderIn_getEncVelocity" />
+    <Symbol Address="0x484E3C54" Name="DioCl2EncoderIn_read" />
+    <Symbol Address="0x484E3E14" Name="DioCl2EncoderIn_setEncPosValidity" />
+    <Symbol Address="0x484E3C74" Name="DioCl2EncoderIn_setEncPosition" />
+    <Symbol Address="0x484E3F0C" Name="DioCl2EncoderIn_setEncoderLines" />
+    <Symbol Address="0x484E3DBC" Name="DioCl2EncoderIn_setGatedMode" />
+    <Symbol Address="0x484E3CAC" Name="DioCl2EncoderIn_setIndexMode" />
+    <Symbol Address="0x484E3DD4" Name="DioCl2EncoderIn_setMaxPosition" />
+    <Symbol Address="0x484E3E54" Name="DioCl2EncoderIn_setMeasurementInterval" />
+    <Symbol Address="0x484E3DDC" Name="DioCl2EncoderIn_setMinPosition" />
+    <Symbol Address="0x484E3D3C" Name="DioCl2EncoderIn_start" />
+    <Symbol Address="0x484E3C7C" Name="DioCl2EncoderIn_stop" />
+    <Symbol Address="0x484E3D04" Name="DioCl2EncoderIn_write" />
+    <Symbol Address="0x484E3C94" Name="DsIoEth_close" />
+    <Symbol Address="0x484E3EFC" Name="DsIoEth_create" />
+    <Symbol Address="0x484E3D8C" Name="DsIoEth_getIpAddress" />
+    <Symbol Address="0x484E3C0C" Name="DsIoEth_getLinkState" />
+    <Symbol Address="0x484E3F04" Name="DsIoEth_getMgmtEvent" />
+    <Symbol Address="0x484E3EC4" Name="DsIoEth_getPortState" />
+    <Symbol Address="0x484E3E3C" Name="DsIoEth_getRecvFramesDropped" />
+    <Symbol Address="0x484E3ED4" Name="DsIoEth_htons" />
+    <Symbol Address="0x484E3EBC" Name="DsIoEth_ntohs" />
+    <Symbol Address="0x484E3C9C" Name="DsIoEth_open" />
+    <Symbol Address="0x484E3C44" Name="DsIoEth_recvfrom" />
+    <Symbol Address="0x484E3CA4" Name="DsIoEth_setAddrFilter" />
+    <Symbol Address="0x484E3E0C" Name="DsIoEth_setGatewayAddress" />
+    <Symbol Address="0x484E3DEC" Name="DsIoEth_setIpAddress" />
+    <Symbol Address="0x484E3CB4" Name="DsIoEth_setNetMask" />
+    <Symbol Address="0x484E3F34" Name="DsIoEth_setRecvFrameSize" />
+    <Symbol Address="0x484E3CEC" Name="DsTimeSync_baserate" />
+    <Symbol Address="0x484E3D74" Name="DsTimeSync_setCurrentTimePtr" />
+    <Symbol Address="0x484E3C64" Name="DsTimeSync_simstateRun" />
+    <Symbol Address="0x484E3F2C" Name="DsTimeSync_simstateStop" />
+    <Symbol Address="0x484E3F14" Name="SrtkApp_background" />
+    <Symbol Address="0x484E3E7C" Name="SrtkApp_init" />
+    <Symbol Address="0x484E3DCC" Name="SrtkApp_terminate" />
+    <Symbol Address="0x484E3E6C" Name="SrtkDaq_Background" />
+    <Symbol Address="0x484E3D64" Name="SrtkDaq_Init" />
+    <Symbol Address="0x484E3E84" Name="SrtkDaq_Service" />
+    <Symbol Address="0x484E3F3C" Name="SrtkIntBase_disableIntGlobal" />
+    <Symbol Address="0x484E3D7C" Name="SrtkIntBase_enableIntGlobal" />
+    <Symbol Address="0x484E3CBC" Name="SrtkIntBase_requestTaskMode" />
+    <Symbol Address="0x484E3D4C" Name="SrtkPreload_preloadRegion" />
+    <Symbol Address="0x484E3E94" Name="SrtkSim_notifyStateTransition" />
+    <Symbol Address="0x484E3F44" Name="SrtkSim_registerState" />
+    <Symbol Address="0x00000000" Name="_DSPACE_START" />
+    <Symbol Address="0x00000000" Name="_DSPACE_START_" />
+    <Symbol Address="0x480499EC" Name="_DYNAMIC" />
+    <Symbol Address="0x484E3BB8" Name="_GLOBAL_OFFSET_TABLE_" />
+    <Symbol Address="0x484E3E24" Name="_Sin" />
+    <Symbol Address="0x480499E4" Name="__DTOR_END__" />
+    <Symbol Address="0x484E3BC4" Name="__bss_start" />
+    <Symbol Address="0x484E3CCC" Name="__cxa_finalize" />
+    <Symbol Address="0x484E3F4C" Name="__deregister_frame_info" />
+    <Symbol Address="0x48049AF0" Name="__dso_handle" />
+    <Symbol Address="0x484E6A60" Name="__end" />
+    <Symbol Address="0x480475F4" Name="__ieee754_pow" />
+    <Symbol Address="0x484E3C1C" Name="__register_frame_info" />
+    <Symbol Address="0x484E3E4C" Name="__wrap_atexit" />
+    <Symbol Address="0x484E3E44" Name="__wrap_exit" />
+    <Symbol Address="0x48041C30" Name="_btext" />
+    <Symbol Address="0x484E3BC4" Name="_edata" />
+    <Symbol Address="0x484E6A60" Name="_end" />
+    <Symbol Address="0x4804806C" Name="_fini" />
+    <Symbol Address="0x484E3E64" Name="_fini_array" />
+    <Symbol Address="0x48041C00" Name="_init" />
+    <Symbol Address="0x484E3CDC" Name="_init_array" />
+    <Symbol Address="0x484E3DB4" Name="_init_libc" />
+    <Symbol Address="0x484E3E74" Name="_preinit_array" />
+    <Symbol Address="0x48041C30" Name="_start" />
+    <Symbol Address="0x484E3C4C" Name="calloc" />
+    <Symbol Address="0x484E69E8" Name="currentTime" />
+    <Symbol Address="0x48046000" Name="dleadlag" />
+    <Symbol Address="0x48046280" Name="dlowpass1" />
+    <Symbol Address="0x484E3D44" Name="dsparam_copy_data_set" />
+    <Symbol Address="0x484E3DC4" Name="dsrtt_init" />
+    <Symbol Address="0x484E3D1C" Name="dsrtt_script_service_post_computation" />
+    <Symbol Address="0x484E3DF4" Name="dsrtt_script_service_pre_computation" />
+    <Symbol Address="0x484E3C34" Name="dsrtt_set_current_time" />
+    <Symbol Address="0x484E3EDC" Name="dsrtt_set_step_size" />
+    <Symbol Address="0x484E4100" Name="dsts_sum_of_reseted_time" />
+    <Symbol Address="0x484E40F8" Name="errno" />
+    <Symbol Address="0x484E69EC" Name="finalTime" />
+    <Symbol Address="0x48046A20" Name="initConditions" />
+    <Symbol Address="0x48046A30" Name="initVariables" />
+    <Symbol Address="0x484E3B60" Name="lastSimState" />
+    <Symbol Address="0x48046A40" Name="main" />
+    <Symbol Address="0x484E3CD4" Name="malloc" />
+    <Symbol Address="0x484E3C84" Name="memcpy" />
+    <Symbol Address="0x484E3E1C" Name="memset" />
+    <Symbol Address="0x484E69F0" Name="modelStepSize" />
+    <Symbol Address="0x484E3C2C" Name="msg_error_clear" />
+    <Symbol Address="0x484E3E04" Name="msg_error_printf" />
+    <Symbol Address="0x484E3D54" Name="msg_error_set" />
+    <Symbol Address="0x484E3EAC" Name="msg_info_printf" />
+    <Symbol Address="0x484E3DE4" Name="msg_info_set" />
+    <Symbol Address="0x484E4108" Name="msg_last_error_no" />
+    <Symbol Address="0x484E3D34" Name="msg_last_error_number" />
+    <Symbol Address="0x484E3EB4" Name="msg_set" />
+    <Symbol Address="0x484E3D2C" Name="msg_warning_printf" />
+    <Symbol Address="0x484E69F8" Name="pRTIDacC1AnalogOut_Ch_1" />
+    <Symbol Address="0x484E6A00" Name="pRTIDacC1AnalogOut_Ch_2" />
+    <Symbol Address="0x484E6A08" Name="pRTIDacC1AnalogOut_Ch_3" />
+    <Symbol Address="0x484E69FC" Name="pRTIEmcEncoder_Unit_1_DioCl_2_Port_1_Ch1" />
+    <Symbol Address="0x484E6A04" Name="pRTIEmcEncoder_Unit_2_DioCl_2_Port_1_Ch3" />
+    <Symbol Address="0x484E6A0C" Name="pRTIEmcEncoder_Unit_3_DioCl_2_Port_1_Ch5" />
+    <Symbol Address="0x484E6A2C" Name="pRti_TIMERA_OCnt" />
+    <Symbol Address="0x484E6A24" Name="pRti_TIMERA_OMax" />
+    <Symbol Address="0x484E6A28" Name="pRti_TIMERA_ORpt" />
+    <Symbol Address="0x484E6A20" Name="pRti_TIMERA_OType" />
+    <Symbol Address="0x484E6A34" Name="pRti_TIMERA_Prio" />
+    <Symbol Address="0x484E6A14" Name="pRti_TIMERA_STime" />
+    <Symbol Address="0x484E6A30" Name="pRti_TIMERA_TCnt" />
+    <Symbol Address="0x484E6A1C" Name="pRti_TIMERA_TState" />
+    <Symbol Address="0x484E6A18" Name="pRti_TIMERA_TTime" />
+    <Symbol Address="0x484E6900" Name="p_0_Ball_and_Plate_MicroLabBox_student_boolean_T_4" />
+    <Symbol Address="0x484E68F0" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_0" />
+    <Symbol Address="0x484E6918" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_10" />
+    <Symbol Address="0x484E691C" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_11" />
+    <Symbol Address="0x484E6920" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_12" />
+    <Symbol Address="0x484E6924" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_13" />
+    <Symbol Address="0x484E6928" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_14" />
+    <Symbol Address="0x484E692C" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_15" />
+    <Symbol Address="0x484E6930" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_16" />
+    <Symbol Address="0x484E6934" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_17" />
+    <Symbol Address="0x484E6938" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_18" />
+    <Symbol Address="0x484E693C" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_19" />
+    <Symbol Address="0x484E6940" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_20" />
+    <Symbol Address="0x484E6904" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_5" />
+    <Symbol Address="0x484E6908" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_6" />
+    <Symbol Address="0x484E690C" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_7" />
+    <Symbol Address="0x484E6910" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_8" />
+    <Symbol Address="0x484E6914" Name="p_0_Ball_and_Plate_MicroLabBox_student_real_T_9" />
+    <Symbol Address="0x484E68F8" Name="p_0_Ball_and_Plate_MicroLabBox_student_uint16_T_2" />
+    <Symbol Address="0x484E68F4" Name="p_0_Ball_and_Plate_MicroLabBox_student_uint32_T_1" />
+    <Symbol Address="0x484E68FC" Name="p_0_Ball_and_Plate_MicroLabBox_student_uint8_T_3" />
+    <Symbol Address="0x484E6944" Name="p_1_Ball_and_Plate_MicroLabBox_student_real_T_0" />
+    <Symbol Address="0x484E694C" Name="p_1_Ball_and_Plate_MicroLabBox_student_real_T_2" />
+    <Symbol Address="0x484E6950" Name="p_1_Ball_and_Plate_MicroLabBox_student_real_T_3" />
+    <Symbol Address="0x484E6954" Name="p_1_Ball_and_Plate_MicroLabBox_student_real_T_4" />
+    <Symbol Address="0x484E6958" Name="p_1_Ball_and_Plate_MicroLabBox_student_real_T_5" />
+    <Symbol Address="0x484E695C" Name="p_1_Ball_and_Plate_MicroLabBox_student_real_T_6" />
+    <Symbol Address="0x484E6960" Name="p_1_Ball_and_Plate_MicroLabBox_student_real_T_7" />
+    <Symbol Address="0x484E6948" Name="p_1_Ball_and_Plate_MicroLabBox_student_uint8_T_1" />
+    <Symbol Address="0x484E698C" Name="p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_10" />
+    <Symbol Address="0x484E6998" Name="p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_13" />
+    <Symbol Address="0x484E699C" Name="p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_14" />
+    <Symbol Address="0x484E6974" Name="p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_4" />
+    <Symbol Address="0x484E6978" Name="p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_5" />
+    <Symbol Address="0x484E6988" Name="p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_9" />
+    <Symbol Address="0x484E6970" Name="p_2_Ball_and_Plate_MicroLabBox_student_int8_T_3" />
+    <Symbol Address="0x484E6964" Name="p_2_Ball_and_Plate_MicroLabBox_student_real_T_0" />
+    <Symbol Address="0x484E6990" Name="p_2_Ball_and_Plate_MicroLabBox_student_real_T_11" />
+    <Symbol Address="0x484E6994" Name="p_2_Ball_and_Plate_MicroLabBox_student_real_T_12" />
+    <Symbol Address="0x484E69A0" Name="p_2_Ball_and_Plate_MicroLabBox_student_real_T_15" />
+    <Symbol Address="0x484E69A4" Name="p_2_Ball_and_Plate_MicroLabBox_student_real_T_16" />
+    <Symbol Address="0x484E697C" Name="p_2_Ball_and_Plate_MicroLabBox_student_real_T_6" />
+    <Symbol Address="0x484E6980" Name="p_2_Ball_and_Plate_MicroLabBox_student_real_T_7" />
+    <Symbol Address="0x484E6984" Name="p_2_Ball_and_Plate_MicroLabBox_student_real_T_8" />
+    <Symbol Address="0x484E696C" Name="p_2_Ball_and_Plate_MicroLabBox_student_uint16_T_2" />
+    <Symbol Address="0x484E6968" Name="p_2_Ball_and_Plate_MicroLabBox_student_uint32_T_1" />
+    <Symbol Address="0x484E69A8" Name="p_3_Ball_and_Plate_MicroLabBox_student_real_T_0" />
+    <Symbol Address="0x484E69AC" Name="p_5_Ball_and_Plate_MicroLabBox_student_real_T_0" />
+    <Symbol Address="0x484E69B4" Name="p_5_Ball_and_Plate_MicroLabBox_student_real_T_2" />
+    <Symbol Address="0x484E69B0" Name="p_5_Ball_and_Plate_MicroLabBox_student_uint32_T_1" />
+    <Symbol Address="0x48048424" Name="p_dsts_sum_of_reset_time" />
+    <Symbol Address="0x48048428" Name="p_msg_last_error_no" />
+    <Symbol Address="0x484E3B6C" Name="p_xilapi_eesport_activeerrorset_uint32_T" />
+    <Symbol Address="0x484E3B68" Name="p_xilapi_eesport_erroractivated_uint32_T" />
+    <Symbol Address="0x484E3B64" Name="p_xilapi_eesport_errorswitching_uint32_T" />
+    <Symbol Address="0x480475D4" Name="pow" />
+    <Symbol Address="0x48045A60" Name="rtGetInf" />
+    <Symbol Address="0x48045A80" Name="rtGetInfF" />
+    <Symbol Address="0x48045A90" Name="rtGetMinusInf" />
+    <Symbol Address="0x48045AB0" Name="rtGetMinusInfF" />
+    <Symbol Address="0x48045AC0" Name="rtGetNaN" />
+    <Symbol Address="0x48045AF0" Name="rtGetNaNF" />
+    <Symbol Address="0x484E69C8" Name="rtInf" />
+    <Symbol Address="0x484E69D0" Name="rtInfF" />
+    <Symbol Address="0x48045B60" Name="rtIsInf" />
+    <Symbol Address="0x48045B90" Name="rtIsInfF" />
+    <Symbol Address="0x48045BC0" Name="rtIsNaN" />
+    <Symbol Address="0x48045C10" Name="rtIsNaNF" />
+    <Symbol Address="0x484E69D8" Name="rtMinusInf" />
+    <Symbol Address="0x484E69E0" Name="rtMinusInfF" />
+    <Symbol Address="0x484E69B8" Name="rtNaN" />
+    <Symbol Address="0x484E69C0" Name="rtNaNF" />
+    <Symbol Address="0x48045620" Name="rtPrintfNoOp" />
+    <Symbol Address="0x48045B00" Name="rt_InitInfAndNaN" />
+    <Symbol Address="0x480474D0" Name="rt_SimGetNextSampleHit" />
+    <Symbol Address="0x480474A0" Name="rt_SimInitTimingEngine" />
+    <Symbol Address="0x480474E0" Name="rt_SimUpdateDiscreteTaskSampleHits" />
+    <Symbol Address="0x48045C60" Name="rt_ZCFcn" />
+    <Symbol Address="0x48044F90" Name="rt_mxCreateCharMatrixFromStrings" />
+    <Symbol Address="0x48045270" Name="rt_mxCreateDoubleMatrix" />
+    <Symbol Address="0x48045330" Name="rt_mxCreateNumericArray" />
+    <Symbol Address="0x480451A0" Name="rt_mxCreateString" />
+    <Symbol Address="0x48045370" Name="rt_mxDuplicateArray" />
+    <Symbol Address="0x48045460" Name="rt_mxGetDimensions" />
+    <Symbol Address="0x48045510" Name="rt_mxGetEps" />
+    <Symbol Address="0x48045520" Name="rt_mxGetString" />
+    <Symbol Address="0x484E6A38" Name="rtiAssertionMode" />
+    <Symbol Address="0x48048420" Name="rtiDataSetStorageEnabled" />
+    <Symbol Address="0x480474F0" Name="rti_assertion_handler" />
+    <Symbol Address="0x48047580" Name="rti_assertion_mode_msg" />
+    <Symbol Address="0x48047460" Name="rti_init" />
+    <Symbol Address="0x480469D0" Name="rti_th_timertask1_trigger_source" />
+    <Symbol Address="0x484E3DA4" Name="rtk_bind_interrupt" />
+    <Symbol Address="0x484E3D24" Name="rtk_create_task" />
+    <Symbol Address="0x484E3C5C" Name="rtk_current_task_absolute_time_ptr_get" />
+    <Symbol Address="0x484E3F1C" Name="rtk_default_overrun_fcn" />
+    <Symbol Address="0x484E3D5C" Name="rtk_enable_services" />
+    <Symbol Address="0x484E3EE4" Name="rtk_enter_idle_mode" />
+    <Symbol Address="0x484E3ECC" Name="rtk_get_subentry" />
+    <Symbol Address="0x480469C0" Name="rtk_idle_function" />
+    <Symbol Address="0x484E3EEC" Name="rtk_initialize" />
+    <Symbol Address="0x484E3E34" Name="rtk_leave_idle_mode" />
+    <Symbol Address="0x484E3D9C" Name="rtk_overrun_flag_clear" />
+    <Symbol Address="0x484E3CC4" Name="rtk_reset_tasks" />
+    <Symbol Address="0x484E3CE4" Name="rtk_set_task_type" />
+    <Symbol Address="0x484E3C8C" Name="rtk_setup_temp_overrun_handling" />
+    <Symbol Address="0x484E3CF4" Name="rtk_task_name_set" />
+    <Symbol Address="0x484E3D6C" Name="rtk_task_task_calls_get" />
+    <Symbol Address="0x484E3E8C" Name="rtk_task_task_name_get" />
+    <Symbol Address="0x48047E50" Name="scalbn" />
+    <Symbol Address="0x484E3B50" Name="simState" />
+    <Symbol Address="0x484E3C3C" Name="sqrt" />
+    <Symbol Address="0x484E3D14" Name="strlen" />
+    <Symbol Address="0x484E3CFC" Name="tan" />
+    <Symbol Address="0x484E6A10" Name="taskMode" />
+    <Symbol Address="0x484E3C14" Name="ts_reset" />
+    <Symbol Address="0x484E3F24" Name="vcm_module_register" />
+    <Symbol Address="0x484E3D84" Name="vsprintf" />
+    <Symbol Address="0x484E6A50" Name="xilapi_eesport_activeerrorset_uint32_T" />
+    <Symbol Address="0x484E6A4C" Name="xilapi_eesport_erroractivated_uint32_T" />
+    <Symbol Address="0x484E6A48" Name="xilapi_eesport_errorswitching_uint32_T" />
+    <Symbol Address="0x484E6A44" Name="xilapi_eesport_flags_uint32_T" />
+    <Symbol Address="0x484E6A40" Name="xilapi_eesport_trigger_uint32_T" />
+  </Symbols>
+</NormalizedMapFile>
