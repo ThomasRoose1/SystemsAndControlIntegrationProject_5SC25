@@ -69,21 +69,21 @@ B_slow = sys_fast.B;
 C_slow = sys_fast.C;
 
 % dimensions
-nx = size(A_slow,1);
-ny = size(C_slow,1);
-nu = size(B_slow,2);
+nx = size(A,1);
+ny = size(C,1);
+nu = size(B,2);
 
 %% Load Saved Terminal Design Matrices
 % This loads K, P, HT, and hT instantly into the workspace
 load('mpc_terminal_design.mat'); 
 
-%% Compile/Define YALMIP MPC Optimizer Object
+%% 6. Compile/Define YALMIP MPC Optimizer Object
 % State and Input Weights (Must match what you used to compute P offline!)
 Q = eye(nx); 
 R = eye(nu); 
 
 N = 25; % Prediction Horizon
-[Phi, Gamma, Omega, Psi] = mpc_obj(A_slow, B_slow, Q, R, P, N); % Uses loaded 'P'
+[Phi, Gamma, Omega, Psi] = mpc_obj(A, B, Q, R, P, N); % Uses loaded 'P'
 
 % Setup Polyhedron Constraints (Output and Input)
 max_pos = 0.2; max_angle = deg2rad(10);
@@ -102,11 +102,13 @@ Yk = sdpvar(ny*N, 1);
 Obj = Xk'*Omega*Xk + Uk'*Psi*Uk;
 
 Con = [Xk == Phi*x0 + Gamma*Uk];
-Con = [Con, Yk == kron(eye(N),C_slow)*Xk];
+Con = [Con, Yk == kron(eye(N),C)*Xk];
 Con = [Con, Hy_bar*Yk <= hy_bar];
 Con = [Con, Hu_bar*Uk <= hu_bar];
+
+% --- Enforce the Loaded Invariant Terminal Set ---
 x_N = Xk(end-nx+1:end); % Extract the final predicted state step
-Con = [Con, HT * x_N <= hT];
+Con = [Con, HT * x_N <= hT]; % Uses loaded 'HT' and 'hT'
 
 % Build the compiled optimizer object
 options = sdpsettings('solver','quadprog','verbose',0);
