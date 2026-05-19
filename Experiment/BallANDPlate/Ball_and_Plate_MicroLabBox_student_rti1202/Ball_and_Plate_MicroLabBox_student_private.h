@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.18
+ * Model version              : 1.23
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 19 14:40:11 2026
+ * C source code generated on : Tue May 19 15:21:40 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -96,6 +96,7 @@ extern DacCl1AnalogOutSDrvObject *pRTIDacC1AnalogOut_Ch_2;
 extern DioCl2EncoderInSDrvObject *pRTIEmcEncoder_Unit_2_DioCl_2_Port_1_Ch3;
 extern DacCl1AnalogOutSDrvObject *pRTIDacC1AnalogOut_Ch_3;
 extern DioCl2EncoderInSDrvObject *pRTIEmcEncoder_Unit_3_DioCl_2_Port_1_Ch5;
+extern real_T rt_powd_snf(real_T u0, real_T u1);
 extern void dleadlag(SimStruct *rts);
 extern void dlowpass1(SimStruct *rts);
 extern void Ball_and_Pl_MATLABFunction_Init(DW_MATLABFunction_Ball_and_Pl_T
@@ -105,6 +106,11 @@ extern void Ball_and_Plate_M_MATLABFunction(real_T rtu_enable, const real_T
   DW_MATLABFunction_Ball_and_Pl_T *localDW);
 extern void Ball_and_Plate__MATLABFunction2(real_T rtu_y, real_T rtu_start,
   real_T rtu_init_value, B_MATLABFunction2_Ball_and_Pl_T *localB);
+extern void Ball_and_P_MATLABFunction1_Init(DW_MATLABFunction1_Ball_and_P_T
+  *localDW);
+extern void Ball_and_Plate__MATLABFunction1(real_T rtu_reference_end, real_T
+  rtu_end_time, real_T rtu_Ts, B_MATLABFunction1_Ball_and_Pl_T *localB,
+  DW_MATLABFunction1_Ball_and_P_T *localDW);
 extern void Ball_and__MATLABFunction_o_Init(DW_MATLABFunction_Ball_and__j_T
   *localDW);
 extern void Ball_and_Plate_MATLABFunction_e(real_T rtu_enable, const real_T

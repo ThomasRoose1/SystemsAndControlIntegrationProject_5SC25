@@ -21,6 +21,10 @@
 						<Name type="key">Layout1.lay</Name>
 						<ViewFlags type="key">1</ViewFlags>
 					</item>
+					<item>
+						<Name type="key">Layout2.lay</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
 				</item>
 				<item>
 					<Name type="key">Hardware Configurations</Name>
@@ -170,6 +174,12 @@
 			<Layout1>
 				<Data type="key">Layout1.lay|1|2bca74c0-4866-430d-b7d5-8f1919ef3418/0|1:sm:mm 26 26 1638 552 -1 -1:</Data>
 			</Layout1>
+			<Layout2>
+				<Data type="key">Layout2.lay|0|090df5ef-b1ce-4947-ac99-cace898eae9f/1|1:sm:mm 52 52 1658 645 -1 -1:</Data>
+			</Layout2>
 		</Layouts>
 	</Instrumentation>
+	<XILAPIEESPort>
+		<ErrorConfigurationDocuments Version="1"/>
+	</XILAPIEESPort>
 </Root>

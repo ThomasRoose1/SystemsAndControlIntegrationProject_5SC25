@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.18
+ * Model version              : 1.23
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 19 14:40:11 2026
+ * C source code generated on : Tue May 19 15:21:40 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -201018,6 +201018,7 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
     -0.56208503156414746, -0.29374186182878459 },
   0.0,
   0.0,
+  -0.0289,
   0.0,
   3.0,
   -3.0,
@@ -201033,6 +201034,7 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   1.0,
   0.001,
   0.0,
+  -0.0289,
   0.0,
   3.0,
   -3.0,
@@ -201048,6 +201050,7 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   1.0,
   0.001,
   0.0,
+  -0.0289,
   0.0,
   3.0,
   -3.0,
@@ -201079,6 +201082,10 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   0.0,
   1.0,
   0.0,
+  0.0,
+  0.5,
+  1.0,
+  0.001,
   1.0,
   0.0,
   60.0,
@@ -201105,6 +201112,9 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   0.5,
   3.0,
   0.001,
+  0.5,
+  1.0,
+  0.001,
   0.0,
   60.0,
 
@@ -201129,6 +201139,9 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   -0.0289,
   0.5,
   3.0,
+  0.001,
+  0.5,
+  1.0,
   0.001,
   0.0,
   60.0,
@@ -201161,52 +201174,52 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   128U,
   128U,
 
-  /* Start of '<S54>/Enabled Subsystem1' */
+  /* Start of '<S57>/Enabled Subsystem1' */
   {
     0.0
   }
   ,
 
-  /* End of '<S54>/Enabled Subsystem1' */
+  /* End of '<S57>/Enabled Subsystem1' */
 
-  /* Start of '<S54>/Enabled Subsystem' */
+  /* Start of '<S57>/Enabled Subsystem' */
   {
     0.0,
     -1.0
   }
   ,
 
-  /* End of '<S54>/Enabled Subsystem' */
+  /* End of '<S57>/Enabled Subsystem' */
 
-  /* Start of '<S38>/Enabled Subsystem1' */
+  /* Start of '<S40>/Enabled Subsystem1' */
   {
     0.0
   }
   ,
 
-  /* End of '<S38>/Enabled Subsystem1' */
+  /* End of '<S40>/Enabled Subsystem1' */
 
-  /* Start of '<S38>/Enabled Subsystem' */
+  /* Start of '<S40>/Enabled Subsystem' */
   {
     0.0,
     -1.0
   }
   ,
 
-  /* End of '<S38>/Enabled Subsystem' */
+  /* End of '<S40>/Enabled Subsystem' */
 
-  /* Start of '<S24>/Enabled Subsystem1' */
+  /* Start of '<S25>/Enabled Subsystem1' */
   {
     0.0
   }
   ,
 
-  /* End of '<S24>/Enabled Subsystem1' */
+  /* End of '<S25>/Enabled Subsystem1' */
 
-  /* Start of '<S24>/Enabled Subsystem' */
+  /* Start of '<S25>/Enabled Subsystem' */
   {
     0.0,
     -1.0
   }
-  /* End of '<S24>/Enabled Subsystem' */
+  /* End of '<S25>/Enabled Subsystem' */
 };
