@@ -4,9 +4,9 @@ fs = 1000;
 fn = fs/2;
 
 A = 2; % amplitude of multisine         CHANGE IF DESIRED
-tlength = 20; % number of seconds       CHANGE IF DESIRED
+tlength = 200; % number of seconds       CHANGE IF DESIRED
 N = tlength*fs;
-P = 10; % periods
+P = 1; % periods
 
 Ts_Outer = 0.1;                      %  CHANGE IF DESIRED
 
