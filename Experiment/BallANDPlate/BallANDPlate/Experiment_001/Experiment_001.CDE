@@ -248,12 +248,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{D124F640-1A28-4EA7-9660-AA6EFD6260FA}</EntityID>
 					<ItemInfoDate type="key">12/05/2026 10:25:23</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -268,12 +268,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{24296B10-37CF-4302-957D-1C744266129F}</EntityID>
 					<ItemInfoDate type="key">12/05/2026 10:36:53</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -288,12 +288,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{A4BBF8C5-7C2C-4C5A-BE07-6C26AA39EF43}</EntityID>
 					<ItemInfoDate type="key">12/05/2026 10:41:04</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -308,12 +308,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{5CA63563-7BAC-422A-B01A-2832F8B53147}</EntityID>
 					<ItemInfoDate type="key">12/05/2026 10:44:54</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>

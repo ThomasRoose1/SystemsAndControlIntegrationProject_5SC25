@@ -163,6 +163,9 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 
 Variable description reloaded on 12.05.2026 11:20:29 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
 Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 09:20:00 (UTC)]
+
+Variable description reloaded on 13.05.2026 12:02:18 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-13 10:01:34 (UTC)]
 </ItemInfoLog>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
@@ -174,13 +177,13 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">4</Type>
-						<UniqueID type="key">841166524</UniqueID>
-						<EntityID type="key">{CA51F3F7-1EFE-4C5A-95E2-E422E821F114}</EntityID>
-						<ItemInfoDate type="key">12/05/2026 11:20:29</ItemInfoDate>
+						<UniqueID type="key">462961019</UniqueID>
+						<EntityID type="key">{64FA7B97-6B3C-4FB5-A587-4860EF83498E}</EntityID>
+						<ItemInfoDate type="key">13/05/2026 12:02:18</ItemInfoDate>
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
-						<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
 					</item>
 					<item>
 						<Component type="key">VariablesManagement</Component>
@@ -190,13 +193,13 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">4</Type>
-						<UniqueID type="key">1070391104</UniqueID>
-						<EntityID type="key">{CE05F8BB-D4A5-4788-AD8B-3FDA87ADEF04}</EntityID>
-						<ItemInfoDate type="key">12/05/2026 11:20:29</ItemInfoDate>
+						<UniqueID type="key">775428405</UniqueID>
+						<EntityID type="key">{56E0F0C3-7E57-469E-B425-C140830DB3E0}</EntityID>
+						<ItemInfoDate type="key">13/05/2026 12:02:18</ItemInfoDate>
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
-						<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
 					</item>
 					<item>
 						<Component type="key">VariablesManagement</Component>
@@ -206,13 +209,13 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">30</Type>
-						<UniqueID type="key">624734897</UniqueID>
-						<EntityID type="key">{E6CFA64B-E7F6-41CC-B2BF-F1450C77CA71}</EntityID>
-						<ItemInfoDate type="key">12/05/2026 11:20:29</ItemInfoDate>
+						<UniqueID type="key">315460178</UniqueID>
+						<EntityID type="key">{7C4DBFA6-DA9A-4723-B2CF-38538CB95579}</EntityID>
+						<ItemInfoDate type="key">13/05/2026 12:02:18</ItemInfoDate>
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
-						<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
 					</item>
 				</item>
 			</item>
