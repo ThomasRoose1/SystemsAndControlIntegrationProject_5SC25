@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.11
+ * Model version              : 1.18
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 19 13:18:11 2026
+ * C source code generated on : Tue May 19 14:40:11 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -233,6 +233,8 @@ typedef struct {
   real_T Diff;                         /* '<S1>/Diff' */
   real_T Gain;                         /* '<Root>/Gain' */
   real_T SFunction1[2];                /* '<S8>/S-Function1' */
+  real_T Alpha_sine;                   /* '<Root>/Alpha_sine ' */
+  real_T Beta_sine;                    /* '<Root>/Beta_sine' */
   real_T Add1;                         /* '<S3>/Add1' */
   real_T Add2;                         /* '<S3>/Add2' */
   real_T Add3;                         /* '<S3>/Add3' */
@@ -273,6 +275,7 @@ typedef struct {
   real_T Constant1_h;                  /* '<S42>/Constant1' */
   real_T Constant2_h;                  /* '<S42>/Constant2' */
   real_T reser_integrator;             /* '<S3>/reser_integrator' */
+  real_T Beta_ref;                     /* '<Root>/Beta_ref ' */
   real_T x_2;                          /* '<Root>/coordinates_ball' */
   real_T y_2;                          /* '<Root>/coordinates_ball' */
   real_T SFunction1_o1;                /* '<S52>/S-Function1' */
@@ -609,11 +612,29 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Constant_Value_i;             /* Expression: 1
                                         * Referenced by: '<S2>/Constant'
                                         */
-  real_T Alpha_ref_Value;              /* Expression: 0
-                                        * Referenced by: '<Root>/Alpha_ref '
+  real_T Alpha_sine_Amp;               /* Expression: 0.01
+                                        * Referenced by: '<Root>/Alpha_sine '
                                         */
-  real_T Beta_ref_Value;               /* Expression: 0
-                                        * Referenced by: '<Root>/Beta_ref '
+  real_T Alpha_sine_Bias;              /* Expression: 0
+                                        * Referenced by: '<Root>/Alpha_sine '
+                                        */
+  real_T Alpha_sine_Freq;              /* Expression: 1
+                                        * Referenced by: '<Root>/Alpha_sine '
+                                        */
+  real_T Alpha_sine_Phase;             /* Expression: 0
+                                        * Referenced by: '<Root>/Alpha_sine '
+                                        */
+  real_T Beta_sine_Amp;                /* Expression: 0.01
+                                        * Referenced by: '<Root>/Beta_sine'
+                                        */
+  real_T Beta_sine_Bias;               /* Expression: 0
+                                        * Referenced by: '<Root>/Beta_sine'
+                                        */
+  real_T Beta_sine_Freq;               /* Expression: 1
+                                        * Referenced by: '<Root>/Beta_sine'
+                                        */
+  real_T Beta_sine_Phase;              /* Expression: 0
+                                        * Referenced by: '<Root>/Beta_sine'
                                         */
   real_T Psi_ref_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Psi_ref '
@@ -639,7 +660,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T enable_start_Value;           /* Expression: 0
                                         * Referenced by: '<S3>/enable_start '
                                         */
-  real_T enable_ref_Value;             /* Expression: 0
+  real_T enable_ref_Value;             /* Expression: 1
                                         * Referenced by: '<S3>/enable_ref '
                                         */
   real_T enable_ref_Threshold;         /* Expression: 0
@@ -827,6 +848,9 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T reser_integrator_Value;       /* Expression: 0
                                         * Referenced by: '<S3>/reser_integrator'
+                                        */
+  real_T Beta_ref_Value;               /* Expression: 0
+                                        * Referenced by: '<Root>/Beta_ref '
                                         */
   uint8_T Gain2_Gain;                  /* Computed Parameter: Gain2_Gain
                                         * Referenced by: '<S2>/Gain2'
