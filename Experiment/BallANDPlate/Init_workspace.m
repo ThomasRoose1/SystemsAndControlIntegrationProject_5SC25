@@ -20,7 +20,5 @@ uB= repmat(uB,[1,P]);
 uC = multisine(0,fn,fs,N,A);
 uC = repmat(uC,[1,P]);
 
-
-
 path = quintic(-0.0289,3,0,1/fs);
 
