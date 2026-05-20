@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlCache/19700101">
+<<<<<<< HEAD
   <slcache.FileAttributes type="slcache.FileAttributes" uuid="a0cae833-e26f-4441-9a7c-154cc2ba65fa">
+=======
+  <slcache.FileAttributes type="slcache.FileAttributes" uuid="6d2ba1fc-98b0-4477-9f66-262383ca94f2">
+>>>>>>> Thomas
     <checksum>/iORatK6Dg/SNWrlrfs7dA==</checksum>
   </slcache.FileAttributes>
 </MF0>

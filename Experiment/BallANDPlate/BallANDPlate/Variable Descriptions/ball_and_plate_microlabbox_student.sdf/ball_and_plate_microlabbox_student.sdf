@@ -12,4 +12,8 @@ Type=DS1202
 State=Enabled
 ServiceID=1
 TraceFile=ball_and_plate_microlabbox_student.trc
+<<<<<<< HEAD
 ID=823F6077-F726-4F52-8265-0545A423CA7B
+=======
+ID=F42EDB4A-7347-47A1-9E21-E08FB070E436
+>>>>>>> Thomas
