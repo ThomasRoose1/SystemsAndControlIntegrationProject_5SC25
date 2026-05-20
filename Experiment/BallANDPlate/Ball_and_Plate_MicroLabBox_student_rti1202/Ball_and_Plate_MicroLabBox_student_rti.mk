@@ -2,11 +2,7 @@
 #  Make include file Ball_and_Plate_MicroLabBox_student_rti.mk:
 #
 #   RTI1202 7.15 (02-Nov-2020)
-<<<<<<< HEAD
-#   Wed May 13 12:01:12 2026
-=======
-#   Tue May 19 15:21:40 2026
->>>>>>> Thomas
+#   Wed May 20 16:10:44 2026
 #
 #   Copyright 2020, dSPACE GmbH. All rights reserved.
 # =============================================================================
