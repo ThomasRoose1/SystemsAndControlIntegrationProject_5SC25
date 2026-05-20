@@ -64,10 +64,6 @@
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
 							<item>
-								<Name type="key">rec1_008.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
 								<Name type="key">rec1_009.mf4</Name>
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
@@ -111,10 +107,6 @@
 					</item>
 					<item>
 						<Name type="key">rec1_007.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
-					<item>
-						<Name type="key">rec1_008.mf4</Name>
 						<ViewFlags type="key">1</ViewFlags>
 					</item>
 					<item>

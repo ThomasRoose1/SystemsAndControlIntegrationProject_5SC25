@@ -342,8 +342,6 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<ItemInfoDate type="key">12/05/2026 10:44:54</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 					<ItemInfoDescr type="key"/>
-<<<<<<< HEAD
-=======
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
@@ -403,12 +401,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{8DCE7CEB-E9D6-4979-97DA-C20F73643662}</EntityID>
 					<ItemInfoDate type="key">19/05/2026 13:42:51</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
->>>>>>> Thomas
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
