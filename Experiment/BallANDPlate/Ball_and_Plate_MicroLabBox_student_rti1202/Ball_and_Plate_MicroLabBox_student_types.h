@@ -7,9 +7,15 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.10
+<<<<<<< HEAD
+ * Model version              : 1.12
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 12 11:19:46 2026
+ * C source code generated on : Wed May 13 12:01:12 2026
+=======
+ * Model version              : 1.23
+ * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
+ * C source code generated on : Tue May 19 15:21:40 2026
+>>>>>>> Thomas
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -23,10 +29,10 @@
 #include "rtwtypes.h"
 #include "multiword_types.h"
 
-/* Parameters for system: '<S24>/Enabled Subsystem' */
+/* Parameters for system: '<S25>/Enabled Subsystem' */
 typedef struct P_EnabledSubsystem_Ball_and_P_T_ P_EnabledSubsystem_Ball_and_P_T;
 
-/* Parameters for system: '<S24>/Enabled Subsystem1' */
+/* Parameters for system: '<S25>/Enabled Subsystem1' */
 typedef struct P_EnabledSubsystem1_Ball_and__T_ P_EnabledSubsystem1_Ball_and__T;
 
 /* Parameters (default storage) */

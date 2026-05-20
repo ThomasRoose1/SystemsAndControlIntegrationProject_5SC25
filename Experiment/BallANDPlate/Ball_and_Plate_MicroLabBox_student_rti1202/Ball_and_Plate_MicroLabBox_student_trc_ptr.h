@@ -5,7 +5,11 @@
    Declaration of function that initializes the global TRC pointers
 
    RTI1202 7.15 (02-Nov-2020)
-   Tue May 12 11:19:46 2026
+<<<<<<< HEAD
+   Wed May 13 12:01:12 2026
+=======
+   Tue May 19 15:21:40 2026
+>>>>>>> Thomas
 
    Copyright 2026, dSPACE GmbH. All rights reserved.
 
@@ -50,6 +54,9 @@ EXTERN_C volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_17;
 EXTERN_C volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_18;
 EXTERN_C volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_19;
 EXTERN_C volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_20;
+EXTERN_C volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_21;
+EXTERN_C volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_22;
+EXTERN_C volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_23;
 EXTERN_C volatile real_T *p_1_Ball_and_Plate_MicroLabBox_student_real_T_0;
 EXTERN_C volatile uint8_T *p_1_Ball_and_Plate_MicroLabBox_student_uint8_T_1;
 EXTERN_C volatile real_T *p_1_Ball_and_Plate_MicroLabBox_student_real_T_2;
@@ -64,17 +71,35 @@ EXTERN_C volatile uint16_T *p_2_Ball_and_Plate_MicroLabBox_student_uint16_T_2;
 EXTERN_C volatile int8_T *p_2_Ball_and_Plate_MicroLabBox_student_int8_T_3;
 EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_4;
 EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_5;
-EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_6;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_6;
 EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_7;
 EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_8;
-EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_9;
+<<<<<<< HEAD
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_9;
 EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_10;
-EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_11;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_11;
 EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_12;
-EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_13;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_13;
 EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_14;
-EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_15;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_15;
 EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_16;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_17;
+=======
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_9;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_10;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_11;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_12;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_13;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_14;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_15;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_16;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_17;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_18;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_19;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_20;
+EXTERN_C volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_21;
+EXTERN_C volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_22;
+>>>>>>> Thomas
 EXTERN_C volatile real_T *p_3_Ball_and_Plate_MicroLabBox_student_real_T_0;
 EXTERN_C volatile real_T *p_5_Ball_and_Plate_MicroLabBox_student_real_T_0;
 EXTERN_C volatile uint32_T *p_5_Ball_and_Plate_MicroLabBox_student_uint32_T_1;

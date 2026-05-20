@@ -8,5 +8,6 @@ typedef Ball_and_Plate_MicroLabBox_student_ArrayDT3_32 uint(8)[32]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT3_4 uint(8)[4]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_3001 flt(64,IEEE)[3001]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000 flt(64,IEEE)[200000]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_6 flt(64,IEEE)[6]
 
 

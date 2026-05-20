@@ -163,6 +163,56 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 
 Variable description reloaded on 12.05.2026 11:20:29 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
 Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 09:20:00 (UTC)]
+
+<<<<<<< HEAD
+Variable description reloaded on 13.05.2026 12:02:18 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-13 10:01:34 (UTC)]
+=======
+Variable description reloaded on 19.05.2026 13:19:47 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 11:18:27 (UTC)]
+
+Variable description reloaded on 19.05.2026 13:27:44 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 11:25:43 (UTC)]
+
+Variable description reloaded on 19.05.2026 13:57:05 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 11:56:04 (UTC)]
+
+Variable description reloaded on 19.05.2026 14:09:55 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 12:07:56 (UTC)]
+
+Variable description reloaded on 19.05.2026 14:12:50 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 12:12:22 (UTC)]
+
+Variable description reloaded on 19.05.2026 14:15:18 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 12:14:57 (UTC)]
+
+Variable description reloaded on 19.05.2026 14:21:24 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 12:20:29 (UTC)]
+
+Variable description reloaded on 19.05.2026 14:31:59 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 12:29:29 (UTC)]
+
+Variable description reloaded on 19.05.2026 14:35:56 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 12:35:35 (UTC)]
+
+Variable description reloaded on 19.05.2026 14:40:53 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 12:40:25 (UTC)]
+
+Variable description reloaded on 19.05.2026 15:05:00 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 13:04:15 (UTC)]
+
+Variable description reloaded on 19.05.2026 15:11:11 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 13:10:05 (UTC)]
+
+Variable description reloaded on 19.05.2026 15:13:36 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 13:13:09 (UTC)]
+
+Variable description reloaded on 19.05.2026 15:14:32 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 13:14:12 (UTC)]
+
+Variable description reloaded on 19.05.2026 15:22:17 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-19 13:21:55 (UTC)]
+>>>>>>> Thomas
 </ItemInfoLog>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
@@ -174,13 +224,19 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">4</Type>
-						<UniqueID type="key">841166524</UniqueID>
-						<EntityID type="key">{CA51F3F7-1EFE-4C5A-95E2-E422E821F114}</EntityID>
-						<ItemInfoDate type="key">12/05/2026 11:20:29</ItemInfoDate>
+<<<<<<< HEAD
+						<UniqueID type="key">462961019</UniqueID>
+						<EntityID type="key">{64FA7B97-6B3C-4FB5-A587-4860EF83498E}</EntityID>
+						<ItemInfoDate type="key">13/05/2026 12:02:18</ItemInfoDate>
+=======
+						<UniqueID type="key">30259747</UniqueID>
+						<EntityID type="key">{AC26826E-4C0C-446F-9AF4-561E2FE6D977}</EntityID>
+						<ItemInfoDate type="key">19/05/2026 15:22:17</ItemInfoDate>
+>>>>>>> Thomas
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
-						<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
 					</item>
 					<item>
 						<Component type="key">VariablesManagement</Component>
@@ -190,13 +246,19 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">4</Type>
-						<UniqueID type="key">1070391104</UniqueID>
-						<EntityID type="key">{CE05F8BB-D4A5-4788-AD8B-3FDA87ADEF04}</EntityID>
-						<ItemInfoDate type="key">12/05/2026 11:20:29</ItemInfoDate>
+<<<<<<< HEAD
+						<UniqueID type="key">775428405</UniqueID>
+						<EntityID type="key">{56E0F0C3-7E57-469E-B425-C140830DB3E0}</EntityID>
+						<ItemInfoDate type="key">13/05/2026 12:02:18</ItemInfoDate>
+=======
+						<UniqueID type="key">336496456</UniqueID>
+						<EntityID type="key">{AE8E840B-B05F-4F85-B4B1-8D7A778C6CF0}</EntityID>
+						<ItemInfoDate type="key">19/05/2026 15:22:17</ItemInfoDate>
+>>>>>>> Thomas
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
-						<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
 					</item>
 					<item>
 						<Component type="key">VariablesManagement</Component>
@@ -206,13 +268,19 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">30</Type>
-						<UniqueID type="key">624734897</UniqueID>
-						<EntityID type="key">{E6CFA64B-E7F6-41CC-B2BF-F1450C77CA71}</EntityID>
-						<ItemInfoDate type="key">12/05/2026 11:20:29</ItemInfoDate>
+<<<<<<< HEAD
+						<UniqueID type="key">315460178</UniqueID>
+						<EntityID type="key">{7C4DBFA6-DA9A-4723-B2CF-38538CB95579}</EntityID>
+						<ItemInfoDate type="key">13/05/2026 12:02:18</ItemInfoDate>
+=======
+						<UniqueID type="key">781695258</UniqueID>
+						<EntityID type="key">{8454A346-53A6-41A4-93E6-613A6A06E910}</EntityID>
+						<ItemInfoDate type="key">19/05/2026 15:22:17</ItemInfoDate>
+>>>>>>> Thomas
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
-						<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+						<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
 					</item>
 				</item>
 			</item>
@@ -342,9 +410,11 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-05-12 0
 	</ProjectExperiment>
 	<Instrumentation Version="1">
 		<UniqueIds Version="3">
-			<Count type="key">1</Count>
+			<Count type="key">2</Count>
 			<File1 type="key">Experiment_001/Layout1</File1>
 			<Id1 type="key">0</Id1>
+			<File2 type="key">Experiment_001/Layout2</File2>
+			<Id2 type="key">1</Id2>
 		</UniqueIds>
 	</Instrumentation>
 	<DiagnosticsManagement/>
