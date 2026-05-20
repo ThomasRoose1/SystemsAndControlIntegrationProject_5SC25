@@ -36,38 +36,6 @@
 							<Name type="key">ball_and_plate_microlabbox_student.sdf</Name>
 							<ViewFlags type="key">5</ViewFlags>
 							<item>
-								<Name type="key">rec1_001.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_002.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_003.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_004.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_005.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_006.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_007.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_009.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
 								<Name type="key">Data Sets</Name>
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
@@ -81,38 +49,6 @@
 				<item>
 					<Name type="key">Measurement Data</Name>
 					<ViewFlags type="key">1</ViewFlags>
-					<item>
-						<Name type="key">rec1_001.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
-					<item>
-						<Name type="key">rec1_002.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
-					<item>
-						<Name type="key">rec1_003.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
-					<item>
-						<Name type="key">rec1_004.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
-					<item>
-						<Name type="key">rec1_005.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
-					<item>
-						<Name type="key">rec1_006.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
-					<item>
-						<Name type="key">rec1_007.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
-					<item>
-						<Name type="key">rec1_009.mf4</Name>
-						<ViewFlags type="key">1</ViewFlags>
-					</item>
 				</item>
 				<item>
 					<Name type="key">Reports</Name>
@@ -171,7 +107,4 @@
 			</Layout2>
 		</Layouts>
 	</Instrumentation>
-	<XILAPIEESPort>
-		<ErrorConfigurationDocuments Version="1"/>
-	</XILAPIEESPort>
 </Root>

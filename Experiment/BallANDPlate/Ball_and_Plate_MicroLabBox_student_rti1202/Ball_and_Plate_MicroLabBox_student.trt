@@ -3,7 +3,7 @@
 --  Trace file: Ball_and_Plate_MicroLabBox_student.trc
 --
 --  RTI1202 7.15 (02-Nov-2020)
---  Wed May 20 15:25:40 2026
+--  Wed May 20 16:10:44 2026
 --
 --  Copyright 2026, dSPACE GmbH. All rights reserved.
 --
@@ -26,7 +26,7 @@
 
 _genname     "RTI"
 _genversion  "7.15"
-_gendate     "05/20/2026 15:25:43"
+_gendate     "05/20/2026 16:10:46"
 _description ""
 _author      "RTI1202 7.15 (02-Nov-2020)"
 _model       "Ball_and_Plate_MicroLabBox_student"
@@ -1119,26 +1119,6 @@ group "Model Root"
 
 			endgroup -- block-group "Switch2"
 
-			group "Switch3" -- block-group
-			{
-			 block: "Switch"
-			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[22]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Out1"
-				 flags:   OUTPUT|READONLY
-				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603092]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Threshold"
-				 flags:   PARAM
-				}
-
-
-			endgroup -- block-group "Switch3"
-
 			group "enable_ref\n" -- block-group
 			{
 			 block: "Switch"
@@ -1159,101 +1139,26 @@ group "Model Root"
 
 			endgroup -- block-group "enable_ref\n"
 
-  
-  
-			group "Controller_10_05" -- subsystem-group
-
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
+			group "u" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[22]
 				{
 				 type:    flt(64,IEEE)*
-				 alias:   "Output"
+				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-
-
-				group "Gain1" -- block-group
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603092]
 				{
-				 block: "Gain"
+				 type:    flt(64,IEEE)*
+				 alias:   "Threshold"
+				 flags:   PARAM
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[17]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603074]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Gain"
-					 flags:   PARAM
-					}
 
 
-				endgroup -- block-group "Gain1"
+			endgroup -- block-group "u"
 
-				group "Dct1lowpass3" -- block-group
-				{
-				 block: "S-Function"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603086]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P1"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603089]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P2"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Dct1lowpass3"
-
-				group "Dctleadlag2" -- block-group
-				{
-				 block: "S-Function"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[18]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603077]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P1"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603080]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P2"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603083]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P3"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Dctleadlag2"
-
-
-
-			endgroup -- subsystem-group "Controller_10_05"
   
   
 			group "Init_motion" -- subsystem-group
@@ -1873,6 +1778,101 @@ group "Model Root"
 			endgroup -- subsystem-group "Position Measurement"
   
   
+			group "motorA" -- subsystem-group
+
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Output"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Gain1" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[17]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603074]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain1"
+
+				group "Dct1lowpass3" -- block-group
+				{
+				 block: "S-Function"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603086]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P1"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603089]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P2"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Dct1lowpass3"
+
+				group "Dctleadlag2" -- block-group
+				{
+				 block: "S-Function"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[18]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603077]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P1"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603080]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P2"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603083]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P3"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Dctleadlag2"
+
+
+
+			endgroup -- subsystem-group "motorA"
+  
+  
 			group "MATLAB Function1" -- subsystem-group
 
 				p_0_Ball_and_Plate_MicroLabBox_student_real_T_21[0]
@@ -2114,101 +2114,6 @@ group "Model Root"
 
 			endgroup -- block-group "Switch3"
 
-  
-  
-			group "Controller_10_05" -- subsystem-group
-
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[31]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Output"
-				 flags:   OUTPUT|READONLY
-				}
-
-
-				group "Gain1" -- block-group
-				{
-				 block: "Gain"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[29]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603102]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Gain"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Gain1"
-
-				group "Dct1lowpass3" -- block-group
-				{
-				 block: "S-Function"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[31]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603114]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P1"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603117]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P2"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Dct1lowpass3"
-
-				group "Dctleadlag2" -- block-group
-				{
-				 block: "S-Function"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[30]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603105]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P1"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603108]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P2"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603111]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P3"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Dctleadlag2"
-
-
-
-			endgroup -- subsystem-group "Controller_10_05"
   
   
 			group "Init_motion" -- subsystem-group
@@ -2828,6 +2733,101 @@ group "Model Root"
 			endgroup -- subsystem-group "Position Measurement"
   
   
+			group "motorB" -- subsystem-group
+
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[31]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Output"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Gain1" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[29]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603102]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain1"
+
+				group "Dct1lowpass3" -- block-group
+				{
+				 block: "S-Function"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[31]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603114]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P1"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603117]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P2"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Dct1lowpass3"
+
+				group "Dctleadlag2" -- block-group
+				{
+				 block: "S-Function"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[30]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603105]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P1"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603108]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P2"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603111]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P3"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Dctleadlag2"
+
+
+
+			endgroup -- subsystem-group "motorB"
+  
+  
 			group "MATLAB Function2" -- subsystem-group
 
 				p_0_Ball_and_Plate_MicroLabBox_student_real_T_15[0]
@@ -3084,101 +3084,6 @@ group "Model Root"
 
 			endgroup -- block-group "Switch3"
 
-  
-  
-			group "Controller_10_05" -- subsystem-group
-
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[43]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Output"
-				 flags:   OUTPUT|READONLY
-				}
-
-
-				group "Gain1" -- block-group
-				{
-				 block: "Gain"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[41]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603130]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Gain"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Gain1"
-
-				group "Dct1lowpass3" -- block-group
-				{
-				 block: "S-Function"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[43]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603142]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P1"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603145]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P2"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Dct1lowpass3"
-
-				group "Dctleadlag2" -- block-group
-				{
-				 block: "S-Function"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[42]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-					}
-
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603133]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P1"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603136]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P2"
-					 flags:   PARAM
-					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603139]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P3"
-					 flags:   PARAM
-					}
-
-
-				endgroup -- block-group "Dctleadlag2"
-
-
-
-			endgroup -- subsystem-group "Controller_10_05"
   
   
 			group "Init_motion" -- subsystem-group
@@ -3848,6 +3753,101 @@ group "Model Root"
 
 
 			endgroup -- subsystem-group "Position Measurement"
+  
+  
+			group "motorC" -- subsystem-group
+
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[43]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Output"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Gain1" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[41]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603130]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain1"
+
+				group "Dct1lowpass3" -- block-group
+				{
+				 block: "S-Function"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[43]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603142]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P1"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603145]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P2"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Dct1lowpass3"
+
+				group "Dctleadlag2" -- block-group
+				{
+				 block: "S-Function"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[42]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603133]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P1"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603136]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P2"
+					 flags:   PARAM
+					}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603139]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P3"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Dctleadlag2"
+
+
+
+			endgroup -- subsystem-group "motorC"
   
   
 			group "MATLAB Function1" -- subsystem-group
