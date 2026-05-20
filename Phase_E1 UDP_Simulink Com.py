@@ -184,7 +184,7 @@ def detect_ball(gray, predicted=None):
 # ================= CAMERA INIT =================
 pipeline = rs.pipeline()
 config = rs.config()
-config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8, FPS)
+config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.y8, FPS)
 pipeline.start(config)
 
 video_writer = None
