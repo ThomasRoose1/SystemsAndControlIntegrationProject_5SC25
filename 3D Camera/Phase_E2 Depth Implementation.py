@@ -29,6 +29,7 @@ GRID_SPACING_MM = 100.0
 serverAddressPort = ("192.168.140.8", 49001)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 DEBUG_PRINT_UDP = True
+PARAM_DEBUG = True
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -229,6 +230,7 @@ try:
 
         if result is not None:
             contour, chosen, area = result
+            circ = contour_circularity(contour)
             ctrl_coords = pixel_to_control_coords(chosen)
 
             z_raw = depth_raw[chosen[1], chosen[0]]
@@ -258,6 +260,23 @@ try:
 
             cv2.putText(display, f'X: {ctrl_coords[0]:+6.1f} mm', (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
             cv2.putText(display, f'Y: {ctrl_coords[1]:+6.1f} mm', (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
+            
+            if PARAM_DEBUG:
+                cv2.putText(display,
+                f'Area: {area:.0f} px^2',
+                (20, 120),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.7,
+                (0,255,0),
+                2)
+
+                cv2.putText(display,
+                f'Circ: {circ:.2f}',
+                (20, 150),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.7,
+                (255,0,255),
+                2)
 
             z_label = f'Z(abs): {z_display:6.1f} mm' if z_reference_mm is None else f'Z(rel): {z_display:+6.1f} mm'
             cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
