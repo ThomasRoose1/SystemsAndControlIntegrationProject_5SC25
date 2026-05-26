@@ -3,7 +3,7 @@
 --  Trace file: Ball_and_Plate_MicroLabBox_student.trc
 --
 --  RTI1202 7.15 (02-Nov-2020)
---  Wed May 20 16:10:44 2026
+--  Tue May 26 11:15:31 2026
 --
 --  Copyright 2026, dSPACE GmbH. All rights reserved.
 --
@@ -26,7 +26,7 @@
 
 _genname     "RTI"
 _genversion  "7.15"
-_gendate     "05/20/2026 16:10:46"
+_gendate     "05/26/2026 11:15:34"
 _description ""
 _author      "RTI1202 7.15 (02-Nov-2020)"
 _model       "Ball_and_Plate_MicroLabBox_student"
@@ -1119,6 +1119,26 @@ group "Model Root"
 
 			endgroup -- block-group "Switch2"
 
+			group "Switch3" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[22]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603092]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Threshold"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Switch3"
+
 			group "enable_ref\n" -- block-group
 			{
 			 block: "Switch"
@@ -1138,26 +1158,6 @@ group "Model Root"
 
 
 			endgroup -- block-group "enable_ref\n"
-
-			group "u" -- block-group
-			{
-			 block: "Switch"
-			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[22]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Out1"
-				 flags:   OUTPUT|READONLY
-				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603092]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Threshold"
-				 flags:   PARAM
-				}
-
-
-			endgroup -- block-group "u"
 
   
   
@@ -1778,7 +1778,7 @@ group "Model Root"
 			endgroup -- subsystem-group "Position Measurement"
   
   
-			group "motorA" -- subsystem-group
+			group "motorA\n" -- subsystem-group
 
 				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
 				{
@@ -1870,7 +1870,7 @@ group "Model Root"
 
 
 
-			endgroup -- subsystem-group "motorA"
+			endgroup -- subsystem-group "motorA\n"
   
   
 			group "MATLAB Function1" -- subsystem-group

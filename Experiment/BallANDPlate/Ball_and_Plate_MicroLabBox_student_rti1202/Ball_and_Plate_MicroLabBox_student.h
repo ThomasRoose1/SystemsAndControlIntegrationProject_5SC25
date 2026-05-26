@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.23
+ * Model version              : 1.27
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Wed May 20 16:10:44 2026
+ * C source code generated on : Tue May 26 11:15:31 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -264,28 +264,28 @@ typedef struct {
   real_T Dct1lowpass3;                 /* '<S18>/Dct1lowpass3' */
   real_T Switch2;                      /* '<S10>/Switch2' */
   real_T Sum;                          /* '<S10>/Sum' */
-  real_T u;                            /* '<S10>/u' */
+  real_T Switch3;                      /* '<S10>/Switch3' */
   real_T Switch_f;                     /* '<S13>/Switch' */
   real_T Constant1;                    /* '<S13>/Constant1' */
   real_T Constant2;                    /* '<S13>/Constant2' */
   real_T Switch1;                      /* '<S11>/Switch1' */
   real_T Switch_j;                     /* '<S11>/Switch' */
   real_T Sum1_f;                       /* '<S11>/Sum1' */
-  real_T Gain1_g;                      /* '<S33>/Gain1' */
-  real_T Dctleadlag2_c;                /* '<S33>/Dctleadlag2' */
-  real_T Dct1lowpass3_f;               /* '<S33>/Dct1lowpass3' */
+  real_T Gain1_f;                      /* '<S33>/Gain1' */
+  real_T Dctleadlag2_k;                /* '<S33>/Dctleadlag2' */
+  real_T Dct1lowpass3_c;               /* '<S33>/Dct1lowpass3' */
   real_T Switch2_p;                    /* '<S11>/Switch2' */
   real_T Sum_g;                        /* '<S11>/Sum' */
-  real_T Switch3;                      /* '<S11>/Switch3' */
+  real_T Switch3_d;                    /* '<S11>/Switch3' */
   real_T Switch_n;                     /* '<S28>/Switch' */
   real_T Constant1_c;                  /* '<S28>/Constant1' */
   real_T Constant2_b;                  /* '<S28>/Constant2' */
   real_T Switch1_k;                    /* '<S12>/Switch1' */
   real_T Switch_jo;                    /* '<S12>/Switch' */
   real_T Sum1_h;                       /* '<S12>/Sum1' */
-  real_T Gain1_d;                      /* '<S49>/Gain1' */
-  real_T Dctleadlag2_i;                /* '<S49>/Dctleadlag2' */
-  real_T Dct1lowpass3_a;               /* '<S49>/Dct1lowpass3' */
+  real_T Gain1_m;                      /* '<S49>/Gain1' */
+  real_T Dctleadlag2_a;                /* '<S49>/Dctleadlag2' */
+  real_T Dct1lowpass3_e;               /* '<S49>/Dct1lowpass3' */
   real_T Switch2_h;                    /* '<S12>/Switch2' */
   real_T Sum_h;                        /* '<S12>/Sum' */
   real_T Switch3_l;                    /* '<S12>/Switch3' */
@@ -386,10 +386,10 @@ typedef struct {
 
   real_T Dctleadlag2_RWORK[2];         /* '<S18>/Dctleadlag2' */
   real_T Dct1lowpass3_RWORK[2];        /* '<S18>/Dct1lowpass3' */
-  real_T Dctleadlag2_RWORK_l[2];       /* '<S33>/Dctleadlag2' */
+  real_T Dctleadlag2_RWORK_o[2];       /* '<S33>/Dctleadlag2' */
   real_T Dct1lowpass3_RWORK_b[2];      /* '<S33>/Dct1lowpass3' */
-  real_T Dctleadlag2_RWORK_g[2];       /* '<S49>/Dctleadlag2' */
-  real_T Dct1lowpass3_RWORK_j[2];      /* '<S49>/Dct1lowpass3' */
+  real_T Dctleadlag2_RWORK_p[2];       /* '<S49>/Dctleadlag2' */
+  real_T Dct1lowpass3_RWORK_d[2];      /* '<S49>/Dct1lowpass3' */
   uint32_T Add1_DWORK1;                /* '<S2>/Add1' */
   uint16_T Add_DWORK1;                 /* '<S2>/Add' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
@@ -690,7 +690,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T controller_disable_Value;     /* Expression: 1
                                         * Referenced by: '<S3>/controller_disable'
                                         */
-  real_T enable_quintic_Value;         /* Expression: 1
+  real_T enable_quintic_Value;         /* Expression: 0
                                         * Referenced by: '<S3>/enable_quintic  '
                                         */
   real_T quintic_ref_Value;            /* Expression: 0
@@ -711,7 +711,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T enable_ref_Threshold;         /* Expression: 0
                                         * Referenced by: '<S10>/enable_ref '
                                         */
-  real_T Gain1_Gain;                   /* Expression: 1000
+  real_T Gain1_Gain;                   /* Expression: 1400
                                         * Referenced by: '<S18>/Gain1'
                                         */
   real_T Dctleadlag2_P1_Size[2];      /* Computed Parameter: Dctleadlag2_P1_Size
@@ -750,8 +750,8 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T enable_ID_A_Value;            /* Expression: 0
                                         * Referenced by: '<S10>/enable_ID_A '
                                         */
-  real_T u_Threshold;                  /* Expression: 0.5
-                                        * Referenced by: '<S10>/u'
+  real_T Switch3_Threshold;            /* Expression: 0.5
+                                        * Referenced by: '<S10>/Switch3'
                                         */
   real_T u_no_0_init_motion_Value;     /* Expression: 1
                                         * Referenced by: '<S10>/1_no_0_init_motion'
@@ -780,37 +780,37 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch_Threshold_a;           /* Expression: 0
                                         * Referenced by: '<S11>/Switch'
                                         */
-  real_T Gain1_Gain_l;                 /* Expression: 1000
+  real_T Gain1_Gain_l;                 /* Expression: 1300
                                         * Referenced by: '<S33>/Gain1'
                                         */
-  real_T Dctleadlag2_P1_Size_d[2];  /* Computed Parameter: Dctleadlag2_P1_Size_d
+  real_T Dctleadlag2_P1_Size_o[2];  /* Computed Parameter: Dctleadlag2_P1_Size_o
                                      * Referenced by: '<S33>/Dctleadlag2'
                                      */
-  real_T Dctleadlag2_P1_h;             /* Expression: f_num
+  real_T Dctleadlag2_P1_g;             /* Expression: f_num
                                         * Referenced by: '<S33>/Dctleadlag2'
                                         */
-  real_T Dctleadlag2_P2_Size_o[2];  /* Computed Parameter: Dctleadlag2_P2_Size_o
+  real_T Dctleadlag2_P2_Size_b[2];  /* Computed Parameter: Dctleadlag2_P2_Size_b
                                      * Referenced by: '<S33>/Dctleadlag2'
                                      */
-  real_T Dctleadlag2_P2_i;             /* Expression: f_den
+  real_T Dctleadlag2_P2_b;             /* Expression: f_den
                                         * Referenced by: '<S33>/Dctleadlag2'
                                         */
-  real_T Dctleadlag2_P3_Size_b[2];  /* Computed Parameter: Dctleadlag2_P3_Size_b
+  real_T Dctleadlag2_P3_Size_f[2];  /* Computed Parameter: Dctleadlag2_P3_Size_f
                                      * Referenced by: '<S33>/Dctleadlag2'
                                      */
-  real_T Dctleadlag2_P3_i;             /* Expression: 0.001
+  real_T Dctleadlag2_P3_j;             /* Expression: 0.001
                                         * Referenced by: '<S33>/Dctleadlag2'
                                         */
-  real_T Dct1lowpass3_P1_Size_g[2];/* Computed Parameter: Dct1lowpass3_P1_Size_g
+  real_T Dct1lowpass3_P1_Size_m[2];/* Computed Parameter: Dct1lowpass3_P1_Size_m
                                     * Referenced by: '<S33>/Dct1lowpass3'
                                     */
-  real_T Dct1lowpass3_P1_d;            /* Expression: f_den
+  real_T Dct1lowpass3_P1_a;            /* Expression: f_den
                                         * Referenced by: '<S33>/Dct1lowpass3'
                                         */
-  real_T Dct1lowpass3_P2_Size_d[2];/* Computed Parameter: Dct1lowpass3_P2_Size_d
+  real_T Dct1lowpass3_P2_Size_i[2];/* Computed Parameter: Dct1lowpass3_P2_Size_i
                                     * Referenced by: '<S33>/Dct1lowpass3'
                                     */
-  real_T Dct1lowpass3_P2_k;            /* Expression: 0.001
+  real_T Dct1lowpass3_P2_h;            /* Expression: 0.001
                                         * Referenced by: '<S33>/Dct1lowpass3'
                                         */
   real_T Switch2_Threshold_k;          /* Expression: 0.5
@@ -819,7 +819,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T enable_ID_B_Value;            /* Expression: 0
                                         * Referenced by: '<S11>/enable_ID_B '
                                         */
-  real_T Switch3_Threshold;            /* Expression: 0.5
+  real_T Switch3_Threshold_m;          /* Expression: 0.5
                                         * Referenced by: '<S11>/Switch3'
                                         */
   real_T u_no_0_init_motion_Value_e;   /* Expression: 1
@@ -849,37 +849,37 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch_Threshold_e;           /* Expression: 0
                                         * Referenced by: '<S12>/Switch'
                                         */
-  real_T Gain1_Gain_o;                 /* Expression: 250
+  real_T Gain1_Gain_p;                 /* Expression: 250
                                         * Referenced by: '<S49>/Gain1'
                                         */
-  real_T Dctleadlag2_P1_Size_d0[2];/* Computed Parameter: Dctleadlag2_P1_Size_d0
-                                    * Referenced by: '<S49>/Dctleadlag2'
-                                    */
-  real_T Dctleadlag2_P1_b;             /* Expression: f_num
-                                        * Referenced by: '<S49>/Dctleadlag2'
-                                        */
-  real_T Dctleadlag2_P2_Size_m[2];  /* Computed Parameter: Dctleadlag2_P2_Size_m
+  real_T Dctleadlag2_P1_Size_f[2];  /* Computed Parameter: Dctleadlag2_P1_Size_f
                                      * Referenced by: '<S49>/Dctleadlag2'
                                      */
-  real_T Dctleadlag2_P2_d;             /* Expression: f_den
+  real_T Dctleadlag2_P1_h;             /* Expression: f_num
                                         * Referenced by: '<S49>/Dctleadlag2'
                                         */
-  real_T Dctleadlag2_P3_Size_k[2];  /* Computed Parameter: Dctleadlag2_P3_Size_k
+  real_T Dctleadlag2_P2_Size_d[2];  /* Computed Parameter: Dctleadlag2_P2_Size_d
                                      * Referenced by: '<S49>/Dctleadlag2'
                                      */
-  real_T Dctleadlag2_P3_g;             /* Expression: 0.001
+  real_T Dctleadlag2_P2_l;             /* Expression: f_den
                                         * Referenced by: '<S49>/Dctleadlag2'
                                         */
-  real_T Dct1lowpass3_P1_Size_m[2];/* Computed Parameter: Dct1lowpass3_P1_Size_m
+  real_T Dctleadlag2_P3_Size_p[2];  /* Computed Parameter: Dctleadlag2_P3_Size_p
+                                     * Referenced by: '<S49>/Dctleadlag2'
+                                     */
+  real_T Dctleadlag2_P3_l;             /* Expression: 0.001
+                                        * Referenced by: '<S49>/Dctleadlag2'
+                                        */
+  real_T Dct1lowpass3_P1_Size_d[2];/* Computed Parameter: Dct1lowpass3_P1_Size_d
                                     * Referenced by: '<S49>/Dct1lowpass3'
                                     */
-  real_T Dct1lowpass3_P1_f;            /* Expression: f_den
+  real_T Dct1lowpass3_P1_g;            /* Expression: f_den
                                         * Referenced by: '<S49>/Dct1lowpass3'
                                         */
-  real_T Dct1lowpass3_P2_Size_c[2];/* Computed Parameter: Dct1lowpass3_P2_Size_c
+  real_T Dct1lowpass3_P2_Size_k[2];/* Computed Parameter: Dct1lowpass3_P2_Size_k
                                     * Referenced by: '<S49>/Dct1lowpass3'
                                     */
-  real_T Dct1lowpass3_P2_g;            /* Expression: 0.001
+  real_T Dct1lowpass3_P2_f;            /* Expression: 0.001
                                         * Referenced by: '<S49>/Dct1lowpass3'
                                         */
   real_T Switch2_Threshold_b;          /* Expression: 0.5
@@ -1200,7 +1200,7 @@ extern RT_MODEL_Ball_and_Plate_MicroLabBox_student_T *const
  * '<S15>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Multisine'
  * '<S16>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Outputs to Amplifier'
  * '<S17>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement'
- * '<S18>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/motorA'
+ * '<S18>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/motorA '
  * '<S19>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Init_motion/MATLAB Function'
  * '<S20>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Init_motion/MATLAB Function2'
  * '<S21>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Multisine/MATLAB Function'

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.23
+ * Model version              : 1.27
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Wed May 20 16:10:44 2026
+ * C source code generated on : Tue May 26 11:15:31 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1595,24 +1595,24 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_e.y;
   }
 
-  /* Switch: '<S10>/u' incorporates:
+  /* Switch: '<S10>/Switch3' incorporates:
    *  Constant: '<S3>/CloseLoop_disable'
    */
   if (Ball_and_Plate_MicroLabBox_student_P.CloseLoop_disable_Value >=
-      Ball_and_Plate_MicroLabBox_student_P.u_Threshold) {
-    Ball_and_Plate_MicroLabBox_student_B.u =
+      Ball_and_Plate_MicroLabBox_student_P.Switch3_Threshold) {
+    Ball_and_Plate_MicroLabBox_student_B.Switch3 =
       Ball_and_Plate_MicroLabBox_student_B.TransferFcn_f;
   } else {
-    Ball_and_Plate_MicroLabBox_student_B.u =
+    Ball_and_Plate_MicroLabBox_student_B.Switch3 =
       Ball_and_Plate_MicroLabBox_student_B.Sum;
   }
 
-  /* End of Switch: '<S10>/u' */
+  /* End of Switch: '<S10>/Switch3' */
 
   /* Outputs for Atomic SubSystem: '<S10>/Outputs to Amplifier' */
 
   /* Saturate: '<S16>/Saturation' */
-  u0 = Ball_and_Plate_MicroLabBox_student_B.u;
+  u0 = Ball_and_Plate_MicroLabBox_student_B.Switch3;
   T_2 = Ball_and_Plate_MicroLabBox_student_P.Saturation_LowerSat;
   R_BtoP_0 = Ball_and_Plate_MicroLabBox_student_P.Saturation_UpperSat;
   if (u0 > R_BtoP_0) {
@@ -1744,7 +1744,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.mm2m_p;
 
   /* Gain: '<S33>/Gain1' */
-  Ball_and_Plate_MicroLabBox_student_B.Gain1_g =
+  Ball_and_Plate_MicroLabBox_student_B.Gain1_f =
     Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_l *
     Ball_and_Plate_MicroLabBox_student_B.Sum1_f;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
@@ -1775,7 +1775,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
         Ball_and_Plate_MicroLabBox_student_P.Constant1_Value;
     } else {
       Ball_and_Plate_MicroLabBox_student_B.Switch2_p =
-        Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_f;
+        Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_c;
     }
 
     /* End of Switch: '<S11>/Switch2' */
@@ -1800,11 +1800,11 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
    *  Constant: '<S3>/CloseLoop_disable'
    */
   if (Ball_and_Plate_MicroLabBox_student_P.CloseLoop_disable_Value >=
-      Ball_and_Plate_MicroLabBox_student_P.Switch3_Threshold) {
-    Ball_and_Plate_MicroLabBox_student_B.Switch3 =
+      Ball_and_Plate_MicroLabBox_student_P.Switch3_Threshold_m) {
+    Ball_and_Plate_MicroLabBox_student_B.Switch3_d =
       Ball_and_Plate_MicroLabBox_student_B.TransferFcn_o;
   } else {
-    Ball_and_Plate_MicroLabBox_student_B.Switch3 =
+    Ball_and_Plate_MicroLabBox_student_B.Switch3_d =
       Ball_and_Plate_MicroLabBox_student_B.Sum_g;
   }
 
@@ -1813,7 +1813,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   /* Outputs for Atomic SubSystem: '<S11>/Outputs to Amplifier' */
 
   /* Saturate: '<S31>/Saturation' */
-  u0 = Ball_and_Plate_MicroLabBox_student_B.Switch3;
+  u0 = Ball_and_Plate_MicroLabBox_student_B.Switch3_d;
   T_2 = Ball_and_Plate_MicroLabBox_student_P.Saturation_LowerSat_f;
   R_BtoP_0 = Ball_and_Plate_MicroLabBox_student_P.Saturation_UpperSat_e;
   if (u0 > R_BtoP_0) {
@@ -1946,8 +1946,8 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.mm2m;
 
   /* Gain: '<S49>/Gain1' */
-  Ball_and_Plate_MicroLabBox_student_B.Gain1_d =
-    Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_o *
+  Ball_and_Plate_MicroLabBox_student_B.Gain1_m =
+    Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_p *
     Ball_and_Plate_MicroLabBox_student_B.Sum1_h;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
@@ -1977,7 +1977,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
         Ball_and_Plate_MicroLabBox_student_P.Constant_Value_e;
     } else {
       Ball_and_Plate_MicroLabBox_student_B.Switch2_h =
-        Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_a;
+        Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_e;
     }
 
     /* End of Switch: '<S12>/Switch2' */
@@ -2516,7 +2516,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dctleadlag2");
       ssSetPath(rts,
-                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/motorA/Dctleadlag2");
+                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/motorA /Dctleadlag2");
       ssSetRTModel(rts,Ball_and_Plate_MicroLabBox_student_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -2695,7 +2695,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dct1lowpass3");
       ssSetPath(rts,
-                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/motorA/Dct1lowpass3");
+                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/motorA /Dct1lowpass3");
       ssSetRTModel(rts,Ball_and_Plate_MicroLabBox_student_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -2838,7 +2838,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Ball_and_Plate_MicroLabBox_student_M->NonInlinedSFcns.Sfcn2.UPtrs0;
-          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Gain1_g;
+          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Gain1_f;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -2865,7 +2865,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_c));
+            &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_k));
         }
       }
 
@@ -2885,16 +2885,16 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P1_Size_d);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P1_Size_o);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P2_Size_o);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P2_Size_b);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P3_Size_b);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P3_Size_f);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_l[0]);
+                 &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_o[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -2910,7 +2910,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
         ssSetDWork(rts, 0,
-                   &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_l[0]);
+                   &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_o[0]);
       }
 
       /* registration */
@@ -3017,7 +3017,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Ball_and_Plate_MicroLabBox_student_M->NonInlinedSFcns.Sfcn3.UPtrs0;
-          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_c;
+          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_k;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -3044,7 +3044,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_f));
+            &Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_c));
         }
       }
 
@@ -3064,9 +3064,9 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P1_Size_g);
+                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P1_Size_m);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P2_Size_d);
+                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P2_Size_i);
       }
 
       /* work vectors */
@@ -3194,7 +3194,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Ball_and_Plate_MicroLabBox_student_M->NonInlinedSFcns.Sfcn4.UPtrs0;
-          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Gain1_d;
+          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Gain1_m;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -3221,7 +3221,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_i));
+            &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_a));
         }
       }
 
@@ -3241,16 +3241,16 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P1_Size_d0);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P1_Size_f);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P2_Size_m);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P2_Size_d);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P3_Size_k);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P3_Size_p);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_g[0]);
+                 &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_p[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -3266,7 +3266,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
         ssSetDWork(rts, 0,
-                   &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_g[0]);
+                   &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_p[0]);
       }
 
       /* registration */
@@ -3373,7 +3373,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Ball_and_Plate_MicroLabBox_student_M->NonInlinedSFcns.Sfcn5.UPtrs0;
-          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_i;
+          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_a;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -3400,7 +3400,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_a));
+            &Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_e));
         }
       }
 
@@ -3420,14 +3420,14 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P1_Size_m);
+                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P1_Size_d);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P2_Size_c);
+                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P2_Size_k);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &Ball_and_Plate_MicroLabBox_student_DW.Dct1lowpass3_RWORK_j[0]);
+                 &Ball_and_Plate_MicroLabBox_student_DW.Dct1lowpass3_RWORK_d[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -3443,7 +3443,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
         ssSetDWork(rts, 0,
-                   &Ball_and_Plate_MicroLabBox_student_DW.Dct1lowpass3_RWORK_j[0]);
+                   &Ball_and_Plate_MicroLabBox_student_DW.Dct1lowpass3_RWORK_d[0]);
       }
 
       /* registration */

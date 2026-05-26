@@ -934,6 +934,26 @@ group "Model Root"
 
 			endgroup -- block-group "Switch2"
 
+			group "Switch3" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[22]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603092]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Threshold"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Switch3"
+
 			group "enable_ref\n" -- block-group
 			{
 			 block: "Switch"
@@ -953,26 +973,6 @@ group "Model Root"
 
 
 			endgroup -- block-group "enable_ref\n"
-
-			group "u" -- block-group
-			{
-			 block: "Switch"
-			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[22]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Out1"
-				 flags:   OUTPUT|READONLY
-				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603092]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Threshold"
-				 flags:   PARAM
-				}
-
-
-			endgroup -- block-group "u"
 
   
   
@@ -1593,7 +1593,7 @@ group "Model Root"
 			endgroup -- subsystem-group "Position Measurement"
   
   
-			group "motorA" -- subsystem-group
+			group "motorA\n" -- subsystem-group
 
 				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
 				{
@@ -1685,7 +1685,7 @@ group "Model Root"
 
 
 
-			endgroup -- subsystem-group "motorA"
+			endgroup -- subsystem-group "motorA\n"
   
   
 			group "MATLAB Function1" -- subsystem-group
