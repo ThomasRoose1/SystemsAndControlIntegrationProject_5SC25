@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.27
+ * Model version              : 1.48
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 26 11:15:31 2026
+ * C source code generated on : Tue May 26 12:38:02 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -247,7 +247,7 @@ typedef struct {
   real_T Uk1;                          /* '<S1>/UD' */
   real_T Diff;                         /* '<S1>/Diff' */
   real_T Gain;                         /* '<Root>/Gain' */
-  real_T SFunction1[2];                /* '<S8>/S-Function1' */
+  real_T SFunction1[2];                /* '<S7>/S-Function1' */
   real_T Alpha_sine;                   /* '<Root>/Alpha_sine ' */
   real_T Beta_sine;                    /* '<Root>/Beta_sine' */
   real_T Add1;                         /* '<S3>/Add1' */
@@ -294,8 +294,6 @@ typedef struct {
   real_T Constant2_h;                  /* '<S43>/Constant2' */
   real_T reser_integrator;             /* '<S3>/reser_integrator' */
   real_T Beta_ref;                     /* '<Root>/Beta_ref ' */
-  real_T x_2;                          /* '<Root>/coordinates_ball' */
-  real_T y_2;                          /* '<Root>/coordinates_ball' */
   real_T SFunction1_o1;                /* '<S55>/S-Function1' */
   real_T SFunction1_o2;                /* '<S55>/S-Function1' */
   real_T Inc2Pos;                      /* '<S48>/Inc2Pos' */
@@ -329,18 +327,15 @@ typedef struct {
   real_T pos1;                         /* '<S3>/AngleToPos ' */
   real_T pos2;                         /* '<S3>/AngleToPos ' */
   real_T pos3;                         /* '<S3>/AngleToPos ' */
-  uint32_T SFunction1_o4;              /* '<S7>/S-Function1' */
-  uint32_T SFunction1_o1_m[3];         /* '<S6>/S-Function1' */
-  uint16_T SFunction1_o6;              /* '<S7>/S-Function1' */
-  uint16_T Gain2;                      /* '<S2>/Gain2' */
-  uint16_T Add;                        /* '<S2>/Add' */
-  uint16_T Gain1_b;                    /* '<S2>/Gain1' */
-  uint16_T Add1_l;                     /* '<S2>/Add1' */
-  uint16_T RateTransition1;            /* '<Root>/Rate Transition1' */
-  uint16_T RateTransition2;            /* '<Root>/Rate Transition2' */
-  uint8_T SFunction1_o1_c[32];         /* '<S7>/S-Function1' */
-  uint8_T SFunction1_o5[4];            /* '<S7>/S-Function1' */
-  uint8_T SFunction1_o2_f[4];          /* '<S6>/S-Function1' */
+  real_T x;                            /* '<S2>/MATLAB Function' */
+  real_T y;                            /* '<S2>/MATLAB Function' */
+  real_T z;                            /* '<S2>/MATLAB Function' */
+  uint32_T SFunction1_o4;              /* '<S6>/S-Function1' */
+  uint32_T SFunction1_o1_m[3];         /* '<S5>/S-Function1' */
+  uint16_T SFunction1_o6;              /* '<S6>/S-Function1' */
+  uint8_T SFunction1_o1_c[12];         /* '<S6>/S-Function1' */
+  uint8_T SFunction1_o5[4];            /* '<S6>/S-Function1' */
+  uint8_T SFunction1_o2_f[4];          /* '<S5>/S-Function1' */
   boolean_T DataTypeConversion;        /* '<S2>/Data Type Conversion' */
   boolean_T RelationalOperator1;       /* '<S57>/Relational Operator1' */
   boolean_T RelationalOperator;        /* '<S57>/Relational Operator' */
@@ -369,7 +364,7 @@ typedef struct {
   B_MATLABFunction_Ball_and_P_m_T sf_MATLABFunction_e;/* '<S15>/MATLAB Function' */
   B_MATLABFunction1_Ball_and_Pl_T sf_MATLABFunction1;/* '<S10>/MATLAB Function1' */
   B_MATLABFunction2_Ball_and_Pl_T sf_MATLABFunction2;/* '<S13>/MATLAB Function2' */
-  B_MATLABFunction_Ball_and_Pla_T sf_MATLABFunction;/* '<S13>/MATLAB Function' */
+  B_MATLABFunction_Ball_and_Pla_T sf_MATLABFunction_i;/* '<S13>/MATLAB Function' */
 } B_Ball_and_Plate_MicroLabBox_student_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -378,11 +373,11 @@ typedef struct {
   volatile real_T RateTransition3_Buffer0;/* '<Root>/Rate Transition3' */
   struct {
     real_T RECEIVED_FRAMES;
-  } SFunction1_RWORK;                  /* '<S7>/S-Function1' */
+  } SFunction1_RWORK;                  /* '<S6>/S-Function1' */
 
   struct {
     real_T RX_DROPPED_FRAMES[2];
-  } SFunction1_RWORK_l;                /* '<S8>/S-Function1' */
+  } SFunction1_RWORK_l;                /* '<S7>/S-Function1' */
 
   real_T Dctleadlag2_RWORK[2];         /* '<S18>/Dctleadlag2' */
   real_T Dct1lowpass3_RWORK[2];        /* '<S18>/Dct1lowpass3' */
@@ -390,8 +385,6 @@ typedef struct {
   real_T Dct1lowpass3_RWORK_b[2];      /* '<S33>/Dct1lowpass3' */
   real_T Dctleadlag2_RWORK_p[2];       /* '<S49>/Dctleadlag2' */
   real_T Dct1lowpass3_RWORK_d[2];      /* '<S49>/Dct1lowpass3' */
-  uint32_T Add1_DWORK1;                /* '<S2>/Add1' */
-  uint16_T Add_DWORK1;                 /* '<S2>/Add' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
   DW_EnabledSubsystem1_Ball_and_T EnabledSubsystem1_b;/* '<S57>/Enabled Subsystem1' */
   DW_EnabledSubsystem_Ball_and__T EnabledSubsystem_n;/* '<S57>/Enabled Subsystem' */
@@ -408,7 +401,7 @@ typedef struct {
   DW_EnabledSubsystem_Ball_and__T EnabledSubsystem;/* '<S25>/Enabled Subsystem' */
   DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_e;/* '<S15>/MATLAB Function' */
   DW_MATLABFunction1_Ball_and_P_T sf_MATLABFunction1;/* '<S10>/MATLAB Function1' */
-  DW_MATLABFunction_Ball_and_Pl_T sf_MATLABFunction;/* '<S13>/MATLAB Function' */
+  DW_MATLABFunction_Ball_and_Pl_T sf_MATLABFunction_i;/* '<S13>/MATLAB Function' */
 } DW_Ball_and_Plate_MicroLabBox_student_T;
 
 /* Continuous states (default storage) */
@@ -915,12 +908,6 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Beta_ref_Value;               /* Expression: 0
                                         * Referenced by: '<Root>/Beta_ref '
                                         */
-  uint8_T Gain2_Gain;                  /* Computed Parameter: Gain2_Gain
-                                        * Referenced by: '<S2>/Gain2'
-                                        */
-  uint8_T Gain1_Gain_j;                /* Computed Parameter: Gain1_Gain_j
-                                        * Referenced by: '<S2>/Gain1'
-                                        */
   P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_b;/* '<S57>/Enabled Subsystem1' */
   P_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_n;/* '<S57>/Enabled Subsystem' */
   P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_f;/* '<S40>/Enabled Subsystem1' */
@@ -1187,10 +1174,10 @@ extern RT_MODEL_Ball_and_Plate_MicroLabBox_student_T *const
  * '<S2>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication'
  * '<S3>'   : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator'
  * '<S4>'   : 'Ball_and_Plate_MicroLabBox_student/RTI Data'
- * '<S5>'   : 'Ball_and_Plate_MicroLabBox_student/coordinates_ball'
- * '<S6>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_SETUP_BL1'
- * '<S7>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_UDP_RX_BL1'
- * '<S8>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_UDP_SETUP_BL1'
+ * '<S5>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_SETUP_BL1'
+ * '<S6>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_UDP_RX_BL1'
+ * '<S7>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_UDP_SETUP_BL1'
+ * '<S8>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication/MATLAB Function'
  * '<S9>'   : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/AngleToPos '
  * '<S10>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A'
  * '<S11>'  : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B'

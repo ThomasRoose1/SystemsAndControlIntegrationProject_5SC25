@@ -6,7 +6,7 @@ import json
 # ================= CONFIG =================
 WIDTH = 640
 HEIGHT = 480
-FPS = 30
+FPS = 60
 
 ANGLE = -0.65
 CENTER = (WIDTH // 2, HEIGHT // 2)

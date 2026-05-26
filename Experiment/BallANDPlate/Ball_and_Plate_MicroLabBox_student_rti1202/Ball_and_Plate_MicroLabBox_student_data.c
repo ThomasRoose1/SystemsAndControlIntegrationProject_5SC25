@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.27
+ * Model version              : 1.48
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 26 11:15:31 2026
+ * C source code generated on : Tue May 26 12:38:02 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -201168,8 +201168,6 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   0.0,
   0.0,
   0.0,
-  128U,
-  128U,
 
   /* Start of '<S57>/Enabled Subsystem1' */
   {

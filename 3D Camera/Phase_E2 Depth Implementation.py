@@ -13,7 +13,7 @@ FPS = 60
 CALIBRATION_FILE = 'plate_calibration.json'
 
 SHOW_MASK = True
-SHOW_DEPTH_VIEW = True
+SHOW_DEPTH_VIEW = False
 DEPTH_MIN_MM = 400
 DEPTH_MAX_MM = 900
 
@@ -125,16 +125,37 @@ def contour_centroid(contour):
     return (int(Mmom['m10'] / Mmom['m00']), int(Mmom['m01'] / Mmom['m00']))
 
 
+# def send_ball_position_xyz_mm(ctrl_xy, z_value):
+#     x_mm = float(ctrl_xy[0])
+#     y_mm = float(ctrl_xy[1])
+#     z_mm = float(z_value)
+
+#     packet = struct.pack('<fff', x_mm, y_mm, z_mm)
+
+#     if DEBUG_PRINT_UDP:
+#         print(f"UDP -> X={x_mm:+.1f} mm, Y={y_mm:+.1f} mm, Z={z_mm:+.1f} mm")
+
+#     UDPClientSocket.sendto(packet, serverAddressPort)
+
+
 def send_ball_position_xyz_mm(ctrl_xy, z_value):
-    x_mm = float(ctrl_xy[0])
-    y_mm = float(ctrl_xy[1])
-    z_mm = float(z_value)
+    x_mm = int(ctrl_xy[0])
+    y_mm = int(ctrl_xy[1])
+    z_mm = int(z_value)
 
-    packet = struct.pack('<fff', x_mm, y_mm, z_mm)
+    x_bytes = x_mm.to_bytes(2, byteorder='little', signed=True)
+    y_bytes = y_mm.to_bytes(2, byteorder='little', signed=True)
+    z_bytes = z_mm.to_bytes(2, byteorder='little', signed=True)
 
+    packet = bytearray([
+        z_bytes[0], z_bytes[1],
+        0, 0,
+        y_bytes[0], y_bytes[1],
+        0, 0,
+        x_bytes[0], x_bytes[1]
+    ])
     if DEBUG_PRINT_UDP:
-        print(f"UDP -> X={x_mm:+.1f} mm, Y={y_mm:+.1f} mm, Z={z_mm:+.1f} mm")
-
+        print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}")
     UDPClientSocket.sendto(packet, serverAddressPort)
 
 
@@ -213,6 +234,7 @@ try:
         depth_raw = np.asanyarray(depth_frame.get_data())
 
         frame = cv2.warpAffine(frame, ROT_MAT, (WIDTH, HEIGHT))
+        frame = cv2.flip(frame, -1)
         depth_raw = cv2.warpAffine(depth_raw, ROT_MAT, (WIDTH, HEIGHT))
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)

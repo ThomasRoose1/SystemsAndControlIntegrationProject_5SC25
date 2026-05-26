@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.27
+ * Model version              : 1.48
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 26 11:15:31 2026
+ * C source code generated on : Tue May 26 12:38:02 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -682,6 +682,9 @@ static real_T Ball_and_Plate_MicroLabBox_norm(const real_T x[3])
 /* Model output function */
 void Ball_and_Plate_MicroLabBox_student_output(void)
 {
+  int32_T x;
+  int32_T y;
+  int32_T z;
   real_T R_BtoP[9];
   ZCEventType zcEvent;
   real_T T[3];
@@ -696,8 +699,6 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   real_T tmp_5[9];
   real_T tmp_6[9];
   real_T e[9];
-  int32_T i;
-  int32_T i_0;
   real_T T_2;
   real_T R_BtoP_0;
   real_T u0;
@@ -742,7 +743,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.DataTypeConversion =
       (Ball_and_Plate_MicroLabBox_student_P.Constant_Value_i != 0.0);
 
-    /* S-Function (rti_commonblock): '<S7>/S-Function1' incorporates:
+    /* S-Function (rti_commonblock): '<S6>/S-Function1' incorporates:
      *  Outport: '<Root>/NumRXFrames'
      *  Outport: '<Root>/Status'
      */
@@ -783,7 +784,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
                            (uint8_T *)
                            &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[
                            0],
-                           32U,
+                           12U,
                            DSIOETH_FLAG_NONE,
                            (DsSSockAddr *) &remoteAddr,
                            &addrLen
@@ -860,27 +861,44 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* Gain: '<S2>/Gain2' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain2 = (uint16_T)((uint16_T)((uint32_T)
-      Ball_and_Plate_MicroLabBox_student_P.Gain2_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[1]) << 1);
+    /* MATLAB Function: '<S2>/MATLAB Function' */
+    /* MATLAB Function 'Ethernet communication/MATLAB Function': '<S8>:1' */
+    /* '<S8>:1:2' */
+    x = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[9] << 8) +
+      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[8];
 
-    /* Sum: '<S2>/Add' */
-    Ball_and_Plate_MicroLabBox_student_B.Add = (uint16_T)((uint32_T)
-      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0] +
-      Ball_and_Plate_MicroLabBox_student_B.Gain2);
+    /* '<S8>:1:3' */
+    y = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[5] << 8) +
+      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[4];
 
-    /* Gain: '<S2>/Gain1' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain1_b = (uint16_T)((uint16_T)
-      ((uint32_T)Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_j *
-       Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[5]) << 1);
+    /* '<S8>:1:4' */
+    z = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[1] << 8) +
+      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0];
+    if (x > 32767) {
+      /* '<S8>:1:6' */
+      /* '<S8>:1:7' */
+      x -= 65536;
+    }
 
-    /* Sum: '<S2>/Add1' */
-    Ball_and_Plate_MicroLabBox_student_B.Add1_l = (uint16_T)((uint32_T)
-      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[4] +
-      Ball_and_Plate_MicroLabBox_student_B.Gain1_b);
+    if (y > 32767) {
+      /* '<S8>:1:9' */
+      /* '<S8>:1:10' */
+      y -= 65536;
+    }
 
-    /* S-Function (rti_commonblock): '<S6>/S-Function1' */
+    if (z > 32767) {
+      /* '<S8>:1:12' */
+      /* '<S8>:1:13' */
+      z -= 65536;
+    }
+
+    Ball_and_Plate_MicroLabBox_student_B.x = x;
+    Ball_and_Plate_MicroLabBox_student_B.y = y;
+    Ball_and_Plate_MicroLabBox_student_B.z = z;
+
+    /* End of MATLAB Function: '<S2>/MATLAB Function' */
+
+    /* S-Function (rti_commonblock): '<S5>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_SETUP_BL1 --- */
@@ -899,7 +917,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
         DsIoEth_getIpAddress();
     }
 
-    /* S-Function (rti_commonblock): '<S8>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S7>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_UDP_SETUP_BL1: ==> Socket ID = (1) --- */
@@ -938,33 +956,6 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       DsIoEth_getMgmtEvent(DSIOETH_CONNECTION_ID_1);
     }
   }
-
-  /* RateTransition: '<Root>/Rate Transition1' */
-  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
-      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
-    Ball_and_Plate_MicroLabBox_student_B.RateTransition1 =
-      Ball_and_Plate_MicroLabBox_student_B.Add1_l;
-
-    /* RateTransition: '<Root>/Rate Transition2' */
-    Ball_and_Plate_MicroLabBox_student_B.RateTransition2 =
-      Ball_and_Plate_MicroLabBox_student_B.Add;
-
-    /* MATLAB Function: '<Root>/coordinates_ball' */
-    /* MATLAB Function 'coordinates_ball': '<S5>:1' */
-    /* '<S5>:1:7' */
-    /* '<S5>:1:8' */
-    /* '<S5>:1:11' */
-    /* '<S5>:1:12' */
-    /* '<S5>:1:19' */
-    Ball_and_Plate_MicroLabBox_student_B.x_2 = ((real_T)
-      Ball_and_Plate_MicroLabBox_student_B.RateTransition2 - 295.83) / 1120.25;
-
-    /* '<S5>:1:20' */
-    Ball_and_Plate_MicroLabBox_student_B.y_2 = ((real_T)
-      Ball_and_Plate_MicroLabBox_student_B.RateTransition1 - 242.82) / 1120.25;
-  }
-
-  /* End of RateTransition: '<Root>/Rate Transition1' */
 
   /* Sin: '<Root>/Alpha_sine ' */
   Ball_and_Plate_MicroLabBox_student_B.Alpha_sine = sin
@@ -1025,21 +1016,21 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   T_2 = sin(Ball_and_Plate_MicroLabBox_student_B.Alpha_sine);
   R_BtoP_0 = sin(Ball_and_Plate_MicroLabBox_student_B.Alpha_sine);
   tmp = cos(Ball_and_Plate_MicroLabBox_student_B.Alpha_sine);
-  for (i = 0; i < 3; i++) {
-    for (i_0 = 0; i_0 < 3; i_0++) {
-      tmp_6[i + 3 * i_0] = 0.0;
-      tmp_0 = tmp_6[3 * i_0 + i];
-      tmp_0 += tmp_5[3 * i_0] * tmp_4[i];
-      tmp_6[i + 3 * i_0] = tmp_0;
-      tmp_0 = tmp_6[3 * i_0 + i];
-      tmp_0 += tmp_5[3 * i_0 + 1] * tmp_4[i + 3];
-      tmp_6[i + 3 * i_0] = tmp_0;
-      tmp_0 = tmp_6[3 * i_0 + i];
-      tmp_0 += tmp_5[3 * i_0 + 2] * tmp_4[i + 6];
-      tmp_6[i + 3 * i_0] = tmp_0;
+  for (x = 0; x < 3; x++) {
+    for (y = 0; y < 3; y++) {
+      tmp_6[x + 3 * y] = 0.0;
+      tmp_0 = tmp_6[3 * y + x];
+      tmp_0 += tmp_5[3 * y] * tmp_4[x];
+      tmp_6[x + 3 * y] = tmp_0;
+      tmp_0 = tmp_6[3 * y + x];
+      tmp_0 += tmp_5[3 * y + 1] * tmp_4[x + 3];
+      tmp_6[x + 3 * y] = tmp_0;
+      tmp_0 = tmp_6[3 * y + x];
+      tmp_0 += tmp_5[3 * y + 2] * tmp_4[x + 6];
+      tmp_6[x + 3 * y] = tmp_0;
     }
 
-    e[3 * i] = e_0[i];
+    e[3 * x] = e_0[x];
   }
 
   e[1] = 0.0;
@@ -1051,32 +1042,32 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
   /* '<S9>:1:23' */
   /* '<S9>:1:24' */
-  for (i = 0; i < 3; i++) {
-    T_2 = T_3[i];
+  for (x = 0; x < 3; x++) {
+    T_2 = T_3[x];
     u0 = 0.0;
-    for (i_0 = 0; i_0 < 3; i_0++) {
-      R_BtoP[i + 3 * i_0] = 0.0;
-      R_BtoP_0 = R_BtoP[3 * i_0 + i];
-      R_BtoP_0 += e[3 * i_0] * tmp_6[i];
-      R_BtoP[i + 3 * i_0] = R_BtoP_0;
-      R_BtoP_0 = R_BtoP[3 * i_0 + i];
-      R_BtoP_0 += e[3 * i_0 + 1] * tmp_6[i + 3];
-      R_BtoP[i + 3 * i_0] = R_BtoP_0;
-      R_BtoP_0 = R_BtoP[3 * i_0 + i];
-      R_BtoP_0 += e[3 * i_0 + 2] * tmp_6[i + 6];
-      R_BtoP[i + 3 * i_0] = R_BtoP_0;
-      u0 += R_BtoP[3 * i_0 + i] * b[i_0];
+    for (y = 0; y < 3; y++) {
+      R_BtoP[x + 3 * y] = 0.0;
+      R_BtoP_0 = R_BtoP[3 * y + x];
+      R_BtoP_0 += e[3 * y] * tmp_6[x];
+      R_BtoP[x + 3 * y] = R_BtoP_0;
+      R_BtoP_0 = R_BtoP[3 * y + x];
+      R_BtoP_0 += e[3 * y + 1] * tmp_6[x + 3];
+      R_BtoP[x + 3 * y] = R_BtoP_0;
+      R_BtoP_0 = R_BtoP[3 * y + x];
+      R_BtoP_0 += e[3 * y + 2] * tmp_6[x + 6];
+      R_BtoP[x + 3 * y] = R_BtoP_0;
+      u0 += R_BtoP[3 * y + x] * b[y];
     }
 
-    T_1[i] = (T_2 + u0) - b[i];
-    u0 = R_BtoP[i] * -0.085000000000000075;
-    u0 += R_BtoP[i + 3] * -0.14722431864335456;
-    u0 += R_BtoP[i + 6] * 0.0;
-    T_0[i] = (T_2 + u0) - c[i];
-    u0 = R_BtoP[i] * -0.084999999999999964;
-    u0 += R_BtoP[i + 3] * 0.14722431864335458;
-    u0 += R_BtoP[i + 6] * 0.0;
-    T[i] = (T_2 + u0) - d[i];
+    T_1[x] = (T_2 + u0) - b[x];
+    u0 = R_BtoP[x] * -0.085000000000000075;
+    u0 += R_BtoP[x + 3] * -0.14722431864335456;
+    u0 += R_BtoP[x + 6] * 0.0;
+    T_0[x] = (T_2 + u0) - c[x];
+    u0 = R_BtoP[x] * -0.084999999999999964;
+    u0 += R_BtoP[x + 3] * 0.14722431864335458;
+    u0 += R_BtoP[x + 6] * 0.0;
+    T[x] = (T_2 + u0) - d[x];
   }
 
   Ball_and_Plate_MicroLabBox_student_B.pos1 = Ball_and_Plate_MicroLabBox_norm
@@ -1661,8 +1652,8 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      */
     Ball_and_Plate_M_MATLABFunction(0.0,
       Ball_and_Plate_MicroLabBox_student_P.path,
-      &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction,
-      &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction);
+      &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_i,
+      &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_i);
 
     /* MATLAB Function: '<S13>/MATLAB Function2' incorporates:
      *  Constant: '<S10>/1_no_0_init_motion'
@@ -3646,7 +3637,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
 
   /* SystemInitialize for MATLAB Function: '<S13>/MATLAB Function' */
   Ball_and_Pl_MATLABFunction_Init
-    (&Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction);
+    (&Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_i);
 
   /* SystemInitialize for MATLAB Function: '<S11>/MATLAB Function2' */
   Ball_and_P_MATLABFunction1_Init
@@ -3680,7 +3671,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
 /* Model terminate function */
 void Ball_and_Plate_MicroLabBox_student_terminate(void)
 {
-  /* Terminate for S-Function (rti_commonblock): '<S8>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S7>/S-Function1' */
   {
     /* --- Ball_and_Plate_MicroLabBox_student/Ethernet communication/ETHERNET_UDP_SETUP_BL1: ==> Socket ID = (1) --- */
     /* dSPACE I/O Board DSETHERNET #1 Unit:SETUPUDP Group:SETUPUDP */
