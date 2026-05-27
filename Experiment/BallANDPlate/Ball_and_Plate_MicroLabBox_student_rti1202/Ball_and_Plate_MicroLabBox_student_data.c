@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.48
+ * Model version              : 1.52
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 26 12:38:02 2026
+ * C source code generated on : Wed May 27 14:49:29 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -23,6 +23,22 @@
 
 /* Block parameters (default storage) */
 P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
+  { 0.83177156324491286, -7.0033337575596306, -0.0094520474032255154,
+    -0.8066071996451214, 0.001, 1.0, 0.0, 0.0, -0.010234108366318608,
+    -0.86794487097746154, 0.82822843675510427, -7.2965379561778683, 0.0, 0.0,
+    0.001, 1.0 },
+
+  { 0.0, 0.0, -3.5035714285714291E-6, -0.0070071428571428585,
+    3.5035714285714291E-6, 0.0070071428571428585, 0.0, 0.0, 0.16822843675508714,
+    7.0033337575596306, 0.0094520474032255154, 0.8066071996451214,
+    0.010234108366318608, 0.86794487097746154, 0.17177156324489573,
+    7.2965379561778683 },
+
+  { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0,
+    1.0 },
+
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0 },
   0.1,
 
   { -0.0289, -0.028899999989301647, -0.028899999914455975, -0.028899999711433325,
@@ -201063,6 +201079,7 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   1.0,
   0.001,
   1.0,
+  0.0,
   0.01,
   0.0,
   1.0,
@@ -201141,7 +201158,7 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   1.0,
   0.001,
   0.0,
-  250.0,
+  450.0,
 
   { 1.0, 1.0 },
   10.0,

@@ -60,3 +60,8 @@ observer_poles = [0.90, 0.91, 0.92, 0.93];
 % Compute the Observer Gain Matrix L
 L = place(A_fast', C_fast', observer_poles)';
 
+A_obs = A_fast - L*C_fast;
+B_obs = [B_fast, L];
+C_obs = eye(4);
+D_obs = zeros(4,4);
+

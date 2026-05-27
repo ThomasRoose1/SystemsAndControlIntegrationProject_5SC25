@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.48
+ * Model version              : 1.52
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 26 12:38:02 2026
+ * C source code generated on : Wed May 27 14:49:29 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -247,9 +247,10 @@ typedef struct {
   real_T Uk1;                          /* '<S1>/UD' */
   real_T Diff;                         /* '<S1>/Diff' */
   real_T Gain;                         /* '<Root>/Gain' */
-  real_T SFunction1[2];                /* '<S7>/S-Function1' */
+  real_T Observer[4];                  /* '<Root>/Observer ' */
   real_T Alpha_sine;                   /* '<Root>/Alpha_sine ' */
   real_T Beta_sine;                    /* '<Root>/Beta_sine' */
+  real_T SFunction1[2];                /* '<S7>/S-Function1' */
   real_T Add1;                         /* '<S3>/Add1' */
   real_T Add2;                         /* '<S3>/Add2' */
   real_T Add3;                         /* '<S3>/Add3' */
@@ -293,6 +294,7 @@ typedef struct {
   real_T Constant1_h;                  /* '<S43>/Constant1' */
   real_T Constant2_h;                  /* '<S43>/Constant2' */
   real_T reser_integrator;             /* '<S3>/reser_integrator' */
+  real_T TmpSignalConversionAtObserverIn[4];
   real_T Beta_ref;                     /* '<Root>/Beta_ref ' */
   real_T SFunction1_o1;                /* '<S55>/S-Function1' */
   real_T SFunction1_o2;                /* '<S55>/S-Function1' */
@@ -370,6 +372,7 @@ typedef struct {
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T UD_DSTATE;                    /* '<S1>/UD' */
+  real_T Observer_DSTATE[4];           /* '<Root>/Observer ' */
   volatile real_T RateTransition3_Buffer0;/* '<Root>/Rate Transition3' */
   struct {
     real_T RECEIVED_FRAMES;
@@ -447,6 +450,10 @@ typedef struct {
   real_T NumRXFrames;                  /* '<Root>/NumRXFrames' */
   uint32_T Status;                     /* '<Root>/Status' */
   real_T FrameRate;                    /* '<Root>/FrameRate ' */
+  real_T x_obs;                        /* '<Root>/x_obs' */
+  real_T x_dot_obs;                    /* '<Root>/x_dot_obs' */
+  real_T y_obs;                        /* '<Root>/y_obs' */
+  real_T y_dot_obs;                    /* '<Root>/y_dot_obs' */
 } ExtY_Ball_and_Plate_MicroLabBox_student_T;
 
 /* Parameters for system: '<S25>/Enabled Subsystem' */
@@ -468,6 +475,18 @@ struct P_EnabledSubsystem1_Ball_and__T_ {
 
 /* Parameters (default storage) */
 struct P_Ball_and_Plate_MicroLabBox_student_T_ {
+  real_T A_obs[16];                    /* Variable: A_obs
+                                        * Referenced by: '<Root>/Observer '
+                                        */
+  real_T B_obs[16];                    /* Variable: B_obs
+                                        * Referenced by: '<Root>/Observer '
+                                        */
+  real_T C_obs[16];                    /* Variable: C_obs
+                                        * Referenced by: '<Root>/Observer '
+                                        */
+  real_T D_obs[16];                    /* Variable: D_obs
+                                        * Referenced by: '<Root>/Observer '
+                                        */
   real_T Ts_Outer;                     /* Variable: Ts_Outer
                                         * Referenced by: '<Root>/Gain'
                                         */
@@ -637,6 +656,9 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T Constant_Value_i;             /* Expression: 1
                                         * Referenced by: '<S2>/Constant'
+                                        */
+  real_T Observer_InitialCondition;    /* Expression: 0
+                                        * Referenced by: '<Root>/Observer '
                                         */
   real_T Alpha_sine_Amp;               /* Expression: 0.01
                                         * Referenced by: '<Root>/Alpha_sine '
@@ -842,7 +864,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch_Threshold_e;           /* Expression: 0
                                         * Referenced by: '<S12>/Switch'
                                         */
-  real_T Gain1_Gain_p;                 /* Expression: 250
+  real_T Gain1_Gain_p;                 /* Expression: 450
                                         * Referenced by: '<S49>/Gain1'
                                         */
   real_T Dctleadlag2_P1_Size_f[2];  /* Computed Parameter: Dctleadlag2_P1_Size_f

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.48
+ * Model version              : 1.52
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue May 26 12:38:02 2026
+ * C source code generated on : Wed May 27 14:49:29 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -682,7 +682,7 @@ static real_T Ball_and_Plate_MicroLabBox_norm(const real_T x[3])
 /* Model output function */
 void Ball_and_Plate_MicroLabBox_student_output(void)
 {
-  int32_T x;
+  int_T i;
   int32_T y;
   int32_T z;
   real_T R_BtoP[9];
@@ -830,6 +830,41 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       Ball_and_Plate_MicroLabBox_student_DW.RateTransition3_Buffer0 =
         Ball_and_Plate_MicroLabBox_student_Y.NumRXFrames;
     }
+
+    /* DiscreteStateSpace: '<Root>/Observer ' */
+    for (i = 0; i < 4; i++) {
+      Ball_and_Plate_MicroLabBox_student_B.Observer[i] = 0.0;
+      Ball_and_Plate_MicroLabBox_student_B.Observer[i] +=
+        Ball_and_Plate_MicroLabBox_student_P.C_obs[i] *
+        Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[0];
+      Ball_and_Plate_MicroLabBox_student_B.Observer[i] +=
+        Ball_and_Plate_MicroLabBox_student_P.C_obs[i + 4] *
+        Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[1];
+      Ball_and_Plate_MicroLabBox_student_B.Observer[i] +=
+        Ball_and_Plate_MicroLabBox_student_P.C_obs[i + 8] *
+        Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[2];
+      Ball_and_Plate_MicroLabBox_student_B.Observer[i] +=
+        Ball_and_Plate_MicroLabBox_student_P.C_obs[i + 12] *
+        Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[3];
+    }
+
+    /* End of DiscreteStateSpace: '<Root>/Observer ' */
+
+    /* Outport: '<Root>/x_obs' */
+    Ball_and_Plate_MicroLabBox_student_Y.x_obs =
+      Ball_and_Plate_MicroLabBox_student_B.Observer[0];
+
+    /* Outport: '<Root>/x_dot_obs' */
+    Ball_and_Plate_MicroLabBox_student_Y.x_dot_obs =
+      Ball_and_Plate_MicroLabBox_student_B.Observer[1];
+
+    /* Outport: '<Root>/y_obs' */
+    Ball_and_Plate_MicroLabBox_student_Y.y_obs =
+      Ball_and_Plate_MicroLabBox_student_B.Observer[2];
+
+    /* Outport: '<Root>/y_dot_obs' */
+    Ball_and_Plate_MicroLabBox_student_Y.y_dot_obs =
+      Ball_and_Plate_MicroLabBox_student_B.Observer[3];
   }
 
   /* RateTransition: '<Root>/Rate Transition3' */
@@ -859,12 +894,27 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       Ball_and_Plate_MicroLabBox_student_B.Gain;
   }
 
+  /* Sin: '<Root>/Alpha_sine ' */
+  Ball_and_Plate_MicroLabBox_student_B.Alpha_sine = sin
+    (Ball_and_Plate_MicroLabBox_student_P.Alpha_sine_Freq *
+     Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] +
+     Ball_and_Plate_MicroLabBox_student_P.Alpha_sine_Phase) *
+    Ball_and_Plate_MicroLabBox_student_P.Alpha_sine_Amp +
+    Ball_and_Plate_MicroLabBox_student_P.Alpha_sine_Bias;
+
+  /* Sin: '<Root>/Beta_sine' */
+  Ball_and_Plate_MicroLabBox_student_B.Beta_sine = sin
+    (Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Freq *
+     Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] +
+     Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Phase) *
+    Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Amp +
+    Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Bias;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
     /* MATLAB Function: '<S2>/MATLAB Function' */
     /* MATLAB Function 'Ethernet communication/MATLAB Function': '<S8>:1' */
     /* '<S8>:1:2' */
-    x = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[9] << 8) +
+    i = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[9] << 8) +
       Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[8];
 
     /* '<S8>:1:3' */
@@ -874,10 +924,10 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* '<S8>:1:4' */
     z = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[1] << 8) +
       Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0];
-    if (x > 32767) {
+    if (i > 32767) {
       /* '<S8>:1:6' */
       /* '<S8>:1:7' */
-      x -= 65536;
+      i -= 65536;
     }
 
     if (y > 32767) {
@@ -892,7 +942,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       z -= 65536;
     }
 
-    Ball_and_Plate_MicroLabBox_student_B.x = x;
+    Ball_and_Plate_MicroLabBox_student_B.x = i;
     Ball_and_Plate_MicroLabBox_student_B.y = y;
     Ball_and_Plate_MicroLabBox_student_B.z = z;
 
@@ -957,22 +1007,6 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     }
   }
 
-  /* Sin: '<Root>/Alpha_sine ' */
-  Ball_and_Plate_MicroLabBox_student_B.Alpha_sine = sin
-    (Ball_and_Plate_MicroLabBox_student_P.Alpha_sine_Freq *
-     Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] +
-     Ball_and_Plate_MicroLabBox_student_P.Alpha_sine_Phase) *
-    Ball_and_Plate_MicroLabBox_student_P.Alpha_sine_Amp +
-    Ball_and_Plate_MicroLabBox_student_P.Alpha_sine_Bias;
-
-  /* Sin: '<Root>/Beta_sine' */
-  Ball_and_Plate_MicroLabBox_student_B.Beta_sine = sin
-    (Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Freq *
-     Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] +
-     Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Phase) *
-    Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Amp +
-    Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Bias;
-
   /* MATLAB Function: '<S3>/AngleToPos ' incorporates:
    *  Constant: '<Root>/Psi_ref '
    */
@@ -1016,21 +1050,21 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   T_2 = sin(Ball_and_Plate_MicroLabBox_student_B.Alpha_sine);
   R_BtoP_0 = sin(Ball_and_Plate_MicroLabBox_student_B.Alpha_sine);
   tmp = cos(Ball_and_Plate_MicroLabBox_student_B.Alpha_sine);
-  for (x = 0; x < 3; x++) {
+  for (i = 0; i < 3; i++) {
     for (y = 0; y < 3; y++) {
-      tmp_6[x + 3 * y] = 0.0;
-      tmp_0 = tmp_6[3 * y + x];
-      tmp_0 += tmp_5[3 * y] * tmp_4[x];
-      tmp_6[x + 3 * y] = tmp_0;
-      tmp_0 = tmp_6[3 * y + x];
-      tmp_0 += tmp_5[3 * y + 1] * tmp_4[x + 3];
-      tmp_6[x + 3 * y] = tmp_0;
-      tmp_0 = tmp_6[3 * y + x];
-      tmp_0 += tmp_5[3 * y + 2] * tmp_4[x + 6];
-      tmp_6[x + 3 * y] = tmp_0;
+      tmp_6[i + 3 * y] = 0.0;
+      tmp_0 = tmp_6[3 * y + i];
+      tmp_0 += tmp_5[3 * y] * tmp_4[i];
+      tmp_6[i + 3 * y] = tmp_0;
+      tmp_0 = tmp_6[3 * y + i];
+      tmp_0 += tmp_5[3 * y + 1] * tmp_4[i + 3];
+      tmp_6[i + 3 * y] = tmp_0;
+      tmp_0 = tmp_6[3 * y + i];
+      tmp_0 += tmp_5[3 * y + 2] * tmp_4[i + 6];
+      tmp_6[i + 3 * y] = tmp_0;
     }
 
-    e[3 * x] = e_0[x];
+    e[3 * i] = e_0[i];
   }
 
   e[1] = 0.0;
@@ -1042,32 +1076,32 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
   /* '<S9>:1:23' */
   /* '<S9>:1:24' */
-  for (x = 0; x < 3; x++) {
-    T_2 = T_3[x];
+  for (i = 0; i < 3; i++) {
+    T_2 = T_3[i];
     u0 = 0.0;
     for (y = 0; y < 3; y++) {
-      R_BtoP[x + 3 * y] = 0.0;
-      R_BtoP_0 = R_BtoP[3 * y + x];
-      R_BtoP_0 += e[3 * y] * tmp_6[x];
-      R_BtoP[x + 3 * y] = R_BtoP_0;
-      R_BtoP_0 = R_BtoP[3 * y + x];
-      R_BtoP_0 += e[3 * y + 1] * tmp_6[x + 3];
-      R_BtoP[x + 3 * y] = R_BtoP_0;
-      R_BtoP_0 = R_BtoP[3 * y + x];
-      R_BtoP_0 += e[3 * y + 2] * tmp_6[x + 6];
-      R_BtoP[x + 3 * y] = R_BtoP_0;
-      u0 += R_BtoP[3 * y + x] * b[y];
+      R_BtoP[i + 3 * y] = 0.0;
+      R_BtoP_0 = R_BtoP[3 * y + i];
+      R_BtoP_0 += e[3 * y] * tmp_6[i];
+      R_BtoP[i + 3 * y] = R_BtoP_0;
+      R_BtoP_0 = R_BtoP[3 * y + i];
+      R_BtoP_0 += e[3 * y + 1] * tmp_6[i + 3];
+      R_BtoP[i + 3 * y] = R_BtoP_0;
+      R_BtoP_0 = R_BtoP[3 * y + i];
+      R_BtoP_0 += e[3 * y + 2] * tmp_6[i + 6];
+      R_BtoP[i + 3 * y] = R_BtoP_0;
+      u0 += R_BtoP[3 * y + i] * b[y];
     }
 
-    T_1[x] = (T_2 + u0) - b[x];
-    u0 = R_BtoP[x] * -0.085000000000000075;
-    u0 += R_BtoP[x + 3] * -0.14722431864335456;
-    u0 += R_BtoP[x + 6] * 0.0;
-    T_0[x] = (T_2 + u0) - c[x];
-    u0 = R_BtoP[x] * -0.084999999999999964;
-    u0 += R_BtoP[x + 3] * 0.14722431864335458;
-    u0 += R_BtoP[x + 6] * 0.0;
-    T[x] = (T_2 + u0) - d[x];
+    T_1[i] = (T_2 + u0) - b[i];
+    u0 = R_BtoP[i] * -0.085000000000000075;
+    u0 += R_BtoP[i + 3] * -0.14722431864335456;
+    u0 += R_BtoP[i + 6] * 0.0;
+    T_0[i] = (T_2 + u0) - c[i];
+    u0 = R_BtoP[i] * -0.084999999999999964;
+    u0 += R_BtoP[i + 3] * 0.14722431864335458;
+    u0 += R_BtoP[i + 6] * 0.0;
+    T[i] = (T_2 + u0) - d[i];
   }
 
   Ball_and_Plate_MicroLabBox_student_B.pos1 = Ball_and_Plate_MicroLabBox_norm
@@ -2105,6 +2139,16 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.reser_integrator =
       Ball_and_Plate_MicroLabBox_student_P.reser_integrator_Value;
 
+    /* SignalConversion generated from: '<Root>/Observer ' */
+    Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtObserverIn[0] =
+      0.0;
+    Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtObserverIn[1] =
+      0.0;
+    Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtObserverIn[2] =
+      Ball_and_Plate_MicroLabBox_student_B.x;
+    Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtObserverIn[3] =
+      Ball_and_Plate_MicroLabBox_student_B.y;
+
     /* Constant: '<Root>/Beta_ref ' */
     Ball_and_Plate_MicroLabBox_student_B.Beta_ref =
       Ball_and_Plate_MicroLabBox_student_P.Beta_ref_Value;
@@ -2114,11 +2158,45 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 /* Model update function */
 void Ball_and_Plate_MicroLabBox_student_update(void)
 {
+  int_T i;
+  real_T xnew[4];
+  real_T xnew_0;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
     /* Update for UnitDelay: '<S1>/UD' */
     Ball_and_Plate_MicroLabBox_student_DW.UD_DSTATE =
       Ball_and_Plate_MicroLabBox_student_B.RateTransition3;
+  }
+
+  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
+      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
+    /* Update for DiscreteStateSpace: '<Root>/Observer ' */
+    for (i = 0; i < 4; i++) {
+      xnew_0 = Ball_and_Plate_MicroLabBox_student_P.A_obs[i] *
+        Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[0];
+      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.A_obs[i + 4] *
+        Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[1];
+      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.A_obs[i + 8] *
+        Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[2];
+      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.A_obs[i + 12] *
+        Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[3];
+      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.B_obs[i] *
+        Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtObserverIn[0];
+      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.B_obs[i + 4] *
+        Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtObserverIn[1];
+      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.B_obs[i + 8] *
+        Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtObserverIn[2];
+      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.B_obs[i + 12] *
+        Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtObserverIn[3];
+      xnew[i] = xnew_0;
+    }
+
+    Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[0] = xnew[0];
+    Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[1] = xnew[1];
+    Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[2] = xnew[2];
+    Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[3] = xnew[3];
+
+    /* End of Update for DiscreteStateSpace: '<Root>/Observer ' */
   }
 
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M)) {
@@ -3569,6 +3647,16 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
   /* InitializeConditions for UnitDelay: '<S1>/UD' */
   Ball_and_Plate_MicroLabBox_student_DW.UD_DSTATE =
     Ball_and_Plate_MicroLabBox_student_P.Difference_ICPrevInput;
+
+  /* InitializeConditions for DiscreteStateSpace: '<Root>/Observer ' */
+  Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[0] =
+    Ball_and_Plate_MicroLabBox_student_P.Observer_InitialCondition;
+  Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[1] =
+    Ball_and_Plate_MicroLabBox_student_P.Observer_InitialCondition;
+  Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[2] =
+    Ball_and_Plate_MicroLabBox_student_P.Observer_InitialCondition;
+  Ball_and_Plate_MicroLabBox_student_DW.Observer_DSTATE[3] =
+    Ball_and_Plate_MicroLabBox_student_P.Observer_InitialCondition;
 
   /* SystemInitialize for Atomic SubSystem: '<S10>/Position Measurement' */
   /* InitializeConditions for TransferFcn: '<S25>/Transfer Fcn' */

@@ -5,7 +5,7 @@
    Definition of function that initializes the global TRC pointers
 
    RTI1202 7.15 (02-Nov-2020)
-   Tue May 26 12:38:02 2026
+   Wed May 27 14:49:29 2026
 
    Copyright 2026, dSPACE GmbH. All rights reserved.
 
@@ -152,7 +152,7 @@ static void rti_init_trc_pointers_0(void)
   p_0_Ball_and_Plate_MicroLabBox_student_real_T_23 =
     &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_i.y;
   p_1_Ball_and_Plate_MicroLabBox_student_real_T_0 =
-    &Ball_and_Plate_MicroLabBox_student_P.Ts_Outer;
+    &Ball_and_Plate_MicroLabBox_student_P.A_obs[0];
   p_1_Ball_and_Plate_MicroLabBox_student_real_T_1 =
     &Ball_and_Plate_MicroLabBox_student_P.EnabledSubsystem1_b.Out1_Y0;
   p_1_Ball_and_Plate_MicroLabBox_student_real_T_2 =
