@@ -66,5 +66,5 @@ rt_sim.o07
 -IC:/PROGRA~1/MATLAB/R2019b/extern/include
 -IC:/PROGRA~1/MATLAB/R2019b/rtw/c/src
 -IC:/PROGRA~1/MATLAB/R2019b/rtw/c/src/ext_mode/common
--IC:/git/SystemsAndControlIntegrationProject_5SC25/Experiment/BallANDPlate
--IC:/git/SystemsAndControlIntegrationProject_5SC25/Experiment/BallANDPlate/Ball_and_Plate_MicroLabBox_student_rti1202 
+-IC:/MATLAB/SystemsandControlIntegrationProject_5SC25/Experiment/BallANDPlate
+-IC:/MATLAB/SystemsandControlIntegrationProject_5SC25/Experiment/BallANDPlate/Ball_and_Plate_MicroLabBox_student_rti1202 

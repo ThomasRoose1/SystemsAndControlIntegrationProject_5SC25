@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.52
+ * Model version              : 1.54
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Wed May 27 14:49:29 2026
+ * C source code generated on : Wed May 27 15:36:08 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -201186,52 +201186,52 @@ P_Ball_and_Plate_MicroLabBox_student_T Ball_and_Plate_MicroLabBox_student_P = {
   0.0,
   0.0,
 
-  /* Start of '<S57>/Enabled Subsystem1' */
+  /* Start of '<S58>/Enabled Subsystem1' */
   {
     0.0
   }
   ,
 
-  /* End of '<S57>/Enabled Subsystem1' */
+  /* End of '<S58>/Enabled Subsystem1' */
 
-  /* Start of '<S57>/Enabled Subsystem' */
+  /* Start of '<S58>/Enabled Subsystem' */
   {
     0.0,
     -1.0
   }
   ,
 
-  /* End of '<S57>/Enabled Subsystem' */
+  /* End of '<S58>/Enabled Subsystem' */
 
-  /* Start of '<S40>/Enabled Subsystem1' */
+  /* Start of '<S41>/Enabled Subsystem1' */
   {
     0.0
   }
   ,
 
-  /* End of '<S40>/Enabled Subsystem1' */
+  /* End of '<S41>/Enabled Subsystem1' */
 
-  /* Start of '<S40>/Enabled Subsystem' */
+  /* Start of '<S41>/Enabled Subsystem' */
   {
     0.0,
     -1.0
   }
   ,
 
-  /* End of '<S40>/Enabled Subsystem' */
+  /* End of '<S41>/Enabled Subsystem' */
 
-  /* Start of '<S25>/Enabled Subsystem1' */
+  /* Start of '<S26>/Enabled Subsystem1' */
   {
     0.0
   }
   ,
 
-  /* End of '<S25>/Enabled Subsystem1' */
+  /* End of '<S26>/Enabled Subsystem1' */
 
-  /* Start of '<S25>/Enabled Subsystem' */
+  /* Start of '<S26>/Enabled Subsystem' */
   {
     0.0,
     -1.0
   }
-  /* End of '<S25>/Enabled Subsystem' */
+  /* End of '<S26>/Enabled Subsystem' */
 };

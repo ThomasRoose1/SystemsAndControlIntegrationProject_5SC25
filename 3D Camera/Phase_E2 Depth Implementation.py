@@ -8,7 +8,7 @@ import json
 
 # ================= CONFIG =================
 WIDTH = 640
-HEIGHT = 480
+HEIGHT = 500
 FPS = 60
 CALIBRATION_FILE = 'plate_calibration.json'
 
@@ -22,7 +22,7 @@ MIN_AREA = 200
 MAX_AREA = 4000
 MIN_CIRCULARITY = 0.45
 MAX_TRACK_DISTANCE = 120
-PLATE_SIZE_MM = 400.0
+PLATE_SIZE_MM = 500.0
 GRID_SPACING_MM = 100.0
 
 # UDP
