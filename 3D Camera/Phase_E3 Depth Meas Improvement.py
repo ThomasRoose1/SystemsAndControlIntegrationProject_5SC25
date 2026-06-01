@@ -19,11 +19,17 @@ SHOW_DEPTH_VIEW = False
 DEPTH_MIN_MM = 400
 DEPTH_MAX_MM = 900
 
+# 2D Parameters
 THRESHOLD = 75
 MIN_AREA = 200
 MAX_AREA = 2000
 MIN_CIRCULARITY = 0.75
 MAX_TRACK_DISTANCE = 120
+
+# Depth Parameters
+TEMPORAL_ALPHA = 0.4
+TEMPORAL_DELTA = 20
+
 PLATE_SIZE_MM = 400.0
 GRID_SPACING_MM = 100.0
 
@@ -220,9 +226,18 @@ depth_sensor = profile.get_device().first_depth_sensor()
 depth_scale = depth_sensor.get_depth_scale()
 
 # Intel RealSense SDK filters
-spatial = rs.spatial_filter()
+# spatial = rs.spatial_filter()
+# hole = rs.hole_filling_filter()
 temporal = rs.temporal_filter()
-hole = rs.hole_filling_filter()
+temporal.set_option(
+    rs.option.filter_smooth_alpha,
+    TEMPORAL_ALPHA
+)
+
+temporal.set_option(
+    rs.option.filter_smooth_delta,
+    TEMPORAL_DELTA
+)
 
 prev_pos = None
 velocity = None
@@ -245,9 +260,9 @@ try:
             continue
 
         # RealSense filtering
-        depth_frame = spatial.process(depth_frame)
+        # depth_frame = spatial.process(depth_frame)
         depth_frame = temporal.process(depth_frame)
-        depth_frame = hole.process(depth_frame)
+        # depth_frame = hole.process(depth_frame)
 
         frame = np.asanyarray(color_frame.get_data())
         depth_raw = np.asanyarray(depth_frame.get_data())
