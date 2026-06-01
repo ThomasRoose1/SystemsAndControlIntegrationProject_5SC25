@@ -5,31 +5,34 @@ import numpy as np
 import pyrealsense2 as rs
 import math
 import json
+import time
 
 # ================= CONFIG =================
 WIDTH = 640
-HEIGHT = 500
+HEIGHT = 480
 FPS = 60
+FPS_Depth = 90
 CALIBRATION_FILE = 'plate_calibration.json'
+MASK_MARGIN = 15   # pixels
 
 SHOW_MASK = True
 SHOW_DEPTH_VIEW = False
 DEPTH_MIN_MM = 400
 DEPTH_MAX_MM = 900
 
-THRESHOLD = 75
+THRESHOLD = 100
 MIN_AREA = 200
 MAX_AREA = 2000
-MIN_CIRCULARITY = 0.75
+MIN_CIRCULARITY = 0.8
 MAX_TRACK_DISTANCE = 120
-PLATE_SIZE_MM = 500.0
+PLATE_SIZE_MM = 400.0
 GRID_SPACING_MM = 100.0
 
 # UDP
 serverAddressPort = ("192.168.140.8", 49001)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-DEBUG_PRINT_UDP = True
-PARAM_DEBUG = True
+DEBUG_PRINT_UDP = False
+PARAM_DEBUG = False
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -161,9 +164,36 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value):
 
 def detect_ball(gray, predicted=None):
     _, mask = cv2.threshold(gray, THRESHOLD, 255, cv2.THRESH_BINARY_INV)
+
+    plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8)
+
+    cv2.fillPoly(
+        plate_mask,
+        [rotated_quad.astype(np.int32)],
+        255
+    )
+
+    kernel = np.ones(
+        (2*MASK_MARGIN+1,
+        2*MASK_MARGIN+1),
+        np.uint8
+    )
+
+    plate_mask = cv2.erode(
+        plate_mask,
+        kernel,
+        iterations=1
+    )
+
+    mask = cv2.bitwise_and(
+    mask,
+    plate_mask
+)
+    
     kernel = np.ones((5, 5), np.uint8)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+    
 
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     candidates = []
@@ -208,7 +238,7 @@ def detect_ball(gray, predicted=None):
 pipeline = rs.pipeline()
 config = rs.config()
 config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8, FPS)
-config.enable_stream(rs.stream.depth, WIDTH, HEIGHT, rs.format.z16, 90)
+config.enable_stream(rs.stream.depth, WIDTH, HEIGHT, rs.format.z16, FPS_Depth)
 
 profile = pipeline.start(config)
 align = rs.align(rs.stream.color)
@@ -218,6 +248,11 @@ depth_scale = depth_sensor.get_depth_scale()
 prev_pos = None
 velocity = None
 z_reference_mm = None
+
+# FPS measurement
+fps = 0.0
+fps_alpha = 0.1
+prev_time = time.perf_counter()
 
 try:
     while True:
@@ -300,9 +335,28 @@ try:
                 (255,0,255),
                 2)
 
-            z_label = f'Z(abs): {z_display:6.1f} mm' if z_reference_mm is None else f'Z(rel): {z_display:+6.1f} mm'
+            z_label = f'Z(abs): {z_display:.1f} mm' if z_reference_mm is None else f'Z(rel): {z_display:+6.1f} mm'
             cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
 
+        # ================= FPS DISPLAY =================
+        fps_text = f'FPS: {fps:5.1f}'
+
+        (text_w, text_h), _ = cv2.getTextSize(
+            fps_text,
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            2
+        )
+
+        cv2.putText(
+            display,
+            fps_text,
+            (WIDTH - text_w - 15, HEIGHT - 15),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0, 255, 0),
+            2
+        )
         cv2.imshow('Phase E2 Rotated Full Frame', display)
 
         if SHOW_DEPTH_VIEW:
@@ -318,6 +372,15 @@ try:
         if SHOW_MASK:
             cv2.imshow('Binary Mask', mask)
 
+        # ================= FPS UPDATE =================
+        current_time = time.perf_counter()
+        dt = current_time - prev_time
+
+        if dt > 0:
+            fps_new = 1.0 / dt
+            fps = (1.0 - fps_alpha) * fps + fps_alpha * fps_new
+
+        prev_time = current_time
         key = cv2.waitKey(1) & 0xFF
         if key == ord('z') and z_mm is not None:
             z_reference_mm = z_mm

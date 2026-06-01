@@ -2,7 +2,7 @@
 <Root>
 	<ProjectExperiment>
 		<window>
-			<RelativeDocumentPlacement type="key">1:m 0 Instrumentation|2bca74c0-4866-430d-b7d5-8f1919ef3418/0:m 1 Instrumentation|090df5ef-b1ce-4947-ac99-cace898eae9f/1:</RelativeDocumentPlacement>
+			<RelativeDocumentPlacement type="key">1:m 1 Instrumentation|090df5ef-b1ce-4947-ac99-cace898eae9f/1:m 0 Instrumentation|2bca74c0-4866-430d-b7d5-8f1919ef3418/0:</RelativeDocumentPlacement>
 		</window>
 		<viewflags>
 			<Name type="key">Experiment_001.CDE</Name>
@@ -107,4 +107,7 @@
 			</Layout2>
 		</Layouts>
 	</Instrumentation>
+	<XILAPIEESPort>
+		<ErrorConfigurationDocuments Version="1"/>
+	</XILAPIEESPort>
 </Root>
