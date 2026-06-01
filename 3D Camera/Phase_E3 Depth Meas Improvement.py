@@ -5,6 +5,7 @@ import numpy as np
 import pyrealsense2 as rs
 import math
 import json
+import time
 
 # ================= CONFIG =================
 WIDTH = 640
@@ -14,14 +15,14 @@ FPS_Depth = 90
 CALIBRATION_FILE = 'plate_calibration.json'
 
 SHOW_MASK = True
-SHOW_DEPTH_VIEW = True
+SHOW_DEPTH_VIEW = False
 DEPTH_MIN_MM = 400
 DEPTH_MAX_MM = 900
 
 THRESHOLD = 75
 MIN_AREA = 200
-MAX_AREA = 4000
-MIN_CIRCULARITY = 0.45
+MAX_AREA = 2000
+MIN_CIRCULARITY = 0.75
 MAX_TRACK_DISTANCE = 120
 PLATE_SIZE_MM = 400.0
 GRID_SPACING_MM = 100.0
@@ -32,7 +33,7 @@ DEPTH_ROI_RADIUS = 5   # 11x11 median ROI
 # UDP
 serverAddressPort = ("192.168.140.8", 49001)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-DEBUG_PRINT_UDP = True
+DEBUG_PRINT_UDP = False
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -71,15 +72,23 @@ def pixel_to_control_coords(pixel_xy):
 
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value):
-    x_mm = float(ctrl_xy[0])
-    y_mm = float(ctrl_xy[1])
-    z_mm = float(z_value)
+    x_mm = int(ctrl_xy[0])
+    y_mm = int(ctrl_xy[1])
+    z_mm = int(z_value)
 
-    packet = struct.pack('<fff', x_mm, y_mm, z_mm)
+    x_bytes = x_mm.to_bytes(2, byteorder='little', signed=True)
+    y_bytes = y_mm.to_bytes(2, byteorder='little', signed=True)
+    z_bytes = z_mm.to_bytes(2, byteorder='little', signed=True)
 
+    packet = bytearray([
+        z_bytes[0], z_bytes[1],
+        0, 0,
+        y_bytes[0], y_bytes[1],
+        0, 0,
+        x_bytes[0], x_bytes[1]
+    ])
     if DEBUG_PRINT_UDP:
-        print(f"UDP -> X={x_mm:+.1f} mm, Y={y_mm:+.1f} mm, Z={z_mm:+.1f} mm")
-
+        print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}")
     UDPClientSocket.sendto(packet, serverAddressPort)
 
 
@@ -107,11 +116,23 @@ def draw_coordinate_overlay(frame):
         cv2.line(frame, (x, PLATE_Y1), (x, PLATE_Y2), (80, 80, 80), 1)
         cv2.line(frame, (PLATE_X1, y), (PLATE_X2, y), (80, 80, 80), 1)
 
+        cv2.putText(frame, f'{mm}', (x + 5, PLATE_CENTER_Y + 15),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
+        cv2.putText(frame, f'{mm}', (PLATE_CENTER_X + 8, y - 5),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
+
     cv2.rectangle(frame, (PLATE_X1, PLATE_Y1), (PLATE_X2, PLATE_Y2), (0, 0, 255), 2)
     cv2.line(frame, (PLATE_X1, PLATE_CENTER_Y), (PLATE_X2, PLATE_CENTER_Y), (0,255,0), 2)
     cv2.line(frame, (PLATE_CENTER_X, PLATE_Y1), (PLATE_CENTER_X, PLATE_Y2), (255,255,0), 2)
-    cv2.circle(frame, (PLATE_CENTER_X, PLATE_CENTER_Y), 6, (0, 0, 255), -1)
 
+    cv2.putText(frame, 'X-', (PLATE_X1 + 10, PLATE_CENTER_Y - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+    cv2.putText(frame, 'X+', (PLATE_X2 - 35, PLATE_CENTER_Y - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+    cv2.putText(frame, 'Y+', (PLATE_CENTER_X + 8, PLATE_Y1 + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,0), 2)
+    cv2.putText(frame, 'Y-', (PLATE_CENTER_X + 8, PLATE_Y2 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,0), 2)
+
+    cv2.circle(frame, (PLATE_CENTER_X, PLATE_CENTER_Y), 6, (0, 0, 255), -1)
+    cv2.putText(frame, '(0,0)', (PLATE_CENTER_X + 10, PLATE_CENTER_Y - 10),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
 
 def draw_depth_legend(depth_img):
     h = depth_img.shape[0]
@@ -207,6 +228,11 @@ prev_pos = None
 velocity = None
 z_reference_mm = None
 
+# FPS measurement
+fps = 0.0
+fps_alpha = 0.1
+prev_time = time.perf_counter()
+
 try:
     while True:
         frames = pipeline.wait_for_frames()
@@ -227,6 +253,7 @@ try:
         depth_raw = np.asanyarray(depth_frame.get_data())
 
         frame = cv2.warpAffine(frame, ROT_MAT, (WIDTH, HEIGHT))
+        frame = cv2.flip(frame, -1)
         depth_raw = cv2.warpAffine(depth_raw, ROT_MAT, (WIDTH, HEIGHT))
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -279,6 +306,25 @@ try:
                 z_label = f'Z: {z_display:+6.1f} mm'
                 cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
 
+        # ================= FPS DISPLAY =================
+        fps_text = f'FPS: {fps:5.1f}'
+
+        (text_w, text_h), _ = cv2.getTextSize(
+            fps_text,
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            2
+        )
+
+        cv2.putText(
+            display,
+            fps_text,
+            (WIDTH - text_w - 15, HEIGHT - 15),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0, 255, 0),
+            2
+        )
         cv2.imshow('Phase E3 Depth Measurement Improvement', display)
 
         if SHOW_DEPTH_VIEW:
@@ -293,6 +339,16 @@ try:
 
         if SHOW_MASK:
             cv2.imshow('Binary Mask', mask)
+
+        # ================= FPS UPDATE =================
+        current_time = time.perf_counter()
+        dt = current_time - prev_time
+
+        if dt > 0:
+            fps_new = 1.0 / dt
+            fps = (1.0 - fps_alpha) * fps + fps_alpha * fps_new
+
+        prev_time = current_time
 
         key = cv2.waitKey(1) & 0xFF
         if key == ord('z') and z_mm is not None:
