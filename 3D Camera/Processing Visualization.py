@@ -1,235 +1,578 @@
 import cv2
 import numpy as np
+import pyrealsense2 as rs
+import math
 import os
 
-SAVE_FOLDER = "report_images"
-os.makedirs(SAVE_FOLDER, exist_ok=True)
+# =====================================================
+# CONFIGURATION
+# =====================================================
+
+WIDTH = 640
+HEIGHT = 480
+FPS = 60
+
+THRESHOLD = 75
 
 MIN_AREA = 200
 MAX_AREA = 2000
+
 MIN_CIRCULARITY = 0.75
 
-cap = cv2.VideoCapture(0)
+SAVE_FOLDER = r"C:\git\SystemsAndControlIntegrationProject_5SC25\3D Camera\Figures"
 
-while True:
+os.makedirs(SAVE_FOLDER, exist_ok=True)
 
-    ret, frame = cap.read()
+# =====================================================
+# CALIBRATED PLATE CONTOUR
+# =====================================================
 
-    if not ret:
-        break
+PLATE_QUAD = np.array([
+    [94, 45],
+    [502, 44],
+    [506, 453],
+    [92, 456]
+], dtype=np.int32)
 
-    # =====================================================
-    # 1. GRAYSCALE
-    # =====================================================
+# =====================================================
+# HELPERS
+# =====================================================
 
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+def contour_circularity(contour):
 
-    # =====================================================
-    # 2. BLUR
-    # =====================================================
+    area = cv2.contourArea(contour)
 
-    blur = cv2.GaussianBlur(gray, (9, 9), 0)
+    perimeter = cv2.arcLength(contour, True)
 
-    # =====================================================
-    # 3. THRESHOLD
-    # =====================================================
+    if perimeter == 0:
+        return 0
 
-    _, binary = cv2.threshold(
-        blur,
-        0,
-        255,
-        cv2.THRESH_BINARY + cv2.THRESH_OTSU
+    return 4 * math.pi * area / (perimeter ** 2)
+
+
+def contour_centroid(contour):
+
+    M = cv2.moments(contour)
+
+    if M["m00"] == 0:
+        return None
+
+    return (
+        int(M["m10"] / M["m00"]),
+        int(M["m01"] / M["m00"])
     )
 
-    # =====================================================
-    # 4. ALL CONTOURS
-    # =====================================================
 
-    contours, _ = cv2.findContours(
-        binary,
-        cv2.RETR_EXTERNAL,
-        cv2.CHAIN_APPROX_SIMPLE
-    )
+def draw_plate_region(img):
+    return img.copy()
 
-    contour_img = frame.copy()
 
-    cv2.drawContours(
-        contour_img,
-        contours,
-        -1,
-        (0, 255, 0),
-        2
-    )
+# =====================================================
+# REALSENSE
+# =====================================================
 
-    # =====================================================
-    # 5. AREA FILTER
-    # =====================================================
+pipeline = rs.pipeline()
 
-    area_img = frame.copy()
-    area_filtered = []
+config = rs.config()
 
-    for cnt in contours:
+config.enable_stream(
+    rs.stream.color,
+    WIDTH,
+    HEIGHT,
+    rs.format.bgr8,
+    FPS
+)
 
-        area = cv2.contourArea(cnt)
+pipeline.start(config)
 
-        if MIN_AREA < area < MAX_AREA:
-            area_filtered.append(cnt)
+# =====================================================
+# WINDOWS
+# =====================================================
 
-    cv2.drawContours(
-        area_img,
-        area_filtered,
-        -1,
-        (255, 0, 0),
-        2
-    )
+WINDOW_W = 640
+WINDOW_H = 480
 
-    # =====================================================
-    # 6. CIRCULARITY FILTER
-    # =====================================================
+cv2.namedWindow("1 RGB", cv2.WINDOW_NORMAL)
+cv2.namedWindow("2 Threshold", cv2.WINDOW_NORMAL)
+cv2.namedWindow("3 All Contours", cv2.WINDOW_NORMAL)
+cv2.namedWindow("4 Area Filter", cv2.WINDOW_NORMAL)
+cv2.namedWindow("5 Circularity Filter", cv2.WINDOW_NORMAL)
+cv2.namedWindow("6 Final Detection", cv2.WINDOW_NORMAL)
 
-    circ_img = frame.copy()
-    circular_filtered = []
+cv2.resizeWindow("1 RGB", WINDOW_W, WINDOW_H)
+cv2.resizeWindow("2 Threshold", WINDOW_W, WINDOW_H)
+cv2.resizeWindow("3 All Contours", WINDOW_W, WINDOW_H)
+cv2.resizeWindow("4 Area Filter", WINDOW_W, WINDOW_H)
+cv2.resizeWindow("5 Circularity Filter", WINDOW_W, WINDOW_H)
+cv2.resizeWindow("6 Final Detection", WINDOW_W, WINDOW_H)
 
-    for cnt in area_filtered:
+# Optional automatic layout
 
-        area = cv2.contourArea(cnt)
-        perimeter = cv2.arcLength(cnt, True)
+cv2.moveWindow("1 RGB", 0, 0)
+cv2.moveWindow("2 Threshold", 650, 0)
+cv2.moveWindow("3 All Contours", 1320, 0)
+cv2.moveWindow("4 Area Filter", 0, 520)
+cv2.moveWindow("5 Circularity Filter", 650, 520)
+cv2.moveWindow("6 Final Detection", 1300, 520)
 
-        if perimeter == 0:
-            continue
+# =====================================================
+# FREEZE FEATURE
+# =====================================================
 
-        circularity = (
-            4 * np.pi * area /
-            (perimeter * perimeter)
+paused = False
+frozen_frame = None
+
+# =====================================================
+# MAIN LOOP
+# =====================================================
+
+try:
+
+    while True:
+
+        # =============================================
+        # FRAME ACQUISITION
+        # =============================================
+
+        if not paused:
+
+            frames = pipeline.wait_for_frames()
+
+            color_frame = frames.get_color_frame()
+
+            if not color_frame:
+                continue
+
+            frame = np.asanyarray(
+                color_frame.get_data()
+            )
+
+            frozen_frame = frame.copy()
+
+        else:
+
+            frame = frozen_frame.copy()
+
+        # =============================================
+        # APPLY PLATE ROI IMMEDIATELY
+        # =============================================
+        frame = cv2.flip(frame, -1)
+
+        frame_roi = frame.copy()
+
+        # =============================================
+        # GRAYSCALE
+        # =============================================
+
+        gray = cv2.cvtColor(
+            frame_roi,
+            cv2.COLOR_BGR2GRAY
         )
 
-        if circularity > MIN_CIRCULARITY:
-            circular_filtered.append(cnt)
+        # =============================================
+        # THRESHOLD
+        # =============================================
 
-    cv2.drawContours(
-        circ_img,
-        circular_filtered,
-        -1,
-        (0, 0, 255),
-        2
-    )
-
-    # =====================================================
-    # 7. FINAL BALL DETECTION
-    # =====================================================
-
-    final_img = frame.copy()
-
-    for cnt in circular_filtered:
-
-        (x, y), radius = cv2.minEnclosingCircle(cnt)
-
-        center = (int(x), int(y))
-        radius = int(radius)
-
-        cv2.circle(
-            final_img,
-            center,
-            radius,
-            (0, 255, 255),
-            3
+        _, thresh = cv2.threshold(
+            gray,
+            THRESHOLD,
+            255,
+            cv2.THRESH_BINARY_INV
         )
 
-        cv2.circle(
-            final_img,
-            center,
-            5,
-            (0, 0, 255),
-            -1
+        # =============================================
+        # MORPHOLOGY
+        # =============================================
+
+        kernel = np.ones(
+            (5, 5),
+            np.uint8
         )
 
-        cv2.putText(
-            final_img,
-            f"({center[0]}, {center[1]})",
-            (center[0] + 10, center[1] - 10),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.5,
-            (255, 255, 255),
-            1
+        opened = cv2.morphologyEx(
+            thresh,
+            cv2.MORPH_OPEN,
+            kernel
         )
 
-    # =====================================================
-    # CONVERT GRAY IMAGES TO BGR
-    # =====================================================
+        closed = cv2.morphologyEx(
+            opened,
+            cv2.MORPH_CLOSE,
+            kernel
+        )
 
-    gray_vis = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
-    blur_vis = cv2.cvtColor(blur, cv2.COLOR_GRAY2BGR)
-    binary_vis = cv2.cvtColor(binary, cv2.COLOR_GRAY2BGR)
+        # =============================================
+        # ALL CONTOURS
+        # =============================================
 
-    # =====================================================
-    # RESIZE ALL TO SAME SIZE
-    # =====================================================
+        contours, _ = cv2.findContours(
+            closed,
+            cv2.RETR_EXTERNAL,
+            cv2.CHAIN_APPROX_SIMPLE
+        )
 
-    W = 640
-    H = 480
+        all_contours_img = np.zeros_like(frame_roi)
 
-    def prep(img, title):
-
-        img = cv2.resize(img, (W, H))
-
-        cv2.putText(
-            img,
-            title,
-            (15, 35),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            1,
-            (0, 255, 255),
+        cv2.drawContours(
+            all_contours_img,
+            contours,
+            -1,
+            (255,255,255),
             2
         )
 
-        return img
-
-    original_panel = prep(frame.copy(), "Original")
-    gray_panel = prep(gray_vis, "Grayscale")
-
-    blur_panel = prep(blur_vis, "Blurred")
-    binary_panel = prep(binary_vis, "Threshold")
-
-    contour_panel = prep(contour_img, "All Contours")
-    area_panel = prep(area_img, "Area Filter")
-
-    circ_panel = prep(circ_img, "Circularity Filter")
-    final_panel = prep(final_img, "Final Tracking")
-
-    # =====================================================
-    # BUILD DEBUG CANVAS
-    # =====================================================
-
-    row1 = np.hstack((original_panel, gray_panel))
-    row2 = np.hstack((blur_panel, binary_panel))
-    row3 = np.hstack((contour_panel, area_panel))
-    row4 = np.hstack((circ_panel, final_panel))
-
-    canvas = np.vstack((row1, row2, row3, row4))
-
-    # =====================================================
-    # SHOW CANVAS
-    # =====================================================
-
-    cv2.imshow("Ball Detection Pipeline", canvas)
-
-    key = cv2.waitKey(1) & 0xFF
-
-    # Save current pipeline figure
-    if key == ord('s'):
-
-        filename = os.path.join(
-            SAVE_FOLDER,
-            "ball_detection_pipeline.png"
+        cv2.putText(
+            all_contours_img,
+            f"Contours Found: {len(contours)}",
+            (10,30),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (255,255,255),
+            2
         )
 
-        cv2.imwrite(filename, canvas)
+        # =============================================
+        # AREA FILTER
+        # =============================================
 
-        print(f"Saved: {filename}")
+        area_filtered = []
 
-    # Quit
-    elif key == ord('q'):
-        break
+        area_img = np.zeros_like(frame_roi)
 
-cap.release()
-cv2.destroyAllWindows()
+        for contour in contours:
+
+            area = cv2.contourArea(contour)
+
+            if MIN_AREA < area < MAX_AREA:
+
+                area_filtered.append(contour)
+
+                # ACCEPTED CONTOURS
+                cv2.drawContours(
+                    area_img,
+                    [contour],
+                    -1,
+                    (0,255,0),
+                    3
+                )
+
+            else:
+
+                # REJECTED CONTOURS
+                cv2.drawContours(
+                    area_img,
+                    [contour],
+                    -1,
+                    (0,0,255),
+                    2
+                )
+
+        cv2.putText(
+            area_img,
+            f"Accepted: {len(area_filtered)}",
+            (10,30),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0,255,0),
+            2
+        )
+
+        cv2.putText(
+            area_img,
+            "Green = Accepted",
+            (10,60),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0,255,0),
+            2
+        )
+
+        cv2.putText(
+            area_img,
+            "Red = Rejected",
+            (10,90),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0,0,255),
+            2
+        )
+
+        # =============================================
+        # CIRCULARITY FILTER
+        # =============================================
+
+        circ_filtered = []
+
+        circ_img = np.zeros_like(frame_roi)
+
+        for contour in area_filtered:
+
+            circ = contour_circularity(contour)
+
+            if circ > MIN_CIRCULARITY:
+
+                circ_filtered.append(contour)
+
+                # ACCEPTED
+                cv2.drawContours(
+                    circ_img,
+                    [contour],
+                    -1,
+                    (0,255,0),
+                    3
+                )
+
+                ctr = contour_centroid(contour)
+
+                if ctr is not None:
+
+                    cv2.putText(
+                        circ_img,
+                        f"{circ:.2f}",
+                        (ctr[0] + 10, ctr[1]),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.5,
+                        (0,255,0),
+                        1
+                    )
+
+            else:
+
+                # REJECTED
+                cv2.drawContours(
+                    circ_img,
+                    [contour],
+                    -1,
+                    (0,0,255),
+                    2
+                )
+
+                ctr = contour_centroid(contour)
+
+                if ctr is not None:
+
+                    cv2.putText(
+                        circ_img,
+                        f"{circ:.2f}",
+                        (ctr[0] + 10, ctr[1]),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.5,
+                        (0,0,255),
+                        1
+                    )
+
+        cv2.putText(
+            circ_img,
+            f"Accepted: {len(circ_filtered)}",
+            (10,30),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0,255,0),
+            2
+        )
+
+        cv2.putText(
+            circ_img,
+            "Green = Accepted",
+            (10,60),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0,255,0),
+            2
+        )
+
+        cv2.putText(
+            circ_img,
+            "Red = Rejected",
+            (10,90),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0,0,255),
+            2
+        )
+
+        # =============================================
+        # FINAL DETECTION
+        # =============================================
+
+        final_img = draw_plate_region(
+            frame_roi
+        )
+
+        if circ_filtered:
+
+            best_ball = max(
+                circ_filtered,
+                key=cv2.contourArea
+            )
+
+            center = contour_centroid(
+                best_ball
+            )
+
+            if center is not None:
+
+                area = cv2.contourArea(
+                    best_ball
+                )
+
+                circ = contour_circularity(
+                    best_ball
+                )
+
+                cv2.drawContours(
+                    final_img,
+                    [best_ball],
+                    -1,
+                    (255,0,255),
+                    3
+                )
+
+                cv2.circle(
+                    final_img,
+                    center,
+                    6,
+                    (0,0,255),
+                    -1
+                )
+
+                cv2.putText(
+                    final_img,
+                    f"Area = {area:.0f}",
+                    (20,40),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.7,
+                    (0,255,0),
+                    2
+                )
+
+                cv2.putText(
+                    final_img,
+                    f"Circularity = {circ:.2f}",
+                    (20,70),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.7,
+                    (255,0,255),
+                    2
+                )
+
+                cv2.putText(
+                    final_img,
+                    f"Center = ({center[0]}, {center[1]})",
+                    (20,100),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.7,
+                    (255,255,0),
+                    2
+                )
+
+        # =============================================
+        # DISPLAY WINDOWS
+        # =============================================
+
+        cv2.imshow(
+            "1 RGB",
+            draw_plate_region(frame_roi)
+        )
+
+        cv2.imshow(
+            "2 Threshold",
+            thresh
+        )
+
+        cv2.imshow(
+            "3 All Contours",
+            all_contours_img
+        )
+
+        cv2.imshow(
+            "4 Area Filter",
+            area_img
+        )
+
+        cv2.imshow(
+            "5 Circularity Filter",
+            circ_img
+        )
+
+        cv2.imshow(
+            "6 Final Detection",
+            final_img
+        )
+
+        # =============================================
+        # KEYBOARD
+        # =============================================
+
+        key = cv2.waitKey(1) & 0xFF
+
+        if key == ord('f'):
+
+            paused = not paused
+
+            if paused:
+                print("Frame frozen")
+            else:
+                print("Live view resumed")
+
+        elif key == ord('s'):
+
+            cv2.imwrite(
+                os.path.join(
+                    SAVE_FOLDER,
+                    "1_RGB.png"
+                ),
+                draw_plate_region(frame_roi)
+            )
+
+            cv2.imwrite(
+                os.path.join(
+                    SAVE_FOLDER,
+                    "2_Threshold.png"
+                ),
+                thresh
+            )
+
+            cv2.imwrite(
+                os.path.join(
+                    SAVE_FOLDER,
+                    "3_AllContours.png"
+                ),
+                all_contours_img
+            )
+
+            cv2.imwrite(
+                os.path.join(
+                    SAVE_FOLDER,
+                    "4_AreaFilter.png"
+                ),
+                area_img
+            )
+
+            cv2.imwrite(
+                os.path.join(
+                    SAVE_FOLDER,
+                    "5_CircularityFilter.png"
+                ),
+                circ_img
+            )
+
+            cv2.imwrite(
+                os.path.join(
+                    SAVE_FOLDER,
+                    "6_FinalDetection.png"
+                ),
+                final_img
+            )
+
+            print("All report images saved.")
+
+        elif key == 27:
+
+            break
+
+finally:
+
+    pipeline.stop()
+
+    cv2.destroyAllWindows()
