@@ -1,5 +1,6 @@
 %% MPC controller for the outer loop of the ball and plate system
 clear; clc; close all;
+exportswitch = 1;
 
 %% System Parameters & Continuous State-Space Model
 g = 9.81;                  % Gravity (m/s^2)
@@ -50,8 +51,8 @@ D_fast = sys_d_fast.D;
 
 %% Constraints
 % state constraints
-max_pos = 0.2;
-max_v = 5;
+max_pos = 0.15;
+max_v = 1;
 Hx = [-1 0 0 0;
       1  0 0 0;
       0 -1 0 0;
@@ -125,7 +126,9 @@ title('Projected states');
 grid on;
 
 %% 5. Plots Position vs Velocity Phase Portraits Side-by-Side
-figure('Name', 'MIMO Ball & Plate Subsystem Phase Portraits', 'NumberTitle', 'off');
+fig = figure('Name', 'MIMO Ball & Plate Subsystem Phase Portraits', 'NumberTitle', 'off');
+fig.Units = 'inches';
+fig.Position = [1, 1, 3.5, 2.2];
 
 % --- Subplot 1: X-Axis Phase Portrait (States 1 and 2) ---
 subplot(1, 2, 1);
@@ -135,10 +138,10 @@ T_pos_v_X = Inv_set.projection([1, 2]);
 X_pos_v_X.plot('color', 'lightblue', 'alpha', 0.4); hold on;
 T_pos_v_X.plot('color', 'red', 'alpha', 0.6);
 grid on;
-xlabel('Position x [m]');
-ylabel('Velocity \dot{x} [m/s]');
-title('X-Axis Subsystem Profile (x vs \dot{x})');
-axis([-0.25 0.25 -(max_v+0.5) (max_v+0.5)]);
+xlabel('$x$ [m]', 'Interpreter','latex');
+ylabel('$\dot{x}$ [m/s]', 'Interpreter','latex');
+% title('X-Axis Subsystem Profile (x vs \dot{x})');
+axis([-0.2 0.2 -(max_v+0.2) (max_v+0.2)]);
 
 % --- Subplot 2: Y-Axis Phase Portrait (States 3 and 4) ---
 subplot(1, 2, 2);
@@ -148,10 +151,14 @@ T_pos_v_Y = Inv_set.projection([3, 4]);
 X_pos_v_Y.plot('color', 'lightblue', 'alpha', 0.4); hold on;
 T_pos_v_Y.plot('color', 'red', 'alpha', 0.6);
 grid on;
-xlabel('Position y [m]');
-ylabel('Velocity \dot{y} [m/s]');
-title('Y-Axis Subsystem Profile (y vs \dot{y})');
-axis([-0.25 0.25 -(max_v+0.5) (max_v+0.5)]);
+xlabel('$y$ [m]', 'Interpreter','latex');
+ylabel('$\dot{y}$ [m/s]', 'Interpreter','latex');
+% title('Y-Axis Subsystem Profile (y vs \dot{y})');
+axis([-0.2 0.2 -(max_v+0.2) (max_v+0.2)]);
+
+if exportswitch
+    exportgraphics(fig, 'Figures/terminal_set_plots.pdf', 'ContentType','vector');
+end
 
 %% Define MPC optimizer
 N = 25; % prediction horizon
@@ -282,7 +289,9 @@ legend('True State', 'Estimated State');
 xlabel('Time (s)'); ylabel('Position \dot{y} (m/s)');
 title('Observer Performance for y velocity');
 
-figure('Name', 'MPC Simulation');
+fig = figure('Name', 'MPC Simulation');
+fig.Units = 'inches';
+fig.Position = [1, 1, 3.5, 2.2];
 
 subplot(2,1,1);
 plot(time, output_log(1,:), 'b', 'LineWidth', 1.5); hold on;
@@ -290,7 +299,7 @@ plot(time, output_log(2,:), 'r', 'LineWidth', 1.5);
 grid on;
 legend('Ball X (m)', 'Ball Y (m)');
 xlabel('Time (s)'); ylabel('Position (m)');
-title('Ball Position States');
+% title('Ball Position States');
 
 subplot(2,1,2);
 plot(time, rad2deg(input_log(1,:)), 'b--', 'LineWidth', 1.5); hold on;
@@ -298,10 +307,14 @@ plot(time, rad2deg(input_log(2,:)), 'r--', 'LineWidth', 1.5);
 grid on;
 legend('\alpha', '\beta');
 xlabel('Time (s)'); ylabel('Input Angles (deg)');
-title('Plate Control Input Commands');
+% title('Plate Control Input Commands');
+
+if exportswitch
+    exportgraphics(fig, 'Figures/MPC_sim.pdf', 'ContentType','vector');
+end
 
 % 2D plot of positions on plate
-figure('Name', '2D Position on Plate');
+fig = figure('Name', '2D Position on Plate');
 X_projected.plot('color', 'lightblue', 'alpha', 0.5); hold on;
 plot(state_log(1,:), state_log(3,:), 'k--', 'MarkerSize', 5, 'LineWidth', 1.5);
 grid on;
@@ -309,6 +322,9 @@ xlabel('Position X [m]');
 ylabel('Position Y [m]');
 title('2D Position of the Ball on the Plate');
 axis equal;
+if exportswitch
+    exportgraphics(fig, 'Figures/phasep_plot_sim.pdf', 'ContentType','vector');
+end
 
 %% Save Computed Control & Geometric Matrices
 % Define the filename
