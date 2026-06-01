@@ -8,7 +8,7 @@ import json
 
 # ================= CONFIG =================
 WIDTH = 640
-HEIGHT = 500
+HEIGHT = 480
 FPS = 60
 CALIBRATION_FILE = 'plate_calibration.json'
 
@@ -28,7 +28,7 @@ GRID_SPACING_MM = 100.0
 # UDP
 serverAddressPort = ("192.168.140.8", 49001)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-DEBUG_PRINT_UDP = True
+DEBUG_PRINT_UDP = False
 PARAM_DEBUG = True
 
 # ================= LOAD CALIBRATION =================

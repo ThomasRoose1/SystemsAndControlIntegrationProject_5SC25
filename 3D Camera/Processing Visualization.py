@@ -5,8 +5,8 @@ import os
 SAVE_FOLDER = "report_images"
 os.makedirs(SAVE_FOLDER, exist_ok=True)
 
-MIN_AREA = 150
-MAX_AREA = 5000
+MIN_AREA = 200
+MAX_AREA = 2000
 MIN_CIRCULARITY = 0.75
 
 cap = cv2.VideoCapture(0)
