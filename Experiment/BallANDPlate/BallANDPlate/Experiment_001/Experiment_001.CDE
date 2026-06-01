@@ -80,7 +80,7 @@
 					<Name type="key">Layout2.lay</Name>
 					<DisplayName type="key">Layout2.lay</DisplayName>
 					<Path type="key">.\Experiment Layouts</Path>
-					<Flags type="key">17472</Flags>
+					<Flags type="key">16448</Flags>
 					<Type type="key">10</Type>
 					<UniqueID type="key">753273452</UniqueID>
 					<EntityID type="key">{C4B0259C-FC3F-4DB9-A623-1DB87892DBEE}</EntityID>
@@ -498,6 +498,22 @@
 		<SortAscending type="key">-1</SortAscending>
 		<SignalList>
 			<Variable>
+				<Name type="key">Model Root/Ethernet communication/MATLAB Function/x</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Ethernet communication/MATLAB Function/y</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_ref\n/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
@@ -523,6 +539,14 @@
 			</Variable>
 			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Position Measurement/Position [m]</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Switch3/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -587,6 +611,38 @@
 			</Variable>
 			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch3/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/x_dot_obs/In1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/x_obs/In1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/y_dot_obs/In1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/y_obs/In1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -744,6 +800,24 @@
 				</StorageInformation>
 				<SignalList>
 					<Variable>
+						<Name type="key">Model Root/Ethernet communication/MATLAB Function/x</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Ethernet communication/MATLAB Function/y</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_ref\n/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
@@ -772,6 +846,15 @@
 					</Variable>
 					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Position Measurement/Position [m]</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Switch3/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>
@@ -844,6 +927,42 @@
 					</Variable>
 					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch3/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/x_dot_obs/In1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/x_obs/In1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/y_dot_obs/In1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/y_obs/In1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>
