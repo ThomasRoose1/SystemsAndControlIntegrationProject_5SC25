@@ -498,6 +498,22 @@
 		<SortAscending type="key">-1</SortAscending>
 		<SignalList>
 			<Variable>
+				<Name type="key">Model Root/Alpha_sat\n/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Beta_sat\n/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
 				<Name type="key">Model Root/Ethernet communication/MATLAB Function/x</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
@@ -611,6 +627,14 @@
 			</Variable>
 			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch3/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Status/In1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -800,6 +824,24 @@
 				</StorageInformation>
 				<SignalList>
 					<Variable>
+						<Name type="key">Model Root/Alpha_sat\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Beta_sat\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
 						<Name type="key">Model Root/Ethernet communication/MATLAB Function/x</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
@@ -927,6 +969,15 @@
 					</Variable>
 					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch3/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Status/In1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>

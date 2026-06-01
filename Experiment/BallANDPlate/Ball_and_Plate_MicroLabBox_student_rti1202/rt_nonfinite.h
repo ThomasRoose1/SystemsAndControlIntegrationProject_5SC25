@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.54
+ * Model version              : 1.64
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Wed May 27 15:36:08 2026
+ * C source code generated on : Mon Jun  1 17:18:51 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
