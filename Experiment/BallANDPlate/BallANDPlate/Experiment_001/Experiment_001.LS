@@ -23,7 +23,7 @@
 					</item>
 					<item>
 						<Name type="key">Layout2.lay</Name>
-						<ViewFlags type="key">5</ViewFlags>
+						<ViewFlags type="key">1</ViewFlags>
 					</item>
 				</item>
 				<item>
@@ -34,7 +34,7 @@
 						<ViewFlags type="key">1</ViewFlags>
 						<item>
 							<Name type="key">ball_and_plate_microlabbox_student.sdf</Name>
-							<ViewFlags type="key">1</ViewFlags>
+							<ViewFlags type="key">5</ViewFlags>
 							<item>
 								<Name type="key">Data Sets</Name>
 								<ViewFlags type="key">1</ViewFlags>
@@ -107,7 +107,4 @@
 			</Layout2>
 		</Layouts>
 	</Instrumentation>
-	<XILAPIEESPort>
-		<ErrorConfigurationDocuments Version="1"/>
-	</XILAPIEESPort>
 </Root>

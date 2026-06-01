@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.54
+ * Model version              : 1.62
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Wed May 27 15:36:08 2026
+ * C source code generated on : Mon Jun  1 16:47:24 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -248,15 +248,13 @@ typedef struct {
   real_T Diff;                         /* '<S1>/Diff' */
   real_T Gain;                         /* '<Root>/Gain' */
   real_T Observer[4];                  /* '<Root>/Observer ' */
-  real_T Alpha_sine;                   /* '<Root>/Alpha_sine ' */
-  real_T Beta_sine;                    /* '<Root>/Beta_sine' */
+  real_T DiscreteStateSpace[2];        /* '<Root>/Discrete State-Space' */
+  real_T Alpha_sat;                    /* '<Root>/Alpha_sat ' */
+  real_T Beta_sat;                     /* '<Root>/Beta_sat ' */
   real_T SFunction1[2];                /* '<S7>/S-Function1' */
   real_T Add1;                         /* '<S3>/Add1' */
   real_T Add2;                         /* '<S3>/Add2' */
   real_T Add3;                         /* '<S3>/Add3' */
-  real_T Divide1;                      /* '<S3>/Divide1' */
-  real_T Divide2;                      /* '<S3>/Divide2' */
-  real_T Divide3;                      /* '<S3>/Divide3' */
   real_T Switch;                       /* '<S10>/Switch' */
   real_T enable_ref;                   /* '<S10>/enable_ref ' */
   real_T Sum1;                         /* '<S10>/Sum1' */
@@ -294,8 +292,12 @@ typedef struct {
   real_T Constant1_h;                  /* '<S44>/Constant1' */
   real_T Constant2_h;                  /* '<S44>/Constant2' */
   real_T reser_integrator;             /* '<S3>/reser_integrator' */
+  real_T RateTransition4;              /* '<Root>/Rate Transition4' */
+  real_T RateTransition5;              /* '<Root>/Rate Transition5' */
+  real_T Switch_d[4];                  /* '<Root>/Switch' */
   real_T TmpSignalConversionAtObserverIn[4];
-  real_T Beta_ref;                     /* '<Root>/Beta_ref ' */
+  real_T Alpha_sine;                   /* '<Root>/Alpha_sine ' */
+  real_T Beta_sine;                    /* '<Root>/Beta_sine' */
   real_T alpha;                        /* '<S3>/PosToAngle ' */
   real_T beta;                         /* '<S3>/PosToAngle ' */
   real_T psi;                          /* '<S3>/PosToAngle ' */
@@ -306,7 +308,7 @@ typedef struct {
   real_T Abs;                          /* '<S58>/Abs' */
   real_T TransferFcn;                  /* '<S58>/Transfer Fcn' */
   real_T mm2m;                         /* '<S49>/mm2m' */
-  real_T Saturation;                   /* '<S48>/Saturation' */
+  real_T Saturation_i;                 /* '<S48>/Saturation' */
   real_T Current2V;                    /* '<S48>/Current2V' */
   real_T DSPscale;                     /* '<S48>/DSPscale' */
   real_T SFunction1_o1_i;              /* '<S39>/S-Function1' */
@@ -376,7 +378,10 @@ typedef struct {
 typedef struct {
   real_T UD_DSTATE;                    /* '<S1>/UD' */
   real_T Observer_DSTATE[4];           /* '<Root>/Observer ' */
+  real_T DiscreteStateSpace_DSTATE[14];/* '<Root>/Discrete State-Space' */
   volatile real_T RateTransition3_Buffer0;/* '<Root>/Rate Transition3' */
+  volatile real_T RateTransition4_Buffer0;/* '<Root>/Rate Transition4' */
+  volatile real_T RateTransition5_Buffer0;/* '<Root>/Rate Transition5' */
   struct {
     real_T RECEIVED_FRAMES;
   } SFunction1_RWORK;                  /* '<S6>/S-Function1' */
@@ -392,6 +397,8 @@ typedef struct {
   real_T Dctleadlag2_RWORK_p[2];       /* '<S50>/Dctleadlag2' */
   real_T Dct1lowpass3_RWORK_d[2];      /* '<S50>/Dct1lowpass3' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
+  volatile int8_T RateTransition4_semaphoreTaken;/* '<Root>/Rate Transition4' */
+  volatile int8_T RateTransition5_semaphoreTaken;/* '<Root>/Rate Transition5' */
   DW_EnabledSubsystem1_Ball_and_T EnabledSubsystem1_b;/* '<S58>/Enabled Subsystem1' */
   DW_EnabledSubsystem_Ball_and__T EnabledSubsystem_n;/* '<S58>/Enabled Subsystem' */
   DW_MATLABFunction_Ball_and__j_T sf_MATLABFunction_hg;/* '<S47>/MATLAB Function' */
@@ -481,14 +488,26 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T A_obs[16];                    /* Variable: A_obs
                                         * Referenced by: '<Root>/Observer '
                                         */
+  real_T A_robust[196];                /* Variable: A_robust
+                                        * Referenced by: '<Root>/Discrete State-Space'
+                                        */
   real_T B_obs[16];                    /* Variable: B_obs
                                         * Referenced by: '<Root>/Observer '
+                                        */
+  real_T B_robust[56];                 /* Variable: B_robust
+                                        * Referenced by: '<Root>/Discrete State-Space'
                                         */
   real_T C_obs[16];                    /* Variable: C_obs
                                         * Referenced by: '<Root>/Observer '
                                         */
+  real_T C_robust[28];                 /* Variable: C_robust
+                                        * Referenced by: '<Root>/Discrete State-Space'
+                                        */
   real_T D_obs[16];                    /* Variable: D_obs
                                         * Referenced by: '<Root>/Observer '
+                                        */
+  real_T D_robust[8];                  /* Variable: D_robust
+                                        * Referenced by: '<Root>/Discrete State-Space'
                                         */
   real_T Ts_Outer;                     /* Variable: Ts_Outer
                                         * Referenced by: '<Root>/Gain'
@@ -498,6 +517,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         *   '<S14>/Constant4'
                                         *   '<S29>/Constant4'
                                         *   '<S44>/Constant4'
+                                        */
+  real_T plate_angle_sat;              /* Variable: plate_angle_sat
+                                        * Referenced by:
+                                        *   '<Root>/Alpha_sat '
+                                        *   '<Root>/Beta_sat '
                                         */
   real_T uA[200000];                   /* Variable: uA
                                         * Referenced by:
@@ -509,6 +533,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T uC[200000];                   /* Variable: uC
                                         * Referenced by: '<S47>/Constant'
+                                        */
+  real_T vel_sat;                      /* Variable: vel_sat
+                                        * Referenced by:
+                                        *   '<Root>/Saturation'
+                                        *   '<Root>/Saturation1'
                                         */
   real_T Difference_ICPrevInput;       /* Mask Parameter: Difference_ICPrevInput
                                         * Referenced by: '<S1>/UD'
@@ -663,29 +692,20 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Observer_InitialCondition;    /* Expression: 0
                                         * Referenced by: '<Root>/Observer '
                                         */
-  real_T Alpha_sine_Amp;               /* Expression: 0.01
-                                        * Referenced by: '<Root>/Alpha_sine '
+  real_T Saturation1_LowerSat;         /* Expression: -0.5
+                                        * Referenced by: '<Root>/Saturation1'
                                         */
-  real_T Alpha_sine_Bias;              /* Expression: 0
-                                        * Referenced by: '<Root>/Alpha_sine '
+  real_T Saturation_LowerSat_k;        /* Expression: -0.5
+                                        * Referenced by: '<Root>/Saturation'
                                         */
-  real_T Alpha_sine_Freq;              /* Expression: 1
-                                        * Referenced by: '<Root>/Alpha_sine '
+  real_T DiscreteStateSpace_InitialCondi;/* Expression: 0
+                                          * Referenced by: '<Root>/Discrete State-Space'
+                                          */
+  real_T Alpha_sat_LowerSat;           /* Expression: -0.5
+                                        * Referenced by: '<Root>/Alpha_sat '
                                         */
-  real_T Alpha_sine_Phase;             /* Expression: 0
-                                        * Referenced by: '<Root>/Alpha_sine '
-                                        */
-  real_T Beta_sine_Amp;                /* Expression: 0.01
-                                        * Referenced by: '<Root>/Beta_sine'
-                                        */
-  real_T Beta_sine_Bias;               /* Expression: 0
-                                        * Referenced by: '<Root>/Beta_sine'
-                                        */
-  real_T Beta_sine_Freq;               /* Expression: 1
-                                        * Referenced by: '<Root>/Beta_sine'
-                                        */
-  real_T Beta_sine_Phase;              /* Expression: 0
-                                        * Referenced by: '<Root>/Beta_sine'
+  real_T Beta_sat_LowerSat;            /* Expression: -0.5
+                                        * Referenced by: '<Root>/Beta_sat '
                                         */
   real_T Psi_ref_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Psi_ref '
@@ -711,7 +731,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T enable_quintic_Value;         /* Expression: 0
                                         * Referenced by: '<S3>/enable_quintic  '
                                         */
-  real_T quintic_ref_Value;            /* Expression: 0
+  real_T quintic_ref_Value;            /* Expression: 1
                                         * Referenced by: '<S3>/quintic_ref '
                                         */
   real_T Switch_Threshold;             /* Expression: 0.5
@@ -930,8 +950,35 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T reser_integrator_Value;       /* Expression: 0
                                         * Referenced by: '<S3>/reser_integrator'
                                         */
-  real_T Beta_ref_Value;               /* Expression: 0
-                                        * Referenced by: '<Root>/Beta_ref '
+  real_T Outer_loop_enable_Value;      /* Expression: 0
+                                        * Referenced by: '<Root>/Outer_loop_enable'
+                                        */
+  real_T Switch_Threshold_h;           /* Expression: 0
+                                        * Referenced by: '<Root>/Switch'
+                                        */
+  real_T Alpha_sine_Amp;               /* Expression: 0.01
+                                        * Referenced by: '<Root>/Alpha_sine '
+                                        */
+  real_T Alpha_sine_Bias;              /* Expression: 0
+                                        * Referenced by: '<Root>/Alpha_sine '
+                                        */
+  real_T Alpha_sine_Freq;              /* Expression: 1
+                                        * Referenced by: '<Root>/Alpha_sine '
+                                        */
+  real_T Alpha_sine_Phase;             /* Expression: 0
+                                        * Referenced by: '<Root>/Alpha_sine '
+                                        */
+  real_T Beta_sine_Amp;                /* Expression: 0.01
+                                        * Referenced by: '<Root>/Beta_sine'
+                                        */
+  real_T Beta_sine_Bias;               /* Expression: 0
+                                        * Referenced by: '<Root>/Beta_sine'
+                                        */
+  real_T Beta_sine_Freq;               /* Expression: 1
+                                        * Referenced by: '<Root>/Beta_sine'
+                                        */
+  real_T Beta_sine_Phase;              /* Expression: 0
+                                        * Referenced by: '<Root>/Beta_sine'
                                         */
   P_EnabledSubsystem1_Ball_and__T EnabledSubsystem1_b;/* '<S58>/Enabled Subsystem1' */
   P_EnabledSubsystem_Ball_and_P_T EnabledSubsystem_n;/* '<S58>/Enabled Subsystem' */
