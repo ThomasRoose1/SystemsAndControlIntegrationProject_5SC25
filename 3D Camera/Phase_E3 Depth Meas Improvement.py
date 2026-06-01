@@ -27,8 +27,13 @@ MIN_CIRCULARITY = 0.75
 MAX_TRACK_DISTANCE = 120
 
 # Depth Parameters
-TEMPORAL_ALPHA = 0.4
+TEMPORAL_ALPHA = 1
 TEMPORAL_DELTA = 20
+DEPTH_CALIBRATION = True
+from collections import deque
+
+Z_STATS_WINDOW = 300
+z_history = deque(maxlen=Z_STATS_WINDOW)
 
 PLATE_SIZE_MM = 400.0
 GRID_SPACING_MM = 100.0
@@ -283,6 +288,8 @@ try:
         ctrl_coords = None
         z_mm = None
         z_display = None
+        z_mean = 0
+        z_std = 0
 
         if result is not None:
             contour, chosen, area = result
@@ -318,6 +325,10 @@ try:
             cv2.putText(display, f'Y: {ctrl_coords[1]:+6.1f} mm', (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
 
             if z_display is not None:
+                z_history.append(z_display)
+                if len(z_history) >= 30:
+                    z_mean = np.mean(z_history)
+                    z_std = np.std(z_history)
                 z_label = f'Z: {z_display:+6.1f} mm'
                 cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
 
@@ -340,6 +351,26 @@ try:
             (0, 255, 0),
             2
         )
+        if DEPTH_CALIBRATION:
+            cv2.putText(
+                display,
+                f'Z mean: {z_mean:7.2f} mm',
+                (20, 120),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.7,
+                (255,255,255),
+                2
+            )
+
+            cv2.putText(
+                display,
+                f'Z std : {z_std:6.2f} mm',
+                (20, 150),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.7,
+                (255,255,255),
+                2
+            )
         cv2.imshow('Phase E3 Depth Measurement Improvement', display)
 
         if SHOW_DEPTH_VIEW:
