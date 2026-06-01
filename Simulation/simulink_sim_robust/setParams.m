@@ -52,20 +52,40 @@ km_factor = (5/7)*g;       % rolling-ball constant
 %   x_ddot =  km_factor * beta
 %   y_ddot = -km_factor * alpha
 
-Ac = [0 1 0 0;
-      0 0 0 0;
-      0 0 0 1;
-      0 0 0 0];
+g = 9.81;
 
-Bc = [0          0;
-      0          km_factor;
-      0          0;
-     -km_factor  0];
+% Rolling-ball gain coefficient.
+% For a solid sphere, K = 5/7.
+% If your model already defines Kg as one parameter, use Kg directly.
+K = 5/7;
 
-Cc = [1 0 0 0;
-      0 0 1 0];
+Kg = K*g;
+
+
+
+Ac = [0  1   0   0   0  0   0   0;
+     0  0   Kg  0   0  0   0   0;
+     0  0   0   1   0  0   0   0;
+     0  0   0   0   0  0   0   0;
+     0  0   0   0   0  1   0   0;
+     0  0   0   0   0  0   Kg  0;
+     0  0   0   0   0  0   0   1;
+     0  0   0   0   0  0   0   0];
+
+Bc = [0  0;
+     0  0;
+     0  0;
+     1  0;
+     0  0;
+     0  0;
+     0  0;
+     0  1];
+
+Cc = [1  0  0  0  0  0  0  0;
+     0  0  0  0  1  0  0  0];
 
 Dc = zeros(2,2);
+
 
 %% ------------------------------------------------------------------------
 %  Fast discretization for observer and simulation
@@ -86,7 +106,7 @@ D_fast = sys_fast.D;
 
 % Observer poles should be faster than the closed-loop plant,
 % but not too close to zero, otherwise measurement noise is amplified.
-observer_poles = [0.90, 0.91, 0.92, 0.93];
+observer_poles = [0.90, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97];
 
 L = place(A_fast', C_fast', observer_poles)';
 
@@ -137,7 +157,7 @@ robust_ref = [0; 0];     % [x_ref; y_ref] in meters
 
 % Safety limits
 robust_angle_max = deg2rad(10);  % [rad] maximum plate angle
-robust_acc_max   = 10;           % [rad/s^2] maximum angular acceleration
+%robust_acc_max   = 10;           % [rad/s^2] maximum angular acceleration
 
 % Controller output interpretation:
 %
@@ -154,7 +174,7 @@ robust_acc_max   = 10;           % [rad/s^2] maximum angular acceleration
 %
 % Therefore use 'angle_accel' unless you redesigned K using the same
 % 4-state model as the MPC.
-robust_output_mode = 'angle_accel';
+robust_output_mode = 'angle';
 
 % Mapping between robust-controller convention and simulation convention.
 %
