@@ -17,7 +17,7 @@ THRESHOLD = 75
 MIN_AREA = 200
 MAX_AREA = 2000
 
-MIN_CIRCULARITY = 0.75
+MIN_CIRCULARITY = 0.8
 
 SAVE_FOLDER = r"C:\git\SystemsAndControlIntegrationProject_5SC25\3D Camera\Figures"
 

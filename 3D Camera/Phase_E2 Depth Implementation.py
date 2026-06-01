@@ -13,16 +13,17 @@ HEIGHT = 480
 FPS = 60
 FPS_Depth = 90
 CALIBRATION_FILE = 'plate_calibration.json'
+MASK_MARGIN = 15   # pixels
 
 SHOW_MASK = True
 SHOW_DEPTH_VIEW = False
 DEPTH_MIN_MM = 400
 DEPTH_MAX_MM = 900
 
-THRESHOLD = 75
+THRESHOLD = 100
 MIN_AREA = 200
-MAX_AREA = 4000
-MIN_CIRCULARITY = 0.45
+MAX_AREA = 2000
+MIN_CIRCULARITY = 0.8
 MAX_TRACK_DISTANCE = 120
 PLATE_SIZE_MM = 400.0
 GRID_SPACING_MM = 100.0
@@ -163,9 +164,36 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value):
 
 def detect_ball(gray, predicted=None):
     _, mask = cv2.threshold(gray, THRESHOLD, 255, cv2.THRESH_BINARY_INV)
+
+    plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8)
+
+    cv2.fillPoly(
+        plate_mask,
+        [rotated_quad.astype(np.int32)],
+        255
+    )
+
+    kernel = np.ones(
+        (2*MASK_MARGIN+1,
+        2*MASK_MARGIN+1),
+        np.uint8
+    )
+
+    plate_mask = cv2.erode(
+        plate_mask,
+        kernel,
+        iterations=1
+    )
+
+    mask = cv2.bitwise_and(
+    mask,
+    plate_mask
+)
+    
     kernel = np.ones((5, 5), np.uint8)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+    
 
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     candidates = []
@@ -307,7 +335,7 @@ try:
                 (255,0,255),
                 2)
 
-            z_label = f'Z(abs): {z_display:6.1f} mm' if z_reference_mm is None else f'Z(rel): {z_display:+6.1f} mm'
+            z_label = f'Z(abs): {z_display:.1f} mm' if z_reference_mm is None else f'Z(rel): {z_display:+6.1f} mm'
             cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
 
         # ================= FPS DISPLAY =================

@@ -224,6 +224,18 @@ pipeline = rs.pipeline()
 config = rs.config()
 config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8, FPS)
 config.enable_stream(rs.stream.depth, WIDTH, HEIGHT, rs.format.z16, FPS_Depth)
+color_stream = pipeline.get_stream(rs.stream.color)
+depth_stream = pipeline.get_stream(rs.stream.depth)
+
+# ====================================================
+# INTRINSICS
+# ====================================================
+
+color_intrinsics = color_stream.as_video_stream_profile().get_intrinsics()
+depth_intrinsics = depth_stream.as_video_stream_profile().get_intrinsics()
+
+depth_to_color_extrinsics = depth_stream.as_video_stream_profile().get_extrinsics_to(color_stream)
+color_to_depth_extrinsics =color_stream.as_video_stream_profile().get_extrinsics_to(depth_stream)
 
 profile = pipeline.start(config)
 align = rs.align(rs.stream.color)
@@ -295,6 +307,17 @@ try:
             contour, chosen, area = result
             ctrl_coords = pixel_to_control_coords(chosen)
 
+            depth = rs.rs2_project_color_pixel_to_depth_pixel(
+                depth_raw,
+                depth_scale,
+                0.1,
+                10.0,
+                depth_intrinsics,
+                color_intrinsics,
+                depth_to_color_extrinsics,
+                color_to_depth_extrinsics,
+                [chosen[0], chosen[1]]
+            )
             z_mm = get_median_depth_mm(depth_raw, chosen[0], chosen[1], depth_scale)
 
             if z_mm is not None:
