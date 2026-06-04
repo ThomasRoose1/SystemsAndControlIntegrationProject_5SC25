@@ -50,6 +50,16 @@ DEBUG_PRINT_UDP = False
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
     calib = json.load(f)
+    DEPTH_REFERENCE_FILE = calib['depth_reference_file']
+
+    plate_depth_reference = np.load(
+        DEPTH_REFERENCE_FILE
+    )
+
+    print(
+        f'Loaded depth reference: '
+        f'{DEPTH_REFERENCE_FILE}'
+    )
 
 plate_quad = np.array(calib['plate_quad'], dtype=np.float32)
 TL, TR, BR, BL = plate_quad
@@ -104,6 +114,34 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
 
+def get_plate_reference_mm(
+        depth_reference,
+        x,
+        y):
+
+    x1 = max(0, x - DEPTH_ROI_RADIUS)
+    x2 = min(
+        depth_reference.shape[1],
+        x + DEPTH_ROI_RADIUS + 1
+    )
+
+    y1 = max(0, y - DEPTH_ROI_RADIUS)
+    y2 = min(
+        depth_reference.shape[0],
+        y + DEPTH_ROI_RADIUS + 1
+    )
+
+    roi = depth_reference[
+        y1:y2,
+        x1:x2
+    ]
+
+    valid = roi[roi > 0]
+
+    if valid.size == 0:
+        return None
+
+    return np.median(valid)
 
 def get_median_depth_mm(depth_raw, x, y, depth_scale):
     x1 = max(0, x - DEPTH_ROI_RADIUS)
@@ -276,7 +314,6 @@ temporal.set_option(
 
 prev_pos = None
 velocity = None
-z_reference_mm = None
 
 # FPS measurement
 fps = 0.0
@@ -326,9 +363,14 @@ try:
             ctrl_coords = pixel_to_control_coords(chosen)
 
             z_mm = get_median_depth_mm(depth_raw, chosen[0], chosen[1], depth_scale)
-
             if z_mm is not None:
-                z_display = z_mm if z_reference_mm is None else z_reference_mm - z_mm
+
+                z_plate = get_plate_reference_mm(plate_depth_reference, chosen[0], chosen[1])
+
+                if z_plate > 0:
+                    z_display = z_plate - z_mm
+                else:
+                    z_display = None
 
             if prev_pos is not None:
                 velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
@@ -428,9 +470,6 @@ try:
         prev_time = current_time
 
         key = cv2.waitKey(1) & 0xFF
-        if key == ord('z') and z_mm is not None:
-            z_reference_mm = z_mm
-            print(f'Z reference set to {z_reference_mm:.1f} mm')
         if key == 27:
             break
 
