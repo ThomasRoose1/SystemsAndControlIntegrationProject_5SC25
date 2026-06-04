@@ -13,6 +13,7 @@ HEIGHT = 480
 FPS = 60
 FPS_Depth = 90
 CALIBRATION_FILE = 'plate_calibration.json'
+MASK_MARGIN = 15   # pixels
 
 SHOW_MASK = True
 SHOW_DEPTH_VIEW = False
@@ -27,9 +28,9 @@ MIN_CIRCULARITY = 0.75
 MAX_TRACK_DISTANCE = 120
 
 # Depth Parameters
-TEMPORAL_ALPHA = 1
+TEMPORAL_ALPHA = 0.4
 TEMPORAL_DELTA = 20
-DEPTH_CALIBRATION = True
+DEPTH_CALIBRATION = False
 from collections import deque
 
 Z_STATS_WINDOW = 300
@@ -82,7 +83,7 @@ def pixel_to_control_coords(pixel_xy):
     return x_mm, y_mm
 
 
-def send_ball_position_xyz_mm(ctrl_xy, z_value):
+def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     x_mm = int(ctrl_xy[0])
     y_mm = int(ctrl_xy[1])
     z_mm = int(z_value)
@@ -92,14 +93,15 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value):
     z_bytes = z_mm.to_bytes(2, byteorder='little', signed=True)
 
     packet = bytearray([
-        z_bytes[0], z_bytes[1],
+        x_bytes[0], x_bytes[1],
         0, 0,
         y_bytes[0], y_bytes[1],
         0, 0,
-        x_bytes[0], x_bytes[1]
+        z_bytes[0], z_bytes[1],
+        detected_flag
     ])
     if DEBUG_PRINT_UDP:
-        print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}")
+        print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
 
 
@@ -176,6 +178,32 @@ def contour_centroid(contour):
 
 def detect_ball(gray, predicted=None):
     _, mask = cv2.threshold(gray, THRESHOLD, 255, cv2.THRESH_BINARY_INV)
+
+    plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8)
+
+    cv2.fillPoly(
+        plate_mask,
+        [rotated_quad.astype(np.int32)],
+        255
+    )
+
+    kernel = np.ones(
+        (2*MASK_MARGIN+1,
+        2*MASK_MARGIN+1),
+        np.uint8
+    )
+
+    plate_mask = cv2.erode(
+        plate_mask,
+        kernel,
+        iterations=1
+    )
+
+    mask = cv2.bitwise_and(
+    mask,
+    plate_mask
+    )
+    
     kernel = np.ones((5, 5), np.uint8)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
@@ -226,16 +254,6 @@ config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8, FPS)
 config.enable_stream(rs.stream.depth, WIDTH, HEIGHT, rs.format.z16, FPS_Depth)
 color_stream = pipeline.get_stream(rs.stream.color)
 depth_stream = pipeline.get_stream(rs.stream.depth)
-
-# ====================================================
-# INTRINSICS
-# ====================================================
-
-color_intrinsics = color_stream.as_video_stream_profile().get_intrinsics()
-depth_intrinsics = depth_stream.as_video_stream_profile().get_intrinsics()
-
-depth_to_color_extrinsics = depth_stream.as_video_stream_profile().get_extrinsics_to(color_stream)
-color_to_depth_extrinsics =color_stream.as_video_stream_profile().get_extrinsics_to(depth_stream)
 
 profile = pipeline.start(config)
 align = rs.align(rs.stream.color)
@@ -307,17 +325,6 @@ try:
             contour, chosen, area = result
             ctrl_coords = pixel_to_control_coords(chosen)
 
-            depth = rs.rs2_project_color_pixel_to_depth_pixel(
-                depth_raw,
-                depth_scale,
-                0.1,
-                10.0,
-                depth_intrinsics,
-                color_intrinsics,
-                depth_to_color_extrinsics,
-                color_to_depth_extrinsics,
-                [chosen[0], chosen[1]]
-            )
             z_mm = get_median_depth_mm(depth_raw, chosen[0], chosen[1], depth_scale)
 
             if z_mm is not None:
@@ -340,9 +347,8 @@ try:
             cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
             cv2.circle(display, chosen, 5, (0, 0, 255), -1)
 
-        if ctrl_coords is not None:
-            if z_display is not None:
-                send_ball_position_xyz_mm(ctrl_coords, z_display)
+        if ctrl_coords is not None:          
+            send_ball_position_xyz_mm(ctrl_coords, z_display,detected_flag=1)
 
             cv2.putText(display, f'X: {ctrl_coords[0]:+6.1f} mm', (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
             cv2.putText(display, f'Y: {ctrl_coords[1]:+6.1f} mm', (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
@@ -354,6 +360,8 @@ try:
                     z_std = np.std(z_history)
                 z_label = f'Z: {z_display:+6.1f} mm'
                 cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
+        else:
+            send_ball_position_xyz_mm(ctrl_coords, z_display,detected_flag=0)
 
         # ================= FPS DISPLAY =================
         fps_text = f'FPS: {fps:5.1f}'
