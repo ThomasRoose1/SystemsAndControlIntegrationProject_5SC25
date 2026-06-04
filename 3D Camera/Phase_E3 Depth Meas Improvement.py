@@ -252,8 +252,6 @@ pipeline = rs.pipeline()
 config = rs.config()
 config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8, FPS)
 config.enable_stream(rs.stream.depth, WIDTH, HEIGHT, rs.format.z16, FPS_Depth)
-color_stream = pipeline.get_stream(rs.stream.color)
-depth_stream = pipeline.get_stream(rs.stream.depth)
 
 profile = pipeline.start(config)
 align = rs.align(rs.stream.color)
