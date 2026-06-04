@@ -252,8 +252,6 @@ pipeline = rs.pipeline()
 config = rs.config()
 config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8, FPS)
 config.enable_stream(rs.stream.depth, WIDTH, HEIGHT, rs.format.z16, FPS_Depth)
-color_stream = pipeline.get_stream(rs.stream.color)
-depth_stream = pipeline.get_stream(rs.stream.depth)
 
 profile = pipeline.start(config)
 align = rs.align(rs.stream.color)
@@ -277,6 +275,8 @@ temporal.set_option(
 prev_pos = None
 velocity = None
 z_reference_mm = None
+last_valid_ctrl_coords = (0.0, 0.0)
+last_valid_z = 0.0
 
 # FPS measurement
 fps = 0.0
@@ -329,7 +329,10 @@ try:
 
             if z_mm is not None:
                 z_display = z_mm if z_reference_mm is None else z_reference_mm - z_mm
-
+            if z_display is not None:
+                last_valid_ctrl_coords = ctrl_coords
+                last_valid_z = z_display
+                
             if prev_pos is not None:
                 velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
             else:
@@ -347,7 +350,9 @@ try:
             cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
             cv2.circle(display, chosen, 5, (0, 0, 255), -1)
 
-        if ctrl_coords is not None:          
+        if ctrl_coords is not None and z_display is not None:
+            last_valid_ctrl_coords = ctrl_coords
+            last_valid_z = z_display          
             send_ball_position_xyz_mm(ctrl_coords, z_display,detected_flag=1)
 
             cv2.putText(display, f'X: {ctrl_coords[0]:+6.1f} mm', (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
@@ -361,7 +366,7 @@ try:
                 z_label = f'Z: {z_display:+6.1f} mm'
                 cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
         else:
-            send_ball_position_xyz_mm(ctrl_coords, z_display,detected_flag=0)
+            send_ball_position_xyz_mm(last_valid_ctrl_coords, last_valid_z, detected_flag=0)
 
         # ================= FPS DISPLAY =================
         fps_text = f'FPS: {fps:5.1f}'

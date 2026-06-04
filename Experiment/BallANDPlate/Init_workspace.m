@@ -46,6 +46,10 @@ Dc = [0 0;
 %% Plate angle saturation limit
 plate_angle_sat = deg2rad(10);
 
+%% Observer
+Q_kf = diag([1e-4, 1e-2, 1e-4, 1e-2]);
+R_kf = diag([1e-5, 1e-5]);
+
 %% State observer 
 Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
 
@@ -55,18 +59,18 @@ A_fast = sys_fast.A;
 B_fast = sys_fast.B;
 C_fast = sys_fast.C;
 
-% Define your fast observer poles (safely inside the unit circle)
-observer_poles = [0.21, 0.22, 0.23, 0.22];
+% % Define your fast observer poles (safely inside the unit circle)
+% observer_poles = [0.21, 0.22, 0.23, 0.22];
+% 
+% % Compute the Observer Gain Matrix L
+% L = place(A_fast', C_fast', observer_poles)';
+% 
+% A_obs = A_fast - L*C_fast;
+% B_obs = [B_fast, L];
+% C_obs = eye(4);
+% D_obs = zeros(4,4);
 
-% Compute the Observer Gain Matrix L
-L = place(A_fast', C_fast', observer_poles)';
-
-A_obs = A_fast - L*C_fast;
-B_obs = [B_fast, L];
-C_obs = eye(4);
-D_obs = zeros(4,4);
-
-vel_sat = 1; % safety limit for the velocity to prevent large values when the observer is inaccurate
+vel_sat = 10; % safety limit for the velocity to prevent large values when the observer is inaccurate
 
 %% Load robust controller
 load('optimalK.mat');
@@ -75,6 +79,44 @@ A_robust = K_robust.A;
 B_robust = K_robust.B;
 C_robust = K_robust.C;
 D_robust = K_robust.D;
+
+%% 
+%% System Parameters
+g = 9.81;          % Gravity (m/s^2)
+fps = 10;
+Ts = 1/fps;         % Sampling time camera
+
+%% Continuous-Time Model
+A = [0 1 0 0;
+     0 0 0 0;
+     0 0 0 1;
+     0 0 0 0];
+ 
+B = [0      0;
+     5/7*g  0;
+     0      0;
+     0      5/7*g];
+ 
+C = [1 0 0 0;
+     0 0 1 0];
+ 
+D = zeros(2,2);
+
+%% Discrete-Time Model Conversion
+sys_c = ss(A, B, C, D);
+sys_d = c2d(sys_c, Ts, 'zoh');
+Ad = sys_d.A;
+Bd = sys_d.B;
+Cd = sys_d.C;
+
+%% LQR Controller Design
+% Tune Q_lqr to penalize position error vs velocity.
+% Tune R_lqr to limit plate tilt acceleration/effort.
+Q_lqr = diag([100, 10, 100, 10]); % [x, x_dot, y, y_dot]
+R_lqr = diag([2000, 2000]);             % [alpha, beta]
+
+K_lqr = dlqr(Ad, Bd, Q_lqr, R_lqr);
+K_lqr = -K_lqr;
 
 
 
