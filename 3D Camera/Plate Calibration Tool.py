@@ -8,7 +8,7 @@ WIDTH = 640
 HEIGHT = 480
 FPS = 60
 
-ANGLE = -0.65
+ANGLE = -0.75
 CENTER = (WIDTH // 2, HEIGHT // 2)
 ROT_MAT = cv2.getRotationMatrix2D(CENTER, ANGLE, 1.0)
 
@@ -165,7 +165,17 @@ def capture_depth_reference():
         frames = align.process(frames)
 
         depth_frame = frames.get_depth_frame()
+        temporal = rs.temporal_filter()
+        temporal.set_option(
+            rs.option.filter_smooth_alpha,
+            0.4
+        )
 
+        temporal.set_option(
+            rs.option.filter_smooth_delta,
+            20
+        )
+        depth_frame = temporal.process(depth_frame)
         if not depth_frame:
             continue
 
