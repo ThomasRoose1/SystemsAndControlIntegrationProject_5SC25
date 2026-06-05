@@ -26,6 +26,8 @@ MIN_AREA = 200
 MAX_AREA = 2000
 MIN_CIRCULARITY = 0.75
 MAX_TRACK_DISTANCE = 120
+MIN_RADIUS = 8
+MAX_RADIUS = 30
 
 # Depth Parameters
 TEMPORAL_ALPHA = 0.4
@@ -207,11 +209,19 @@ def contour_circularity(contour):
     return 4 * math.pi * area / (perimeter ** 2)
 
 
-def contour_centroid(contour):
-    Mmom = cv2.moments(contour)
-    if Mmom['m00'] == 0:
-        return None
-    return (int(Mmom['m10'] / Mmom['m00']), int(Mmom['m01'] / Mmom['m00']))
+# def contour_centroid(contour):
+#     Mmom = cv2.moments(contour)
+#     if Mmom['m00'] == 0:
+#         return None
+#     return (int(Mmom['m10'] / Mmom['m00']), int(Mmom['m01'] / Mmom['m00']))
+def contour_circle_fit(contour):
+
+    (x, y), radius = cv2.minEnclosingCircle(contour)
+
+    return (
+        (x, y),
+        radius
+    )
 
 
 def detect_ball(gray, predicted=None):
@@ -242,7 +252,7 @@ def detect_ball(gray, predicted=None):
     plate_mask
     )
     
-    kernel = np.ones((6, 6), np.uint8)
+    kernel = np.ones((5, 5), np.uint8)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
@@ -258,14 +268,17 @@ def detect_ball(gray, predicted=None):
         if circ < MIN_CIRCULARITY:
             continue
 
-        ctr = contour_centroid(contour)
-        if ctr is None:
+        ctr, radius = contour_circle_fit(contour)
+        if radius < MIN_RADIUS:
+            continue
+
+        if radius > MAX_RADIUS:
             continue
 
         if not (PLATE_X1 <= ctr[0] <= PLATE_X2 and PLATE_Y1 <= ctr[1] <= PLATE_Y2):
             continue
 
-        candidates.append((contour, ctr, area))
+        candidates.append((contour, ctr, area, radius))
 
     if not candidates:
         return None, mask
@@ -357,13 +370,13 @@ try:
         z_std = 0
 
         if result is not None:
-            contour, chosen, area = result
+            contour, chosen, area, radius = result
             ctrl_coords = pixel_to_control_coords(chosen)
 
-            z_mm = get_median_depth_mm(depth_raw, chosen[0], chosen[1], depth_scale)
+            z_mm = get_median_depth_mm(depth_raw, int(round(chosen[0])), int(round(chosen[1])), depth_scale)
             if z_mm is not None:
 
-                z_plate = get_plate_reference_mm(plate_depth_reference, chosen[0], chosen[1])
+                z_plate = get_plate_reference_mm(plate_depth_reference, int(round(chosen[0])), int(round(chosen[1])))
 
                 if z_plate > 0:
                     z_display = z_plate - z_mm
@@ -385,7 +398,9 @@ try:
 
         if result is not None:
             cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
-            cv2.circle(display, chosen, 5, (0, 0, 255), -1)
+            center_int = (int(round(chosen[0])), int(round(chosen[1])))
+            cv2.circle(display, center_int, int(round(radius)), (0,255,255), 2)
+            cv2.circle(display, center_int, 5, (0,0,255), -1)
 
         if ctrl_coords is not None and z_display is not None:
             last_valid_ctrl_coords = ctrl_coords
