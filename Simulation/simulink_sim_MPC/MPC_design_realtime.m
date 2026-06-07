@@ -52,185 +52,18 @@ B_fast = sys_d_fast.B;
 C_fast = sys_d_fast.C;
 D_fast = sys_d_fast.D;
 
-%% Constraints
-% state constraints
-max_pos = 0.15;
-max_v = 1;
-Hx = [-1 0 0 0;
-      1  0 0 0;
-      0 -1 0 0;
-      0 1  0 0;
-      0 0 -1 0;
-      0 0 1  0;
-      0 0 0 -1;
-      0 0 0  1];
-hx = [max_pos;
-      max_pos;
-      max_v;
-      max_v;
-      max_pos;
-      max_pos;
-      max_v;
-      max_v];
-X_set = Polyhedron(Hx, hx);
-
-% Project position states onto 2D plane
-X_projected = X_set.projection([1, 3]);
-
-% Input constraints
-max_angle = deg2rad(10); % plate should not tilt beyond 10 degrees;
-Hu = [-1 0; 1 0; 0 -1; 0 1];
-hu = [max_angle; max_angle; max_angle; max_angle];
-U_set = Polyhedron(Hu,hu);
-
-% Output contraints
-Hy = [-1 0; 1 0; 0 -1; 0 1];
-hy = [max_pos; max_pos; max_pos; max_pos];
-Y_set = Polyhedron(Hy,hy);
-
-%% Compute terminal cost
-% Tuning
+%% Tuning
 Q = eye(nx); % State weighting
 R = eye(nu); % Input weighting
-
-[K, P, ~] = dlqr(A, B, Q, R); % Terminal cost
-K = -K;
-
-% Check eigenvalues
-A_cl = A + B*K;
-fprintf('Closed loop eigenvalues: \n');
-abs(eig(A_cl))
-
-%% Compute terminal set
-% Define autonomous LTI closed loop system
-model = LTISystem('A', A_cl);
-
-% Define constraint admissable set
-U_CA_set = Polyhedron(Hu*K, hu); % Input constraint admissable set
-CA_set = U_CA_set & X_set; % constraint admissable set (intersection)
-
-% Find maximal invariant set of CA_set
-Inv_set = model.invariantSet('X', CA_set);
-
-% Extract constraint matrices
-HT = Inv_set.A;
-hT = Inv_set.b;
-
-% Project terminal set onto position states
-T_projected = Inv_set.projection([1, 3]);
-
-%% Plots position state sets
-figure('Name', 'Projected states');
-X_projected.plot('color', 'lightblue', 'alpha', 0.5); hold on;
-T_projected.plot('color', 'red', 'alpha', 0.5);
-xlabel('x [m]');
-ylabel('y [m]');
-title('Projected states');
-grid on;
-
-%% 5. Plots Position vs Velocity Phase Portraits Side-by-Side
-fig = figure('Name', 'MIMO Ball & Plate Subsystem Phase Portraits', 'NumberTitle', 'off');
-fig.Units = 'inches';
-fig.Position = [1, 1, 3.5, 2.2];
-
-% --- Subplot 1: X-Axis Phase Portrait (States 1 and 2) ---
-subplot(1, 2, 1);
-X_pos_v_X = X_set.projection([1, 2]);
-T_pos_v_X = Inv_set.projection([1, 2]);
-
-X_pos_v_X.plot('color', 'lightblue', 'alpha', 0.4); hold on;
-T_pos_v_X.plot('color', 'red', 'alpha', 0.6);
-grid on;
-xlabel('$x$ [m]', 'Interpreter','latex');
-ylabel('$\dot{x}$ [m/s]', 'Interpreter','latex');
-% title('X-Axis Subsystem Profile (x vs \dot{x})');
-axis([-0.2 0.2 -(max_v+0.2) (max_v+0.2)]);
-
-% --- Subplot 2: Y-Axis Phase Portrait (States 3 and 4) ---
-subplot(1, 2, 2);
-X_pos_v_Y = X_set.projection([3, 4]);
-T_pos_v_Y = Inv_set.projection([3, 4]);
-
-X_pos_v_Y.plot('color', 'lightblue', 'alpha', 0.4); hold on;
-T_pos_v_Y.plot('color', 'red', 'alpha', 0.6);
-grid on;
-xlabel('$y$ [m]', 'Interpreter','latex');
-ylabel('$\dot{y}$ [m/s]', 'Interpreter','latex');
-% title('Y-Axis Subsystem Profile (y vs \dot{y})');
-axis([-0.2 0.2 -(max_v+0.2) (max_v+0.2)]);
-
-if exportswitch
-    exportgraphics(fig, 'Figures/terminal_set_plots.pdf', 'ContentType','vector');
-end
-
-%% Define MPC optimizer
 N = 25; % prediction horizon
+Ts_slow = 0.01;
 
-% Compute standard MPC matrices
-[Phi,Gamma,Omega,Psi] = mpc_obj(A,B,Q,R,P,N);
-Theta = kron(eye(N), C);
+% state constraints 
+max_pos = 0.15;
+max_vel = 1;
 
-% Compute matrices for condensed forumlation
-G = full(Psi + Gamma'*Omega*Gamma);
-F = full(Gamma'*Omega*Phi);
-
-% Force perfect numerical symmetry to prevent real-time console warnings
-G = 0.5 * (G + G');
-
-% Expand constraints over horizon N
-Hx_bar = kron(eye(N), Hx);
-hx_bar = repmat(hx, N, 1);
-Hu_bar = kron(eye(N), Hu);
-hu_bar = repmat(hu, N, 1);
-Hy_bar = kron(eye(N), Hy);
-hy_bar = repmat(hy, N, 1);
-
-% Condense the constraints into a single polyhedron
-% Extract the final prediction block row of Gamma and Phi for terminal
-% constraint
-Gamma_N = Gamma(end-nx+1:end, :); 
-Phi_N = Phi(end-nx+1:end, :);
-
-% Define LHS
-A_condensed = full([ Hy_bar * Theta * Gamma; ...
-                Hu_bar; ...
-                HT * Gamma_N ]);
-
-% Define RHS
-b_static = full([ hy_bar; ...
-             hu_bar; ...
-             hT ]);
-
-W_state  = full([ Hy_bar * Theta * Phi; ...
-             zeros(size(Hu_bar, 1), nx); ...
-             HT * Phi_N ]);
-
-% Define parameters and optimization variables 
-x0 = sdpvar(nx, 1);     
-Uk = sdpvar(nu*N, 1); 
-
-% Define dynamic constraint RHS 
-b_dynamic = b_static - W_state * x0;
-
-% Implicitly map state/output tracks via algebraic substitution [cite: 404]
-Xk = Phi * x0 + Gamma * Uk;
-Yk = Theta * Xk;
-
-% Define the condensed objective cost function 
-Obj = 0.5 * Uk' * G * Uk + (F * x0)' * Uk;
-
-% Define the condensed constraints 
-Con = A_condensed * Uk <= b_dynamic;
-
-% Set up solver options
-options = sdpsettings('solver', 'quadprog', 'verbose', 0);
-
-% Compile the explicit fast-predictive receding horizon optimizer object [cite: 4339]
-Param_In  = {x0};
-u_current = Uk(1:nu);  % Extract only the first input move pair [alpha; beta]
-Param_Out = {u_current};
-
-MPC_condensed = optimizer(Con, Obj, options, Param_In, Param_Out);
+%% Load MPC params
+MPC_params = compute_mpc_params(Q,R,N, Ts_slow, max_pos, max_vel);
 
 %% State observer 
 % Define observer poles, they should be faster than plant's closed-loop poles, so closer to the origin.
@@ -239,13 +72,6 @@ observer_poles = [0.90, 0.91, 0.92, 0.93];
 
 % Compute the Observer Gain Matrix L (Note the transpose matching duality)
 L = place(A_fast', C_fast', observer_poles)';
-
-%% Define param struct to pass to MPC function
-params.G = G;
-params.F = F;
-params.A_condensed = A_condensed;
-params.b_static = b_static;
-params.W_state = W_state;
 
 %% Simulation Parameters
 T_sim = 5;                 % Total simulation time (seconds)
@@ -287,7 +113,7 @@ for k = 1:N_steps
         tic; % start timing
 
         % Call MPC solver
-        u_k = MPC_solver(x_hat, params, u_prev);
+        u_k = MPC_solver(x_hat, MPC_params, u_prev);
         u_prev = u_k;
 
         computation_time = toc; % stop timing
@@ -307,6 +133,28 @@ for k = 1:N_steps
 end
 avg_computation_time = time_sum / (N_steps/10);
 fprintf("Average computatin time of optimizer: %.4f s\n", avg_computation_time);
+
+%% Define state constraints for plotting
+Hx = [-1 0 0 0;
+          1  0 0 0;
+          0 -1 0 0;
+          0 1  0 0;
+          0 0 -1 0;
+          0 0 1  0;
+          0 0 0 -1;
+          0 0 0  1];
+hx = [max_pos;
+      max_pos;
+      max_vel;
+      max_vel;
+      max_pos;
+      max_pos;
+      max_vel;
+      max_vel];
+X_set = Polyhedron(Hx, hx);
+
+% Project position states onto 2D plane
+X_projected = X_set.projection([1, 3]);
 
 %% Plotting the Results
 figure('Name', "Obeserver performance")
@@ -362,11 +210,3 @@ axis equal;
 if exportswitch
     exportgraphics(fig, 'Figures/phasep_plot_sim.pdf', 'ContentType','vector');
 end
-
-%% Save Computed Control & Geometric Matrices
-% Define the filename
-save_file = 'MPC_params.mat';
-
-% Save ONLY the critical parameters needed for simulation/deployment
-save(save_file, 'params');
-fprintf('Successfully saved MPC terminal parameters to %s\n', save_file);
