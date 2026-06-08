@@ -341,8 +341,8 @@ try:
 
         if result is not None:
             cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
-            cv2.circle(display, center_int, int(round(radius)), (0,255,255), 2)
             center_int = (int(round(chosen[0])), int(round(chosen[1])))
+            cv2.circle(display, center_int, int(round(radius)), (0,255,255), 2)
             cv2.circle(display, center_int, 5, (0,0,255), -1)
 
         if ctrl_coords is not None and z_display is not None:
