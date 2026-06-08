@@ -46,8 +46,8 @@ UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 DEBUG_PRINT_UDP = False
 SHOW_MASK = True
 SHOW_DEPTH_VIEW = False
-DEPTH_CALIBRATION = False
 SHOW_XY_STATS = False
+SHOW_Z_STATS = False
 
 # Other parameters
 STATS_WINDOW = 300
@@ -375,19 +375,18 @@ try:
 
         # ================= FPS DISPLAY =================
         fps_text = f'FPS: {fps:5.1f}'
-
         (text_w, text_h), _ = cv2.getTextSize(fps_text, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2)
-
         cv2.putText(display, fps_text, (WIDTH - text_w - 15, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-        if DEPTH_CALIBRATION:
-            cv2.putText(display, f'Z mean: {z_mean:7.2f} mm', (20, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
-            cv2.putText(display, f'Z std : {z_std:6.2f} mm', (20, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
 
         if SHOW_XY_STATS:
             cv2.putText(display, f'X mean: {x_mean:7.2f} mm', (20,120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
             cv2.putText(display, f'X std : {x_std:6.2f} mm', (20,150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
             cv2.putText(display, f'Y mean: {y_mean:7.2f} mm', (20,180), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
             cv2.putText(display, f'Y std : {y_std:6.2f} mm', (20,210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+        
+        if SHOW_Z_STATS:
+            cv2.putText(display, f'Z mean: {z_mean:7.2f} mm', (20, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            cv2.putText(display, f'Z std : {z_std:6.2f} mm', (20, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
         
         cv2.imshow('Phase_G1 2D Tracking Improvement', display)
 
