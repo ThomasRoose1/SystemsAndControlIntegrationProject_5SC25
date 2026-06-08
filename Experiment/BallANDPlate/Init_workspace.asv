@@ -42,10 +42,6 @@ Cc = [1 0 0 0;
   
 Dc = [0 0;
       0 0];
-
-% dimensions
-nx = size(Ac,1);
-nu = size(Bc, 2); 
   
 %% Plate angle saturation limit
 plate_angle_sat = deg2rad(10);
@@ -76,7 +72,7 @@ D_robust = K_robust.D;
 %% LQR design
 % Discrete-Time Model Conversion
 sys_c = ss(Ac, Bc, Cc, Dc);
-sys_d = c2d(sys_c, Ts_Outer, 'zoh');
+sys_d = c2d(sys_c, Ts, 'zoh');
 Ad = sys_d.A;
 Bd = sys_d.B;
 Cd = sys_d.C;
@@ -93,16 +89,16 @@ K_lqr = -K_lqr;
 %% MPC design
 % Tuning
 Qmpc = eye(nx); % State weighting
-Rmpc = eye(nu); % Input weighting
-Nmpc = 25; % prediction horizon
+R = eye(nu); % Input weighting
+N = 25; % prediction horizon
+Ts_slow = 0.01;
 
 % state constraints 
 max_pos = 0.15;
 max_vel = 1;
 
-% Load MPC params
-MPC_params = compute_mpc_params(Qmpc,Rmpc,Nmpc, Ts_Outer, max_pos, max_vel);
+%% Load MPC params
+MPC_params = compute_mpc_params(Q,R,N, Ts_slow, max_pos, max_vel);
 
-%% done
 disp('Initialization complete. Ready for Simulink simulation.');
 

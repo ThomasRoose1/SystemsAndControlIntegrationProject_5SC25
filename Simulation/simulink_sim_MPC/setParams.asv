@@ -60,17 +60,5 @@ observer_poles = [0.90, 0.91, 0.92, 0.93];
 L = place(A_fast', C_fast', observer_poles)';
 
 %% Load MPC params
-Ts_slow = 0.01;
+
 load('MPC_params.mat');
-
-% Create a Simulink Bus Object automatically from 'params' structure
-Simulink.Bus.createObject(params);
-
-% Rename the generic generated object to a clear type name for model
-params_bus = slBus1; 
-clear slBus1;
-
-% Force the elements of the bus to match explicit double-precision types
-for i = 1:length(params_bus.Elements)
-    params_bus.Elements(i).DataType = 'double';
-end
