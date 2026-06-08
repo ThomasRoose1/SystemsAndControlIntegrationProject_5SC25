@@ -90,8 +90,11 @@ Y_set = Polyhedron(Hy,hy);
 
 %% Compute terminal cost
 % Tuning
-Q = eye(nx); % State weighting
-R = eye(nu); % Input weighting
+Q = [10 0 0 0;
+     0   1 0 0;
+     0 0 10 0;
+     0 0   0 1]; % State weighting
+R = 100*eye(nu); % Input weighting
 
 [K, P, ~] = dlqr(A, B, Q, R); % Terminal cost
 K = -K;

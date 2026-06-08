@@ -44,6 +44,10 @@ Cc = [1 0 0 0;
 Dc = [0 0;
       0 0];
 
+% dimensions
+nx = size(Ac, 1); % Number of states
+nu = size(Bc, 2); % Number of inputs
+
 %% State observer 
 Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
 
@@ -60,17 +64,27 @@ observer_poles = [0.90, 0.91, 0.92, 0.93];
 L = place(A_fast', C_fast', observer_poles)';
 
 %% Load MPC params
-Ts_slow = 0.01;
-load('MPC_params.mat');
+Ts_Outer = 0.01;
+% Tuning
+Qmpc = eye(nx); % State weighting
+Rmpc = 200*eye(nu); % Input weighting
+Nmpc = 25; % prediction horizon
+
+% state constraints 
+max_pos = 0.15;
+max_vel = 1;
+
+% Load MPC params
+MPC_params = compute_mpc_params(Qmpc,Rmpc,Nmpc, Ts_Outer, max_pos, max_vel);
 
 % Create a Simulink Bus Object automatically from 'params' structure
-Simulink.Bus.createObject(params);
+Simulink.Bus.createObject(MPC_params);
 
 % Rename the generic generated object to a clear type name for model
-params_bus = slBus1; 
+MPC_params_bus = slBus1; 
 clear slBus1;
 
 % Force the elements of the bus to match explicit double-precision types
-for i = 1:length(params_bus.Elements)
-    params_bus.Elements(i).DataType = 'double';
+for i = 1:length(MPC_params_bus.Elements)
+    MPC_params_bus.Elements(i).DataType = 'double';
 end
