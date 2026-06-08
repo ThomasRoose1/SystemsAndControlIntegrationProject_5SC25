@@ -47,10 +47,13 @@ DEBUG_PRINT_UDP = False
 SHOW_MASK = True
 SHOW_DEPTH_VIEW = False
 DEPTH_CALIBRATION = False
+SHOW_XY_STATS = False
 
 # Other parameters
-Z_STATS_WINDOW = 300
-z_history = deque(maxlen=Z_STATS_WINDOW)
+STATS_WINDOW = 300
+x_history = deque(maxlen=STATS_WINDOW)
+y_history = deque(maxlen=STATS_WINDOW)
+z_history = deque(maxlen=STATS_WINDOW)
 
 
 # ================= LOAD CALIBRATION =================
@@ -294,6 +297,12 @@ try:
         ctrl_coords = None
         z_mm = None
         z_display = None
+
+        # Stats initialization
+        x_mean = 0
+        x_std = 0
+        y_mean = 0
+        y_std = 0
         z_mean = 0
         z_std = 0
 
@@ -337,6 +346,16 @@ try:
             cv2.circle(display, center_int, 5, (0,0,255), -1)
 
         if ctrl_coords is not None and z_display is not None:
+            x_history.append(ctrl_coords[0])
+            y_history.append(ctrl_coords[1])
+            if len(x_history) >= 30:
+
+                x_mean = np.mean(x_history)
+                x_std = np.std(x_history)
+
+                y_mean = np.mean(y_history)
+                y_std = np.std(y_history)
+
             last_valid_ctrl_coords = ctrl_coords
             last_valid_z = z_display          
             send_ball_position_xyz_mm(ctrl_coords, z_display,detected_flag=1)
@@ -362,8 +381,14 @@ try:
         cv2.putText(display, fps_text, (WIDTH - text_w - 15, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
         if DEPTH_CALIBRATION:
             cv2.putText(display, f'Z mean: {z_mean:7.2f} mm', (20, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
-
             cv2.putText(display, f'Z std : {z_std:6.2f} mm', (20, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+
+        if SHOW_XY_STATS:
+            cv2.putText(display, f'X mean: {x_mean:7.2f} mm', (20,120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            cv2.putText(display, f'X std : {x_std:6.2f} mm', (20,150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            cv2.putText(display, f'Y mean: {y_mean:7.2f} mm', (20,180), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            cv2.putText(display, f'Y std : {y_std:6.2f} mm', (20,210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+        
         cv2.imshow('Phase_G1 2D Tracking Improvement', display)
 
         if SHOW_DEPTH_VIEW:
