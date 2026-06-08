@@ -22,12 +22,11 @@ DEPTH_MAX_MM = 900
 
 # 2D Parameters
 THRESHOLD = 75
-MIN_AREA = 800
+MIN_AREA = 200
 MAX_AREA = 2000
 MIN_CIRCULARITY = 0.75
 MAX_TRACK_DISTANCE = 120
-MIN_RADIUS = 8
-MAX_RADIUS = 30
+XY_FILTER_ALPHA = 0.25
 
 # Depth Parameters
 TEMPORAL_ALPHA = 0.4
@@ -52,16 +51,6 @@ DEBUG_PRINT_UDP = False
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
     calib = json.load(f)
-    DEPTH_REFERENCE_FILE = calib['depth_reference_file']
-
-    plate_depth_reference = np.load(
-        DEPTH_REFERENCE_FILE
-    )
-
-    print(
-        f'Loaded depth reference: '
-        f'{DEPTH_REFERENCE_FILE}'
-    )
 
 plate_quad = np.array(calib['plate_quad'], dtype=np.float32)
 TL, TR, BR, BL = plate_quad
@@ -116,34 +105,6 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
 
-def get_plate_reference_mm(
-        depth_reference,
-        x,
-        y):
-
-    x1 = max(0, x - DEPTH_ROI_RADIUS)
-    x2 = min(
-        depth_reference.shape[1],
-        x + DEPTH_ROI_RADIUS + 1
-    )
-
-    y1 = max(0, y - DEPTH_ROI_RADIUS)
-    y2 = min(
-        depth_reference.shape[0],
-        y + DEPTH_ROI_RADIUS + 1
-    )
-
-    roi = depth_reference[
-        y1:y2,
-        x1:x2
-    ]
-
-    valid = roi[roi > 0]
-
-    if valid.size == 0:
-        return None
-
-    return np.median(valid)
 
 def get_median_depth_mm(depth_raw, x, y, depth_scale):
     x1 = max(0, x - DEPTH_ROI_RADIUS)
@@ -209,48 +170,26 @@ def contour_circularity(contour):
     return 4 * math.pi * area / (perimeter ** 2)
 
 
-# def contour_centroid(contour):
-#     Mmom = cv2.moments(contour)
-#     if Mmom['m00'] == 0:
-#         return None
-#     return (int(Mmom['m10'] / Mmom['m00']), int(Mmom['m01'] / Mmom['m00']))
+MIN_RADIUS = 8
+MAX_RADIUS = 30
+
 def contour_circle_fit(contour):
 
     (x, y), radius = cv2.minEnclosingCircle(contour)
 
-    return (
-        (x, y),
-        radius
-    )
+    return ((x, y),radius)
 
 
 def detect_ball(gray, predicted=None):
-    _, mask = cv2.threshold(gray, THRESHOLD, 255, cv2.THRESH_BINARY_INV)
+    gray = cv2.GaussianBlur(gray,(5,5),0) # gaussian Blur to reduce noise and improve thresholding
+    _, mask = cv2.threshold(gray,THRESHOLD,255,cv2.THRESH_BINARY_INV) # binary inverse thresholding to get white ball on black background
+    plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8) # create empty mask for plate region
 
-    plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8)
+    cv2.fillPoly(plate_mask,[rotated_quad.astype(np.int32)],255)
 
-    cv2.fillPoly(
-        plate_mask,
-        [rotated_quad.astype(np.int32)],
-        255
-    )
-
-    kernel = np.ones(
-        (2*MASK_MARGIN+1,
-        2*MASK_MARGIN+1),
-        np.uint8
-    )
-
-    plate_mask = cv2.erode(
-        plate_mask,
-        kernel,
-        iterations=1
-    )
-
-    mask = cv2.bitwise_and(
-    mask,
-    plate_mask
-    )
+    kernel = np.ones((2*MASK_MARGIN+1,2*MASK_MARGIN+1),np.uint8)
+    plate_mask = cv2.erode(plate_mask,kernel,iterations=1)
+    mask = cv2.bitwise_and(mask,plate_mask)
     
     kernel = np.ones((5, 5), np.uint8)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
@@ -278,7 +217,7 @@ def detect_ball(gray, predicted=None):
         if not (PLATE_X1 <= ctr[0] <= PLATE_X2 and PLATE_Y1 <= ctr[1] <= PLATE_Y2):
             continue
 
-        candidates.append((contour, ctr, area, radius))
+        candidates.append((contour,ctr,area,radius))
 
     if not candidates:
         return None, mask
@@ -325,6 +264,10 @@ temporal.set_option(
 
 prev_pos = None
 velocity = None
+filtered_pos = None
+z_reference_mm = None
+last_valid_ctrl_coords = (0.0, 0.0)
+last_valid_z = 0.0
 
 # FPS measurement
 fps = 0.0
@@ -371,18 +314,24 @@ try:
 
         if result is not None:
             contour, chosen, area, radius = result
+            if filtered_pos is None:
+                filtered_pos = chosen
+            else:
+                filtered_pos = (XY_FILTER_ALPHA * chosen[0] + (1.0 - XY_FILTER_ALPHA) * filtered_pos[0], 
+                                XY_FILTER_ALPHA * chosen[1] + (1.0 - XY_FILTER_ALPHA) * filtered_pos[1])
+
+            chosen = filtered_pos
             ctrl_coords = pixel_to_control_coords(chosen)
 
             z_mm = get_median_depth_mm(depth_raw, int(round(chosen[0])), int(round(chosen[1])), depth_scale)
+
             if z_mm is not None:
+                z_display = z_mm if z_reference_mm is None else z_reference_mm - z_mm
 
-                z_plate = get_plate_reference_mm(plate_depth_reference, int(round(chosen[0])), int(round(chosen[1])))
-
-                if z_plate > 0:
-                    z_display = z_plate - z_mm
-                else:
-                    z_display = None
-
+            if z_display is not None:
+                last_valid_ctrl_coords = ctrl_coords
+                last_valid_z = z_display
+                
             if prev_pos is not None:
                 velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
             else:
@@ -398,8 +347,9 @@ try:
 
         if result is not None:
             cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
-            center_int = (int(round(chosen[0])), int(round(chosen[1])))
             cv2.circle(display, center_int, int(round(radius)), (0,255,255), 2)
+            center_int = (int(round(chosen[0])),
+                          int(round(chosen[1])))
             cv2.circle(display, center_int, 5, (0,0,255), -1)
 
         if ctrl_coords is not None and z_display is not None:
@@ -485,6 +435,9 @@ try:
         prev_time = current_time
 
         key = cv2.waitKey(1) & 0xFF
+        if key == ord('z') and z_mm is not None:
+            z_reference_mm = z_mm
+            print(f'Z reference set to {z_reference_mm:.1f} mm')
         if key == 27:
             break
 
