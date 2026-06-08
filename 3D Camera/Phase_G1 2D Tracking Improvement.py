@@ -6,47 +6,52 @@ import pyrealsense2 as rs
 import math
 import json
 import time
+from collections import deque
 
 # ================= CONFIG =================
+# Pipeline parameters
 WIDTH = 640
 HEIGHT = 480
 FPS = 60
 FPS_Depth = 90
+
+#Calibration parameters
 CALIBRATION_FILE = 'plate_calibration.json'
-MASK_MARGIN = 15   # pixels
-
-SHOW_MASK = True
-SHOW_DEPTH_VIEW = False
-DEPTH_MIN_MM = 400
-DEPTH_MAX_MM = 900
-
-# 2D Parameters
-THRESHOLD = 75
-MIN_AREA = 200
-MAX_AREA = 2000
-MIN_CIRCULARITY = 0.75
-MAX_TRACK_DISTANCE = 120
-XY_FILTER_ALPHA = 0.25
-
-# Depth Parameters
-TEMPORAL_ALPHA = 0.4
-TEMPORAL_DELTA = 20
-DEPTH_CALIBRATION = False
-from collections import deque
-
-Z_STATS_WINDOW = 300
-z_history = deque(maxlen=Z_STATS_WINDOW)
-
 PLATE_SIZE_MM = 400.0
 GRID_SPACING_MM = 100.0
 
-# Improved depth measurement
-DEPTH_ROI_RADIUS = 5   # 11x11 median ROI
+# Mask parameters
+THRESHOLD = 100 # Adjust based on lighting conditions and ball color
+MIN_AREA = 200 
+MAX_AREA = 2000 # Adjust based on expected ball size in pixels
+MIN_RADIUS = 8
+MAX_RADIUS = 30
+MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
+MAX_TRACK_DISTANCE = 120 
+XY_FILTER_ALPHA = 0.25 # 0.0 = no filtering, 1.0 = max filtering (static position)
+MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
+
+# Depth Parameters
+DEPTH_MIN_MM = 400
+DEPTH_MAX_MM = 900
+TEMPORAL_ALPHA = 0.4 # 0.0 = no temporal smoothing, 1.0 = max smoothing (very slow response)
+TEMPORAL_DELTA = 20 # 0 = no temporal threshold, higher values reject more sudden changes (noise) but can cause lag
+DEPTH_ROI_RADIUS = 5 # Radius for median depth calculation (11x11 window)
 
 # UDP
 serverAddressPort = ("192.168.140.8", 49001)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+# Debug print
 DEBUG_PRINT_UDP = False
+SHOW_MASK = True
+SHOW_DEPTH_VIEW = False
+DEPTH_CALIBRATION = False
+
+# Other parameters
+Z_STATS_WINDOW = 300
+z_history = deque(maxlen=Z_STATS_WINDOW)
+
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -99,8 +104,7 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
         y_bytes[0], y_bytes[1],
         0, 0,
         z_bytes[0], z_bytes[1],
-        detected_flag
-    ])
+        detected_flag])
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
@@ -130,10 +134,8 @@ def draw_coordinate_overlay(frame):
         cv2.line(frame, (x, PLATE_Y1), (x, PLATE_Y2), (80, 80, 80), 1)
         cv2.line(frame, (PLATE_X1, y), (PLATE_X2, y), (80, 80, 80), 1)
 
-        cv2.putText(frame, f'{mm}', (x + 5, PLATE_CENTER_Y + 15),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
-        cv2.putText(frame, f'{mm}', (PLATE_CENTER_X + 8, y - 5),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
+        cv2.putText(frame, f'{mm}', (x + 5, PLATE_CENTER_Y + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
+        cv2.putText(frame, f'{mm}', (PLATE_CENTER_X + 8, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
 
     cv2.rectangle(frame, (PLATE_X1, PLATE_Y1), (PLATE_X2, PLATE_Y2), (0, 0, 255), 2)
     cv2.line(frame, (PLATE_X1, PLATE_CENTER_Y), (PLATE_X2, PLATE_CENTER_Y), (0,255,0), 2)
@@ -145,8 +147,7 @@ def draw_coordinate_overlay(frame):
     cv2.putText(frame, 'Y-', (PLATE_CENTER_X + 8, PLATE_Y2 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,0), 2)
 
     cv2.circle(frame, (PLATE_CENTER_X, PLATE_CENTER_Y), 6, (0, 0, 255), -1)
-    cv2.putText(frame, '(0,0)', (PLATE_CENTER_X + 10, PLATE_CENTER_Y - 10),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+    cv2.putText(frame, '(0,0)', (PLATE_CENTER_X + 10, PLATE_CENTER_Y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
 
 def draw_depth_legend(depth_img):
     h = depth_img.shape[0]
@@ -169,14 +170,8 @@ def contour_circularity(contour):
         return 0
     return 4 * math.pi * area / (perimeter ** 2)
 
-
-MIN_RADIUS = 8
-MAX_RADIUS = 30
-
 def contour_circle_fit(contour):
-
     (x, y), radius = cv2.minEnclosingCircle(contour)
-
     return ((x, y),radius)
 
 
@@ -249,19 +244,11 @@ depth_sensor = profile.get_device().first_depth_sensor()
 depth_scale = depth_sensor.get_depth_scale()
 
 # Intel RealSense SDK filters
-# spatial = rs.spatial_filter()
-# hole = rs.hole_filling_filter()
 temporal = rs.temporal_filter()
-temporal.set_option(
-    rs.option.filter_smooth_alpha,
-    TEMPORAL_ALPHA
-)
+temporal.set_option(rs.option.filter_smooth_alpha, TEMPORAL_ALPHA)
+temporal.set_option(rs.option.filter_smooth_delta,TEMPORAL_DELTA)
 
-temporal.set_option(
-    rs.option.filter_smooth_delta,
-    TEMPORAL_DELTA
-)
-
+# Values initialization
 prev_pos = None
 velocity = None
 filtered_pos = None
@@ -286,9 +273,7 @@ try:
             continue
 
         # RealSense filtering
-        # depth_frame = spatial.process(depth_frame)
         depth_frame = temporal.process(depth_frame)
-        # depth_frame = hole.process(depth_frame)
 
         frame = np.asanyarray(color_frame.get_data())
         depth_raw = np.asanyarray(depth_frame.get_data())
@@ -348,8 +333,7 @@ try:
         if result is not None:
             cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
             cv2.circle(display, center_int, int(round(radius)), (0,255,255), 2)
-            center_int = (int(round(chosen[0])),
-                          int(round(chosen[1])))
+            center_int = (int(round(chosen[0])), int(round(chosen[1])))
             cv2.circle(display, center_int, 5, (0,0,255), -1)
 
         if ctrl_coords is not None and z_display is not None:
@@ -373,43 +357,14 @@ try:
         # ================= FPS DISPLAY =================
         fps_text = f'FPS: {fps:5.1f}'
 
-        (text_w, text_h), _ = cv2.getTextSize(
-            fps_text,
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.7,
-            2
-        )
+        (text_w, text_h), _ = cv2.getTextSize(fps_text, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2)
 
-        cv2.putText(
-            display,
-            fps_text,
-            (WIDTH - text_w - 15, HEIGHT - 15),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.7,
-            (0, 255, 0),
-            2
-        )
+        cv2.putText(display, fps_text, (WIDTH - text_w - 15, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
         if DEPTH_CALIBRATION:
-            cv2.putText(
-                display,
-                f'Z mean: {z_mean:7.2f} mm',
-                (20, 120),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.7,
-                (255,255,255),
-                2
-            )
+            cv2.putText(display, f'Z mean: {z_mean:7.2f} mm', (20, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
 
-            cv2.putText(
-                display,
-                f'Z std : {z_std:6.2f} mm',
-                (20, 150),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.7,
-                (255,255,255),
-                2
-            )
-        cv2.imshow('Phase E3 Depth Measurement Improvement', display)
+            cv2.putText(display, f'Z std : {z_std:6.2f} mm', (20, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+        cv2.imshow('Phase_G1 2D Tracking Improvement', display)
 
         if SHOW_DEPTH_VIEW:
             depth_mm = depth_raw.astype(np.float32) * depth_scale * 1000.0
