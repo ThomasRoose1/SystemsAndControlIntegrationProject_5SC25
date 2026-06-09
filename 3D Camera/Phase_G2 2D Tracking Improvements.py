@@ -21,18 +21,20 @@ PLATE_SIZE_MM = 400.0
 GRID_SPACING_MM = 100.0
 
 # Mask parameters
+MAX_TRACK_DISTANCE = 120
+MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
 THRESHOLD = 100 # Adjust based on lighting conditions and ball color
+MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
+# Potential continuous auto-calibration --> MIN_RADIUS = ball_radius_ref - 3*radius_std // MAX_RADIUS = ball_radius_ref + 3*radius_std
 MIN_RADIUS = 8 # Need to be calibrated
-MAX_RADIUS = 30 # Need to be calibrated // Potential continuous auto-calibration --> MIN_RADIUS = ball_radius_ref - 3*radius_std // MAX_RADIUS = ball_radius_ref + 3*radius_std
+MAX_RADIUS = 30 # Need to be calibrated
 EDGE_MARGIN = 30 # Need to be calibrated
-BALL_RADIUS_ALPHA = 0.02 # 0.0 = no smoothing, 1.0 = max smoothing (very slow response)
-MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
-MAX_TRACK_DISTANCE = 120 
-XY_FILTER_ALPHA = 0.25 # 0.0 = no filtering, 1.0 = max filtering (static position)
-MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
+
+BALL_RADIUS_ALPHA = 0.02 # 0.0 = no smoothing, 1.0 = max smoothing (very slow response)
+XY_FILTER_ALPHA = 0.25 # 0.0 = no filtering, 1.0 = max filtering (static position)
 
 # Depth Parameters
 DEPTH_MIN_MM = 400
