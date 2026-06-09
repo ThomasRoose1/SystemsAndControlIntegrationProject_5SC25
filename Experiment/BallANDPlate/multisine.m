@@ -16,11 +16,11 @@ function u = multisine(f_1,f_2,fs,N,A) %returns one periode
     end
     
     df = fs / N; %Frequency resolution
-    K = (N-(~isEven(N)))/2 %Freq grid in K samples -> nyquist for even or odd N
+    K = (N-(~isEven(N)))/2; %Freq grid in K samples -> nyquist for even or odd N
     
-    f = (0:K)*df %full freq grid
+    f = (0:K)*df; %full freq grid
 
-    k = ceil(f_min/df) +(ceil(f_min/df) == 0) : floor(f_max/df) % Frequency domain vector
+    k = ceil(f_min/df) +(ceil(f_min/df) == 0) : floor(f_max/df); % Frequency domain vector
     
     phi = rand(size(k))*2*pi; %create random phases
     ck = exp(1j*phi); %create random phase coeficients

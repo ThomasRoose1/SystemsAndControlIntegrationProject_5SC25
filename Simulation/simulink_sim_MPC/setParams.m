@@ -44,6 +44,10 @@ Cc = [1 0 0 0;
 Dc = [0 0;
       0 0];
 
+% dimensions
+nx = size(Ac, 1); % Number of states
+nu = size(Bc, 2); % Number of inputs
+
 %% State observer 
 Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
 
@@ -59,58 +63,28 @@ observer_poles = [0.90, 0.91, 0.92, 0.93];
 % Compute the Observer Gain Matrix L
 L = place(A_fast', C_fast', observer_poles)';
 
-%% MPC controller discretization
-Ts_slow = 0.01;
+%% Load MPC params
+Ts_Outer = 0.01;
+% Tuning
+Qmpc = eye(nx); % State weighting
+Rmpc = 200*eye(nu); % Input weighting
+Nmpc = 25; % prediction horizon
 
-% Discretize continuous matrices for the fast estimation rate
-sys_slow = c2d(ss(Ac, Bc, Cc, Dc), Ts_slow, 'zoh');
-A_slow = sys_fast.A;
-B_slow = sys_fast.B;
-C_slow = sys_fast.C;
+% state constraints 
+max_pos = 0.15;
+max_vel = 1;
 
-% dimensions
-nx = size(A_slow,1);
-ny = size(C_slow,1);
-nu = size(B_slow,2);
+% Load MPC params
+MPC_params = compute_mpc_params(Qmpc,Rmpc,Nmpc, Ts_Outer, max_pos, max_vel);
 
-%% Load Saved Terminal Design Matrices
-% This loads K, P, HT, and hT instantly into the workspace
-load('mpc_terminal_design.mat'); 
+% Create a Simulink Bus Object automatically from 'params' structure
+Simulink.Bus.createObject(MPC_params);
 
-%% Compile/Define YALMIP MPC Optimizer Object
-% State and Input Weights (Must match what you used to compute P offline!)
-Q = eye(nx); 
-R = eye(nu); 
+% Rename the generic generated object to a clear type name for model
+MPC_params_bus = slBus1; 
+clear slBus1;
 
-N = 25; % Prediction Horizon
-[Phi, Gamma, Omega, Psi] = mpc_obj(A_slow, B_slow, Q, R, P, N); % Uses loaded 'P'
-
-% Setup Polyhedron Constraints (Output and Input)
-max_pos = 0.2; max_angle = deg2rad(10);
-Hu = [-1 0; 1 0; 0 -1; 0 1];     hu = repmat(max_angle, 4, 1);
-Hy = [-1 0; 1 0; 0 -1; 0 1];     hy = repmat(max_pos, 4, 1);
-
-Hu_bar = kron(eye(N), Hu);       hu_bar = repmat(hu, N, 1);
-Hy_bar = kron(eye(N), Hy);       hy_bar = repmat(hy, N, 1);
-
-% Define Optimization Variables
-x0 = sdpvar(nx,1);
-Xk = sdpvar(nx*N, 1);
-Uk = sdpvar(nu*N, 1);
-Yk = sdpvar(ny*N, 1);
-
-Obj = Xk'*Omega*Xk + Uk'*Psi*Uk;
-
-Con = [Xk == Phi*x0 + Gamma*Uk];
-Con = [Con, Yk == kron(eye(N),C_slow)*Xk];
-Con = [Con, Hy_bar*Yk <= hy_bar];
-Con = [Con, Hu_bar*Uk <= hu_bar];
-x_N = Xk(end-nx+1:end); % Extract the final predicted state step
-Con = [Con, HT * x_N <= hT];
-
-% Build the compiled optimizer object
-options = sdpsettings('solver','quadprog','verbose',0);
-u_current = Uk(1:nu);
-MPC_sparse = optimizer(Con, Obj, options, x0, u_current);
-
-disp('setParams initialization complete. Ready for Simulink simulation.');
+% Force the elements of the bus to match explicit double-precision types
+for i = 1:length(MPC_params_bus.Elements)
+    MPC_params_bus.Elements(i).DataType = 'double';
+end
