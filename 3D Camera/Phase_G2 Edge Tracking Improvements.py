@@ -34,7 +34,7 @@ EDGE_MARGIN = 30 # Need to be calibrated
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
 
 BALL_RADIUS_ALPHA = 0.02 # 0.0 = no smoothing, 1.0 = max smoothing (very slow response)
-XY_FILTER_ALPHA = 0.25 # 0.0 = no filtering, 1.0 = max filtering (static position)
+XY_FILTER_ALPHA = 0.5 # 0.0 = no filtering, 1.0 = max filtering (static position)
 
 # Depth Parameters
 DEPTH_MIN_MM = 400
@@ -55,6 +55,7 @@ SHOW_XY_STATS = False
 SHOW_Z_STATS = False
 SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
+SHOW_TRACKING_DEBUG = True
 
 # Other parameters
 STATS_WINDOW = 300
@@ -325,6 +326,8 @@ try:
         ctrl_coords = None
         z_mm = None
         z_display = None
+        raw_center = None
+        comp_center = None
 
         # Stats initialization
         x_mean = 0
@@ -338,6 +341,8 @@ try:
 
         if result is not None:
             contour, chosen, area, radius = result
+
+            raw_center = chosen
 
             radius_history.append(radius)
             if len(radius_history) >= 30:
@@ -359,7 +364,10 @@ try:
                     ball_radius_ref = ((1.0 - BALL_RADIUS_ALPHA) * ball_radius_ref + BALL_RADIUS_ALPHA * radius)
 
             if USE_EDGE_COMPENSATION:
-                chosen = edge_compensated_center(chosen, radius)
+                comp_center = edge_compensated_center(chosen, radius)
+                chosen = comp_center
+            else:
+                comp_center = chosen
 
             if filtered_pos is None:
                 filtered_pos = chosen
@@ -394,9 +402,25 @@ try:
 
         if result is not None:
             cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
-            center_int = (int(round(chosen[0])), int(round(chosen[1])))
-            cv2.circle(display, center_int, int(round(radius)), (0,255,255), 2)
-            cv2.circle(display, center_int, 5, (0,0,255), -1)
+            
+            raw_int = (int(round(raw_center[0])), int(round(raw_center[1])))
+            comp_int = (int(round(comp_center[0])), int(round(comp_center[1])))
+
+            filt_int = (int(round(chosen[0])), int(round(chosen[1])))
+            # Fitted circle
+            cv2.circle(display, raw_int, int(round(radius)), (0,255,255), 2)
+
+            if SHOW_TRACKING_DEBUG:
+                # Raw circle fit center
+                cv2.circle(display, raw_int, 4, (0,255,0), -1)
+
+                # Edge compensated center
+                cv2.circle(display, comp_int, 4, (0,255,255), -1)
+
+                # Final EMA-filtered center
+                cv2.circle(display, filt_int, 6, (0,0,255), -1)
+            else:
+                cv2.circle(display, filt_int, 6, (0,0,255), -1)
 
         if ctrl_coords is not None and z_display is not None:
             x_history.append(ctrl_coords[0])
@@ -449,6 +473,11 @@ try:
             cv2.putText(display, f'R std : {radius_std:.2f}px', (20, 360), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
             cv2.putText(display, f'R min : {radius_min:.2f}px', (20, 390), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
             cv2.putText(display, f'R max : {radius_max:.2f}px', (20, 420), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+        
+        if SHOW_TRACKING_DEBUG:
+            cv2.putText(display, 'GREEN  = Raw Fit', (20,300), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+            cv2.putText(display, 'YELLOW = Edge Comp', (20,325), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2)
+            cv2.putText(display, 'RED    = Filtered', (20,350), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2)
         
         if near_edge:
             # print(f'Near edge ON')
