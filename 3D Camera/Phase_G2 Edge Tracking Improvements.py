@@ -23,7 +23,7 @@ GRID_SPACING_MM = 100.0
 # Mask parameters
 MAX_TRACK_DISTANCE = 120
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
-THRESHOLD = 100 # Adjust based on lighting conditions and ball color
+THRESHOLD = 75 # Adjust based on lighting conditions and ball color
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
@@ -31,7 +31,7 @@ MAX_AREA = 2000 # Adjust based on expected ball size in pixels
 MIN_RADIUS = 8 # Need to be calibrated
 MAX_RADIUS = 30 # Need to be calibrated
 EDGE_MARGIN = 30 # Need to be calibrated
-USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
+USE_EDGE_COMPENSATION = False # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
 
 BALL_RADIUS_ALPHA = 0.02 # 0.0 = no smoothing, 1.0 = max smoothing (very slow response)
 XY_FILTER_ALPHA = 0.25 # 0.0 = no filtering, 1.0 = max filtering (static position)
@@ -53,7 +53,7 @@ SHOW_MASK = True
 SHOW_DEPTH_VIEW = False
 SHOW_XY_STATS = False
 SHOW_Z_STATS = False
-SHOW_RADIUS_CALIBRATION = False
+SHOW_RADIUS_CALIBRATION = True
 SHOW_EDGE_ZONE = False
 
 # Other parameters
@@ -61,7 +61,7 @@ STATS_WINDOW = 300
 x_history = deque(maxlen=STATS_WINDOW)
 y_history = deque(maxlen=STATS_WINDOW)
 z_history = deque(maxlen=STATS_WINDOW)
-radius_history = deque(maxlen=500)
+radius_history = deque(maxlen=STATS_WINDOW)
 
 
 # ================= LOAD CALIBRATION =================
@@ -340,7 +340,7 @@ try:
             contour, chosen, area, radius = result
 
             radius_history.append(radius)
-            if len(radius_history) >= 30:
+            if len(radius_history) >= 10:
                 radius_mean = np.mean(radius_history)
                 radius_std = np.std(radius_history)
 
