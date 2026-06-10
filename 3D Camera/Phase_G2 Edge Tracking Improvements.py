@@ -23,15 +23,15 @@ GRID_SPACING_MM = 100.0
 # Mask parameters
 MAX_TRACK_DISTANCE = 120
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
-THRESHOLD = 75 # Adjust based on lighting conditions and ball color
+THRESHOLD = 80 # Adjust based on lighting conditions and ball color
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
 # Potential continuous auto-calibration --> MIN_RADIUS = ball_radius_ref - 3*radius_std // MAX_RADIUS = ball_radius_ref + 3*radius_std
-MIN_RADIUS = 8 # Need to be calibrated
-MAX_RADIUS = 30 # Need to be calibrated
+MIN_RADIUS = 15 # Need to be calibrated
+MAX_RADIUS = 20 # Need to be calibrated
 EDGE_MARGIN = 30 # Need to be calibrated
-USE_EDGE_COMPENSATION = False # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
+USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
 
 BALL_RADIUS_ALPHA = 0.02 # 0.0 = no smoothing, 1.0 = max smoothing (very slow response)
 XY_FILTER_ALPHA = 0.25 # 0.0 = no filtering, 1.0 = max filtering (static position)
@@ -53,7 +53,7 @@ SHOW_MASK = True
 SHOW_DEPTH_VIEW = False
 SHOW_XY_STATS = False
 SHOW_Z_STATS = False
-SHOW_RADIUS_CALIBRATION = True
+SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
 
 # Other parameters
@@ -340,7 +340,7 @@ try:
             contour, chosen, area, radius = result
 
             radius_history.append(radius)
-            if len(radius_history) >= 10:
+            if len(radius_history) >= 30:
                 radius_mean = np.mean(radius_history)
                 radius_std = np.std(radius_history)
 
@@ -431,7 +431,6 @@ try:
         (text_w, text_h), _ = cv2.getTextSize(fps_text, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2)
         cv2.putText(display, fps_text, (WIDTH - text_w - 15, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
-        cv2.imshow('Phase_G1 2D Tracking Improvement', display)
         # ================= DEBUG OVERLAYS =================
 
         if SHOW_XY_STATS:
@@ -445,19 +444,21 @@ try:
             cv2.putText(display, f'Z std : {z_std:6.2f} mm', (20, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
         
         if SHOW_RADIUS_CALIBRATION and len(radius_history) >= 30:
+            # print(f'Radius calibration ON')
             cv2.putText(display, f'R mean: {radius_mean:.2f}px', (20, 330), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
             cv2.putText(display, f'R std : {radius_std:.2f}px', (20, 360), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
             cv2.putText(display, f'R min : {radius_min:.2f}px', (20, 390), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
             cv2.putText(display, f'R max : {radius_max:.2f}px', (20, 420), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
         
         if near_edge:
+            # print(f'Near edge ON')
             cv2.putText(display, 'EDGE MODE', (20,450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)
         
         if SHOW_EDGE_ZONE:
             cv2.rectangle(display, (PLATE_X1 + EDGE_MARGIN, PLATE_Y1 + EDGE_MARGIN), (PLATE_X2 - EDGE_MARGIN, PLATE_Y2 - EDGE_MARGIN), (100,100,255), 1)
 
-        if ball_radius_ref is not None:
-            cv2.putText(display, f'Rref: {ball_radius_ref:.1f}px', (20,300), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)       
+        # if ball_radius_ref is not None:
+        #     cv2.putText(display, f'Rref: {ball_radius_ref:.1f}px', (20,300), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)       
 
         if SHOW_DEPTH_VIEW:
             depth_mm = depth_raw.astype(np.float32) * depth_scale * 1000.0
@@ -472,6 +473,7 @@ try:
         if SHOW_MASK:
             cv2.imshow('Binary Mask', mask)
 
+        cv2.imshow('Phase_G1 2D Tracking Improvement', display)
         # ================= FPS UPDATE =================
         current_time = time.perf_counter()
         dt = current_time - prev_time
