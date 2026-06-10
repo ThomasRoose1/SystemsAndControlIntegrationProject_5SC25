@@ -64,7 +64,7 @@ observer_poles = [0.90, 0.91, 0.92, 0.93];
 L = place(A_fast', C_fast', observer_poles)';
 
 %% Load MPC params
-Ts_Outer = 1/50;
+Ts_Outer = 0.1;
 % Tuning
 Qmpc = eye(nx); % State weighting
 Rmpc = 100*eye(nu); % Input weighting
