@@ -84,29 +84,29 @@ K_lqr = dlqr(Ad, Bd, Q_lqr, R_lqr);
 % K_lqr = -K_lqr;
 
 %% Load MPC params
-% Tuning
-Qmpc = eye(nx); % State weighting
-Rmpc = 200*eye(nu); % Input weighting
-Nmpc = 25; % prediction horizon
-
-% state constraints 
-max_pos = 0.15;
-max_vel = 1;
-
-% Load MPC params
-MPC_params = compute_mpc_params(Qmpc,Rmpc,Nmpc, Ts_Outer, max_pos, max_vel);
-
-% Create a Simulink Bus Object automatically from 'params' structure
-Simulink.Bus.createObject(MPC_params);
-
-% Rename the generic generated object to a clear type name for model
-MPC_params_bus = slBus1; 
-clear slBus1;
-
-% Force the elements of the bus to match explicit double-precision types
-for i = 1:length(MPC_params_bus.Elements)
-    MPC_params_bus.Elements(i).DataType = 'double';
-end
+% % Tuning
+% Qmpc = eye(nx); % State weighting
+% Rmpc = 200*eye(nu); % Input weighting
+% Nmpc = 25; % prediction horizon
+% 
+% % state constraints 
+% max_pos = 0.15;
+% max_vel = 1;
+% 
+% % Load MPC params
+% MPC_params = compute_mpc_params(Qmpc,Rmpc,Nmpc, Ts_Outer, max_pos, max_vel);
+% 
+% % Create a Simulink Bus Object automatically from 'params' structure
+% Simulink.Bus.createObject(MPC_params);
+% 
+% % Rename the generic generated object to a clear type name for model
+% MPC_params_bus = slBus1; 
+% clear slBus1;
+% 
+% % Force the elements of the bus to match explicit double-precision types
+% for i = 1:length(MPC_params_bus.Elements)
+%     MPC_params_bus.Elements(i).DataType = 'double';
+% end
 
 %% done
 disp('Initialization complete. Ready for Simulink simulation.');

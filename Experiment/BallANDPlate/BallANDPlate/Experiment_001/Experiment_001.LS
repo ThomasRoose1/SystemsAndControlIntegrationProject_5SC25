@@ -2,7 +2,7 @@
 <Root>
 	<ProjectExperiment>
 		<window>
-			<RelativeDocumentPlacement type="key">1:m 0 Instrumentation|2bca74c0-4866-430d-b7d5-8f1919ef3418/0:m 1 Instrumentation|090df5ef-b1ce-4947-ac99-cace898eae9f/1:</RelativeDocumentPlacement>
+			<RelativeDocumentPlacement type="key">1:m 0 Instrumentation|2bca74c0-4866-430d-b7d5-8f1919ef3418/0:m 2 Instrumentation|87e35ca5-d9d1-4a28-9ce9-ff5cfc3649f7/2:m 1 Instrumentation|090df5ef-b1ce-4947-ac99-cace898eae9f/1:</RelativeDocumentPlacement>
 		</window>
 		<viewflags>
 			<Name type="key">Experiment_001.CDE</Name>
@@ -23,6 +23,10 @@
 					</item>
 					<item>
 						<Name type="key">Layout2.lay</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">Layout3.lay</Name>
 						<ViewFlags type="key">1</ViewFlags>
 					</item>
 				</item>
@@ -105,6 +109,9 @@
 			<Layout2>
 				<Data type="key">Layout2.lay|1|090df5ef-b1ce-4947-ac99-cace898eae9f/1|1:sm:mm 52 52 1658 645 -1 -1:</Data>
 			</Layout2>
+			<Layout3>
+				<Data type="key">Layout3.lay|1|87e35ca5-d9d1-4a28-9ce9-ff5cfc3649f7/2|1:sm:mm 78 78 1736 569 -1 -1:</Data>
+			</Layout3>
 		</Layouts>
 	</Instrumentation>
 	<XILAPIEESPort>
