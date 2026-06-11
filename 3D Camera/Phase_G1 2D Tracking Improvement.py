@@ -24,12 +24,12 @@ GRID_SPACING_MM = 100.0
 THRESHOLD = 100 # Adjust based on lighting conditions and ball color
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
-MIN_RADIUS = 8
-MAX_RADIUS = 30
+MIN_RADIUS = 15
+MAX_RADIUS = 25
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MAX_TRACK_DISTANCE = 120 
-XY_FILTER_ALPHA = 0.25 # 0.0 = no filtering, 1.0 = max filtering (static position)
-MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
+XY_FILTER_ALPHA = 0.25 # 1 = no filtering, 0.1 = max filtering
+MASK_MARGIN = 12 # Margin to erode plate mask to avoid edge artifacts
 
 # Depth Parameters
 DEPTH_MIN_MM = 400

@@ -33,7 +33,7 @@ MAX_RADIUS = 20 # Need to be calibrated
 EDGE_MARGIN = 30 # Need to be calibrated
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
 
-BALL_RADIUS_ALPHA = 0.02 # 0.0 = no smoothing, 1.0 = max smoothing (very slow response)
+BALL_RADIUS_ALPHA = 0.2 # 0.0 = no smoothing, 1.0 = max smoothing (very slow response)
 XY_FILTER_ALPHA = 0.5 # 0.0 = no filtering, 1.0 = max filtering (static position)
 
 # Depth Parameters
@@ -55,7 +55,7 @@ SHOW_XY_STATS = False
 SHOW_Z_STATS = False
 SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
-SHOW_TRACKING_DEBUG = True
+SHOW_TRACKING_DEBUG = False
 
 # Other parameters
 STATS_WINDOW = 300
@@ -328,6 +328,7 @@ try:
         z_display = None
         raw_center = None
         comp_center = None
+        near_edge = False
 
         # Stats initialization
         x_mean = 0
