@@ -6,62 +6,59 @@ import pyrealsense2 as rs
 import math
 import json
 import time
+from collections import deque
 
 # ================= CONFIG =================
+# Pipeline parameters
 WIDTH = 640
 HEIGHT = 480
 FPS = 60
 FPS_Depth = 90
+
+#Calibration parameters
 CALIBRATION_FILE = 'plate_calibration.json'
-MASK_MARGIN = 15   # pixels
-
-SHOW_MASK = True
-SHOW_DEPTH_VIEW = False
-DEPTH_MIN_MM = 400
-DEPTH_MAX_MM = 900
-
-# 2D Parameters
-THRESHOLD = 75
-MIN_AREA = 800
-MAX_AREA = 2000
-MIN_CIRCULARITY = 0.75
-MAX_TRACK_DISTANCE = 120
-MIN_RADIUS = 8
-MAX_RADIUS = 30
-
-# Depth Parameters
-TEMPORAL_ALPHA = 0.4
-TEMPORAL_DELTA = 20
-DEPTH_CALIBRATION = False
-from collections import deque
-
-Z_STATS_WINDOW = 300
-z_history = deque(maxlen=Z_STATS_WINDOW)
-
 PLATE_SIZE_MM = 400.0
 GRID_SPACING_MM = 100.0
 
-# Improved depth measurement
-DEPTH_ROI_RADIUS = 5   # 11x11 median ROI
+# Mask parameters
+THRESHOLD = 100 # Adjust based on lighting conditions and ball color
+MIN_AREA = 200 
+MAX_AREA = 2000 # Adjust based on expected ball size in pixels
+MIN_RADIUS = 8
+MAX_RADIUS = 30
+MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
+MAX_TRACK_DISTANCE = 120 
+XY_FILTER_ALPHA = 0.25 # 0.0 = no filtering, 1.0 = max filtering (static position)
+MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
+
+# Depth Parameters
+DEPTH_MIN_MM = 400
+DEPTH_MAX_MM = 900
+TEMPORAL_ALPHA = 0.4 # 0.0 = no temporal smoothing, 1.0 = max smoothing (very slow response)
+TEMPORAL_DELTA = 20 # 0 = no temporal threshold, higher values reject more sudden changes (noise) but can cause lag
+DEPTH_ROI_RADIUS = 5 # Radius for median depth calculation (11x11 window)
 
 # UDP
 serverAddressPort = ("192.168.140.8", 49001)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+# Debug print
 DEBUG_PRINT_UDP = False
+SHOW_MASK = True
+SHOW_DEPTH_VIEW = False
+SHOW_XY_STATS = False
+SHOW_Z_STATS = False
+
+# Other parameters
+STATS_WINDOW = 300
+x_history = deque(maxlen=STATS_WINDOW)
+y_history = deque(maxlen=STATS_WINDOW)
+z_history = deque(maxlen=STATS_WINDOW)
+
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
     calib = json.load(f)
-    DEPTH_REFERENCE_FILE = calib['depth_reference_file']
-
-    plate_depth_reference = np.load(
-        DEPTH_REFERENCE_FILE
-    )
-
-    print(
-        f'Loaded depth reference: '
-        f'{DEPTH_REFERENCE_FILE}'
-    )
 
 plate_quad = np.array(calib['plate_quad'], dtype=np.float32)
 TL, TR, BR, BL = plate_quad
@@ -110,40 +107,11 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
         y_bytes[0], y_bytes[1],
         0, 0,
         z_bytes[0], z_bytes[1],
-        detected_flag
-    ])
+        detected_flag])
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
 
-def get_plate_reference_mm(
-        depth_reference,
-        x,
-        y):
-
-    x1 = max(0, x - DEPTH_ROI_RADIUS)
-    x2 = min(
-        depth_reference.shape[1],
-        x + DEPTH_ROI_RADIUS + 1
-    )
-
-    y1 = max(0, y - DEPTH_ROI_RADIUS)
-    y2 = min(
-        depth_reference.shape[0],
-        y + DEPTH_ROI_RADIUS + 1
-    )
-
-    roi = depth_reference[
-        y1:y2,
-        x1:x2
-    ]
-
-    valid = roi[roi > 0]
-
-    if valid.size == 0:
-        return None
-
-    return np.median(valid)
 
 def get_median_depth_mm(depth_raw, x, y, depth_scale):
     x1 = max(0, x - DEPTH_ROI_RADIUS)
@@ -169,10 +137,8 @@ def draw_coordinate_overlay(frame):
         cv2.line(frame, (x, PLATE_Y1), (x, PLATE_Y2), (80, 80, 80), 1)
         cv2.line(frame, (PLATE_X1, y), (PLATE_X2, y), (80, 80, 80), 1)
 
-        cv2.putText(frame, f'{mm}', (x + 5, PLATE_CENTER_Y + 15),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
-        cv2.putText(frame, f'{mm}', (PLATE_CENTER_X + 8, y - 5),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
+        cv2.putText(frame, f'{mm}', (x + 5, PLATE_CENTER_Y + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
+        cv2.putText(frame, f'{mm}', (PLATE_CENTER_X + 8, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180,180,180), 1)
 
     cv2.rectangle(frame, (PLATE_X1, PLATE_Y1), (PLATE_X2, PLATE_Y2), (0, 0, 255), 2)
     cv2.line(frame, (PLATE_X1, PLATE_CENTER_Y), (PLATE_X2, PLATE_CENTER_Y), (0,255,0), 2)
@@ -184,8 +150,7 @@ def draw_coordinate_overlay(frame):
     cv2.putText(frame, 'Y-', (PLATE_CENTER_X + 8, PLATE_Y2 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,0), 2)
 
     cv2.circle(frame, (PLATE_CENTER_X, PLATE_CENTER_Y), 6, (0, 0, 255), -1)
-    cv2.putText(frame, '(0,0)', (PLATE_CENTER_X + 10, PLATE_CENTER_Y - 10),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+    cv2.putText(frame, '(0,0)', (PLATE_CENTER_X + 10, PLATE_CENTER_Y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
 
 def draw_depth_legend(depth_img):
     h = depth_img.shape[0]
@@ -208,49 +173,21 @@ def contour_circularity(contour):
         return 0
     return 4 * math.pi * area / (perimeter ** 2)
 
-
-# def contour_centroid(contour):
-#     Mmom = cv2.moments(contour)
-#     if Mmom['m00'] == 0:
-#         return None
-#     return (int(Mmom['m10'] / Mmom['m00']), int(Mmom['m01'] / Mmom['m00']))
 def contour_circle_fit(contour):
-
     (x, y), radius = cv2.minEnclosingCircle(contour)
-
-    return (
-        (x, y),
-        radius
-    )
+    return ((x, y),radius)
 
 
 def detect_ball(gray, predicted=None):
-    _, mask = cv2.threshold(gray, THRESHOLD, 255, cv2.THRESH_BINARY_INV)
+    gray = cv2.GaussianBlur(gray,(5,5),0) # gaussian Blur to reduce noise and improve thresholding
+    _, mask = cv2.threshold(gray,THRESHOLD,255,cv2.THRESH_BINARY_INV) # binary inverse thresholding to get white ball on black background
+    plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8) # create empty mask for plate region
 
-    plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8)
+    cv2.fillPoly(plate_mask,[rotated_quad.astype(np.int32)],255)
 
-    cv2.fillPoly(
-        plate_mask,
-        [rotated_quad.astype(np.int32)],
-        255
-    )
-
-    kernel = np.ones(
-        (2*MASK_MARGIN+1,
-        2*MASK_MARGIN+1),
-        np.uint8
-    )
-
-    plate_mask = cv2.erode(
-        plate_mask,
-        kernel,
-        iterations=1
-    )
-
-    mask = cv2.bitwise_and(
-    mask,
-    plate_mask
-    )
+    kernel = np.ones((2*MASK_MARGIN+1,2*MASK_MARGIN+1),np.uint8)
+    plate_mask = cv2.erode(plate_mask,kernel,iterations=1)
+    mask = cv2.bitwise_and(mask,plate_mask)
     
     kernel = np.ones((5, 5), np.uint8)
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
@@ -278,7 +215,7 @@ def detect_ball(gray, predicted=None):
         if not (PLATE_X1 <= ctr[0] <= PLATE_X2 and PLATE_Y1 <= ctr[1] <= PLATE_Y2):
             continue
 
-        candidates.append((contour, ctr, area, radius))
+        candidates.append((contour,ctr,area,radius))
 
     if not candidates:
         return None, mask
@@ -310,21 +247,17 @@ depth_sensor = profile.get_device().first_depth_sensor()
 depth_scale = depth_sensor.get_depth_scale()
 
 # Intel RealSense SDK filters
-# spatial = rs.spatial_filter()
-# hole = rs.hole_filling_filter()
 temporal = rs.temporal_filter()
-temporal.set_option(
-    rs.option.filter_smooth_alpha,
-    TEMPORAL_ALPHA
-)
+temporal.set_option(rs.option.filter_smooth_alpha, TEMPORAL_ALPHA)
+temporal.set_option(rs.option.filter_smooth_delta,TEMPORAL_DELTA)
 
-temporal.set_option(
-    rs.option.filter_smooth_delta,
-    TEMPORAL_DELTA
-)
-
+# Values initialization
 prev_pos = None
 velocity = None
+filtered_pos = None
+z_reference_mm = None
+last_valid_ctrl_coords = (0.0, 0.0)
+last_valid_z = 0.0
 
 # FPS measurement
 fps = 0.0
@@ -343,9 +276,7 @@ try:
             continue
 
         # RealSense filtering
-        # depth_frame = spatial.process(depth_frame)
         depth_frame = temporal.process(depth_frame)
-        # depth_frame = hole.process(depth_frame)
 
         frame = np.asanyarray(color_frame.get_data())
         depth_raw = np.asanyarray(depth_frame.get_data())
@@ -366,23 +297,35 @@ try:
         ctrl_coords = None
         z_mm = None
         z_display = None
+
+        # Stats initialization
+        x_mean = 0
+        x_std = 0
+        y_mean = 0
+        y_std = 0
         z_mean = 0
         z_std = 0
 
         if result is not None:
             contour, chosen, area, radius = result
+            if filtered_pos is None:
+                filtered_pos = chosen
+            else:
+                filtered_pos = (XY_FILTER_ALPHA * chosen[0] + (1.0 - XY_FILTER_ALPHA) * filtered_pos[0], 
+                                XY_FILTER_ALPHA * chosen[1] + (1.0 - XY_FILTER_ALPHA) * filtered_pos[1])
+
+            chosen = filtered_pos
             ctrl_coords = pixel_to_control_coords(chosen)
 
             z_mm = get_median_depth_mm(depth_raw, int(round(chosen[0])), int(round(chosen[1])), depth_scale)
+
             if z_mm is not None:
+                z_display = z_mm if z_reference_mm is None else z_reference_mm - z_mm
 
-                z_plate = get_plate_reference_mm(plate_depth_reference, int(round(chosen[0])), int(round(chosen[1])))
-
-                if z_plate > 0:
-                    z_display = z_plate - z_mm
-                else:
-                    z_display = None
-
+            if z_display is not None:
+                last_valid_ctrl_coords = ctrl_coords
+                last_valid_z = z_display
+                
             if prev_pos is not None:
                 velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
             else:
@@ -403,6 +346,16 @@ try:
             cv2.circle(display, center_int, 5, (0,0,255), -1)
 
         if ctrl_coords is not None and z_display is not None:
+            x_history.append(ctrl_coords[0])
+            y_history.append(ctrl_coords[1])
+            if len(x_history) >= 30:
+
+                x_mean = np.mean(x_history)
+                x_std = np.std(x_history)
+
+                y_mean = np.mean(y_history)
+                y_std = np.std(y_history)
+
             last_valid_ctrl_coords = ctrl_coords
             last_valid_z = z_display          
             send_ball_position_xyz_mm(ctrl_coords, z_display,detected_flag=1)
@@ -422,44 +375,20 @@ try:
 
         # ================= FPS DISPLAY =================
         fps_text = f'FPS: {fps:5.1f}'
+        (text_w, text_h), _ = cv2.getTextSize(fps_text, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2)
+        cv2.putText(display, fps_text, (WIDTH - text_w - 15, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
-        (text_w, text_h), _ = cv2.getTextSize(
-            fps_text,
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.7,
-            2
-        )
-
-        cv2.putText(
-            display,
-            fps_text,
-            (WIDTH - text_w - 15, HEIGHT - 15),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.7,
-            (0, 255, 0),
-            2
-        )
-        if DEPTH_CALIBRATION:
-            cv2.putText(
-                display,
-                f'Z mean: {z_mean:7.2f} mm',
-                (20, 120),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.7,
-                (255,255,255),
-                2
-            )
-
-            cv2.putText(
-                display,
-                f'Z std : {z_std:6.2f} mm',
-                (20, 150),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.7,
-                (255,255,255),
-                2
-            )
-        cv2.imshow('Phase E3 Depth Measurement Improvement', display)
+        if SHOW_XY_STATS:
+            cv2.putText(display, f'X mean: {x_mean:7.2f} mm', (20,120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            cv2.putText(display, f'X std : {x_std:6.2f} mm', (20,150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            cv2.putText(display, f'Y mean: {y_mean:7.2f} mm', (20,180), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            cv2.putText(display, f'Y std : {y_std:6.2f} mm', (20,210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+        
+        if SHOW_Z_STATS:
+            cv2.putText(display, f'Z mean: {z_mean:7.2f} mm', (20, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            cv2.putText(display, f'Z std : {z_std:6.2f} mm', (20, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+        
+        cv2.imshow('Phase_G1 2D Tracking Improvement', display)
 
         if SHOW_DEPTH_VIEW:
             depth_mm = depth_raw.astype(np.float32) * depth_scale * 1000.0
@@ -485,6 +414,9 @@ try:
         prev_time = current_time
 
         key = cv2.waitKey(1) & 0xFF
+        if key == ord('z') and z_mm is not None:
+            z_reference_mm = z_mm
+            print(f'Z reference set to {z_reference_mm:.1f} mm')
         if key == 27:
             break
 
