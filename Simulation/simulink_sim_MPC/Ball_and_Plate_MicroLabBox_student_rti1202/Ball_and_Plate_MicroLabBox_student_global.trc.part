@@ -1,0 +1,97 @@
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[0]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4_4_Col*
+	 alias:   "Q_kf"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[16]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_2_Col*
+	 alias:   "R_kf"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[20]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Ts_Inner"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[21]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Ts_Outer"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[22]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Ts_fast"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[23]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ball_pos_sat"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[24]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ball_vel_sat"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[25]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_3001*
+	 alias:   "path"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3026]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "plate_angle_sat"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3027]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
+	 alias:   "uA"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[203027]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
+	 alias:   "uB"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[403027]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
+	 alias:   "uC"
+	 flags:   PARAM
+	}
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+group "State Machine Data"
+
+
+endgroup
+
+
+-- ******** Labels ************************************************************
+
+-- Generation of labels turned off with TRCGenerateLabels option.
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+

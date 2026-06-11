@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.79
+ * Model version              : 1.86
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Wed Jun 10 10:51:50 2026
+ * C source code generated on : Thu Jun 11 17:07:34 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -39,9 +39,9 @@
 
 /* Shared type includes */
 #include "multiword_types.h"
-#include "rt_zcfcn.h"
-#include "rt_nonfinite.h"
 #include "rtGetInf.h"
+#include "rt_nonfinite.h"
+#include "rt_zcfcn.h"
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetContStateDisabled
@@ -247,19 +247,18 @@ typedef struct {
   real_T Uk1;                          /* '<S1>/UD' */
   real_T Diff;                         /* '<S1>/Diff' */
   real_T Gain;                         /* '<Root>/Gain' */
-  real_T Gain2;                        /* '<Root>/Gain2' */
-  real_T RateTransition4;              /* '<Root>/Rate Transition4' */
+  real_T FirstOrderHold;               /* '<Root>/First Order Hold' */
   real_T Gain1;                        /* '<S6>/Gain1' */
   real_T Dct1lowpass2;                 /* '<S6>/Dct1lowpass2' */
-  real_T Gain3;                        /* '<Root>/Gain3' */
-  real_T RateTransition5;              /* '<Root>/Rate Transition5' */
+  real_T FirstOrderHold1;              /* '<Root>/First Order Hold1' */
   real_T Gain1_m;                      /* '<S7>/Gain1' */
   real_T Dct1lowpass2_b;               /* '<S7>/Dct1lowpass2' */
   real_T Gain1_b;                      /* '<S10>/Gain1' */
   real_T Dct1lowpass2_l;               /* '<S10>/Dct1lowpass2' */
   real_T Gain1_bh;                     /* '<S11>/Gain1' */
   real_T Dct1lowpass2_o;               /* '<S11>/Dct1lowpass2' */
-  real_T Optimalcontroller[2];         /* '<Root>/Optimal controller' */
+  real_T Switch[4];                    /* '<Root>/Switch' */
+  real_T Gain1_j[2];                   /* '<Root>/Gain1' */
   real_T Gain1_c;                      /* '<S8>/Gain1' */
   real_T Dct1lowpass2_b2;              /* '<S8>/Dct1lowpass2' */
   real_T Gain4;                        /* '<Root>/Gain4' */
@@ -269,8 +268,8 @@ typedef struct {
   real_T Gain5;                        /* '<Root>/Gain5' */
   real_T Beta_sat;                     /* '<Root>/Beta_sat ' */
   real_T SFunction1[2];                /* '<S14>/S-Function1' */
-  real_T Switch[4];                    /* '<Root>/Switch' */
-  real_T Gain6[4];                     /* '<Root>/Gain6' */
+  real_T Gain2;                        /* '<Root>/Gain2' */
+  real_T Gain3;                        /* '<Root>/Gain3' */
   real_T Switch_h;                     /* '<S17>/Switch' */
   real_T enable_ref;                   /* '<S17>/enable_ref ' */
   real_T Sum1;                         /* '<S17>/Sum1' */
@@ -308,6 +307,8 @@ typedef struct {
   real_T Constant1_h;                  /* '<S51>/Constant1' */
   real_T Constant2_h;                  /* '<S51>/Constant2' */
   real_T reser_integrator;             /* '<S3>/reser_integrator' */
+  real_T RateTransition4;              /* '<Root>/Rate Transition4' */
+  real_T RateTransition5;              /* '<Root>/Rate Transition5' */
   real_T Alpha_sine;                   /* '<Root>/Alpha_sine ' */
   real_T Beta_sine;                    /* '<Root>/Beta_sine' */
   real_T Constant5;                    /* '<Root>/Constant5' */
@@ -398,8 +399,15 @@ typedef struct {
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T UD_DSTATE;                    /* '<S1>/UD' */
-  real_T Optimalcontroller_DSTATE[16]; /* '<Root>/Optimal controller' */
   volatile real_T RateTransition3_Buffer0;/* '<Root>/Rate Transition3' */
+  real_T Tk;                           /* '<Root>/First Order Hold' */
+  real_T Ck;                           /* '<Root>/First Order Hold' */
+  real_T Mk;                           /* '<Root>/First Order Hold' */
+  real_T Uk;                           /* '<Root>/First Order Hold' */
+  real_T Tk_c;                         /* '<Root>/First Order Hold1' */
+  real_T Ck_h;                         /* '<Root>/First Order Hold1' */
+  real_T Mk_g;                         /* '<Root>/First Order Hold1' */
+  real_T Uk_i;                         /* '<Root>/First Order Hold1' */
   volatile real_T RateTransition4_Buffer0;/* '<Root>/Rate Transition4' */
   volatile real_T RateTransition5_Buffer0;/* '<Root>/Rate Transition5' */
   real_T x_hat[4];                     /* '<Root>/MATLAB Function' */
@@ -513,17 +521,8 @@ struct P_EnabledSubsystem1_Ball_and__T_ {
 
 /* Parameters (default storage) */
 struct P_Ball_and_Plate_MicroLabBox_student_T_ {
-  real_T A_robust[256];                /* Variable: A_robust
-                                        * Referenced by: '<Root>/Optimal controller'
-                                        */
-  real_T B_robust[64];                 /* Variable: B_robust
-                                        * Referenced by: '<Root>/Optimal controller'
-                                        */
-  real_T C_robust[32];                 /* Variable: C_robust
-                                        * Referenced by: '<Root>/Optimal controller'
-                                        */
-  real_T D_robust[8];                  /* Variable: D_robust
-                                        * Referenced by: '<Root>/Optimal controller'
+  real_T K_lqr[8];                     /* Variable: K_lqr
+                                        * Referenced by: '<Root>/Gain1'
                                         */
   real_T Q_kf[16];                     /* Variable: Q_kf
                                         * Referenced by: '<Root>/Constant'
@@ -531,9 +530,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T R_kf[4];                      /* Variable: R_kf
                                         * Referenced by: '<Root>/Constant1'
                                         */
+  real_T Ts_Inner;                     /* Variable: Ts_Inner
+                                        * Referenced by: '<Root>/Constant2'
+                                        */
   real_T Ts_Outer;                     /* Variable: Ts_Outer
                                         * Referenced by:
-                                        *   '<Root>/Constant2'
                                         *   '<Root>/Constant5'
                                         *   '<Root>/Gain'
                                         */
@@ -734,8 +735,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Constant_Value_i;             /* Expression: 1
                                         * Referenced by: '<S2>/Constant'
                                         */
-  real_T Gain2_Gain;                   /* Expression: 1/1000
-                                        * Referenced by: '<Root>/Gain2'
+  real_T FirstOrderHold_IniOut;        /* Expression: 0
+                                        * Referenced by: '<Root>/First Order Hold'
+                                        */
+  real_T FirstOrderHold_ErrTol;        /* Expression: inf
+                                        * Referenced by: '<Root>/First Order Hold'
                                         */
   real_T Gain1_Gain;                   /* Expression: 1
                                         * Referenced by: '<S6>/Gain1'
@@ -752,8 +756,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Dct1lowpass2_P2;              /* Expression: 0.001
                                         * Referenced by: '<S6>/Dct1lowpass2'
                                         */
-  real_T Gain3_Gain;                   /* Expression: 1/1000
-                                        * Referenced by: '<Root>/Gain3'
+  real_T FirstOrderHold1_IniOut;       /* Expression: 0
+                                        * Referenced by: '<Root>/First Order Hold1'
+                                        */
+  real_T FirstOrderHold1_ErrTol;       /* Expression: inf
+                                        * Referenced by: '<Root>/First Order Hold1'
                                         */
   real_T Gain1_Gain_b;                 /* Expression: 1
                                         * Referenced by: '<S7>/Gain1'
@@ -804,9 +811,12 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Dct1lowpass2_P2_b;            /* Expression: 0.001
                                         * Referenced by: '<S11>/Dct1lowpass2'
                                         */
-  real_T Optimalcontroller_InitialCondit;/* Expression: 0
-                                          * Referenced by: '<Root>/Optimal controller'
-                                          */
+  real_T Outer_loop_enable_Value;      /* Expression: 0
+                                        * Referenced by: '<Root>/Outer_loop_enable'
+                                        */
+  real_T Switch_Threshold;             /* Expression: 0
+                                        * Referenced by: '<Root>/Switch'
+                                        */
   real_T Gain1_Gain_bk;                /* Expression: 1
                                         * Referenced by: '<S8>/Gain1'
                                         */
@@ -822,7 +832,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Dct1lowpass2_P2_k;            /* Expression: 0.001
                                         * Referenced by: '<S8>/Dct1lowpass2'
                                         */
-  real_T Gain4_Gain;                   /* Expression: -1
+  real_T Gain4_Gain;                   /* Expression: 1
                                         * Referenced by: '<Root>/Gain4'
                                         */
   real_T Gain1_Gain_by;                /* Expression: 1
@@ -843,14 +853,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Gain5_Gain;                   /* Expression: 1
                                         * Referenced by: '<Root>/Gain5'
                                         */
-  real_T Outer_loop_enable_Value;      /* Expression: 0
-                                        * Referenced by: '<Root>/Outer_loop_enable'
+  real_T Gain2_Gain;                   /* Expression: 1/1000
+                                        * Referenced by: '<Root>/Gain2'
                                         */
-  real_T Switch_Threshold;             /* Expression: 0
-                                        * Referenced by: '<Root>/Switch'
-                                        */
-  real_T Gain6_Gain;                   /* Expression: -1
-                                        * Referenced by: '<Root>/Gain6'
+  real_T Gain3_Gain;                   /* Expression: 1/1000
+                                        * Referenced by: '<Root>/Gain3'
                                         */
   real_T Psi_ref_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Psi_ref '

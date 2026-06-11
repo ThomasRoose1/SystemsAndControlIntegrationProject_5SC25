@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.79
+ * Model version              : 1.86
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Wed Jun 10 10:51:50 2026
+ * C source code generated on : Thu Jun 11 17:07:34 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -682,8 +682,8 @@ static real_T Ball_and_Plate_MicroLabBox_norm(const real_T x[3])
 /* Model output function */
 void Ball_and_Plate_MicroLabBox_student_output(void)
 {
-  int32_T z;
   real_T P1_global[3];
+  int32_T z;
   real_T Ad[16];
   real_T x_pred[4];
   real_T P_pred[16];
@@ -697,28 +697,28 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   ZCEventType zcEvent;
   real_T T[3];
   real_T T_0[3];
-  real_T tmp;
+  real_T Ad_0[16];
+  real_T tmp[2];
   real_T tmp_0;
   real_T tmp_1;
-  real_T tmp_2[9];
+  real_T tmp_2;
   real_T tmp_3[9];
   real_T tmp_4[9];
+  real_T tmp_5[9];
   real_T e[9];
-  real_T Ad_0[16];
-  real_T tmp_5[2];
   real_T P3_global_idx_2;
   real_T uX_idx_1;
   real_T uX_idx_2;
   real_T uX_idx_0;
+  static const int8_T b_b[8] = { 1, 0, 0, 0, 0, 0, 1, 0 };
+
+  static const int8_T a[8] = { 1, 0, 0, 0, 0, 1, 0, 0 };
+
   static const int8_T e_0[3] = { 1, 0, 0 };
 
   static const real_T T_1[3] = { 0.0, 0.0, 0.322 };
 
   static const real_T b[3] = { 0.17, 0.0, 0.0 };
-
-  static const int8_T b_b[8] = { 1, 0, 0, 0, 0, 0, 1, 0 };
-
-  static const int8_T a[8] = { 1, 0, 0, 0, 0, 1, 0, 0 };
 
   static const real_T c[3] = { -0.085000000000000075, -0.14722431864335456, 0.0
   };
@@ -842,64 +842,9 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       Ball_and_Plate_MicroLabBox_student_DW.RateTransition3_Buffer0 =
         Ball_and_Plate_MicroLabBox_student_Y.NumRXFrames;
     }
-
-    /* MATLAB Function: '<S2>/MATLAB Function' */
-    /* MATLAB Function 'Ethernet communication/MATLAB Function': '<S15>:1' */
-    /* '<S15>:1:2' */
-    r1 = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[1] << 8) +
-      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0];
-
-    /* '<S15>:1:3' */
-    r2 = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[5] << 8) +
-      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[4];
-
-    /* '<S15>:1:4' */
-    z = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[9] << 8) +
-      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[8];
-
-    /* '<S15>:1:5' */
-    Ball_and_Plate_MicroLabBox_student_B.flag =
-      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[10];
-    if (r1 > 32767) {
-      /* '<S15>:1:7' */
-      /* '<S15>:1:8' */
-      r1 -= 65536;
-    }
-
-    if (r2 > 32767) {
-      /* '<S15>:1:10' */
-      /* '<S15>:1:11' */
-      r2 -= 65536;
-    }
-
-    if (z > 32767) {
-      /* '<S15>:1:13' */
-      /* '<S15>:1:14' */
-      z -= 65536;
-    }
-
-    Ball_and_Plate_MicroLabBox_student_B.x = r1;
-    Ball_and_Plate_MicroLabBox_student_B.y = r2;
-    Ball_and_Plate_MicroLabBox_student_B.z = z;
-
-    /* End of MATLAB Function: '<S2>/MATLAB Function' */
-
-    /* Gain: '<Root>/Gain2' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain2 =
-      Ball_and_Plate_MicroLabBox_student_P.Gain2_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.x;
-
-    /* RateTransition: '<Root>/Rate Transition4' */
-    if (Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_semaphoreTaken ==
-        0) {
-      Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_Buffer0 =
-        Ball_and_Plate_MicroLabBox_student_B.Gain2;
-    }
   }
 
-  /* RateTransition: '<Root>/Rate Transition3' incorporates:
-   *  RateTransition: '<Root>/Rate Transition4'
-   */
+  /* RateTransition: '<Root>/Rate Transition3' */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
     Ball_and_Plate_MicroLabBox_student_DW.RateTransition3_semaphoreTaken = 1;
@@ -924,17 +869,24 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* Outport: '<Root>/FrameRate ' */
     Ball_and_Plate_MicroLabBox_student_Y.FrameRate =
       Ball_and_Plate_MicroLabBox_student_B.Gain;
-    Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_semaphoreTaken = 1;
-    Ball_and_Plate_MicroLabBox_student_B.RateTransition4 =
-      Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_Buffer0;
-    Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_semaphoreTaken = 0;
-
-    /* Gain: '<S6>/Gain1' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain1 =
-      Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.RateTransition4;
   }
 
+  /* FirstOrderHold: '<Root>/First Order Hold' */
+  Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold =
+    Ball_and_Plate_MicroLabBox_student_DW.Ck;
+  if (Ball_and_Plate_MicroLabBox_student_DW.Tk != (rtInf)) {
+    a21 = Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] -
+      Ball_and_Plate_MicroLabBox_student_DW.Tk;
+    Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold +=
+      Ball_and_Plate_MicroLabBox_student_DW.Mk * a21;
+  }
+
+  /* End of FirstOrderHold: '<Root>/First Order Hold' */
+
+  /* Gain: '<S6>/Gain1' */
+  Ball_and_Plate_MicroLabBox_student_B.Gain1 =
+    Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain *
+    Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
     /* S-Function (dlowpass1): '<S6>/Dct1lowpass2' */
@@ -944,34 +896,24 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[0];
       sfcnOutputs(rts,1);
     }
-
-    /* Gain: '<Root>/Gain3' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain3 =
-      Ball_and_Plate_MicroLabBox_student_P.Gain3_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.y;
-
-    /* RateTransition: '<Root>/Rate Transition5' */
-    if (Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_semaphoreTaken ==
-        0) {
-      Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_Buffer0 =
-        Ball_and_Plate_MicroLabBox_student_B.Gain3;
-    }
   }
 
-  /* RateTransition: '<Root>/Rate Transition5' */
-  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
-      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
-    Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_semaphoreTaken = 1;
-    Ball_and_Plate_MicroLabBox_student_B.RateTransition5 =
-      Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_Buffer0;
-    Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_semaphoreTaken = 0;
-
-    /* Gain: '<S7>/Gain1' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain1_m =
-      Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_b *
-      Ball_and_Plate_MicroLabBox_student_B.RateTransition5;
+  /* FirstOrderHold: '<Root>/First Order Hold1' */
+  Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold1 =
+    Ball_and_Plate_MicroLabBox_student_DW.Ck_h;
+  if (Ball_and_Plate_MicroLabBox_student_DW.Tk_c != (rtInf)) {
+    a21 = Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] -
+      Ball_and_Plate_MicroLabBox_student_DW.Tk_c;
+    Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold1 +=
+      Ball_and_Plate_MicroLabBox_student_DW.Mk_g * a21;
   }
 
+  /* End of FirstOrderHold: '<Root>/First Order Hold1' */
+
+  /* Gain: '<S7>/Gain1' */
+  Ball_and_Plate_MicroLabBox_student_B.Gain1_m =
+    Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_b *
+    Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold1;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
     /* S-Function (dlowpass1): '<S7>/Dct1lowpass2' */
@@ -1409,6 +1351,47 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.psi = asin
       (Ball_and_Plate_MicroLabBox_student_B.psi);
 
+    /* MATLAB Function: '<S2>/MATLAB Function' */
+    /* MATLAB Function 'Ethernet communication/MATLAB Function': '<S15>:1' */
+    /* '<S15>:1:2' */
+    r1 = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[1] << 8) +
+      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0];
+
+    /* '<S15>:1:3' */
+    r2 = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[5] << 8) +
+      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[4];
+
+    /* '<S15>:1:4' */
+    z = (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[9] << 8) +
+      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[8];
+
+    /* '<S15>:1:5' */
+    Ball_and_Plate_MicroLabBox_student_B.flag =
+      Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[10];
+    if (r1 > 32767) {
+      /* '<S15>:1:7' */
+      /* '<S15>:1:8' */
+      r1 -= 65536;
+    }
+
+    if (r2 > 32767) {
+      /* '<S15>:1:10' */
+      /* '<S15>:1:11' */
+      r2 -= 65536;
+    }
+
+    if (z > 32767) {
+      /* '<S15>:1:13' */
+      /* '<S15>:1:14' */
+      z -= 65536;
+    }
+
+    Ball_and_Plate_MicroLabBox_student_B.x = r1;
+    Ball_and_Plate_MicroLabBox_student_B.y = r2;
+    Ball_and_Plate_MicroLabBox_student_B.z = z;
+
+    /* End of MATLAB Function: '<S2>/MATLAB Function' */
+
     /* SignalConversion generated from: '<S4>/ SFunction ' incorporates:
      *  MATLAB Function: '<Root>/MATLAB Function'
      */
@@ -1437,13 +1420,13 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* '<S4>:1:3' */
     /* '<S4>:1:4' */
     Ad[0] = 1.0;
-    Ad[4] = Ball_and_Plate_MicroLabBox_student_P.Ts_Outer;
+    Ad[4] = Ball_and_Plate_MicroLabBox_student_P.Ts_Inner;
     Ad[8] = 0.0;
     Ad[12] = 0.0;
     Ad[2] = 0.0;
     Ad[6] = 0.0;
     Ad[10] = 1.0;
-    Ad[14] = Ball_and_Plate_MicroLabBox_student_P.Ts_Outer;
+    Ad[14] = Ball_and_Plate_MicroLabBox_student_P.Ts_Inner;
     Ad[1] = 0.0;
     Ad[3] = 0.0;
     Ad[5] = 1.0;
@@ -1455,16 +1438,16 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
     /* '<S4>:1:9' */
     /* '<S4>:1:28' */
-    y[0] = Ball_and_Plate_MicroLabBox_student_P.Ts_Outer *
-      Ball_and_Plate_MicroLabBox_student_P.Ts_Outer * 3.503571428571429;
+    y[0] = Ball_and_Plate_MicroLabBox_student_P.Ts_Inner *
+      Ball_and_Plate_MicroLabBox_student_P.Ts_Inner * 3.503571428571429;
     y[4] = 0.0;
-    y[1] = 7.007142857142858 * Ball_and_Plate_MicroLabBox_student_P.Ts_Outer;
+    y[1] = 7.007142857142858 * Ball_and_Plate_MicroLabBox_student_P.Ts_Inner;
     y[5] = 0.0;
     y[2] = 0.0;
-    y[6] = Ball_and_Plate_MicroLabBox_student_P.Ts_Outer *
-      Ball_and_Plate_MicroLabBox_student_P.Ts_Outer * 3.503571428571429;
+    y[6] = Ball_and_Plate_MicroLabBox_student_P.Ts_Inner *
+      Ball_and_Plate_MicroLabBox_student_P.Ts_Inner * 3.503571428571429;
     y[3] = 0.0;
-    y[7] = 7.007142857142858 * Ball_and_Plate_MicroLabBox_student_P.Ts_Outer;
+    y[7] = 7.007142857142858 * Ball_and_Plate_MicroLabBox_student_P.Ts_Inner;
 
     /* '<S4>:1:29' */
     for (r1 = 0; r1 < 4; r1++) {
@@ -1586,14 +1569,14 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
         a21 += 0.0 * x_pred[1];
         a21 += (real_T)a[r1 + 4] * x_pred[2];
         a21 += 0.0 * x_pred[3];
-        tmp_5[r1] =
+        tmp[r1] =
           Ball_and_Plate_MicroLabBox_student_B.TmpSignalConversionAtSFunctionI[r1]
           - a21;
       }
 
       for (r1 = 0; r1 < 4; r1++) {
-        a21 = K[r1] * tmp_5[0];
-        a21 += K[r1 + 4] * tmp_5[1];
+        a21 = K[r1] * tmp[0];
+        a21 += K[r1 + 4] * tmp[1];
         Ball_and_Plate_MicroLabBox_student_DW.x_hat[r1] = x_pred[r1] + a21;
       }
 
@@ -1737,30 +1720,62 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     }
 
     /* End of Saturate: '<Root>/Saturation' */
-  }
 
-  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
-      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
-    /* DiscreteStateSpace: '<Root>/Optimal controller' */
-    for (r1 = 0; r1 < 2; r1++) {
-      Ball_and_Plate_MicroLabBox_student_B.Optimalcontroller[r1] = 0.0;
-      for (r2 = 0; r2 < 16; r2++) {
-        Ball_and_Plate_MicroLabBox_student_B.Optimalcontroller[r1] +=
-          Ball_and_Plate_MicroLabBox_student_P.C_robust[(r2 << 1) + r1] *
-          Ball_and_Plate_MicroLabBox_student_DW.Optimalcontroller_DSTATE[r2];
-      }
+    /* Switch: '<Root>/Switch' incorporates:
+     *  Constant: '<Root>/Constant3'
+     *  Constant: '<Root>/Outer_loop_enable'
+     *  Outport: '<Root>/x_dot_obs'
+     *  Outport: '<Root>/x_obs'
+     *  Outport: '<Root>/y_dot_obs'
+     *  Outport: '<Root>/y_obs'
+     */
+    if (Ball_and_Plate_MicroLabBox_student_P.Outer_loop_enable_Value >
+        Ball_and_Plate_MicroLabBox_student_P.Switch_Threshold) {
+      Ball_and_Plate_MicroLabBox_student_B.Switch[0] =
+        Ball_and_Plate_MicroLabBox_student_Y.x_obs;
+      Ball_and_Plate_MicroLabBox_student_B.Switch[1] =
+        Ball_and_Plate_MicroLabBox_student_Y.x_dot_obs;
+      Ball_and_Plate_MicroLabBox_student_B.Switch[2] =
+        Ball_and_Plate_MicroLabBox_student_Y.y_obs;
+      Ball_and_Plate_MicroLabBox_student_B.Switch[3] =
+        Ball_and_Plate_MicroLabBox_student_Y.y_dot_obs;
+    } else {
+      Ball_and_Plate_MicroLabBox_student_B.Switch[0] =
+        Ball_and_Plate_MicroLabBox_student_P.Constant3_Value[0];
+      Ball_and_Plate_MicroLabBox_student_B.Switch[1] =
+        Ball_and_Plate_MicroLabBox_student_P.Constant3_Value[1];
+      Ball_and_Plate_MicroLabBox_student_B.Switch[2] =
+        Ball_and_Plate_MicroLabBox_student_P.Constant3_Value[2];
+      Ball_and_Plate_MicroLabBox_student_B.Switch[3] =
+        Ball_and_Plate_MicroLabBox_student_P.Constant3_Value[3];
     }
 
-    /* End of DiscreteStateSpace: '<Root>/Optimal controller' */
+    /* End of Switch: '<Root>/Switch' */
+
+    /* Gain: '<Root>/Gain1' */
+    for (r1 = 0; r1 < 2; r1++) {
+      Ball_and_Plate_MicroLabBox_student_B.Gain1_j[r1] = 0.0;
+      Ball_and_Plate_MicroLabBox_student_B.Gain1_j[r1] +=
+        Ball_and_Plate_MicroLabBox_student_P.K_lqr[r1] *
+        Ball_and_Plate_MicroLabBox_student_B.Switch[0];
+      Ball_and_Plate_MicroLabBox_student_B.Gain1_j[r1] +=
+        Ball_and_Plate_MicroLabBox_student_P.K_lqr[r1 + 2] *
+        Ball_and_Plate_MicroLabBox_student_B.Switch[1];
+      Ball_and_Plate_MicroLabBox_student_B.Gain1_j[r1] +=
+        Ball_and_Plate_MicroLabBox_student_P.K_lqr[r1 + 4] *
+        Ball_and_Plate_MicroLabBox_student_B.Switch[2];
+      Ball_and_Plate_MicroLabBox_student_B.Gain1_j[r1] +=
+        Ball_and_Plate_MicroLabBox_student_P.K_lqr[r1 + 6] *
+        Ball_and_Plate_MicroLabBox_student_B.Switch[3];
+    }
+
+    /* End of Gain: '<Root>/Gain1' */
 
     /* Gain: '<S8>/Gain1' */
     Ball_and_Plate_MicroLabBox_student_B.Gain1_c =
       Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_bk *
-      Ball_and_Plate_MicroLabBox_student_B.Optimalcontroller[0];
-  }
+      Ball_and_Plate_MicroLabBox_student_B.Gain1_j[1];
 
-  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
-      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
     /* S-Function (dlowpass1): '<S8>/Dct1lowpass2' */
 
     /* Level2 S-Function Block: '<S8>/Dct1lowpass2' (dlowpass1) */
@@ -1787,18 +1802,12 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     }
 
     /* End of Saturate: '<Root>/Alpha_sat ' */
-  }
 
-  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
-      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
     /* Gain: '<S9>/Gain1' */
     Ball_and_Plate_MicroLabBox_student_B.Gain1_d =
       Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_by *
-      Ball_and_Plate_MicroLabBox_student_B.Optimalcontroller[1];
-  }
+      Ball_and_Plate_MicroLabBox_student_B.Gain1_j[0];
 
-  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
-      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
     /* S-Function (dlowpass1): '<S9>/Dct1lowpass2' */
 
     /* Level2 S-Function Block: '<S9>/Dct1lowpass2' (dlowpass1) */
@@ -1884,50 +1893,15 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       DsIoEth_getMgmtEvent(DSIOETH_CONNECTION_ID_1);
     }
 
-    /* Switch: '<Root>/Switch' incorporates:
-     *  Constant: '<Root>/Constant3'
-     *  Constant: '<Root>/Outer_loop_enable'
-     *  Outport: '<Root>/x_dot_obs'
-     *  Outport: '<Root>/x_obs'
-     *  Outport: '<Root>/y_dot_obs'
-     *  Outport: '<Root>/y_obs'
-     */
-    if (Ball_and_Plate_MicroLabBox_student_P.Outer_loop_enable_Value >
-        Ball_and_Plate_MicroLabBox_student_P.Switch_Threshold) {
-      Ball_and_Plate_MicroLabBox_student_B.Switch[0] =
-        Ball_and_Plate_MicroLabBox_student_Y.x_obs;
-      Ball_and_Plate_MicroLabBox_student_B.Switch[1] =
-        Ball_and_Plate_MicroLabBox_student_Y.x_dot_obs;
-      Ball_and_Plate_MicroLabBox_student_B.Switch[2] =
-        Ball_and_Plate_MicroLabBox_student_Y.y_obs;
-      Ball_and_Plate_MicroLabBox_student_B.Switch[3] =
-        Ball_and_Plate_MicroLabBox_student_Y.y_dot_obs;
-    } else {
-      Ball_and_Plate_MicroLabBox_student_B.Switch[0] =
-        Ball_and_Plate_MicroLabBox_student_P.Constant3_Value[0];
-      Ball_and_Plate_MicroLabBox_student_B.Switch[1] =
-        Ball_and_Plate_MicroLabBox_student_P.Constant3_Value[1];
-      Ball_and_Plate_MicroLabBox_student_B.Switch[2] =
-        Ball_and_Plate_MicroLabBox_student_P.Constant3_Value[2];
-      Ball_and_Plate_MicroLabBox_student_B.Switch[3] =
-        Ball_and_Plate_MicroLabBox_student_P.Constant3_Value[3];
-    }
+    /* Gain: '<Root>/Gain2' */
+    Ball_and_Plate_MicroLabBox_student_B.Gain2 =
+      Ball_and_Plate_MicroLabBox_student_P.Gain2_Gain *
+      Ball_and_Plate_MicroLabBox_student_B.x;
 
-    /* End of Switch: '<Root>/Switch' */
-
-    /* Gain: '<Root>/Gain6' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain6[0] =
-      Ball_and_Plate_MicroLabBox_student_P.Gain6_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.Switch[0];
-    Ball_and_Plate_MicroLabBox_student_B.Gain6[1] =
-      Ball_and_Plate_MicroLabBox_student_P.Gain6_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.Switch[1];
-    Ball_and_Plate_MicroLabBox_student_B.Gain6[2] =
-      Ball_and_Plate_MicroLabBox_student_P.Gain6_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.Switch[2];
-    Ball_and_Plate_MicroLabBox_student_B.Gain6[3] =
-      Ball_and_Plate_MicroLabBox_student_P.Gain6_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.Switch[3];
+    /* Gain: '<Root>/Gain3' */
+    Ball_and_Plate_MicroLabBox_student_B.Gain3 =
+      Ball_and_Plate_MicroLabBox_student_P.Gain3_Gain *
+      Ball_and_Plate_MicroLabBox_student_B.y;
 
     /* MATLAB Function: '<S3>/AngleToPos ' incorporates:
      *  Constant: '<Root>/Psi_ref '
@@ -1947,43 +1921,43 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     uX_idx_0 = sin(Ball_and_Plate_MicroLabBox_student_P.Psi_ref_Value);
     uX_idx_1 = cos(Ball_and_Plate_MicroLabBox_student_P.Psi_ref_Value);
     uX_idx_2 = cos(Ball_and_Plate_MicroLabBox_student_B.Beta_sat);
-    tmp = sin(Ball_and_Plate_MicroLabBox_student_B.Beta_sat);
     tmp_0 = sin(Ball_and_Plate_MicroLabBox_student_B.Beta_sat);
-    tmp_1 = cos(Ball_and_Plate_MicroLabBox_student_B.Beta_sat);
-    tmp_2[0] = a21;
-    tmp_2[3] = -P3_global_idx_2;
-    tmp_2[6] = 0.0;
-    tmp_2[1] = uX_idx_0;
-    tmp_2[4] = uX_idx_1;
-    tmp_2[7] = 0.0;
-    tmp_3[0] = uX_idx_2;
-    tmp_3[3] = 0.0;
-    tmp_3[6] = tmp;
-    tmp_2[2] = 0.0;
-    tmp_3[1] = 0.0;
-    tmp_2[5] = 0.0;
-    tmp_3[4] = 1.0;
-    tmp_2[8] = 1.0;
+    tmp_1 = sin(Ball_and_Plate_MicroLabBox_student_B.Beta_sat);
+    tmp_2 = cos(Ball_and_Plate_MicroLabBox_student_B.Beta_sat);
+    tmp_3[0] = a21;
+    tmp_3[3] = -P3_global_idx_2;
+    tmp_3[6] = 0.0;
+    tmp_3[1] = uX_idx_0;
+    tmp_3[4] = uX_idx_1;
     tmp_3[7] = 0.0;
-    tmp_3[2] = -tmp_0;
+    tmp_4[0] = uX_idx_2;
+    tmp_4[3] = 0.0;
+    tmp_4[6] = tmp_0;
+    tmp_3[2] = 0.0;
+    tmp_4[1] = 0.0;
     tmp_3[5] = 0.0;
-    tmp_3[8] = tmp_1;
+    tmp_4[4] = 1.0;
+    tmp_3[8] = 1.0;
+    tmp_4[7] = 0.0;
+    tmp_4[2] = -tmp_1;
+    tmp_4[5] = 0.0;
+    tmp_4[8] = tmp_2;
     a21 = cos(Ball_and_Plate_MicroLabBox_student_B.Alpha_sat);
     P3_global_idx_2 = sin(Ball_and_Plate_MicroLabBox_student_B.Alpha_sat);
     uX_idx_0 = sin(Ball_and_Plate_MicroLabBox_student_B.Alpha_sat);
     uX_idx_1 = cos(Ball_and_Plate_MicroLabBox_student_B.Alpha_sat);
     for (r1 = 0; r1 < 3; r1++) {
       for (r2 = 0; r2 < 3; r2++) {
-        tmp_4[r1 + 3 * r2] = 0.0;
-        uX_idx_2 = tmp_4[3 * r2 + r1];
-        uX_idx_2 += tmp_3[3 * r2] * tmp_2[r1];
-        tmp_4[r1 + 3 * r2] = uX_idx_2;
-        uX_idx_2 = tmp_4[3 * r2 + r1];
-        uX_idx_2 += tmp_3[3 * r2 + 1] * tmp_2[r1 + 3];
-        tmp_4[r1 + 3 * r2] = uX_idx_2;
-        uX_idx_2 = tmp_4[3 * r2 + r1];
-        uX_idx_2 += tmp_3[3 * r2 + 2] * tmp_2[r1 + 6];
-        tmp_4[r1 + 3 * r2] = uX_idx_2;
+        tmp_5[r1 + 3 * r2] = 0.0;
+        uX_idx_2 = tmp_5[3 * r2 + r1];
+        uX_idx_2 += tmp_4[3 * r2] * tmp_3[r1];
+        tmp_5[r1 + 3 * r2] = uX_idx_2;
+        uX_idx_2 = tmp_5[3 * r2 + r1];
+        uX_idx_2 += tmp_4[3 * r2 + 1] * tmp_3[r1 + 3];
+        tmp_5[r1 + 3 * r2] = uX_idx_2;
+        uX_idx_2 = tmp_5[3 * r2 + r1];
+        uX_idx_2 += tmp_4[3 * r2 + 2] * tmp_3[r1 + 6];
+        tmp_5[r1 + 3 * r2] = uX_idx_2;
       }
 
       e[3 * r1] = e_0[r1];
@@ -2004,13 +1978,13 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       for (r2 = 0; r2 < 3; r2++) {
         R_BtoP[r1 + 3 * r2] = 0.0;
         uX_idx_0 = R_BtoP[3 * r2 + r1];
-        uX_idx_0 += e[3 * r2] * tmp_4[r1];
+        uX_idx_0 += e[3 * r2] * tmp_5[r1];
         R_BtoP[r1 + 3 * r2] = uX_idx_0;
         uX_idx_0 = R_BtoP[3 * r2 + r1];
-        uX_idx_0 += e[3 * r2 + 1] * tmp_4[r1 + 3];
+        uX_idx_0 += e[3 * r2 + 1] * tmp_5[r1 + 3];
         R_BtoP[r1 + 3 * r2] = uX_idx_0;
         uX_idx_0 = R_BtoP[3 * r2 + r1];
-        uX_idx_0 += e[3 * r2 + 2] * tmp_4[r1 + 6];
+        uX_idx_0 += e[3 * r2 + 2] * tmp_5[r1 + 6];
         R_BtoP[r1 + 3 * r2] = uX_idx_0;
         a21 += R_BtoP[3 * r2 + r1] * b[r2];
       }
@@ -2615,6 +2589,12 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   }
 
   /* End of Outputs for SubSystem: '<S19>/Outputs to Amplifier' */
+
+  /* RateTransition: '<Root>/Rate Transition5' incorporates:
+   *  Constant: '<S3>/reser_integrator'
+   *  Constant: '<S51>/Constant1'
+   *  Constant: '<S51>/Constant2'
+   */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
     /* MATLAB Function: '<S51>/MATLAB Function' incorporates:
@@ -2649,17 +2629,15 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     }
 
     /* End of Switch: '<S51>/Switch' */
-
-    /* Constant: '<S51>/Constant1' */
     Ball_and_Plate_MicroLabBox_student_B.Constant1_h =
       Ball_and_Plate_MicroLabBox_student_P.Constant1_Value_f;
-
-    /* Constant: '<S51>/Constant2' */
     Ball_and_Plate_MicroLabBox_student_B.Constant2_h =
       Ball_and_Plate_MicroLabBox_student_P.Constant2_Value_i;
 
     /* MATLAB Function: '<S53>/MATLAB Function' incorporates:
      *  Constant: '<S19>/1_to_enable_id'
+     *  Constant: '<S51>/Constant1'
+     *  Constant: '<S51>/Constant2'
      *  Constant: '<S53>/Constant'
      */
     Ball_and_Plate_MATLABFunction_e
@@ -2667,18 +2645,38 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
        Ball_and_Plate_MicroLabBox_student_P.uA,
        &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_g,
        &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_g);
-
-    /* Constant: '<S3>/reser_integrator' */
     Ball_and_Plate_MicroLabBox_student_B.reser_integrator =
       Ball_and_Plate_MicroLabBox_student_P.reser_integrator_Value;
 
-    /* Constant: '<Root>/Constant5' */
-    Ball_and_Plate_MicroLabBox_student_B.Constant5 =
-      Ball_and_Plate_MicroLabBox_student_P.Ts_Outer - 0.004;
+    /* RateTransition: '<Root>/Rate Transition4' incorporates:
+     *  Constant: '<S3>/reser_integrator'
+     */
+    if (Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_semaphoreTaken ==
+        0) {
+      Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_Buffer0 =
+        Ball_and_Plate_MicroLabBox_student_B.Gain2;
+    }
 
-    /* Constant: '<Root>/Constant6' */
-    Ball_and_Plate_MicroLabBox_student_B.Constant6 =
-      Ball_and_Plate_MicroLabBox_student_P.Ts_fast;
+    if (Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_semaphoreTaken ==
+        0) {
+      Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_Buffer0 =
+        Ball_and_Plate_MicroLabBox_student_B.Gain3;
+    }
+  }
+
+  /* RateTransition: '<Root>/Rate Transition4' incorporates:
+   *  RateTransition: '<Root>/Rate Transition5'
+   */
+  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
+      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
+    Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_semaphoreTaken = 1;
+    Ball_and_Plate_MicroLabBox_student_B.RateTransition4 =
+      Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_Buffer0;
+    Ball_and_Plate_MicroLabBox_student_DW.RateTransition4_semaphoreTaken = 0;
+    Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_semaphoreTaken = 1;
+    Ball_and_Plate_MicroLabBox_student_B.RateTransition5 =
+      Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_Buffer0;
+    Ball_and_Plate_MicroLabBox_student_DW.RateTransition5_semaphoreTaken = 0;
   }
 
   /* Sin: '<Root>/Alpha_sine ' */
@@ -2696,56 +2694,150 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Phase) *
     Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Amp +
     Ball_and_Plate_MicroLabBox_student_P.Beta_sine_Bias;
+  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
+      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
+    /* Constant: '<Root>/Constant5' */
+    Ball_and_Plate_MicroLabBox_student_B.Constant5 =
+      Ball_and_Plate_MicroLabBox_student_P.Ts_Outer - 0.004;
+
+    /* Constant: '<Root>/Constant6' */
+    Ball_and_Plate_MicroLabBox_student_B.Constant6 =
+      Ball_and_Plate_MicroLabBox_student_P.Ts_fast;
+  }
 }
 
 /* Model update function */
 void Ball_and_Plate_MicroLabBox_student_update(void)
 {
-  int_T i;
-  int_T j;
-  real_T xnew[16];
-  real_T xnew_0;
+  boolean_T resetCoeff;
+  real_T tol;
+  real_T err;
+  boolean_T guard1 = false;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
     /* Update for UnitDelay: '<S1>/UD' */
     Ball_and_Plate_MicroLabBox_student_DW.UD_DSTATE =
       Ball_and_Plate_MicroLabBox_student_B.RateTransition3;
-  }
 
-  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
-      Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
-    /* Update for DiscreteStateSpace: '<Root>/Optimal controller' */
-    for (i = 0; i < 16; i++) {
-      xnew[i] = 0.0;
-      for (j = 0; j < 16; j++) {
-        xnew_0 = xnew[i];
-        xnew_0 += Ball_and_Plate_MicroLabBox_student_P.A_robust[(j << 4) + i] *
-          Ball_and_Plate_MicroLabBox_student_DW.Optimalcontroller_DSTATE[j];
-        xnew[i] = xnew_0;
+    /* Update for FirstOrderHold: '<Root>/First Order Hold' */
+    resetCoeff = (Ball_and_Plate_MicroLabBox_student_DW.Tk == (rtInf));
+    guard1 = false;
+    if (!resetCoeff) {
+      if ((Ball_and_Plate_MicroLabBox_student_B.RateTransition4 >= -1.0) &&
+          (Ball_and_Plate_MicroLabBox_student_B.RateTransition4 <= 1.0)) {
+        tol = Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol;
+      } else if (Ball_and_Plate_MicroLabBox_student_B.RateTransition4 > 1.0) {
+        tol = Ball_and_Plate_MicroLabBox_student_B.RateTransition4 *
+          Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol;
+      } else {
+        tol = -(Ball_and_Plate_MicroLabBox_student_B.RateTransition4 *
+                Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol);
       }
 
-      xnew_0 = xnew[i];
-      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.B_robust[i] *
-        Ball_and_Plate_MicroLabBox_student_B.Gain6[0];
-      xnew[i] = xnew_0;
-      xnew_0 = xnew[i];
-      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.B_robust[i + 16] *
-        Ball_and_Plate_MicroLabBox_student_B.Gain6[1];
-      xnew[i] = xnew_0;
-      xnew_0 = xnew[i];
-      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.B_robust[i + 32] *
-        Ball_and_Plate_MicroLabBox_student_B.Gain6[2];
-      xnew[i] = xnew_0;
-      xnew_0 = xnew[i];
-      xnew_0 += Ball_and_Plate_MicroLabBox_student_P.B_robust[i + 48] *
-        Ball_and_Plate_MicroLabBox_student_B.Gain6[3];
-      xnew[i] = xnew_0;
+      err = Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold -
+        Ball_and_Plate_MicroLabBox_student_B.RateTransition4;
+      if ((err > tol) || (err < -tol)) {
+        guard1 = true;
+      } else {
+        tol = Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] -
+          Ball_and_Plate_MicroLabBox_student_DW.Tk;
+        Ball_and_Plate_MicroLabBox_student_DW.Mk =
+          (Ball_and_Plate_MicroLabBox_student_B.RateTransition4 -
+           Ball_and_Plate_MicroLabBox_student_DW.Uk) / tol;
+        Ball_and_Plate_MicroLabBox_student_DW.Ck =
+          Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold;
+      }
+    } else {
+      guard1 = true;
     }
 
-    memcpy(&Ball_and_Plate_MicroLabBox_student_DW.Optimalcontroller_DSTATE[0],
-           &xnew[0], sizeof(real_T) << 4U);
+    if (guard1) {
+      if (Ball_and_Plate_MicroLabBox_student_B.RateTransition4 !=
+          Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold) {
+        rtsiSetBlockStateForSolverChangedAtMajorStep
+          (&Ball_and_Plate_MicroLabBox_student_M->solverInfo, true);
+        rtsiSetContTimeOutputInconsistentWithStateAtMajorStep
+          (&Ball_and_Plate_MicroLabBox_student_M->solverInfo, true);
+      }
 
-    /* End of Update for DiscreteStateSpace: '<Root>/Optimal controller' */
+      Ball_and_Plate_MicroLabBox_student_DW.Ck =
+        Ball_and_Plate_MicroLabBox_student_B.RateTransition4;
+      Ball_and_Plate_MicroLabBox_student_DW.Mk = 0.0;
+    }
+
+    Ball_and_Plate_MicroLabBox_student_DW.Uk =
+      Ball_and_Plate_MicroLabBox_student_B.RateTransition4;
+    Ball_and_Plate_MicroLabBox_student_DW.Tk =
+      Ball_and_Plate_MicroLabBox_student_M->Timing.t[0];
+
+    /* End of Update for FirstOrderHold: '<Root>/First Order Hold' */
+
+    /* Update for FirstOrderHold: '<Root>/First Order Hold1' */
+    resetCoeff = (Ball_and_Plate_MicroLabBox_student_DW.Tk_c == (rtInf));
+    guard1 = false;
+    if (!resetCoeff) {
+      if ((Ball_and_Plate_MicroLabBox_student_B.RateTransition5 >= -1.0) &&
+          (Ball_and_Plate_MicroLabBox_student_B.RateTransition5 <= 1.0)) {
+        tol = Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol;
+      } else if (Ball_and_Plate_MicroLabBox_student_B.RateTransition5 > 1.0) {
+        tol = Ball_and_Plate_MicroLabBox_student_B.RateTransition5 *
+          Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol;
+      } else {
+        tol = -(Ball_and_Plate_MicroLabBox_student_B.RateTransition5 *
+                Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol);
+      }
+
+      err = Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold1 -
+        Ball_and_Plate_MicroLabBox_student_B.RateTransition5;
+      if ((err > tol) || (err < -tol)) {
+        guard1 = true;
+      } else {
+        tol = Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] -
+          Ball_and_Plate_MicroLabBox_student_DW.Tk_c;
+        Ball_and_Plate_MicroLabBox_student_DW.Mk_g =
+          (Ball_and_Plate_MicroLabBox_student_B.RateTransition5 -
+           Ball_and_Plate_MicroLabBox_student_DW.Uk_i) / tol;
+        Ball_and_Plate_MicroLabBox_student_DW.Ck_h =
+          Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold1;
+      }
+    } else {
+      guard1 = true;
+    }
+
+    if (guard1) {
+      if (Ball_and_Plate_MicroLabBox_student_B.RateTransition5 !=
+          Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold1) {
+        rtsiSetBlockStateForSolverChangedAtMajorStep
+          (&Ball_and_Plate_MicroLabBox_student_M->solverInfo, true);
+        rtsiSetContTimeOutputInconsistentWithStateAtMajorStep
+          (&Ball_and_Plate_MicroLabBox_student_M->solverInfo, true);
+      }
+
+      Ball_and_Plate_MicroLabBox_student_DW.Ck_h =
+        Ball_and_Plate_MicroLabBox_student_B.RateTransition5;
+      Ball_and_Plate_MicroLabBox_student_DW.Mk_g = 0.0;
+    }
+
+    Ball_and_Plate_MicroLabBox_student_DW.Uk_i =
+      Ball_and_Plate_MicroLabBox_student_B.RateTransition5;
+    Ball_and_Plate_MicroLabBox_student_DW.Tk_c =
+      Ball_and_Plate_MicroLabBox_student_M->Timing.t[0];
+
+    /* End of Update for FirstOrderHold: '<Root>/First Order Hold1' */
+  }
+
+  /* ContTimeOutputInconsistentWithStateAtMajorOutputFlag is set, need to run a minor output */
+  if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M)) {
+    if (rtsiGetContTimeOutputInconsistentWithStateAtMajorStep
+        (&Ball_and_Plate_MicroLabBox_student_M->solverInfo)) {
+      rtsiSetSimTimeStep(&Ball_and_Plate_MicroLabBox_student_M->solverInfo,
+                         MINOR_TIME_STEP);
+      rtsiSetContTimeOutputInconsistentWithStateAtMajorStep
+        (&Ball_and_Plate_MicroLabBox_student_M->solverInfo, false);
+      Ball_and_Plate_MicroLabBox_student_output();
+      rtsiSetSimTimeStep(&Ball_and_Plate_MicroLabBox_student_M->solverInfo,
+                         MAJOR_TIME_STEP);
+    }
   }
 
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M)) {
@@ -2841,6 +2933,10 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
 
   /* initialize non-finites */
   rt_InitInfAndNaN(sizeof(real_T));
+
+  /* non-finite (run-time) assignments */
+  Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol = rtInf;
+  Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol = rtInf;
 
   /* initialize real-time model */
   (void) memset((void *)Ball_and_Plate_MicroLabBox_student_M, 0,
@@ -5306,7 +5402,6 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     UNINITIALIZED_ZCSIG;
 
   {
-    int32_T i;
     static const real_T tmp[16] = { 0.1, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0,
       0.0, 0.1, 0.0, 0.0, 0.0, 0.0, 0.1 };
 
@@ -5314,13 +5409,19 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_Plate_MicroLabBox_student_DW.UD_DSTATE =
       Ball_and_Plate_MicroLabBox_student_P.Difference_ICPrevInput;
 
-    /* InitializeConditions for DiscreteStateSpace: '<Root>/Optimal controller' */
-    for (i = 0; i < 16; i++) {
-      Ball_and_Plate_MicroLabBox_student_DW.Optimalcontroller_DSTATE[i] =
-        Ball_and_Plate_MicroLabBox_student_P.Optimalcontroller_InitialCondit;
-    }
+    /* InitializeConditions for FirstOrderHold: '<Root>/First Order Hold' */
+    Ball_and_Plate_MicroLabBox_student_DW.Tk = (rtInf);
+    Ball_and_Plate_MicroLabBox_student_DW.Ck =
+      Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_IniOut;
+    Ball_and_Plate_MicroLabBox_student_DW.Uk = (rtInf);
+    Ball_and_Plate_MicroLabBox_student_DW.Mk = 0.0;
 
-    /* End of InitializeConditions for DiscreteStateSpace: '<Root>/Optimal controller' */
+    /* InitializeConditions for FirstOrderHold: '<Root>/First Order Hold1' */
+    Ball_and_Plate_MicroLabBox_student_DW.Tk_c = (rtInf);
+    Ball_and_Plate_MicroLabBox_student_DW.Ck_h =
+      Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_IniOut;
+    Ball_and_Plate_MicroLabBox_student_DW.Uk_i = (rtInf);
+    Ball_and_Plate_MicroLabBox_student_DW.Mk_g = 0.0;
 
     /* SystemInitialize for Atomic SubSystem: '<S17>/Position Measurement' */
     /* InitializeConditions for TransferFcn: '<S33>/Transfer Fcn' */

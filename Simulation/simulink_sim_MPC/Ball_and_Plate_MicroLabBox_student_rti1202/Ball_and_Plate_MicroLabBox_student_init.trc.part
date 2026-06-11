@@ -1,0 +1,90 @@
+
+
+-- Type definitions for structures
+
+typedef Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_G_0 col flt(64,IEEE)[50][50]
+
+typedef Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_F_1 col flt(64,IEEE)[50][4]
+
+typedef Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_A_condensed_2 col flt(64,IEEE)[604][50]
+
+typedef Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_b_static_3 flt(64,IEEE)[604]
+
+typedef Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_W_state_4 col flt(64,IEEE)[604][4]
+
+typedef Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_A_trans_7 col flt(64,IEEE)[50][604]
+
+struct Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "G"
+      type:    Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_G_0
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "F"
+      type:    Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_F_1
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "A_condensed"
+      type:    Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_A_condensed_2
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "b_static"
+      type:    Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_b_static_3
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "W_state"
+      type:    Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_W_state_4
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "max_pos"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "rho"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "A_trans"
+      type:    Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_A_trans_7
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "M_inv"
+      type:    Ball_and_Plate_MicroLabBox_student_struct_g6ee74EGCy7z9o7bhYM0pE_G_0
+      offs:    -1
+    }
+endstruct
+
+
+-- Type definitions for arrays
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_4 flt(64,IEEE)[4]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_2 flt(64,IEEE)[2]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT7_3 uint(32)[3]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT3_12 uint(8)[12]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT3_4 uint(8)[4]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_4_4_Col col flt(64,IEEE)[4][4]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_2_Col col flt(64,IEEE)[2][2]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_3001 flt(64,IEEE)[3001]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000 flt(64,IEEE)[200000]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_6 flt(64,IEEE)[6]
+
+
