@@ -135,4 +135,19 @@ function MPC_params = compute_mpc_params(Q,R,N, Ts, max_pos, max_vel)
     MPC_params.A_condensed = A_condensed;
     MPC_params.b_static = b_static;
     MPC_params.W_state = W_state;
+    MPC_params.max_pos = max_pos;
+
+    %% Precompute computationally heavy parts of ADMM algorithm
+    % Penalty parameter. rho = 5.0 is a solid baseline for MPC QPs. 
+    %    (Increase if constraints are violated too much, decrease if convergence is too slow).
+    rho = 5.0; 
+    MPC_params.rho = rho;
+    
+    % Pre-transpose A to save real-time CPU cycles on the dSPACE board
+    MPC_params.A_trans = A_condensed';
+    
+    % The massive offline matrix inverse! 
+    % Inverting (G + rho * A' * A) offline turns a heavy algorithmic solver into 
+    % a fast array-multiplication loop for real-time execution.
+    MPC_params.M_inv = inv(G + rho * (A_condensed' * A_condensed));
 end
