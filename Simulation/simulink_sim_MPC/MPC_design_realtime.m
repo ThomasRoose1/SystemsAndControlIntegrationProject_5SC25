@@ -55,7 +55,7 @@ D_fast = sys_d_fast.D;
 %% Tuning
 Q = eye(nx); % State weighting
 R = eye(nu); % Input weighting
-N = 25; % prediction horizon
+N = 100; % prediction horizon
 Ts_slow = 0.01;
 
 % state constraints 
@@ -85,8 +85,8 @@ input_log  = zeros(2, N_steps);
 output_log = zeros(2, N_steps);
 
 % Initial Conditions (e.g., ball starts at x = 10cm, y = -5cm, stationary)
-x_state = [0.10; 0; -0.05; 0]; 
-x_hat   = [0.10; 0; -0.05; 0];  % estimator starts at 0
+x_state = [0.20; 0; -0.2; 0]; 
+x_hat   = [0.20; 0; -0.2; 0];  % estimator starts at 0
 
 % Reference Targets (Where you want the ball to go - the center)
 r_target = [0; 0]; 
@@ -113,7 +113,7 @@ for k = 1:N_steps
         tic; % start timing
 
         % Call MPC solver
-        u_k = MPC_solver(x_hat, MPC_params, u_prev);
+        u_k = MPC_solver_ADMM(x_hat, MPC_params, u_prev);
         u_prev = u_k;
 
         computation_time = toc; % stop timing

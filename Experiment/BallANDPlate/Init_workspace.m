@@ -8,7 +8,7 @@ tlength = 200; % number of seconds       CHANGE IF DESIRED
 N = tlength*fs;
 P = 1; % periods
 
-Ts_Outer = 0.033;                      %  must be integer multiple of 0.001
+Ts_Outer = 0.02;                      %  must be integer multiple of 0.001
 
 
 uA = multisine(0,fn,fs,N,A);
@@ -49,24 +49,17 @@ nu = size(Bc, 2);
   
 %% Plate angle saturation limit
 plate_angle_sat = deg2rad(10);
+ball_pos_sat = 0.2;
+ball_vel_sat = 1;
 
 %% Observer
 Q_kf = diag([1, 100, 1, 100]);
 R_kf = diag([0.1, 0.1]);
 
-%% State observer 
 Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
 
-% Discretize continuous matrices for the fast estimation rate
-sys_fast = c2d(ss(Ac, Bc, Cc, Dc), Ts_fast, 'zoh');
-A_fast = sys_fast.A;
-B_fast = sys_fast.B;
-C_fast = sys_fast.C;
-
-vel_sat = 10; % safety limit for the velocity to prevent large values when the observer is inaccurate
-
 %% Load robust controller
-load('optimalK.mat');
+load('optimalK_angleOutput_speedFeedback_moderate-center034.mat');
 K_robust = c2d(K, Ts_Outer);
 A_robust = K_robust.A;
 B_robust = K_robust.B;
@@ -91,29 +84,29 @@ K_lqr = dlqr(Ad, Bd, Q_lqr, R_lqr);
 % K_lqr = -K_lqr;
 
 %% Load MPC params
-% Tuning
-Qmpc = eye(nx); % State weighting
-Rmpc = 200*eye(nu); % Input weighting
-Nmpc = 25; % prediction horizon
-
-% state constraints 
-max_pos = 0.15;
-max_vel = 1;
-
-% Load MPC params
-MPC_params = compute_mpc_params(Qmpc,Rmpc,Nmpc, Ts_Outer, max_pos, max_vel);
-
-% Create a Simulink Bus Object automatically from 'params' structure
-Simulink.Bus.createObject(MPC_params);
-
-% Rename the generic generated object to a clear type name for model
-MPC_params_bus = slBus1; 
-clear slBus1;
-
-% Force the elements of the bus to match explicit double-precision types
-for i = 1:length(MPC_params_bus.Elements)
-    MPC_params_bus.Elements(i).DataType = 'double';
-end
+% % Tuning
+% Qmpc = eye(nx); % State weighting
+% Rmpc = 200*eye(nu); % Input weighting
+% Nmpc = 25; % prediction horizon
+% 
+% % state constraints 
+% max_pos = 0.15;
+% max_vel = 1;
+% 
+% % Load MPC params
+% MPC_params = compute_mpc_params(Qmpc,Rmpc,Nmpc, Ts_Outer, max_pos, max_vel);
+% 
+% % Create a Simulink Bus Object automatically from 'params' structure
+% Simulink.Bus.createObject(MPC_params);
+% 
+% % Rename the generic generated object to a clear type name for model
+% MPC_params_bus = slBus1; 
+% clear slBus1;
+% 
+% % Force the elements of the bus to match explicit double-precision types
+% for i = 1:length(MPC_params_bus.Elements)
+%     MPC_params_bus.Elements(i).DataType = 'double';
+% end
 
 %% done
 disp('Initialization complete. Ready for Simulink simulation.');
