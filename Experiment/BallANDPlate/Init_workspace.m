@@ -83,6 +83,7 @@ R_lqr = diag([700, 700]);             % [alpha, beta]
 K_lqr = dlqr(Ad, Bd, Q_lqr, R_lqr);
 % K_lqr = -K_lqr;
 
+<<<<<<< HEAD
 %% Load Built-in MPC Toolbox Parameters
 Ts_Outer = 1/50;
 

@@ -155,16 +155,16 @@ group "Model Root"
 	 block: "Constant"
 	}
 		-- Skipping output Out1
-		trcref0_Ts_Outer
+		trcref0_Ts_Inner
 		{
 		 refgroup: "/Tunable Parameters"
-		 refvar:   "Ts_Outer"
-		 alias:    "Ts_Outer"
+		 refvar:   "Ts_Inner"
+		 alias:    "Ts_Inner"
 		}
 		trcref0_Value
 		{
 		 refgroup: "/Tunable Parameters"
-		 refvar:   "Ts_Outer"
+		 refvar:   "Ts_Inner"
 		 alias:    "Value"
 		 flags:    DEPRECATED|HIDDEN
 		}
@@ -177,7 +177,7 @@ group "Model Root"
 	 block: "Constant"
 	}
 		-- Skipping output Out1
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603387]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603036]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "Value"
@@ -187,11 +187,33 @@ group "Model Root"
 
 	endgroup -- block-group "Constant3"
 
+	group "Constant4" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_Ts_Inner
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "Ts_Inner"
+		 alias:    "Ts_Inner"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "Ts_Inner"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "Constant4"
+
 	group "Constant5" -- block-group
 	{
 	 block: "Constant"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[75]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[78]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
@@ -212,7 +234,7 @@ group "Model Root"
 	{
 	 block: "Constant"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[76]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[79]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
@@ -240,7 +262,7 @@ group "Model Root"
 	 block: "Constant"
 	}
 		-- Skipping output Out1
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603491]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603125]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
@@ -255,7 +277,7 @@ group "Model Root"
 	 block: "Constant"
 	}
 		-- Skipping output Out1
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603494]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603149]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
@@ -265,77 +287,50 @@ group "Model Root"
 
 	endgroup -- block-group "Psi_ref\n"
 
-	group "Optimal controller" -- block-group
+	group "ball_freq" -- block-group
 	{
-	 block: "DiscreteStateSpace"
+	 block: "Constant"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[16]
-		{
-		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
-		 alias:   "Out1"
-		 flags:   OUTPUT|READONLY
-		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603474]
+		-- Skipping output Out1
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603128]
 		{
 		 type:    flt(64,IEEE)*
-		 alias:   "InitialCondition"
+		 alias:   "Value"
 		 flags:   PARAM
 		}
-		trcref0_A_robust
+
+
+	endgroup -- block-group "ball_freq"
+
+	group "enable_circ" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603130]
 		{
-		 refgroup: "/Tunable Parameters"
-		 refvar:   "A_robust"
-		 alias:    "A_robust"
-		}
-		trcref1_B_robust
-		{
-		 refgroup: "/Tunable Parameters"
-		 refvar:   "B_robust"
-		 alias:    "B_robust"
-		}
-		trcref2_C_robust
-		{
-		 refgroup: "/Tunable Parameters"
-		 refvar:   "C_robust"
-		 alias:    "C_robust"
-		}
-		trcref3_D_robust
-		{
-		 refgroup: "/Tunable Parameters"
-		 refvar:   "D_robust"
-		 alias:    "D_robust"
-		}
-		trcref0_A
-		{
-		 refgroup: "/Tunable Parameters"
-		 refvar:   "A_robust"
-		 alias:    "A"
-		 flags:    DEPRECATED|HIDDEN
-		}
-		trcref1_B
-		{
-		 refgroup: "/Tunable Parameters"
-		 refvar:   "B_robust"
-		 alias:    "B"
-		 flags:    DEPRECATED|HIDDEN
-		}
-		trcref2_C
-		{
-		 refgroup: "/Tunable Parameters"
-		 refvar:   "C_robust"
-		 alias:    "C"
-		 flags:    DEPRECATED|HIDDEN
-		}
-		trcref3_D
-		{
-		 refgroup: "/Tunable Parameters"
-		 refvar:   "D_robust"
-		 alias:    "D"
-		 flags:    DEPRECATED|HIDDEN
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
 		}
 
 
-	endgroup -- block-group "Optimal controller"
+	endgroup -- block-group "enable_circ"
+
+	group "radius_circ" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603127]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "radius_circ"
 
 	group "Gain" -- block-group
 	{
@@ -358,17 +353,44 @@ group "Model Root"
 
 	endgroup -- block-group "Gain"
 
+	group "Gain1" -- block-group
+	{
+	 block: "Gain"
+	}
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[23]
+		{
+		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		trcref0_K_lqr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "K_lqr"
+		 alias:    "K_lqr"
+		}
+		trcref0_Gain
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "K_lqr"
+		 alias:    "Gain"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "Gain1"
+
 	group "Gain2" -- block-group
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[4]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[35]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603443]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603147]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
@@ -382,13 +404,13 @@ group "Model Root"
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[8]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[36]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603451]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603148]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
@@ -402,13 +424,13 @@ group "Model Root"
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[20]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[27]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603482]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603138]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
@@ -422,13 +444,13 @@ group "Model Root"
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[24]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[31]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603490]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603146]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
@@ -438,17 +460,17 @@ group "Model Root"
 
 	endgroup -- block-group "Gain5"
 
-	group "Gain6" -- block-group
+	group "Gain7" -- block-group
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[32]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[18]
 		{
-		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
+		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603493]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603129]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
@@ -456,7 +478,7 @@ group "Model Root"
 		}
 
 
-	endgroup -- block-group "Gain6"
+	endgroup -- block-group "Gain7"
 
 	group "Rate Transition3" -- block-group
 	{
@@ -476,7 +498,7 @@ group "Model Root"
 	{
 	 block: "RateTransition"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[5]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[74]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
@@ -490,7 +512,7 @@ group "Model Root"
 	{
 	 block: "RateTransition"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[9]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[75]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
@@ -504,7 +526,7 @@ group "Model Root"
 	{
 	 block: "Saturate"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[21]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[28]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
@@ -533,7 +555,7 @@ group "Model Root"
 	{
 	 block: "Saturate"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[25]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[32]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
@@ -678,31 +700,31 @@ group "Model Root"
 	{
 	 block: "Sin"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[73]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[76]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603586]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603241]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Amplitude"
 		 flags:   PARAM
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603587]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603242]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Bias"
 		 flags:   PARAM
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603588]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603243]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Frequency"
 		 flags:   PARAM
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603589]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603244]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Phase"
@@ -716,31 +738,31 @@ group "Model Root"
 	{
 	 block: "Sin"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[74]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[77]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603590]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603245]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Amplitude"
 		 flags:   PARAM
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603591]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603246]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Bias"
 		 flags:   PARAM
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603592]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603247]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Frequency"
 		 flags:   PARAM
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603593]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603248]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Phase"
@@ -750,17 +772,31 @@ group "Model Root"
 
 	endgroup -- block-group "Beta_sine"
 
-	group "Switch" -- block-group
+	group "Add" -- block-group
 	{
-	 block: "Switch"
+	 block: "Sum"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[28]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603492]
+
+
+	endgroup -- block-group "Add"
+
+	group "Switch" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[14]
+		{
+		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603126]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Threshold"
@@ -769,6 +805,58 @@ group "Model Root"
 
 
 	endgroup -- block-group "Switch"
+
+	group "First Order Hold" -- block-group
+	{
+	 block: "FirstOrderHold"
+	}
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[4]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603092]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "InitialOutput"
+		 flags:   PARAM
+		}
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603093]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ErrorTolerance"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "First Order Hold"
+
+	group "First Order Hold1" -- block-group
+	{
+	 block: "FirstOrderHold"
+	}
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[7]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603101]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "InitialOutput"
+		 flags:   PARAM
+		}
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603102]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ErrorTolerance"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "First Order Hold1"
 
   
   
@@ -781,7 +869,7 @@ group "Model Root"
 		 flags:   OUTPUT|READONLY
 		}
 
-		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603386]
+		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603035]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "ICPrevInput"
@@ -850,19 +938,19 @@ group "Model Root"
 		 alias:   "Frames\n"
 		 flags:   OUTPUT|READONLY
 		}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[124]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[131]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Xpos\n"
 		 flags:   OUTPUT|READONLY
 		}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[125]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[132]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Ypos\n"
 		 flags:   OUTPUT|READONLY
 		}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[126]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[133]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Zpos"
@@ -881,7 +969,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603442]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603091]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -976,7 +1064,7 @@ group "Model Root"
   
 		group "ETHERNET_UDP_SETUP_BL1" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[26]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[33]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "RX Dropped Frames"
@@ -989,19 +1077,19 @@ group "Model Root"
   
 		group "MATLAB Function" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[124]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[131]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "x"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[125]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[132]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "y"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[126]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[133]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "z"
@@ -1025,19 +1113,19 @@ group "Model Root"
   
 	group "Innerloop_Actuator" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[85]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[92]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Alpha_out"
 		 flags:   OUTPUT|READONLY
 		}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[86]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[93]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Beta_out"
 		 flags:   OUTPUT|READONLY
 		}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[87]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[94]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Psi_out"
@@ -1051,7 +1139,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603495]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603150]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1066,7 +1154,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603391]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603040]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1081,7 +1169,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603410]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603059]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1096,7 +1184,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603427]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603076]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1111,7 +1199,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603459]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603110]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1126,7 +1214,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603496]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603151]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1141,7 +1229,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603497]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603152]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1156,7 +1244,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603502]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603157]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1171,7 +1259,7 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603498]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603153]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1185,13 +1273,13 @@ group "Model Root"
 		{
 		 block: "Constant"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[72]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[73]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603585]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603240]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -1205,7 +1293,7 @@ group "Model Root"
 		{
 		 block: "Sum"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[120]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[127]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1219,7 +1307,7 @@ group "Model Root"
 		{
 		 block: "Sum"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[109]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[116]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1233,7 +1321,7 @@ group "Model Root"
 		{
 		 block: "Sum"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[98]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[105]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1247,7 +1335,7 @@ group "Model Root"
   
 		group "Motor_A" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[116]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[123]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P_A"
@@ -1260,7 +1348,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603523]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603178]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -1275,7 +1363,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603392]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603041]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -1290,7 +1378,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603501]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603156]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -1305,7 +1393,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603500]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603155]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -1320,7 +1408,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603393]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603042]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -1335,7 +1423,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603524]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603179]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -1350,7 +1438,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603521]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603176]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -1364,7 +1452,7 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[43]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[44]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
@@ -1378,7 +1466,7 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[38]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[39]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
@@ -1392,13 +1480,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[36]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[37]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603499]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603154]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -1412,13 +1500,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[42]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[43]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603520]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603175]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -1432,13 +1520,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[44]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[45]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603522]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603177]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -1452,13 +1540,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[37]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[38]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603503]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603158]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -1484,13 +1572,13 @@ group "Model Root"
 				{
 				 block: "Constant"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[46]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[47]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603526]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603181]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -1504,13 +1592,13 @@ group "Model Root"
 				{
 				 block: "Constant"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[47]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[48]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603527]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603182]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -1525,7 +1613,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603394]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603043]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -1561,13 +1649,13 @@ group "Model Root"
 				{
 				 block: "Switch"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[45]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[46]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603525]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603180]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Threshold"
@@ -1672,13 +1760,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[118]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[125]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603397]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603046]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -1692,13 +1780,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[119]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[126]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603398]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603047]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -1712,19 +1800,19 @@ group "Model Root"
 				{
 				 block: "Saturate"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[117]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[124]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603395]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603044]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "UpperLimit"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603396]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603045]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "LowerLimit"
@@ -1747,13 +1835,13 @@ group "Model Root"
   
 			group "Position Measurement" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[115]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[122]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "init_current"
 				 flags:   OUTPUT|READONLY
 				}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[116]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[123]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Position [m]"
@@ -1766,7 +1854,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603399]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603048]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -1781,7 +1869,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603402]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603051]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -1796,7 +1884,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603400]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603049]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -1810,13 +1898,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[112]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[119]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603401]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603050]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -1830,13 +1918,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[116]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[123]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603407]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603056]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -1850,7 +1938,7 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[113]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[120]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
@@ -1864,13 +1952,13 @@ group "Model Root"
   
 				group "EMC_ENCODER_BL1" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[110]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[117]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Position"
 					 flags:   OUTPUT|READONLY
 					}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[111]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[118]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Speed"
@@ -1894,7 +1982,7 @@ group "Model Root"
 					 alias:   "Pos_offset"
 					 flags:   OUTPUT|READONLY
 					}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[115]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[122]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "init_current"
@@ -1906,7 +1994,7 @@ group "Model Root"
 					{
 					 block: "Abs"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[114]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[121]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -1921,7 +2009,7 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603403]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603052]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
@@ -1936,7 +2024,7 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603404]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603053]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
@@ -1998,19 +2086,19 @@ group "Model Root"
 					{
 					 block: "TransferFcn"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[115]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[122]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
 						}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603405]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603054]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "A"
 						 flags:   PARAM
 						}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603406]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603055]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "C"
@@ -2089,7 +2177,7 @@ group "Model Root"
   
 			group "motorA\n" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[41]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[42]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Output"
@@ -2101,13 +2189,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[39]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[40]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603504]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603159]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -2121,20 +2209,20 @@ group "Model Root"
 				{
 				 block: "S-Function"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[41]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[42]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
 
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603516]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603171]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P1"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603519]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603174]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P2"
@@ -2148,26 +2236,26 @@ group "Model Root"
 				{
 				 block: "S-Function"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[40]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[41]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
 
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603507]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603162]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P1"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603510]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603165]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P2"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603513]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603168]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P3"
@@ -2202,7 +2290,7 @@ group "Model Root"
   
 		group "Motor_B" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[105]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[112]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P_B"
@@ -2215,7 +2303,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603551]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603206]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2230,7 +2318,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603408]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603057]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2245,7 +2333,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603530]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603185]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2260,7 +2348,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603529]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603184]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2275,7 +2363,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603552]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603207]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2290,7 +2378,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603409]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603058]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2305,7 +2393,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603549]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603204]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -2319,7 +2407,7 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[55]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[56]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
@@ -2333,7 +2421,7 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[50]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[51]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
@@ -2347,13 +2435,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[49]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[50]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603531]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603186]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -2367,13 +2455,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[48]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[49]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603528]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603183]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -2387,13 +2475,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[54]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[55]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603548]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603203]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -2407,13 +2495,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[56]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[57]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603550]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603205]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -2439,13 +2527,13 @@ group "Model Root"
 				{
 				 block: "Constant"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[58]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[59]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603554]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603209]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -2459,13 +2547,13 @@ group "Model Root"
 				{
 				 block: "Constant"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[59]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[60]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603555]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603210]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -2480,7 +2568,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603411]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603060]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -2516,13 +2604,13 @@ group "Model Root"
 				{
 				 block: "Switch"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[57]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[58]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603553]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603208]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Threshold"
@@ -2627,13 +2715,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[107]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[114]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603414]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603063]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -2647,13 +2735,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[108]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[115]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603415]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603064]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -2667,19 +2755,19 @@ group "Model Root"
 				{
 				 block: "Saturate"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[106]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[113]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603412]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603061]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "UpperLimit"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603413]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603062]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "LowerLimit"
@@ -2702,13 +2790,13 @@ group "Model Root"
   
 			group "Position Measurement" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[104]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[111]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "init_current"
 				 flags:   OUTPUT|READONLY
 				}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[105]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[112]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Position [m]"
@@ -2721,7 +2809,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603416]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603065]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -2736,7 +2824,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603419]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603068]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -2751,7 +2839,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603417]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603066]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -2765,13 +2853,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[101]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[108]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603418]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603067]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -2785,13 +2873,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[105]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[112]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603424]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603073]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -2805,7 +2893,7 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[102]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[109]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
@@ -2819,13 +2907,13 @@ group "Model Root"
   
 				group "EMC_ENCODER_BL1" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[99]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[106]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Position"
 					 flags:   OUTPUT|READONLY
 					}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[100]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[107]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Speed"
@@ -2849,7 +2937,7 @@ group "Model Root"
 					 alias:   "Pos_offset"
 					 flags:   OUTPUT|READONLY
 					}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[104]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[111]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "init_current"
@@ -2861,7 +2949,7 @@ group "Model Root"
 					{
 					 block: "Abs"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[103]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[110]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -2876,7 +2964,7 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603420]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603069]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
@@ -2891,7 +2979,7 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603421]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603070]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
@@ -2953,19 +3041,19 @@ group "Model Root"
 					{
 					 block: "TransferFcn"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[104]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[111]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
 						}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603422]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603071]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "A"
 						 flags:   PARAM
 						}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603423]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603072]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "C"
@@ -3044,7 +3132,7 @@ group "Model Root"
   
 			group "motorB" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[53]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[54]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Output"
@@ -3056,13 +3144,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[51]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[52]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603532]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603187]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -3076,20 +3164,20 @@ group "Model Root"
 				{
 				 block: "S-Function"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[53]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[54]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
 
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603544]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603199]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P1"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603547]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603202]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P2"
@@ -3103,26 +3191,26 @@ group "Model Root"
 				{
 				 block: "S-Function"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[52]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[53]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
 
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603535]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603190]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P1"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603538]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603193]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P2"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603541]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603196]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P3"
@@ -3157,7 +3245,7 @@ group "Model Root"
   
 		group "Motor_C" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[94]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[101]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P_C"
@@ -3170,7 +3258,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603579]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603234]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -3185,7 +3273,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603584]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603239]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -3200,7 +3288,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603425]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603074]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -3215,7 +3303,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603558]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603213]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -3230,7 +3318,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603557]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603212]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -3245,7 +3333,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603426]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603075]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -3260,7 +3348,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603580]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603235]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -3275,7 +3363,7 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603577]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603232]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
@@ -3289,7 +3377,7 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[67]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[68]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
@@ -3303,7 +3391,7 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[62]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[63]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
@@ -3317,13 +3405,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[61]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[62]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603559]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603214]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -3337,13 +3425,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[60]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[61]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603556]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603211]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -3357,13 +3445,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[66]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[67]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603576]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603231]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -3377,13 +3465,13 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[68]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[69]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
 				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603578]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603233]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
@@ -3409,13 +3497,13 @@ group "Model Root"
 				{
 				 block: "Constant"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[70]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[71]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603582]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603237]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3429,13 +3517,13 @@ group "Model Root"
 				{
 				 block: "Constant"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[71]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[72]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603583]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603238]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3450,7 +3538,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603428]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603077]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3486,13 +3574,13 @@ group "Model Root"
 				{
 				 block: "Switch"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[69]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[70]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603581]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603236]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Threshold"
@@ -3649,13 +3737,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[96]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[103]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603431]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603080]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -3669,13 +3757,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[97]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[104]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603432]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603081]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -3689,19 +3777,19 @@ group "Model Root"
 				{
 				 block: "Saturate"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[95]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[102]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603429]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603078]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "UpperLimit"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603430]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603079]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "LowerLimit"
@@ -3724,13 +3812,13 @@ group "Model Root"
   
 			group "Position Measurement" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[93]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[100]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "init_current"
 				 flags:   OUTPUT|READONLY
 				}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[94]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[101]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Position [m]"
@@ -3743,7 +3831,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603433]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603082]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3758,7 +3846,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603436]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603085]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3773,7 +3861,7 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603434]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603083]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
@@ -3787,13 +3875,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[90]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[97]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603435]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603084]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -3807,13 +3895,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[94]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[101]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603441]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603090]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -3827,7 +3915,7 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[91]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[98]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
@@ -3841,13 +3929,13 @@ group "Model Root"
   
 				group "EMC_ENCODER_BL1" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[88]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[95]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Position"
 					 flags:   OUTPUT|READONLY
 					}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[89]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[96]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Speed"
@@ -3871,7 +3959,7 @@ group "Model Root"
 					 alias:   "Pos_offset"
 					 flags:   OUTPUT|READONLY
 					}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[93]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[100]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "init_current"
@@ -3883,7 +3971,7 @@ group "Model Root"
 					{
 					 block: "Abs"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[92]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[99]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
@@ -3898,7 +3986,7 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603437]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603086]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
@@ -3913,7 +4001,7 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603438]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603087]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
@@ -3975,19 +4063,19 @@ group "Model Root"
 					{
 					 block: "TransferFcn"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[93]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[100]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
 						}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603439]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603088]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "A"
 						 flags:   PARAM
 						}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603440]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603089]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "C"
@@ -4066,7 +4154,7 @@ group "Model Root"
   
 			group "motorC" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[65]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[66]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Output"
@@ -4078,13 +4166,13 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[63]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[64]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603560]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603215]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
@@ -4098,20 +4186,20 @@ group "Model Root"
 				{
 				 block: "S-Function"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[65]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[66]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
 
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603572]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603227]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P1"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603575]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603230]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P2"
@@ -4125,26 +4213,26 @@ group "Model Root"
 				{
 				 block: "S-Function"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[64]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[65]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
 					}
 
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603563]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603218]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P1"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603566]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603221]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P2"
 					 flags:   PARAM
 					}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603569]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603224]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P3"
@@ -4179,19 +4267,19 @@ group "Model Root"
   
 		group "AngleToPos\n" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[121]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[128]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "pos1"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[122]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[129]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "pos2"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[123]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[130]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "pos3"
@@ -4206,19 +4294,19 @@ group "Model Root"
   
 		group "PosToAngle\n" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[85]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[92]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "alpha"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[86]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[93]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "beta"
 			 flags:   OUTPUT|READONLY
 			}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[87]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[94]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "psi"
@@ -4242,7 +4330,7 @@ group "Model Root"
   
 	group "lowpass\n" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[7]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[6]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Output"
@@ -4254,13 +4342,13 @@ group "Model Root"
 		{
 		 block: "Gain"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[6]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[5]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603444]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603094]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -4274,20 +4362,20 @@ group "Model Root"
 		{
 		 block: "S-Function"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[7]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[6]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
 			}
 
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603447]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603097]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P1"
 			 flags:   PARAM
 			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603450]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603100]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P2"
@@ -4303,6 +4391,192 @@ group "Model Root"
   
   
 	group "lowpass\n1" -- subsystem-group
+
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[9]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Output"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Gain1" -- block-group
+		{
+		 block: "Gain"
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[8]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603103]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain1"
+
+		group "Dct1lowpass2" -- block-group
+		{
+		 block: "S-Function"
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[9]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603106]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "P1"
+			 flags:   PARAM
+			}
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603109]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "P2"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Dct1lowpass2"
+
+
+
+	endgroup -- subsystem-group "lowpass\n1"
+  
+  
+	group "lowpass\n2" -- subsystem-group
+
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[26]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Output"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Gain1" -- block-group
+		{
+		 block: "Gain"
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[25]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603131]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain1"
+
+		group "Dct1lowpass2" -- block-group
+		{
+		 block: "S-Function"
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[26]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603134]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "P1"
+			 flags:   PARAM
+			}
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603137]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "P2"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Dct1lowpass2"
+
+
+
+	endgroup -- subsystem-group "lowpass\n2"
+  
+  
+	group "lowpass\n3" -- subsystem-group
+
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[30]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Output"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Gain1" -- block-group
+		{
+		 block: "Gain"
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[29]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603139]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain1"
+
+		group "Dct1lowpass2" -- block-group
+		{
+		 block: "S-Function"
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[30]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603142]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "P1"
+			 flags:   PARAM
+			}
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603145]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "P2"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Dct1lowpass2"
+
+
+
+	endgroup -- subsystem-group "lowpass\n3"
+  
+  
+	group "lowpass\n4" -- subsystem-group
 
 		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[11]
 		{
@@ -4322,7 +4596,7 @@ group "Model Root"
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603452]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603111]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -4343,13 +4617,13 @@ group "Model Root"
 			 flags:   OUTPUT|READONLY
 			}
 
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603455]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603114]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P1"
 			 flags:   PARAM
 			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603458]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603117]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P2"
@@ -4361,134 +4635,10 @@ group "Model Root"
 
 
 
-	endgroup -- subsystem-group "lowpass\n1"
+	endgroup -- subsystem-group "lowpass\n4"
   
   
-	group "lowpass\n2" -- subsystem-group
-
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "Output"
-		 flags:   OUTPUT|READONLY
-		}
-
-
-		group "Gain1" -- block-group
-		{
-		 block: "Gain"
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[18]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 flags:   OUTPUT|READONLY
-			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603475]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Gain"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "Gain1"
-
-		group "Dct1lowpass2" -- block-group
-		{
-		 block: "S-Function"
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[19]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 flags:   OUTPUT|READONLY
-			}
-
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603478]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "P1"
-			 flags:   PARAM
-			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603481]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "P2"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "Dct1lowpass2"
-
-
-
-	endgroup -- subsystem-group "lowpass\n2"
-  
-  
-	group "lowpass\n3" -- subsystem-group
-
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[23]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "Output"
-		 flags:   OUTPUT|READONLY
-		}
-
-
-		group "Gain1" -- block-group
-		{
-		 block: "Gain"
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[22]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 flags:   OUTPUT|READONLY
-			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603483]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Gain"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "Gain1"
-
-		group "Dct1lowpass2" -- block-group
-		{
-		 block: "S-Function"
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[23]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 flags:   OUTPUT|READONLY
-			}
-
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603486]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "P1"
-			 flags:   PARAM
-			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603489]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "P2"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "Dct1lowpass2"
-
-
-
-	endgroup -- subsystem-group "lowpass\n3"
-  
-  
-	group "lowpass\n4" -- subsystem-group
+	group "lowpass\n5" -- subsystem-group
 
 		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[13]
 		{
@@ -4508,7 +4658,7 @@ group "Model Root"
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603460]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603118]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -4529,75 +4679,13 @@ group "Model Root"
 			 flags:   OUTPUT|READONLY
 			}
 
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603463]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603121]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P1"
 			 flags:   PARAM
 			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603466]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "P2"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "Dct1lowpass2"
-
-
-
-	endgroup -- subsystem-group "lowpass\n4"
-  
-  
-	group "lowpass\n5" -- subsystem-group
-
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[15]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "Output"
-		 flags:   OUTPUT|READONLY
-		}
-
-
-		group "Gain1" -- block-group
-		{
-		 block: "Gain"
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[14]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 flags:   OUTPUT|READONLY
-			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603467]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Gain"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "Gain1"
-
-		group "Dct1lowpass2" -- block-group
-		{
-		 block: "S-Function"
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[15]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 flags:   OUTPUT|READONLY
-			}
-
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603470]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "P1"
-			 flags:   PARAM
-			}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603473]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603124]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P2"
@@ -4614,7 +4702,7 @@ group "Model Root"
   
 	group "MATLAB Function" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[81]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[88]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "x_est"
@@ -4625,6 +4713,21 @@ group "Model Root"
 
 
 	endgroup -- subsystem-group "MATLAB Function"
+  
+  
+	group "MATLAB Function3" -- subsystem-group
+
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[80]
+		{
+		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
+		 alias:   "r"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+
+
+	endgroup -- subsystem-group "MATLAB Function3"
 
 
 
