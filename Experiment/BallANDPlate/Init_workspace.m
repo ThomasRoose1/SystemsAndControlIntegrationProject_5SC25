@@ -88,8 +88,10 @@ K_lqr = dlqr(Ad, Bd, Q_lqr, R_lqr);
 Ts_Outer = 1/50;
 
 % tuning
-Qmpc = eye(nx); % state weight (only diag)
-Rmpc = 100*eye(nu); % control effort weight (only diag);
+% Qmpc = eye(nx); % state weight (only diag)
+% Rmpc = 100*eye(nu); % control effort weight (only diag);
+Qmpc = diag([100, 10, 100, 10]); % [x, x_dot, y, y_dot]
+Rmpc = diag([100, 100]);
 Nmpc = 25;   % prediction horizon
 Nc_mpc = 3;  % control horizon
 
