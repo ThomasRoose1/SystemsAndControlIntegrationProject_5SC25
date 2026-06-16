@@ -52,29 +52,35 @@ group "Tunable Parameters"
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[33]
 	{
+	 type:    flt(64,IEEE)*
+	 alias:   "g"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[34]
+	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_3001*
 	 alias:   "path"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3034]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3035]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "plate_angle_sat"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3035]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3036]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uA"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[203035]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[203036]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uB"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[403035]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[403036]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uC"

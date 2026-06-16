@@ -144,6 +144,12 @@
 						<UniqueID type="key">232136057</UniqueID>
 						<LinkedItem type="key">885430817</LinkedItem>
 						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">803047858</UniqueID>
+							<LinkedItem type="key">420045185</LinkedItem>
+						</item>
+						<item>
 							<Component type="key">DataSetManager</Component>
 							<Name type="key">Data Sets</Name>
 							<DisplayName type="key">Data Sets</DisplayName>
@@ -191,6 +197,26 @@
 				<ItemInfoDescr type="key"/>
 				<ItemInfoAddInfoDb type="key"/>
 				<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec1_010.mf4</Name>
+					<DisplayName type="key">rec1_010.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">420045185</UniqueID>
+					<EntityID type="key">{11DAB7D4-7C78-4D07-A924-0A16520EF9AE}</EntityID>
+					<ItemInfoDate type="key">16/06/2026 15:21:32</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
 			</item>
 			<item>
 				<Targets type="key">.rtf,.pdf,.html,.xml,.txt,.csv</Targets>
@@ -508,7 +534,7 @@
 		</DeviceFactory>
 	</PlatformManagement>
 	<MeasurementConfiguration>
-		<NextUniqueKey type="key">4</NextUniqueKey>
+		<NextUniqueKey type="key">5</NextUniqueKey>
 		<SortedColumn type="key">4</SortedColumn>
 		<SortAscending type="key">-1</SortAscending>
 		<SignalList>
@@ -847,7 +873,7 @@
 					<AutomaticExportFolder type="key"/>
 					<AutomaticNamingEnabled type="key">-1</AutomaticNamingEnabled>
 					<AutomaticNamingMinimunDigits type="key">3</AutomaticNamingMinimunDigits>
-					<AutomaticNamingStartIndex type="key">10</AutomaticNamingStartIndex>
+					<AutomaticNamingStartIndex type="key">11</AutomaticNamingStartIndex>
 					<Description type="key"/>
 					<FileNamePrefix type="key">rec1_</FileNamePrefix>
 					<OpenInMeasurementDataPoolEnabled type="key">0</OpenInMeasurementDataPoolEnabled>
@@ -894,7 +920,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_ref\n/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -903,7 +929,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/MATLAB Function1/path</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -912,7 +938,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Multisine/y</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -930,7 +956,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Switch3/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -939,7 +965,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Multisine/y</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -957,7 +983,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Switch/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -966,7 +992,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Switch3/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -975,7 +1001,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Multisine1/y</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -993,7 +1019,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -1002,7 +1028,7 @@
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch3/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
