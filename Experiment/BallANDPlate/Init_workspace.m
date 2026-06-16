@@ -9,6 +9,7 @@ N = tlength*fs;
 P = 1; % periods
 
 Ts_Outer = 0.02;                      %  must be integer multiple of 0.001
+Ts_Inner = 0.001;
 
 
 uA = multisine(0,fn,fs,N,A);
@@ -83,13 +84,12 @@ R_lqr = diag([700, 700]);             % [alpha, beta]
 K_lqr = dlqr(Ad, Bd, Q_lqr, R_lqr);
 % K_lqr = -K_lqr;
 
-<<<<<<< HEAD
 %% Load Built-in MPC Toolbox Parameters
 Ts_Outer = 1/50;
 
 % tuning
 Qmpc = eye(nx); % state weight (only diag)
-Rmpc = eye(nu); % control effort weight (only diag);
+Rmpc = 100*eye(nu); % control effort weight (only diag);
 Nmpc = 25;   % prediction horizon
 Nc_mpc = 3;  % control horizon
 
