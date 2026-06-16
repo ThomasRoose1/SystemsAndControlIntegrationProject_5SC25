@@ -75,12 +75,27 @@ with open(CALIBRATION_FILE, 'r') as f:
 plate_quad = np.array(calib['plate_quad'], dtype=np.float32)
 TL, TR, BR, BL = plate_quad
 
-edge = TR - TL
-angle_deg = math.degrees(math.atan2(edge[1], edge[0]))
-print(f'Computed plate angle: {angle_deg:.2f} deg')
+# Horizontal edges
+top_angle = math.degrees(math.atan2(TR[1] - TL[1], TR[0] - TL[0]))
+bottom_angle = math.degrees(math.atan2(BR[1] - BL[1], BR[0] - BL[0]))
+
+# Vertical edges
+left_angle = math.degrees(math.atan2(BL[1] - TL[1], BL[0] - TL[0])) - 90.0
+right_angle = math.degrees(math.atan2(BR[1] - TR[1], BR[0] - TR[0])) - 90.0
+
+angle_deg = np.mean([ top_angle, bottom_angle, left_angle, right_angle])
+
+print()
+print('===== PLATE ANGLE ESTIMATION =====')
+print(f'Top    : {top_angle:.3f}')
+print(f'Bottom : {bottom_angle:.3f}')
+print(f'Left   : {left_angle:.3f}')
+print(f'Right  : {right_angle:.3f}')
+print(f'Final  : {angle_deg:.3f}')
+print('==================================')
 
 CENTER = (WIDTH // 2, HEIGHT // 2)
-ROT_MAT = cv2.getRotationMatrix2D(CENTER, -angle_deg, 1.0)
+ROT_MAT = cv2.getRotationMatrix2D(CENTER, angle_deg, 1.0)
 
 ones = np.ones((4, 1))
 plate_h = np.hstack([plate_quad, ones])
