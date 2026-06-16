@@ -60,8 +60,8 @@ R_kf = diag([0.1, 0.1]);
 Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
 
 %% Load robust controller
-load('optimalK_angleOutput_speedFeedback_moderate-center034.mat');
-K_robust = c2d(K, Ts_Outer);
+load('optimalK.mat');
+K_robust = c2d(K, Ts_Inner);
 A_robust = K_robust.A;
 B_robust = K_robust.B;
 C_robust = K_robust.C;

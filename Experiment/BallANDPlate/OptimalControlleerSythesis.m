@@ -89,9 +89,9 @@ A = [0 1 0 0;
      0 0 0 0];
 
 B = [0  0;
-     Kg 0;
+     0 Kg;
      0  0;
-     0  Kg];
+     -Kg  0];
 
 C = eye(4);
 D = zeros(4,2);
@@ -130,7 +130,7 @@ end
 
 % Small reference amplitude.
 % Do not ask this controller to track 0.6 m if it is designed for centimeters.
-r_max = 30e-3;              % [m] 3 cm typical reference
+r_max = 25e-2;              % [m] 25 cm typical reference
 
 % Relaxed velocity penalty.
 % This prevents the controller from trying to kill initial speed instantly.
@@ -138,18 +138,18 @@ v_max = 0.50;               % [m/s] stronger velocity damping than conservative 
 
 % Strict angle command limits.
 % These are SOFT limits through Wu, not hard saturation.
-alpha_max = deg2rad(2.0);   % [rad] allow more table authority
-beta_max  = deg2rad(2.0);   % [rad] allow more table authority
+alpha_max = deg2rad(4.0);   % [rad] allow more table authority
+beta_max  = deg2rad(4.0);   % [rad] allow more table authority
 
 % Equivalent angle disturbance level.
 d_alpha_max = deg2rad(0.25); % [rad]
 d_beta_max  = deg2rad(0.25); % [rad]
 
 % Slow bandwidth settings.
-f_ref   = 0.10;             % [Hz] more reactive reference response
-f_sens  = 0.15;             % [Hz] slightly more sensitive to position error
-f_input = 0.50;             % [Hz] allow faster angle commands
-f_noise = 0.80;             % [Hz]
+f_ref   = 0.05;             % [Hz] more reactive reference response
+f_sens  = 0.3;             % [Hz] slightly more sensitive to position error
+f_input = 0.30;             % [Hz] allow faster angle commands
+f_noise = 1.6;             % [Hz]
 
 w_ref   = 2*pi*f_ref;
 w_sens  = 2*pi*f_sens;
@@ -157,7 +157,7 @@ w_input = 2*pi*f_input;
 w_noise = 2*pi*f_noise;
 
 % Robust-control specifications
-Ms   = 2.2;                 % moderately tight sensitivity peak
+Ms   = 2;                 % moderately tight sensitivity peak
 epsS = 2e-2;                % stronger position-error tracking
 
 %% Weighting filters
@@ -270,10 +270,7 @@ K.OutputName = {'alpha_cmd','beta_cmd'};
 
 %% Save controller
 
-save('optimalK_angleOutput_speedFeedback.mat','K','gamma','Pw','CLw','actuatorDiameter','actuatorRadius','a','xb','zb');
-save('optimalK_angleOutput_speedFeedback_conservative.mat','K','gamma','Pw','CLw','actuatorDiameter','actuatorRadius','a','xb','zb');
-save('optimalK_angleOutput_speedFeedback_moderate.mat','K','gamma','Pw','CLw','actuatorDiameter','actuatorRadius','a','xb','zb');
-save('optimalK_angleOutput_speedFeedback_positionSensitive.mat','K','gamma','Pw','CLw','actuatorDiameter','actuatorRadius','a','xb','zb');
+save('optimalK.mat','K','gamma','Pw','CLw','actuatorDiameter','actuatorRadius','a','xb','zb');
 
 disp('Controller K(s), output = [alpha_cmd; beta_cmd]:')
 tf(K)

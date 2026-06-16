@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.91
+ * Model version              : 1.93
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue Jun 16 16:16:30 2026
+ * C source code generated on : Tue Jun 16 17:07:53 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -260,45 +260,8 @@ typedef struct {
   real_T Dct1lowpass2_o;               /* '<S15>/Dct1lowpass2' */
   real_T Switch[4];                    /* '<Root>/Switch' */
   real_T Add[4];                       /* '<Root>/Add' */
-  real_T moorxConversion[4];           /* '<S72>/mo or x Conversion' */
-  real_T last_mv[2];                   /* '<S72>/last_mv' */
+  real_T Optimalcontroller[2];         /* '<Root>/Optimal controller' */
   real_T Gain7;                        /* '<Root>/Gain7' */
-  real_T DataTypeConversion1[4];       /* '<S72>/Data Type Conversion1' */
-  real_T DataTypeConversion2;          /* '<S72>/Data Type Conversion2' */
-  real_T DataTypeConversion4[2];       /* '<S72>/Data Type Conversion4' */
-  real_T umin_scale[2];                /* '<S72>/umin_scale' */
-  real_T DataTypeConversion5[2];       /* '<S72>/Data Type Conversion5' */
-  real_T umax_scale[2];                /* '<S72>/umax_scale' */
-  real_T DataTypeConversion6[4];       /* '<S72>/Data Type Conversion6' */
-  real_T ymin_scale[4];                /* '<S72>/ymin_scale' */
-  real_T DataTypeConversion7[4];       /* '<S72>/Data Type Conversion7' */
-  real_T ymax_scale[4];                /* '<S72>/ymax_scale' */
-  real_T EConversion[2];               /* '<S72>/E Conversion' */
-  real_T umin_scale4[2];               /* '<S72>/umin_scale4' */
-  real_T Reshape[2];                   /* '<S72>/Reshape' */
-  real_T FConversion[4];               /* '<S72>/F Conversion' */
-  real_T ymin_scale1[4];               /* '<S72>/ymin_scale1' */
-  real_T Reshape1[4];                  /* '<S72>/Reshape1' */
-  real_T GConversion;                  /* '<S72>/G Conversion' */
-  real_T SConversion;                  /* '<S72>/S Conversion' */
-  real_T ymin_scale2;                  /* '<S72>/ymin_scale2' */
-  real_T Reshape2;                     /* '<S72>/Reshape2' */
-  real_T DataTypeConversion8;          /* '<S72>/Data Type Conversion8' */
-  real_T DataTypeConversion3[2];       /* '<S72>/Data Type Conversion3' */
-  real_T extmv_scale[2];               /* '<S72>/ext.mv_scale' */
-  real_T DataTypeConversion13[2];      /* '<S72>/Data Type Conversion13' */
-  real_T extmv_scale1[2];              /* '<S72>/ext.mv_scale1' */
-  real_T DataTypeConversion9[4];       /* '<S72>/Data Type Conversion9' */
-  real_T MathFunction[4];              /* '<S72>/Math Function' */
-  real_T Reshape3[4];                  /* '<S72>/Reshape3' */
-  real_T DataTypeConversion10[2];      /* '<S72>/Data Type Conversion10' */
-  real_T MathFunction1[2];             /* '<S72>/Math Function1' */
-  real_T Reshape4[2];                  /* '<S72>/Reshape4' */
-  real_T DataTypeConversion12[2];      /* '<S72>/Data Type Conversion12' */
-  real_T MathFunction2[2];             /* '<S72>/Math Function2' */
-  real_T Reshape5[2];                  /* '<S72>/Reshape5' */
-  real_T DataTypeConversion11;         /* '<S72>/Data Type Conversion11' */
-  real_T umin_scale1[2];               /* '<S72>/umin_scale1' */
   real_T TSamp;                        /* '<S2>/TSamp' */
   real_T Uk1_h;                        /* '<S2>/UD' */
   real_T Diff_e;                       /* '<S2>/Diff' */
@@ -320,6 +283,7 @@ typedef struct {
   real_T SFunction1[2];                /* '<S18>/S-Function1' */
   real_T Gain2;                        /* '<Root>/Gain2' */
   real_T Gain3;                        /* '<Root>/Gain3' */
+  real_T Gain6[4];                     /* '<Root>/Gain6' */
   real_T Switch_h;                     /* '<S21>/Switch' */
   real_T enable_ref;                   /* '<S21>/enable_ref ' */
   real_T Sum1;                         /* '<S21>/Sum1' */
@@ -357,16 +321,54 @@ typedef struct {
   real_T Constant1_h;                  /* '<S55>/Constant1' */
   real_T Constant2_h;                  /* '<S55>/Constant2' */
   real_T reser_integrator;             /* '<S5>/reser_integrator' */
-  real_T DataTypeConversion14;         /* '<S72>/Data Type Conversion14' */
-  real_T DataTypeConversion15;         /* '<S72>/Data Type Conversion15' */
-  real_T last_x[4];                    /* '<S72>/last_x' */
-  real_T umin_scale3[52];              /* '<S72>/umin_scale3' */
-  real_T umin_scale5[104];             /* '<S72>/umin_scale5' */
-  real_T umin_scale2[2];               /* '<S72>/umin_scale2' */
   real_T RateTransition4;              /* '<Root>/Rate Transition4' */
   real_T RateTransition5;              /* '<Root>/Rate Transition5' */
   real_T Alpha_sine;                   /* '<Root>/Alpha_sine ' */
   real_T Beta_sine;                    /* '<Root>/Beta_sine' */
+  real_T DataTypeConversion1[4];       /* '<S72>/Data Type Conversion1' */
+  real_T DataTypeConversion10[2];      /* '<S72>/Data Type Conversion10' */
+  real_T DataTypeConversion11;         /* '<S72>/Data Type Conversion11' */
+  real_T DataTypeConversion12[2];      /* '<S72>/Data Type Conversion12' */
+  real_T DataTypeConversion13[2];      /* '<S72>/Data Type Conversion13' */
+  real_T DataTypeConversion14;         /* '<S72>/Data Type Conversion14' */
+  real_T DataTypeConversion15;         /* '<S72>/Data Type Conversion15' */
+  real_T DataTypeConversion2;          /* '<S72>/Data Type Conversion2' */
+  real_T DataTypeConversion3[2];       /* '<S72>/Data Type Conversion3' */
+  real_T DataTypeConversion4[2];       /* '<S72>/Data Type Conversion4' */
+  real_T DataTypeConversion5[2];       /* '<S72>/Data Type Conversion5' */
+  real_T DataTypeConversion6[4];       /* '<S72>/Data Type Conversion6' */
+  real_T DataTypeConversion7[4];       /* '<S72>/Data Type Conversion7' */
+  real_T DataTypeConversion8;          /* '<S72>/Data Type Conversion8' */
+  real_T DataTypeConversion9[4];       /* '<S72>/Data Type Conversion9' */
+  real_T EConversion[2];               /* '<S72>/E Conversion' */
+  real_T FConversion[4];               /* '<S72>/F Conversion' */
+  real_T GConversion;                  /* '<S72>/G Conversion' */
+  real_T MathFunction[4];              /* '<S72>/Math Function' */
+  real_T MathFunction1[2];             /* '<S72>/Math Function1' */
+  real_T MathFunction2[2];             /* '<S72>/Math Function2' */
+  real_T umin_scale4[2];               /* '<S72>/umin_scale4' */
+  real_T Reshape[2];                   /* '<S72>/Reshape' */
+  real_T ymin_scale1[4];               /* '<S72>/ymin_scale1' */
+  real_T Reshape1[4];                  /* '<S72>/Reshape1' */
+  real_T SConversion;                  /* '<S72>/S Conversion' */
+  real_T ymin_scale2;                  /* '<S72>/ymin_scale2' */
+  real_T Reshape2;                     /* '<S72>/Reshape2' */
+  real_T Reshape3[4];                  /* '<S72>/Reshape3' */
+  real_T Reshape4[2];                  /* '<S72>/Reshape4' */
+  real_T Reshape5[2];                  /* '<S72>/Reshape5' */
+  real_T extmv_scale[2];               /* '<S72>/ext.mv_scale' */
+  real_T extmv_scale1[2];              /* '<S72>/ext.mv_scale1' */
+  real_T last_mv[2];                   /* '<S72>/last_mv' */
+  real_T last_x[4];                    /* '<S72>/last_x' */
+  real_T moorxConversion[4];           /* '<S72>/mo or x Conversion' */
+  real_T umin_scale[2];                /* '<S72>/umin_scale' */
+  real_T umax_scale[2];                /* '<S72>/umax_scale' */
+  real_T ymin_scale[4];                /* '<S72>/ymin_scale' */
+  real_T ymax_scale[4];                /* '<S72>/ymax_scale' */
+  real_T umin_scale1[2];               /* '<S72>/umin_scale1' */
+  real_T umin_scale3[52];              /* '<S72>/umin_scale3' */
+  real_T umin_scale5[104];             /* '<S72>/umin_scale5' */
+  real_T umin_scale2[2];               /* '<S72>/umin_scale2' */
   real_T Constant5;                    /* '<Root>/Constant5' */
   real_T Constant6;                    /* '<Root>/Constant6' */
   real_T xk1[4];                       /* '<S92>/optimizer' */
@@ -468,9 +470,10 @@ typedef struct {
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T UD_DSTATE;                    /* '<S1>/UD' */
-  real_T last_mv_DSTATE[2];            /* '<S72>/last_mv' */
+  real_T Optimalcontroller_DSTATE[16]; /* '<Root>/Optimal controller' */
   real_T UD_DSTATE_c;                  /* '<S2>/UD' */
   real_T UD_DSTATE_o;                  /* '<S3>/UD' */
+  real_T last_mv_DSTATE[2];            /* '<S72>/last_mv' */
   volatile real_T RateTransition3_Buffer0;/* '<Root>/Rate Transition3' */
   real_T Tk;                           /* '<Root>/First Order Hold' */
   real_T Ck;                           /* '<Root>/First Order Hold' */
@@ -480,9 +483,9 @@ typedef struct {
   real_T Ck_h;                         /* '<Root>/First Order Hold1' */
   real_T Mk_g;                         /* '<Root>/First Order Hold1' */
   real_T Uk_i;                         /* '<Root>/First Order Hold1' */
-  real_T last_x_PreviousInput[4];      /* '<S72>/last_x' */
   volatile real_T RateTransition4_Buffer0;/* '<Root>/Rate Transition4' */
   volatile real_T RateTransition5_Buffer0;/* '<Root>/Rate Transition5' */
+  real_T last_x_PreviousInput[4];      /* '<S72>/last_x' */
   real_T theta;                        /* '<Root>/MATLAB Function3' */
   real_T current_R;                    /* '<Root>/MATLAB Function3' */
   real_T x_hat[4];                     /* '<Root>/MATLAB Function' */
@@ -597,6 +600,18 @@ struct P_EnabledSubsystem1_Ball_and__T_ {
 
 /* Parameters (default storage) */
 struct P_Ball_and_Plate_MicroLabBox_student_T_ {
+  real_T A_robust[256];                /* Variable: A_robust
+                                        * Referenced by: '<Root>/Optimal controller'
+                                        */
+  real_T B_robust[64];                 /* Variable: B_robust
+                                        * Referenced by: '<Root>/Optimal controller'
+                                        */
+  real_T C_robust[32];                 /* Variable: C_robust
+                                        * Referenced by: '<Root>/Optimal controller'
+                                        */
+  real_T D_robust[8];                  /* Variable: D_robust
+                                        * Referenced by: '<Root>/Optimal controller'
+                                        */
   real_T Q_kf[16];                     /* Variable: Q_kf
                                         * Referenced by: '<Root>/Constant'
                                         */
@@ -914,12 +929,9 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Constant9_Value[4];           /* Expression: [0;0;0;0]
                                         * Referenced by: '<Root>/Constant9'
                                         */
-  real_T last_mv_InitialCondition[2];  /* Expression: lastu+uoff
-                                        * Referenced by: '<S72>/last_mv'
-                                        */
-  real_T ym_zero_Value[4];             /* Expression: zeros(nym,1)
-                                        * Referenced by: '<S72>/ym_zero'
-                                        */
+  real_T Optimalcontroller_InitialCondit;/* Expression: 0
+                                          * Referenced by: '<Root>/Optimal controller'
+                                          */
   real_T radius_circ_Value;            /* Expression: 0.1
                                         * Referenced by: '<Root>/radius_circ'
                                         */
@@ -931,84 +943,6 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T enable_circ_Value;            /* Expression: 0
                                         * Referenced by: '<Root>/enable_circ'
-                                        */
-  real_T md_zero_Value;                /* Expression: zeros(1,1)
-                                        * Referenced by: '<S8>/md_zero'
-                                        */
-  real_T umin_zero_Value[2];           /* Expression: zeros(2,1)
-                                        * Referenced by: '<S8>/umin_zero'
-                                        */
-  real_T umin_scale_Gain[2];           /* Expression: RMVscale
-                                        * Referenced by: '<S72>/umin_scale'
-                                        */
-  real_T umax_zero_Value[2];           /* Expression: zeros(2,1)
-                                        * Referenced by: '<S8>/umax_zero'
-                                        */
-  real_T umax_scale_Gain[2];           /* Expression: RMVscale
-                                        * Referenced by: '<S72>/umax_scale'
-                                        */
-  real_T ymin_zero_Value[4];           /* Expression: zeros(4,1)
-                                        * Referenced by: '<S8>/ymin_zero'
-                                        */
-  real_T ymin_scale_Gain[4];           /* Expression: RYscale
-                                        * Referenced by: '<S72>/ymin_scale'
-                                        */
-  real_T ymax_zero_Value[4];           /* Expression: zeros(4,1)
-                                        * Referenced by: '<S8>/ymax_zero'
-                                        */
-  real_T ymax_scale_Gain[4];           /* Expression: RYscale
-                                        * Referenced by: '<S72>/ymax_scale'
-                                        */
-  real_T E_zero_Value[2];              /* Expression: zeros(1,2)
-                                        * Referenced by: '<S8>/E_zero'
-                                        */
-  real_T umin_scale4_Gain[2];      /* Expression: MVscale(:,ones(1,max(nCC,1)))'
-                                    * Referenced by: '<S72>/umin_scale4'
-                                    */
-  real_T F_zero_Value[4];              /* Expression: zeros(1,4)
-                                        * Referenced by: '<S8>/F_zero'
-                                        */
-  real_T ymin_scale1_Gain[4];       /* Expression: Yscale(:,ones(1,max(nCC,1)))'
-                                     * Referenced by: '<S72>/ymin_scale1'
-                                     */
-  real_T G_zero_Value;                 /* Expression: zeros(1,1)
-                                        * Referenced by: '<S8>/G_zero'
-                                        */
-  real_T S_zero_Value;                 /* Expression: zeros(1,1)
-                                        * Referenced by: '<S8>/S_zero'
-                                        */
-  real_T ymin_scale2_Gain;         /* Expression: MDscale(:,ones(1,max(nCC,1)))'
-                                    * Referenced by: '<S72>/ymin_scale2'
-                                    */
-  real_T switch_zero_Value;            /* Expression: zeros(1,1)
-                                        * Referenced by: '<S8>/switch_zero'
-                                        */
-  real_T extmv_zero_Value[2];          /* Expression: zeros(2,1)
-                                        * Referenced by: '<S8>/ext.mv_zero'
-                                        */
-  real_T extmv_scale_Gain[2];          /* Expression: RMVscale
-                                        * Referenced by: '<S72>/ext.mv_scale'
-                                        */
-  real_T mvtarget_zero_Value[2];       /* Expression: zeros(2,1)
-                                        * Referenced by: '<S8>/mv.target_zero'
-                                        */
-  real_T extmv_scale1_Gain[2];         /* Expression: RMVscale
-                                        * Referenced by: '<S72>/ext.mv_scale1'
-                                        */
-  real_T ywt_zero_Value[4];            /* Expression: zeros(4,1)
-                                        * Referenced by: '<S8>/y.wt_zero'
-                                        */
-  real_T uwt_zero_Value[2];            /* Expression: zeros(2,1)
-                                        * Referenced by: '<S8>/u.wt_zero'
-                                        */
-  real_T duwt_zero_Value[2];           /* Expression: zeros(2,1)
-                                        * Referenced by: '<S8>/du.wt_zero'
-                                        */
-  real_T ecrwt_zero_Value;             /* Expression: zeros(1,1)
-                                        * Referenced by: '<S8>/ecr.wt_zero'
-                                        */
-  real_T umin_scale1_Gain[2];          /* Expression: MVscale
-                                        * Referenced by: '<S72>/umin_scale1'
                                         */
   real_T TSamp_WtEt;                   /* Computed Parameter: TSamp_WtEt
                                         * Referenced by: '<S2>/TSamp'
@@ -1066,6 +1000,9 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T Gain3_Gain;                   /* Expression: 1/1000
                                         * Referenced by: '<Root>/Gain3'
+                                        */
+  real_T Gain6_Gain;                   /* Expression: -1
+                                        * Referenced by: '<Root>/Gain6'
                                         */
   real_T Psi_ref_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Psi_ref '
@@ -1298,27 +1235,6 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T reser_integrator_Value;       /* Expression: 0
                                         * Referenced by: '<S5>/reser_integrator'
                                         */
-  real_T p_zero_Value;                 /* Expression: zeros(1,1)
-                                        * Referenced by: '<S8>/p_zero'
-                                        */
-  real_T m_zero_Value;                 /* Expression: zeros(1,1)
-                                        * Referenced by: '<S8>/m_zero'
-                                        */
-  real_T last_x_InitialCondition[4];   /* Expression: lastx+xoff
-                                        * Referenced by: '<S72>/last_x'
-                                        */
-  real_T umin_scale3_Gain[52];         /* Expression: MVscale(:,ones(1,p+1))'
-                                        * Referenced by: '<S72>/umin_scale3'
-                                        */
-  real_T umin_scale5_Gain[104];        /* Expression: Yscale(:,ones(1,p+1))'
-                                        * Referenced by: '<S72>/umin_scale5'
-                                        */
-  real_T constant_Value[2];            /* Expression: lastu+uoff
-                                        * Referenced by: '<S72>/constant'
-                                        */
-  real_T umin_scale2_Gain[2];          /* Expression: MVscale
-                                        * Referenced by: '<S72>/umin_scale2'
-                                        */
   real_T Alpha_sine_Amp;               /* Expression: 0.01
                                         * Referenced by: '<Root>/Alpha_sine '
                                         */
@@ -1343,6 +1259,117 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Beta_sine_Phase;              /* Expression: 0
                                         * Referenced by: '<Root>/Beta_sine'
                                         */
+  real_T Constant10_Value[4];          /* Expression: [0;0;0;0]
+                                        * Referenced by: '<Root>/Constant10'
+                                        */
+  real_T Constant11_Value[4];          /* Expression: [0;0;0;0]
+                                        * Referenced by: '<Root>/Constant11'
+                                        */
+  real_T E_zero_Value[2];              /* Expression: zeros(1,2)
+                                        * Referenced by: '<S8>/E_zero'
+                                        */
+  real_T F_zero_Value[4];              /* Expression: zeros(1,4)
+                                        * Referenced by: '<S8>/F_zero'
+                                        */
+  real_T G_zero_Value;                 /* Expression: zeros(1,1)
+                                        * Referenced by: '<S8>/G_zero'
+                                        */
+  real_T uwt_zero_Value[2];            /* Expression: zeros(2,1)
+                                        * Referenced by: '<S8>/u.wt_zero'
+                                        */
+  real_T ecrwt_zero_Value;             /* Expression: zeros(1,1)
+                                        * Referenced by: '<S8>/ecr.wt_zero'
+                                        */
+  real_T duwt_zero_Value[2];           /* Expression: zeros(2,1)
+                                        * Referenced by: '<S8>/du.wt_zero'
+                                        */
+  real_T mvtarget_zero_Value[2];       /* Expression: zeros(2,1)
+                                        * Referenced by: '<S8>/mv.target_zero'
+                                        */
+  real_T p_zero_Value;                 /* Expression: zeros(1,1)
+                                        * Referenced by: '<S8>/p_zero'
+                                        */
+  real_T m_zero_Value;                 /* Expression: zeros(1,1)
+                                        * Referenced by: '<S8>/m_zero'
+                                        */
+  real_T md_zero_Value;                /* Expression: zeros(1,1)
+                                        * Referenced by: '<S8>/md_zero'
+                                        */
+  real_T extmv_zero_Value[2];          /* Expression: zeros(2,1)
+                                        * Referenced by: '<S8>/ext.mv_zero'
+                                        */
+  real_T umin_zero_Value[2];           /* Expression: zeros(2,1)
+                                        * Referenced by: '<S8>/umin_zero'
+                                        */
+  real_T umax_zero_Value[2];           /* Expression: zeros(2,1)
+                                        * Referenced by: '<S8>/umax_zero'
+                                        */
+  real_T ymin_zero_Value[4];           /* Expression: zeros(4,1)
+                                        * Referenced by: '<S8>/ymin_zero'
+                                        */
+  real_T ymax_zero_Value[4];           /* Expression: zeros(4,1)
+                                        * Referenced by: '<S8>/ymax_zero'
+                                        */
+  real_T switch_zero_Value;            /* Expression: zeros(1,1)
+                                        * Referenced by: '<S8>/switch_zero'
+                                        */
+  real_T ywt_zero_Value[4];            /* Expression: zeros(4,1)
+                                        * Referenced by: '<S8>/y.wt_zero'
+                                        */
+  real_T umin_scale4_Gain[2];      /* Expression: MVscale(:,ones(1,max(nCC,1)))'
+                                    * Referenced by: '<S72>/umin_scale4'
+                                    */
+  real_T ymin_scale1_Gain[4];       /* Expression: Yscale(:,ones(1,max(nCC,1)))'
+                                     * Referenced by: '<S72>/ymin_scale1'
+                                     */
+  real_T S_zero_Value;                 /* Expression: zeros(1,1)
+                                        * Referenced by: '<S8>/S_zero'
+                                        */
+  real_T ymin_scale2_Gain;         /* Expression: MDscale(:,ones(1,max(nCC,1)))'
+                                    * Referenced by: '<S72>/ymin_scale2'
+                                    */
+  real_T extmv_scale_Gain[2];          /* Expression: RMVscale
+                                        * Referenced by: '<S72>/ext.mv_scale'
+                                        */
+  real_T extmv_scale1_Gain[2];         /* Expression: RMVscale
+                                        * Referenced by: '<S72>/ext.mv_scale1'
+                                        */
+  real_T last_mv_InitialCondition[2];  /* Expression: lastu+uoff
+                                        * Referenced by: '<S72>/last_mv'
+                                        */
+  real_T last_x_InitialCondition[4];   /* Expression: lastx+xoff
+                                        * Referenced by: '<S72>/last_x'
+                                        */
+  real_T ym_zero_Value[4];             /* Expression: zeros(nym,1)
+                                        * Referenced by: '<S72>/ym_zero'
+                                        */
+  real_T umin_scale_Gain[2];           /* Expression: RMVscale
+                                        * Referenced by: '<S72>/umin_scale'
+                                        */
+  real_T umax_scale_Gain[2];           /* Expression: RMVscale
+                                        * Referenced by: '<S72>/umax_scale'
+                                        */
+  real_T ymin_scale_Gain[4];           /* Expression: RYscale
+                                        * Referenced by: '<S72>/ymin_scale'
+                                        */
+  real_T ymax_scale_Gain[4];           /* Expression: RYscale
+                                        * Referenced by: '<S72>/ymax_scale'
+                                        */
+  real_T umin_scale1_Gain[2];          /* Expression: MVscale
+                                        * Referenced by: '<S72>/umin_scale1'
+                                        */
+  real_T umin_scale3_Gain[52];         /* Expression: MVscale(:,ones(1,p+1))'
+                                        * Referenced by: '<S72>/umin_scale3'
+                                        */
+  real_T umin_scale5_Gain[104];        /* Expression: Yscale(:,ones(1,p+1))'
+                                        * Referenced by: '<S72>/umin_scale5'
+                                        */
+  real_T constant_Value[2];            /* Expression: lastu+uoff
+                                        * Referenced by: '<S72>/constant'
+                                        */
+  real_T umin_scale2_Gain[2];          /* Expression: MVscale
+                                        * Referenced by: '<S72>/umin_scale2'
+                                        */
   uint16_T MatrixDimensionCheck_P1[49];
                                   /* Computed Parameter: MatrixDimensionCheck_P1
                                    * Referenced by: '<S73>/Matrix Dimension Check'
@@ -1363,111 +1390,111 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   uint16_T MatrixDimensionCheck_P6;    /* Expression: isltv
                                         * Referenced by: '<S73>/Matrix Dimension Check'
                                         */
-  uint16_T MatrixDimensionCheck_P1_k[49];
-                                /* Computed Parameter: MatrixDimensionCheck_P1_k
+  uint16_T MatrixDimensionCheck_P1_o[49];
+                                /* Computed Parameter: MatrixDimensionCheck_P1_o
                                  * Referenced by: '<S74>/Matrix Dimension Check'
                                  */
-  uint16_T MatrixDimensionCheck_P2_h[18];
-                                /* Computed Parameter: MatrixDimensionCheck_P2_h
+  uint16_T MatrixDimensionCheck_P2_b[18];
+                                /* Computed Parameter: MatrixDimensionCheck_P2_b
                                  * Referenced by: '<S74>/Matrix Dimension Check'
                                  */
-  uint16_T MatrixDimensionCheck_P3_g;  /* Expression: nrow
+  uint16_T MatrixDimensionCheck_P3_i;  /* Expression: nrow
                                         * Referenced by: '<S74>/Matrix Dimension Check'
                                         */
   uint16_T MatrixDimensionCheck_P4_p;  /* Expression: ncol
                                         * Referenced by: '<S74>/Matrix Dimension Check'
                                         */
-  uint16_T MatrixDimensionCheck_P5_m;  /* Expression: nsteps
+  uint16_T MatrixDimensionCheck_P5_b;  /* Expression: nsteps
                                         * Referenced by: '<S74>/Matrix Dimension Check'
                                         */
-  uint16_T MatrixDimensionCheck_P6_n;  /* Expression: isltv
+  uint16_T MatrixDimensionCheck_P6_p;  /* Expression: isltv
                                         * Referenced by: '<S74>/Matrix Dimension Check'
                                         */
-  uint16_T MatrixDimensionCheck_P1_g[49];
-                                /* Computed Parameter: MatrixDimensionCheck_P1_g
+  uint16_T MatrixDimensionCheck_P1_e[49];
+                                /* Computed Parameter: MatrixDimensionCheck_P1_e
                                  * Referenced by: '<S75>/Matrix Dimension Check'
                                  */
-  uint16_T MatrixDimensionCheck_P2_f[18];
-                                /* Computed Parameter: MatrixDimensionCheck_P2_f
+  uint16_T MatrixDimensionCheck_P2_o[18];
+                                /* Computed Parameter: MatrixDimensionCheck_P2_o
                                  * Referenced by: '<S75>/Matrix Dimension Check'
                                  */
-  uint16_T MatrixDimensionCheck_P3_p;  /* Expression: nrow
+  uint16_T MatrixDimensionCheck_P3_f;  /* Expression: nrow
                                         * Referenced by: '<S75>/Matrix Dimension Check'
                                         */
-  uint16_T MatrixDimensionCheck_P4_o;  /* Expression: ncol
+  uint16_T MatrixDimensionCheck_P4_d;  /* Expression: ncol
                                         * Referenced by: '<S75>/Matrix Dimension Check'
                                         */
-  uint16_T MatrixDimensionCheck_P5_i;  /* Expression: nsteps
+  uint16_T MatrixDimensionCheck_P5_l;  /* Expression: nsteps
                                         * Referenced by: '<S75>/Matrix Dimension Check'
                                         */
-  uint16_T MatrixDimensionCheck_P6_n3; /* Expression: isltv
+  uint16_T MatrixDimensionCheck_P6_ph; /* Expression: isltv
                                         * Referenced by: '<S75>/Matrix Dimension Check'
-                                        */
-  uint16_T MatrixDimensionCheck_P1_b[49];
-                                /* Computed Parameter: MatrixDimensionCheck_P1_b
-                                 * Referenced by: '<S76>/Matrix Dimension Check'
-                                 */
-  uint16_T MatrixDimensionCheck_P2_hh[3];
-                               /* Computed Parameter: MatrixDimensionCheck_P2_hh
-                                * Referenced by: '<S76>/Matrix Dimension Check'
-                                */
-  uint16_T MatrixDimensionCheck_P3_g2; /* Expression: nrow
-                                        * Referenced by: '<S76>/Matrix Dimension Check'
-                                        */
-  uint16_T MatrixDimensionCheck_P4_f;  /* Expression: ncol
-                                        * Referenced by: '<S76>/Matrix Dimension Check'
-                                        */
-  uint16_T MatrixDimensionCheck_P1_kl[49];
-                               /* Computed Parameter: MatrixDimensionCheck_P1_kl
-                                * Referenced by: '<S77>/Matrix Dimension Check'
-                                */
-  uint16_T MatrixDimensionCheck_P2_l[2];
-                                /* Computed Parameter: MatrixDimensionCheck_P2_l
-                                 * Referenced by: '<S77>/Matrix Dimension Check'
-                                 */
-  uint16_T MatrixDimensionCheck_P3_m;  /* Expression: nrow
-                                        * Referenced by: '<S77>/Matrix Dimension Check'
-                                        */
-  uint16_T MatrixDimensionCheck_P4_n;  /* Expression: ncol
-                                        * Referenced by: '<S77>/Matrix Dimension Check'
-                                        */
-  uint16_T MatrixDimensionCheck_P1_bs[49];
-                               /* Computed Parameter: MatrixDimensionCheck_P1_bs
-                                * Referenced by: '<S78>/Matrix Dimension Check'
-                                */
-  uint16_T MatrixDimensionCheck_P2_p[4];
-                                /* Computed Parameter: MatrixDimensionCheck_P2_p
-                                 * Referenced by: '<S78>/Matrix Dimension Check'
-                                 */
-  uint16_T MatrixDimensionCheck_P3_g5; /* Expression: nrow
-                                        * Referenced by: '<S78>/Matrix Dimension Check'
-                                        */
-  uint16_T MatrixDimensionCheck_P4_p1; /* Expression: ncol
-                                        * Referenced by: '<S78>/Matrix Dimension Check'
                                         */
   uint16_T MatrixDimensionCheck_P1_l[49];
                                 /* Computed Parameter: MatrixDimensionCheck_P1_l
-                                 * Referenced by: '<S79>/Matrix Dimension Check'
+                                 * Referenced by: '<S76>/Matrix Dimension Check'
                                  */
-  uint16_T MatrixDimensionCheck_P2_e[4];
-                                /* Computed Parameter: MatrixDimensionCheck_P2_e
-                                 * Referenced by: '<S79>/Matrix Dimension Check'
-                                 */
-  uint16_T MatrixDimensionCheck_P3_c;  /* Expression: nrow
-                                        * Referenced by: '<S79>/Matrix Dimension Check'
-                                        */
-  uint16_T MatrixDimensionCheck_P4_j;  /* Expression: ncol
-                                        * Referenced by: '<S79>/Matrix Dimension Check'
-                                        */
-  uint16_T MatrixDimensionCheck_P1_gy[49];
-                               /* Computed Parameter: MatrixDimensionCheck_P1_gy
-                                * Referenced by: '<S80>/Matrix Dimension Check'
+  uint16_T MatrixDimensionCheck_P2_bz[3];
+                               /* Computed Parameter: MatrixDimensionCheck_P2_bz
+                                * Referenced by: '<S76>/Matrix Dimension Check'
                                 */
-  uint16_T MatrixDimensionCheck_P2_b[5];
-                                /* Computed Parameter: MatrixDimensionCheck_P2_b
+  uint16_T MatrixDimensionCheck_P3_d;  /* Expression: nrow
+                                        * Referenced by: '<S76>/Matrix Dimension Check'
+                                        */
+  uint16_T MatrixDimensionCheck_P4_h;  /* Expression: ncol
+                                        * Referenced by: '<S76>/Matrix Dimension Check'
+                                        */
+  uint16_T MatrixDimensionCheck_P1_i[49];
+                                /* Computed Parameter: MatrixDimensionCheck_P1_i
+                                 * Referenced by: '<S77>/Matrix Dimension Check'
+                                 */
+  uint16_T MatrixDimensionCheck_P2_g[2];
+                                /* Computed Parameter: MatrixDimensionCheck_P2_g
+                                 * Referenced by: '<S77>/Matrix Dimension Check'
+                                 */
+  uint16_T MatrixDimensionCheck_P3_a;  /* Expression: nrow
+                                        * Referenced by: '<S77>/Matrix Dimension Check'
+                                        */
+  uint16_T MatrixDimensionCheck_P4_b;  /* Expression: ncol
+                                        * Referenced by: '<S77>/Matrix Dimension Check'
+                                        */
+  uint16_T MatrixDimensionCheck_P1_o1[49];
+                               /* Computed Parameter: MatrixDimensionCheck_P1_o1
+                                * Referenced by: '<S78>/Matrix Dimension Check'
+                                */
+  uint16_T MatrixDimensionCheck_P2_n[4];
+                                /* Computed Parameter: MatrixDimensionCheck_P2_n
+                                 * Referenced by: '<S78>/Matrix Dimension Check'
+                                 */
+  uint16_T MatrixDimensionCheck_P3_b;  /* Expression: nrow
+                                        * Referenced by: '<S78>/Matrix Dimension Check'
+                                        */
+  uint16_T MatrixDimensionCheck_P4_po; /* Expression: ncol
+                                        * Referenced by: '<S78>/Matrix Dimension Check'
+                                        */
+  uint16_T MatrixDimensionCheck_P1_f[49];
+                                /* Computed Parameter: MatrixDimensionCheck_P1_f
+                                 * Referenced by: '<S79>/Matrix Dimension Check'
+                                 */
+  uint16_T MatrixDimensionCheck_P2_k[4];
+                                /* Computed Parameter: MatrixDimensionCheck_P2_k
+                                 * Referenced by: '<S79>/Matrix Dimension Check'
+                                 */
+  uint16_T MatrixDimensionCheck_P3_l;  /* Expression: nrow
+                                        * Referenced by: '<S79>/Matrix Dimension Check'
+                                        */
+  uint16_T MatrixDimensionCheck_P4_g;  /* Expression: ncol
+                                        * Referenced by: '<S79>/Matrix Dimension Check'
+                                        */
+  uint16_T MatrixDimensionCheck_P1_n[49];
+                                /* Computed Parameter: MatrixDimensionCheck_P1_n
                                  * Referenced by: '<S80>/Matrix Dimension Check'
                                  */
-  uint16_T MatrixDimensionCheck_P3_o;  /* Expression: nrow
+  uint16_T MatrixDimensionCheck_P2_f[5];
+                                /* Computed Parameter: MatrixDimensionCheck_P2_f
+                                 * Referenced by: '<S80>/Matrix Dimension Check'
+                                 */
+  uint16_T MatrixDimensionCheck_P3_lv; /* Expression: nrow
                                         * Referenced by: '<S80>/Matrix Dimension Check'
                                         */
   uint16_T MatrixDimensionCheck_P4_a;  /* Expression: ncol
@@ -1481,28 +1508,28 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                   /* Computed Parameter: VectorDimensionCheck_P2
                                    * Referenced by: '<S81>/Vector Dimension Check'
                                    */
-  uint16_T VectorDimensionCheck_P1_j[49];
-                                /* Computed Parameter: VectorDimensionCheck_P1_j
+  uint16_T VectorDimensionCheck_P1_c[49];
+                                /* Computed Parameter: VectorDimensionCheck_P1_c
                                  * Referenced by: '<S82>/Vector Dimension Check'
                                  */
-  uint16_T VectorDimensionCheck_P2_g[6];
-                                /* Computed Parameter: VectorDimensionCheck_P2_g
+  uint16_T VectorDimensionCheck_P2_i[6];
+                                /* Computed Parameter: VectorDimensionCheck_P2_i
                                  * Referenced by: '<S82>/Vector Dimension Check'
                                  */
-  uint16_T VectorDimensionCheck_P1_i[49];
-                                /* Computed Parameter: VectorDimensionCheck_P1_i
+  uint16_T VectorDimensionCheck_P1_a[49];
+                                /* Computed Parameter: VectorDimensionCheck_P1_a
                                  * Referenced by: '<S83>/Vector Dimension Check'
                                  */
-  uint16_T VectorDimensionCheck_P2_n;
-                                /* Computed Parameter: VectorDimensionCheck_P2_n
+  uint16_T VectorDimensionCheck_P2_m;
+                                /* Computed Parameter: VectorDimensionCheck_P2_m
                                  * Referenced by: '<S83>/Vector Dimension Check'
                                  */
-  uint16_T VectorDimensionCheck_P1_d[49];
-                                /* Computed Parameter: VectorDimensionCheck_P1_d
+  uint16_T VectorDimensionCheck_P1_b[49];
+                                /* Computed Parameter: VectorDimensionCheck_P1_b
                                  * Referenced by: '<S84>/Vector Dimension Check'
                                  */
-  uint16_T VectorDimensionCheck_P2_m[6];
-                                /* Computed Parameter: VectorDimensionCheck_P2_m
+  uint16_T VectorDimensionCheck_P2_o[6];
+                                /* Computed Parameter: VectorDimensionCheck_P2_o
                                  * Referenced by: '<S84>/Vector Dimension Check'
                                  */
   uint16_T VectorDimensionCheck_P3;    /* Expression: n
@@ -1511,102 +1538,102 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   uint16_T VectorDimensionCheck_P4;    /* Expression: option
                                         * Referenced by: '<S84>/Vector Dimension Check'
                                         */
-  uint16_T VectorDimensionCheck_P1_c[49];
-                                /* Computed Parameter: VectorDimensionCheck_P1_c
+  uint16_T VectorDimensionCheck_P1_k[49];
+                                /* Computed Parameter: VectorDimensionCheck_P1_k
                                  * Referenced by: '<S85>/Vector Dimension Check'
                                  */
-  uint16_T VectorDimensionCheck_P2_l[18];
-                                /* Computed Parameter: VectorDimensionCheck_P2_l
+  uint16_T VectorDimensionCheck_P2_n[18];
+                                /* Computed Parameter: VectorDimensionCheck_P2_n
                                  * Referenced by: '<S85>/Vector Dimension Check'
                                  */
-  uint16_T VectorDimensionCheck_P3_g;  /* Expression: n
+  uint16_T VectorDimensionCheck_P3_i;  /* Expression: n
                                         * Referenced by: '<S85>/Vector Dimension Check'
-                                        */
-  uint16_T VectorDimensionCheck_P4_g;  /* Expression: option
-                                        * Referenced by: '<S85>/Vector Dimension Check'
-                                        */
-  uint16_T VectorDimensionCheck_P1_m[49];
-                                /* Computed Parameter: VectorDimensionCheck_P1_m
-                                 * Referenced by: '<S86>/Vector Dimension Check'
-                                 */
-  uint16_T VectorDimensionCheck_P2_gg[6];
-                               /* Computed Parameter: VectorDimensionCheck_P2_gg
-                                * Referenced by: '<S86>/Vector Dimension Check'
-                                */
-  uint16_T VectorDimensionCheck_P3_h;  /* Expression: n
-                                        * Referenced by: '<S86>/Vector Dimension Check'
-                                        */
-  uint16_T VectorDimensionCheck_P4_b;  /* Expression: option
-                                        * Referenced by: '<S86>/Vector Dimension Check'
-                                        */
-  uint16_T VectorDimensionCheck_P1_p[49];
-                                /* Computed Parameter: VectorDimensionCheck_P1_p
-                                 * Referenced by: '<S87>/Vector Dimension Check'
-                                 */
-  uint16_T VectorDimensionCheck_P2_gm[4];
-                               /* Computed Parameter: VectorDimensionCheck_P2_gm
-                                * Referenced by: '<S87>/Vector Dimension Check'
-                                */
-  uint16_T VectorDimensionCheck_P3_a;  /* Expression: n
-                                        * Referenced by: '<S87>/Vector Dimension Check'
-                                        */
-  uint16_T VectorDimensionCheck_P4_o;  /* Expression: option
-                                        * Referenced by: '<S87>/Vector Dimension Check'
-                                        */
-  uint16_T VectorDimensionCheck_P1_n[49];
-                                /* Computed Parameter: VectorDimensionCheck_P1_n
-                                 * Referenced by: '<S88>/Vector Dimension Check'
-                                 */
-  uint16_T VectorDimensionCheck_P2_b[4];
-                                /* Computed Parameter: VectorDimensionCheck_P2_b
-                                 * Referenced by: '<S88>/Vector Dimension Check'
-                                 */
-  uint16_T VectorDimensionCheck_P3_f;  /* Expression: n
-                                        * Referenced by: '<S88>/Vector Dimension Check'
-                                        */
-  uint16_T VectorDimensionCheck_P4_h;  /* Expression: option
-                                        * Referenced by: '<S88>/Vector Dimension Check'
-                                        */
-  uint16_T VectorDimensionCheck_P1_jr[49];
-                               /* Computed Parameter: VectorDimensionCheck_P1_jr
-                                * Referenced by: '<S89>/Vector Dimension Check'
-                                */
-  uint16_T VectorDimensionCheck_P2_o[4];
-                                /* Computed Parameter: VectorDimensionCheck_P2_o
-                                 * Referenced by: '<S89>/Vector Dimension Check'
-                                 */
-  uint16_T VectorDimensionCheck_P3_n;  /* Expression: n
-                                        * Referenced by: '<S89>/Vector Dimension Check'
                                         */
   uint16_T VectorDimensionCheck_P4_n;  /* Expression: option
-                                        * Referenced by: '<S89>/Vector Dimension Check'
+                                        * Referenced by: '<S85>/Vector Dimension Check'
                                         */
-  uint16_T VectorDimensionCheck_P1_ig[49];
-                               /* Computed Parameter: VectorDimensionCheck_P1_ig
-                                * Referenced by: '<S90>/Vector Dimension Check'
+  uint16_T VectorDimensionCheck_P1_j[49];
+                                /* Computed Parameter: VectorDimensionCheck_P1_j
+                                 * Referenced by: '<S86>/Vector Dimension Check'
+                                 */
+  uint16_T VectorDimensionCheck_P2_iv[6];
+                               /* Computed Parameter: VectorDimensionCheck_P2_iv
+                                * Referenced by: '<S86>/Vector Dimension Check'
+                                */
+  uint16_T VectorDimensionCheck_P3_d;  /* Expression: n
+                                        * Referenced by: '<S86>/Vector Dimension Check'
+                                        */
+  uint16_T VectorDimensionCheck_P4_e;  /* Expression: option
+                                        * Referenced by: '<S86>/Vector Dimension Check'
+                                        */
+  uint16_T VectorDimensionCheck_P1_ba[49];
+                               /* Computed Parameter: VectorDimensionCheck_P1_ba
+                                * Referenced by: '<S87>/Vector Dimension Check'
+                                */
+  uint16_T VectorDimensionCheck_P2_ok[4];
+                               /* Computed Parameter: VectorDimensionCheck_P2_ok
+                                * Referenced by: '<S87>/Vector Dimension Check'
+                                */
+  uint16_T VectorDimensionCheck_P3_d5; /* Expression: n
+                                        * Referenced by: '<S87>/Vector Dimension Check'
+                                        */
+  uint16_T VectorDimensionCheck_P4_h;  /* Expression: option
+                                        * Referenced by: '<S87>/Vector Dimension Check'
+                                        */
+  uint16_T VectorDimensionCheck_P1_kq[49];
+                               /* Computed Parameter: VectorDimensionCheck_P1_kq
+                                * Referenced by: '<S88>/Vector Dimension Check'
                                 */
   uint16_T VectorDimensionCheck_P2_a[4];
                                 /* Computed Parameter: VectorDimensionCheck_P2_a
+                                 * Referenced by: '<S88>/Vector Dimension Check'
+                                 */
+  uint16_T VectorDimensionCheck_P3_c;  /* Expression: n
+                                        * Referenced by: '<S88>/Vector Dimension Check'
+                                        */
+  uint16_T VectorDimensionCheck_P4_a;  /* Expression: option
+                                        * Referenced by: '<S88>/Vector Dimension Check'
+                                        */
+  uint16_T VectorDimensionCheck_P1_h[49];
+                                /* Computed Parameter: VectorDimensionCheck_P1_h
+                                 * Referenced by: '<S89>/Vector Dimension Check'
+                                 */
+  uint16_T VectorDimensionCheck_P2_oy[4];
+                               /* Computed Parameter: VectorDimensionCheck_P2_oy
+                                * Referenced by: '<S89>/Vector Dimension Check'
+                                */
+  uint16_T VectorDimensionCheck_P3_e;  /* Expression: n
+                                        * Referenced by: '<S89>/Vector Dimension Check'
+                                        */
+  uint16_T VectorDimensionCheck_P4_p;  /* Expression: option
+                                        * Referenced by: '<S89>/Vector Dimension Check'
+                                        */
+  uint16_T VectorDimensionCheck_P1_d[49];
+                                /* Computed Parameter: VectorDimensionCheck_P1_d
                                  * Referenced by: '<S90>/Vector Dimension Check'
                                  */
-  uint16_T VectorDimensionCheck_P3_fc; /* Expression: n
+  uint16_T VectorDimensionCheck_P2_as[4];
+                               /* Computed Parameter: VectorDimensionCheck_P2_as
+                                * Referenced by: '<S90>/Vector Dimension Check'
+                                */
+  uint16_T VectorDimensionCheck_P3_m;  /* Expression: n
                                         * Referenced by: '<S90>/Vector Dimension Check'
                                         */
-  uint16_T VectorDimensionCheck_P4_c;  /* Expression: option
+  uint16_T VectorDimensionCheck_P4_j;  /* Expression: option
                                         * Referenced by: '<S90>/Vector Dimension Check'
                                         */
-  uint16_T VectorDimensionCheck_P1_mz[49];
-                               /* Computed Parameter: VectorDimensionCheck_P1_mz
+  uint16_T VectorDimensionCheck_P1_bz[49];
+                               /* Computed Parameter: VectorDimensionCheck_P1_bz
                                 * Referenced by: '<S91>/Vector Dimension Check'
                                 */
-  uint16_T VectorDimensionCheck_P2_f[9];
-                                /* Computed Parameter: VectorDimensionCheck_P2_f
-                                 * Referenced by: '<S91>/Vector Dimension Check'
-                                 */
-  uint16_T VectorDimensionCheck_P3_f0; /* Expression: n
+  uint16_T VectorDimensionCheck_P2_am[9];
+                               /* Computed Parameter: VectorDimensionCheck_P2_am
+                                * Referenced by: '<S91>/Vector Dimension Check'
+                                */
+  uint16_T VectorDimensionCheck_P3_cy; /* Expression: n
                                         * Referenced by: '<S91>/Vector Dimension Check'
                                         */
-  uint16_T VectorDimensionCheck_P4_o2; /* Expression: option
+  uint16_T VectorDimensionCheck_P4_et; /* Expression: option
                                         * Referenced by: '<S91>/Vector Dimension Check'
                                         */
   boolean_T Memory_InitialCondition[212];/* Expression: iA
