@@ -5,7 +5,7 @@
    Definition of function that initializes the global TRC pointers
 
    RTI1202 7.15 (02-Nov-2020)
-   Tue Jun 16 17:38:20 2026
+   Wed Jun 17 18:34:12 2026
 
    Copyright 2026, dSPACE GmbH. All rights reserved.
 
@@ -56,12 +56,6 @@ volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_14 = NULL;
 volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_15 = NULL;
 volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_16 = NULL;
 volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_17 = NULL;
-volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_18 = NULL;
-volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_19 = NULL;
-volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_20 = NULL;
-volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_21 = NULL;
-volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_22 = NULL;
-volatile real_T *p_0_Ball_and_Plate_MicroLabBox_student_real_T_23 = NULL;
 volatile real_T *p_1_Ball_and_Plate_MicroLabBox_student_real_T_0 = NULL;
 volatile uint16_T *p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_1 = NULL;
 volatile boolean_T *p_1_Ball_and_Plate_MicroLabBox_student_boolean_T_2 = NULL;
@@ -80,19 +74,16 @@ volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_5 = NULL;
 volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_6 = NULL;
 volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_7 = NULL;
 volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_8 = NULL;
-volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_9 = NULL;
+volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_9 = NULL;
 volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_10 = NULL;
-volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_11 = NULL;
+volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_11 = NULL;
 volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_12 = NULL;
-volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_13 = NULL;
+volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_13 = NULL;
 volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_14 = NULL;
-volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_15 = NULL;
-volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_16 = NULL;
-volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_17 = NULL;
-volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_18 = NULL;
-volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_19 = NULL;
-volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_20 = NULL;
-volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_21 = NULL;
+volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_15 = NULL;
+volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_16 = NULL;
+volatile real_T *p_2_Ball_and_Plate_MicroLabBox_student_real_T_17 = NULL;
+volatile boolean_T *p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_18 = NULL;
 volatile real_T *p_3_Ball_and_Plate_MicroLabBox_student_real_T_0 = NULL;
 volatile real_T *p_5_Ball_and_Plate_MicroLabBox_student_real_T_0 = NULL;
 volatile uint32_T *p_5_Ball_and_Plate_MicroLabBox_student_uint32_T_1 = NULL;
@@ -121,41 +112,29 @@ static void rti_init_trc_pointers_0(void)
   p_0_Ball_and_Plate_MicroLabBox_student_real_T_6 =
     &Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem_n.OutportBufferForOut1;
   p_0_Ball_and_Plate_MicroLabBox_student_real_T_7 =
-    &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_hg.y;
+    &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_h.y;
   p_0_Ball_and_Plate_MicroLabBox_student_real_T_8 =
     &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_g.y;
   p_0_Ball_and_Plate_MicroLabBox_student_real_T_9 =
     &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction1_h.path;
   p_0_Ball_and_Plate_MicroLabBox_student_real_T_10 =
-    &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction2_e.path;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_11 =
-    &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_h.y;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_12 =
     &Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem1_f.In1;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_13 =
+  p_0_Ball_and_Plate_MicroLabBox_student_real_T_11 =
     &Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem_a.OutportBufferForOut1;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_14 =
+  p_0_Ball_and_Plate_MicroLabBox_student_real_T_12 =
     &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_ko.y;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_15 =
+  p_0_Ball_and_Plate_MicroLabBox_student_real_T_13 =
     &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction2_d.path;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_16 =
-    &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction2_m.path;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_17 =
-    &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_k.y;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_18 =
+  p_0_Ball_and_Plate_MicroLabBox_student_real_T_14 =
     &Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem1.In1;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_19 =
+  p_0_Ball_and_Plate_MicroLabBox_student_real_T_15 =
     &Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem.OutportBufferForOut1;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_20 =
+  p_0_Ball_and_Plate_MicroLabBox_student_real_T_16 =
     &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_e.y;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_21 =
+  p_0_Ball_and_Plate_MicroLabBox_student_real_T_17 =
     &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction1.path;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_22 =
-    &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction2.path;
-  p_0_Ball_and_Plate_MicroLabBox_student_real_T_23 =
-    &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_i.y;
   p_1_Ball_and_Plate_MicroLabBox_student_real_T_0 =
-    &Ball_and_Plate_MicroLabBox_student_P.A_robust[0];
+    &Ball_and_Plate_MicroLabBox_student_P.K_lqr[0];
   p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_1 =
     &Ball_and_Plate_MicroLabBox_student_P.MatrixDimensionCheck_P1[0];
   p_1_Ball_and_Plate_MicroLabBox_student_boolean_T_2 =
@@ -183,39 +162,33 @@ static void rti_init_trc_pointers_0(void)
   p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_4 =
     &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem_n.EnabledSubsystem_MODE;
   p_2_Ball_and_Plate_MicroLabBox_student_real_T_5 =
-    &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_hg.index;
+    &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_h.index;
   p_2_Ball_and_Plate_MicroLabBox_student_real_T_6 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_g.index;
   p_2_Ball_and_Plate_MicroLabBox_student_real_T_7 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction1_h.coeffs[0];
   p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_8 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction1_h.prev_ref_end_not_empty;
-  p_2_Ball_and_Plate_MicroLabBox_student_real_T_9 =
-    &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_h.index;
-  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_10 =
+  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_9 =
     &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem1_f.EnabledSubsystem1_MODE;
-  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_11 =
+  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_10 =
     &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem_a.EnabledSubsystem_MODE;
-  p_2_Ball_and_Plate_MicroLabBox_student_real_T_12 =
+  p_2_Ball_and_Plate_MicroLabBox_student_real_T_11 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_ko.index;
-  p_2_Ball_and_Plate_MicroLabBox_student_real_T_13 =
+  p_2_Ball_and_Plate_MicroLabBox_student_real_T_12 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction2_d.coeffs[0];
-  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_14 =
+  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_13 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction2_d.prev_ref_end_not_empty;
-  p_2_Ball_and_Plate_MicroLabBox_student_real_T_15 =
-    &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_k.index;
-  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_16 =
+  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_14 =
     &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem1.EnabledSubsystem1_MODE;
-  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_17 =
+  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_15 =
     &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem.EnabledSubsystem_MODE;
-  p_2_Ball_and_Plate_MicroLabBox_student_real_T_18 =
+  p_2_Ball_and_Plate_MicroLabBox_student_real_T_16 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_e.index;
-  p_2_Ball_and_Plate_MicroLabBox_student_real_T_19 =
+  p_2_Ball_and_Plate_MicroLabBox_student_real_T_17 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction1.coeffs[0];
-  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_20 =
+  p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_18 =
     &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction1.prev_ref_end_not_empty;
-  p_2_Ball_and_Plate_MicroLabBox_student_real_T_21 =
-    &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_i.index;
   p_3_Ball_and_Plate_MicroLabBox_student_real_T_0 =
     &Ball_and_Plate_MicroLabBox_student_X.TransferFcn_CSTATE;
   p_5_Ball_and_Plate_MicroLabBox_student_real_T_0 =
