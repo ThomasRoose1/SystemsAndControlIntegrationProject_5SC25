@@ -54,8 +54,16 @@ ball_pos_sat = 0.2;
 ball_vel_sat = 1;
 
 %% Observer
-Q_kf = diag([1, 100, 1, 100]);
-R_kf = diag([0.1, 0.1]);
+% Q_kf = diag([1, 100, 1, 100]);
+% R_kf = diag([0.1, 0.1]);
+
+Rkf = diag ([1e-6, 1e-6]);
+sigma_acc = 1;
+
+Q1D = sigma_acc^2 * [Ts_Outer^4/4, Ts_Outer^3/2;
+                    Ts_Outer^3/2, Ts_Outer^2];
+                
+Qkf = blkdiag(Q1D,Q1D);
 
 Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
 
