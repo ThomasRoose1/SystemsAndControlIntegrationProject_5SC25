@@ -48,14 +48,23 @@ Dc = [0 0;
 nx = size(Ac,1);
 nu = size(Bc, 2); 
   
-%% Plate angle saturation limit
+%% Saturations
 plate_angle_sat = deg2rad(10);
 ball_pos_sat = 0.2;
 ball_vel_sat = 1;
+inner_I_sat = 1; % sat on inner loop integrator windup [A]
 
 %% Observer
 Q_kf = diag([1, 100, 1, 100]);
 R_kf = diag([0.1, 0.1]);
+
+% R_kf = diag ([1e-6, 1e-6]);
+% sigma_acc = 1;
+% 
+% Q1D = sigma_acc^2 * [Ts_Outer^4/4, Ts_Outer^3/2;
+%                     Ts_Outer^3/2, Ts_Outer^2];
+%                 
+% Q_kf = blkdiag(Q1D,Q1D);
 
 Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
 
@@ -70,7 +79,7 @@ D_robust = K_robust.D;
 %% LQR design
 % Discrete-Time Model Conversion
 sys_c = ss(Ac, Bc, Cc, Dc);
-sys_d = c2d(sys_c, Ts_Outer, 'zoh');
+sys_d = c2d(sys_c, Ts_Inner, 'zoh');
 Ad = sys_d.A;
 Bd = sys_d.B;
 Cd = sys_d.C;
@@ -82,7 +91,7 @@ R_lqr = diag([700, 700]);             % [alpha, beta]
 
 % Compute LQR gain
 K_lqr = dlqr(Ad, Bd, Q_lqr, R_lqr);
-% K_lqr = -K_lqr;
+K_lqr = -K_lqr;
 
 %% Load Built-in MPC Toolbox Parameters
 Ts_Outer = 1/50;
