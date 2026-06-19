@@ -67,6 +67,9 @@ y_history = deque(maxlen=STATS_WINDOW)
 z_history = deque(maxlen=STATS_WINDOW)
 radius_history = deque(maxlen=STATS_WINDOW)
 
+# Reference parameters
+REFERENCE_MODE = "" # "LIVE" = use current mouse position as reference, "PATH" = draw reference path by dragging mouse, "" = no reference
+mouse_down = False
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -118,6 +121,30 @@ def pixel_to_control_coords(pixel_xy):
     y_mm = (PLATE_CENTER_Y - pixel_xy[1]) * SCALE_Y
     return x_mm, y_mm
 
+def reference_pixel_to_mm(pixel_xy):
+
+    return pixel_to_control_coords(pixel_xy)
+
+def mouse_callback(event, x, y, flags, param):
+
+    global ref_pixel
+    global ref_path_pixels
+    global mouse_down
+
+    if REFERENCE_MODE == "LIVE":
+        if event == cv2.EVENT_MOUSEMOVE:
+            ref_pixel = (x, y)
+
+    elif REFERENCE_MODE == "PATH":
+        if event == cv2.EVENT_LBUTTONDOWN:
+            mouse_down = True
+            ref_path_pixels = [(x, y)]
+
+        elif event == cv2.EVENT_MOUSEMOVE and mouse_down:
+            ref_path_pixels.append((x, y))
+
+        elif event == cv2.EVENT_LBUTTONUP:
+            mouse_down = False
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     x_mm = int(ctrl_xy[0])
@@ -138,6 +165,23 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
+
+def send_reference_xy(ref_xy, ref_flag):
+
+    x_ref = int(ref_xy[0])
+    y_ref = int(ref_xy[1])
+
+    x_bytes = x_ref.to_bytes(2, byteorder='little', signed=True)
+    y_bytes = y_ref.to_bytes(2, byteorder='little', signed=True)
+
+    packet = bytearray([
+        x_bytes[0],
+        x_bytes[1],
+        y_bytes[0],
+        y_bytes[1],
+        ref_flag])
+
+    UDPClientSocket.sendto(packet, ("192.168.140.8",49002))
 
 
 def get_median_depth_mm(depth_raw, x, y, depth_scale):
@@ -339,10 +383,20 @@ z_reference_mm = None
 last_valid_ctrl_coords = (0.0, 0.0)
 last_valid_z = 0.0
 
+ref_pixel = (PLATE_CENTER_X, PLATE_CENTER_Y)
+ref_path_pixels = []
+
+playback_index = 0
+playback_active = False
+
 # FPS measurement
 fps = 0.0
 fps_alpha = 0.1
 prev_time = time.perf_counter()
+
+WINDOW_NAME = 'Phase_H Final Reference'
+cv2.namedWindow(WINDOW_NAME)
+cv2.setMouseCallback(WINDOW_NAME, mouse_callback)
 
 try:
     while True:
@@ -395,6 +449,8 @@ try:
         vx_mm = 0
         vy_mm = 0
         speed_mm = 0
+
+        ref_mm = (0.0, 0.0)
 
         if result is not None:
             contour, chosen, area, radius = result
@@ -471,7 +527,14 @@ try:
 
         display = frame.copy()
         draw_coordinate_overlay(display)
-
+        
+        if REFERENCE_MODE != "":
+            cv2.circle(display, (int(ref_pixel[0]), int(ref_pixel[1])), 8, (255,255,255), -1)
+        
+        if (REFERENCE_MODE == "PATH" and len(ref_path_pixels) > 1):
+            pts = np.array(ref_path_pixels, dtype=np.int32)
+            cv2.polylines(display, [pts], False, (255,255,255), 2)
+        
         if result is not None:
             cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
             
@@ -569,7 +632,8 @@ try:
 
         if SHOW_DEPTH_VIEW:
             depth_mm = depth_raw.astype(np.float32) * depth_scale * 1000.0
-            depth_center = (int(round(chosen[0])), int(round(chosen[1])))
+            if chosen is not None:
+                depth_center = (int(round(chosen[0])), int(round(chosen[1])))
             depth_clipped = np.clip(depth_mm, DEPTH_MIN_MM, DEPTH_MAX_MM)
             depth_norm = ((depth_clipped - DEPTH_MIN_MM) / (DEPTH_MAX_MM - DEPTH_MIN_MM) * 255).astype(np.uint8)
             depth_vis = cv2.applyColorMap(depth_norm, cv2.COLORMAP_JET)
@@ -585,7 +649,51 @@ try:
             cv2.putText(filter_vis, 'BLUE = Radius Reject', (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
             cv2.imshow('Final Filter Visualization', filter_vis)
 
-        cv2.imshow('Phase_G3 2D Adaptative EMA + Partial KF', display)
+        if REFERENCE_MODE == "":
+             cv2.putText(display, 'REF MODE: OFF', (WIDTH - 220, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (128,128,128), 2)
+             send_reference_xy((0,0), 0)
+
+        elif REFERENCE_MODE == "LIVE":
+            cv2.putText(display, 'REF MODE: LIVE', (WIDTH - 220, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
+            ref_mm = reference_pixel_to_mm(ref_pixel)
+            send_reference_xy(ref_mm, 1)
+
+            cv2.putText(display, f'Xref: {ref_mm[0]:+6.1f} mm', (WIDTH - 240, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+            cv2.putText(display, f'Yref: {ref_mm[1]:+6.1f} mm', (WIDTH - 240, 85), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+
+        elif REFERENCE_MODE == "PATH":
+            if playback_active and len(ref_path_pixels) > 0:
+                color = (0,255,255)
+                text = 'REF MODE: PLAYBACK'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+
+                ref_pixel = ref_path_pixels[playback_index]
+
+                ref_mm = reference_pixel_to_mm(ref_pixel)
+                send_reference_xy(ref_mm, 1)
+
+                cv2.putText(display, f'Xref: {ref_mm[0]:+6.1f} mm', (WIDTH - 240, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+                cv2.putText(display, f'Yref: {ref_mm[1]:+6.1f} mm', (WIDTH - 240, 85), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+
+                playback_index += 1
+
+                if playback_index >= len(ref_path_pixels):
+                    playback_index = 0
+
+            elif mouse_down:
+                color = (0,0,255)
+                text = 'REF MODE: RECORDING'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+            
+            else:
+                color = (255,255,0)
+                text = 'REF MODE: READY'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+
+                send_reference_xy((0,0),0)
+
+        cv2.imshow('Phase_H Final Reference', display)
+
         # ================= FPS UPDATE =================
         current_time = time.perf_counter()
         dt = current_time - prev_time
@@ -602,6 +710,31 @@ try:
             print(f'Z reference set to {z_reference_mm:.1f} mm')
         if key == 27:
             break
+
+        if key == ord('l'):
+            REFERENCE_MODE = "LIVE"
+            print("LIVE REFERENCE MODE")
+
+        elif key == ord('r'):
+            REFERENCE_MODE = "PATH"
+            playback_active = False
+            print("PATH DRAW MODE")
+
+        elif key == ord(' '):
+            if len(ref_path_pixels) > 0:
+                playback_active = True
+                playback_index = 0
+                print("PATH PLAYBACK")
+
+        elif key == ord('c'):
+            ref_path_pixels.clear()
+            playback_active = False
+            print("Trajectory cleared")
+
+        elif key == ord('n'):
+            REFERENCE_MODE = ""
+            playback_active = False
+            print("REFERENCE DISABLED")
 
 finally:
     pipeline.stop()
