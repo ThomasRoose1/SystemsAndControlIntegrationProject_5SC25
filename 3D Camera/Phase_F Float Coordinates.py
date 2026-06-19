@@ -85,9 +85,9 @@ def pixel_to_control_coords(pixel_xy):
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
 
-    x_mm = float(ctrl_xy[0])
-    y_mm = float(ctrl_xy[1])
-    z_mm = float(z_value)
+    x_mm = round(float(ctrl_xy[0]),2)
+    y_mm = round(float(ctrl_xy[1]),2)
+    z_mm = round(float(z_value),2)
 
     packet = struct.pack(
         '<fffI',
@@ -258,8 +258,6 @@ pipeline = rs.pipeline()
 config = rs.config()
 config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8, FPS)
 config.enable_stream(rs.stream.depth, WIDTH, HEIGHT, rs.format.z16, FPS_Depth)
-color_stream = pipeline.get_stream(rs.stream.color)
-depth_stream = pipeline.get_stream(rs.stream.depth)
 
 profile = pipeline.start(config)
 align = rs.align(rs.stream.color)
