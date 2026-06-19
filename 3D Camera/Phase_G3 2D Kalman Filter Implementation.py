@@ -57,8 +57,8 @@ SHOW_DEPTH_VIEW = False
 SHOW_XY_STATS = False
 SHOW_Z_STATS = False
 SHOW_RADIUS_CALIBRATION = False
-SHOW_EDGE_ZONE = True
-SHOW_TRACKING_DEBUG = True
+SHOW_EDGE_ZONE = False
+SHOW_TRACKING_DEBUG = False
 
 # Other parameters
 STATS_WINDOW = 300
@@ -431,6 +431,7 @@ try:
             else:
                 speed_px = math.hypot(velocity[0], velocity[1])
                 alpha_xy = compute_adaptive_alpha(speed_px)
+                # print(f"Adaptive filter -> {alpha_xy:.3f} (speed={speed_px:.2f}px)")
 
             if filtered_pos is None:
                 filtered_pos = chosen
@@ -568,12 +569,13 @@ try:
 
         if SHOW_DEPTH_VIEW:
             depth_mm = depth_raw.astype(np.float32) * depth_scale * 1000.0
+            depth_center = (int(round(chosen[0])), int(round(chosen[1])))
             depth_clipped = np.clip(depth_mm, DEPTH_MIN_MM, DEPTH_MAX_MM)
             depth_norm = ((depth_clipped - DEPTH_MIN_MM) / (DEPTH_MAX_MM - DEPTH_MIN_MM) * 255).astype(np.uint8)
             depth_vis = cv2.applyColorMap(depth_norm, cv2.COLORMAP_JET)
             draw_depth_legend(depth_vis)
             if chosen is not None:
-                cv2.circle(depth_vis, chosen, 5, (255,255,255), -1)
+                cv2.circle(depth_vis, depth_center, 5, (255,255,255), -1)
             cv2.imshow('Depth View', depth_vis)
 
         if SHOW_MASK:

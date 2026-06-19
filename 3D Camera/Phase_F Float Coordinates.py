@@ -45,7 +45,7 @@ DEPTH_ROI_RADIUS = 5   # 11x11 median ROI
 # UDP
 serverAddressPort = ("192.168.140.8", 49001)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-DEBUG_PRINT_UDP = False
+DEBUG_PRINT_UDP = True
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -90,7 +90,7 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     z_mm = float(z_value)
 
     packet = struct.pack(
-        '<fffB',
+        '<fffI',
         x_mm,
         y_mm,
         z_mm,
@@ -107,7 +107,7 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
 # y = double(typecast(uint8(u(5:8)), 'single'));
 # z = double(typecast(uint8(u(9:12)), 'single'));
 
-# flag = double(u(13));
+# flag = double(typecast(uint8(u(13:16)), 'uint32'));
 
 # end
 
