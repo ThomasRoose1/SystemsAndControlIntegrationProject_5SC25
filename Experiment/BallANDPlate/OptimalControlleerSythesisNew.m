@@ -29,7 +29,7 @@ g = 9.81;
 Kroll = 5/7;
 Kg = Kroll*g;
 
-Ts_slow = 0.01;     % outer-loop sample time [s]
+Ts_slow = 0.02;     % outer-loop sample time [s]
 
 %% Reduced ball model
 % State:
@@ -96,29 +96,29 @@ fprintf('Rank observability matrix   = %d / %d\n', rank(Ob), size(Acheck,1));
 %% Design assumptions / requirements
 
 r_max = 0.25;                 % [m] 25 cm plate scale
-v_max = 0.60;                 % [m/s]
+v_max = 0.80;                 % [m/s]
 
-alpha_max = deg2rad(3.0);     % [rad], soft design angle
-beta_max  = deg2rad(3.0);     % [rad]
+alpha_max = deg2rad(1.0);     % [rad], soft design angle
+beta_max  = deg2rad(1.0);     % [rad]
 
 d_alpha_max = deg2rad(0.03);  % [rad]
 d_beta_max  = deg2rad(0.03);  % [rad]
 
 f_ref   = 0.1;               % [Hz]
 f_sens  = 0.25;               % [Hz]
-f_input = 0.10;               % [Hz]
-f_noise = 0.80;               % [Hz], only used if useWt = true
+f_input = 0.1;               % [Hz]
+f_noise =1.5;               % [Hz], only used if useWt = true
 
 w_ref   = 2*pi*f_ref;
 w_sens  = 2*pi*f_sens;
 w_input = 2*pi*f_input;
 w_noise = 2*pi*f_noise;
 
-Ms   = 2.0;
-epsS = 0.20;                  % low-frequency sensitivity weight = 5
+Ms   = 2.2;
+epsS = 0.30;                  % low-frequency sensitivity weight = 5
 
-useWt = false;
-useStrokeWeight = false;
+useWt = true;
+useStrokeWeight = true;
 
 r_joint = 0.17;               % [m]
 x_soft  = 0.030;              % [m]
@@ -147,7 +147,7 @@ Wt_ch = makeweight(0.02, [w_noise sqrt(0.02*5)], 5);
 Wt = blkdiag(Wt_ch, Wt_ch);
 
 % 6. Angle command weight Wu
-Wu_hf = 20;
+Wu_hf = 60;
 Wu_lf = 0.4;
 Wu_mid = sqrt(Wu_lf*Wu_hf);
 

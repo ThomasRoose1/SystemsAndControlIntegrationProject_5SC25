@@ -97,15 +97,3 @@ end
 
 
 
-nK_robust = size(A_robust,1);
-
-Kaw_robust = 0.15;
-
-alpha_lim = deg2rad(6.0);
-beta_lim  = deg2rad(6.0);
-
-u_min_robust = [-alpha_lim; -beta_lim];
-u_max_robust = [ alpha_lim;  beta_lim];
-
-aw_reg = 1e-8;
-Baw_robust = C_robust' / (C_robust*C_robust' + aw_reg*eye(2));
