@@ -536,14 +536,18 @@ try:
             cv2.polylines(display, [pts], False, (255,255,255), 2)
         
         if result is not None:
-            cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
-            
+
             raw_int = (int(round(raw_center[0])), int(round(raw_center[1])))
             comp_int = (int(round(comp_center[0])), int(round(comp_center[1])))
-
             filt_int = (int(round(chosen[0])), int(round(chosen[1])))
-            # Fitted circle
-            cv2.circle(display, raw_int, int(round(radius)), (0,255,255), 2)
+
+            if (not near_edge) or (not USE_EDGE_COMPENSATION):
+                cv2.drawContours(display, [contour], -1, (255,0,255), 2)
+                cv2.circle(display, filt_int, 6, (0,0,255), -1)
+
+            else:
+                cv2.circle(display, raw_int, int(round(radius)), (0,255,255), 2)
+                cv2.circle(display, filt_int, 6, (0,0,255), -1)
 
             if SHOW_TRACKING_DEBUG:
                 # Raw circle fit center
