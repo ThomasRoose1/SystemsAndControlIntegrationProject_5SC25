@@ -143,8 +143,15 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
 
 def get_mean_depth_mm(depth_raw, x, y, depth_scale):
     depth_radius = max(3, int(ball_radius_ref * 0.4)) if ball_radius_ref is not None else DEPTH_ROI_RADIUS
+    
     global current_depth_radius
+    global current_depth_mask
+    global current_depth_x1
+    global current_depth_y1
     current_depth_radius = depth_radius
+    current_depth_mask = accepted_mask
+    current_depth_x1 = x1
+    current_depth_y1 = y1
 
     x1 = max(0, x - depth_radius)
     x2 = min(depth_raw.shape[1], x + depth_radius + 1)
@@ -160,7 +167,9 @@ def get_mean_depth_mm(depth_raw, x, y, depth_scale):
 
     circle_mask = ((xx - cx)**2 + (yy - cy)**2) <= depth_radius**2
 
-    valid = roi[np.logical_and(circle_mask, roi > 0)]
+    accepted_mask = np.logical_and(circle_mask, roi > 0)
+
+    valid = roi[accepted_mask]
     if valid.size == 0:
         return None
 
@@ -351,6 +360,9 @@ z_reference_mm = None
 last_valid_ctrl_coords = (0.0, 0.0)
 last_valid_z = 0.0
 current_depth_radius = DEPTH_ROI_RADIUS
+current_depth_mask = None
+current_depth_x1 = 0
+current_depth_y1 = 0
 
 # FPS measurement
 fps_counter = 0
@@ -497,6 +509,12 @@ try:
             if SHOW_DEPTH_ROI:
                 cv2.circle(display, filt_int, current_depth_radius, (255,255,255), 1)
 
+                if current_depth_mask is not None:
+                    ys, xs = np.where(current_depth_mask)
+
+                    for px, py in zip(xs, ys):
+                        cv2.circle(display, (current_depth_x1 + px, current_depth_y1 + py), 1, (0,255,0), -1)
+
             if (not near_edge) or (not USE_EDGE_COMPENSATION):
                 cv2.drawContours(display, [contour], -1, (255,0,255), 2)
                 cv2.circle(display, filt_int, 6, (0,0,255), -1)
@@ -575,6 +593,12 @@ try:
         if SHOW_Z_STATS:
             cv2.putText(display, f'Z mean: {z_mean:7.2f} mm', (20, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
             cv2.putText(display, f'Z std : {z_std:6.2f} mm', (20, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+            
+            depth_pixel_count = 0
+
+            if current_depth_mask is not None:
+                depth_pixel_count = np.count_nonzero(current_depth_mask)
+            cv2.putText(display, f'Depth pixels: {depth_pixel_count}', (20,180), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
         
         if SHOW_RADIUS_CALIBRATION and len(radius_history) >= 30:
             # print(f'Radius calibration ON')
@@ -611,6 +635,12 @@ try:
             depth_clipped = np.clip(depth_mm, DEPTH_MIN_MM, DEPTH_MAX_MM)
             depth_norm = ((depth_clipped - DEPTH_MIN_MM) / (DEPTH_MAX_MM - DEPTH_MIN_MM) * 255).astype(np.uint8)
             depth_vis = cv2.applyColorMap(depth_norm, cv2.COLORMAP_JET)
+
+            if SHOW_DEPTH_ROI and current_depth_mask is not None:
+                ys, xs = np.where(current_depth_mask)
+                for px, py in zip(xs, ys):
+                    depth_vis[current_depth_y1 + py, current_depth_x1 + px] = (0,255,0)
+
             draw_depth_legend(depth_vis)
             if chosen is not None:
                 cv2.circle(depth_vis, depth_center, 5, (255,255,255), -1)
