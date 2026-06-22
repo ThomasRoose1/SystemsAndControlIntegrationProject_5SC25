@@ -1,42 +1,42 @@
 {
     "plate_size_mm": 400,
     "top_left": [
-        89,
-        43
+        75,
+        35
     ],
     "top_right": [
-        512,
-        41
+        508,
+        25
     ],
     "bottom_right": [
-        515,
-        467
+        519,
+        457
     ],
     "bottom_left": [
-        91,
-        471
+        85,
+        468
     ],
     "plate_quad": [
         [
-            89,
-            43
+            75,
+            35
         ],
         [
-            512,
-            41
+            508,
+            25
         ],
         [
-            515,
-            467
+            519,
+            457
         ],
         [
-            91,
-            471
+            85,
+            468
         ]
     ],
-    "plate_x1": 89,
-    "plate_x2": 515,
-    "plate_y1": 41,
-    "plate_y2": 471,
+    "plate_x1": 75,
+    "plate_x2": 519,
+    "plate_y1": 25,
+    "plate_y2": 468,
     "depth_reference_file": "plate_depth_reference.npy"
 }

@@ -90,11 +90,11 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     z_mm = round(float(z_value),2)
 
     packet = struct.pack(
-        '<fffB',
+        '<fffb',
         x_mm,
         y_mm,
         z_mm,
-        detected_flag
+        bool(detected_flag)
     )
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
@@ -107,7 +107,7 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
 # y = double(typecast(uint8(u(5:8)), 'single'));
 # z = double(typecast(uint8(u(9:12)), 'single'));
 
-# flag = double(u(13));
+# flag = double(typecast(uint8(u(13:16)), 'single'));
 
 # end
 
