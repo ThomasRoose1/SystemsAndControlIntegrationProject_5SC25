@@ -795,7 +795,8 @@ RTWCUST_INCLUDES = \
     "$(MATLAB_ROOT)\extern\include" \
     "$(MATLAB_ROOT)\simulink\include" \
     "$(MATLAB_ROOT)\rtw\c\src" \
-    "$(MATLAB_ROOT)\rtw\c\src\ext_mode\common"
+    "$(MATLAB_ROOT)\rtw\c\src\ext_mode\common" \
+    "$(MATLAB_ROOT)\simulink\include\messages"
 # End: Custom Include paths.
 
 MATLAB_INCLUDES = \
@@ -915,6 +916,7 @@ TMP_PATH_CC += $(MATLAB_ROOT,>\rtw\c\src)
 %  set TMP_PATH_CC += $(RTIMP_C_DIR)
 %endif
 # RTW Custom Source paths from rtwmakecfg.m.
+TMP_PATH_CC += "$(MATLAB_ROOT)\toolbox\rtw\targets\xpc\target\build\xpcblocks"
 TMP_PATH_CC += "$(MATLAB_ROOT)\toolbox\shapeit"
 TMP_PATH_CC += "$(MATLAB_ROOT)\rtw\c\src"
 TMP_PATH_CC += "$(MATLAB_ROOT)\simulink\src"

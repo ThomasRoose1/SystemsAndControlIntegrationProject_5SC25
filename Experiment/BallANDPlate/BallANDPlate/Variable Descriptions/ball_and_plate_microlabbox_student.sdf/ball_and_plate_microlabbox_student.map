@@ -168,7 +168,7 @@ LOAD C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_
  .init          0x0000000048041c80        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
  .init          0x0000000048041c84       0x10 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
 
-.text           0x0000000048041ca0     0xba0c
+.text           0x0000000048041ca0     0xbe7c
                 0x0000000048041ca0                _btext = .
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text          0x0000000048041ca0      0x118 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
@@ -176,7 +176,7 @@ LOAD C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_
  .text          0x0000000048041db8        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crti.o
  .text          0x0000000048041db8      0x2b0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
  *fill*         0x0000000048042068        0x8 00000000
- .text          0x0000000048042070     0x8528 Ball_and_Plate_MicroLabBox_student.o07
+ .text          0x0000000048042070     0x8958 Ball_and_Plate_MicroLabBox_student.o07
                 0x0000000048042650                rt_powd_snf
                 0x0000000048042800                Ball_and_P_MATLABFunction1_Init
                 0x0000000048042840                Ball_and_Plate__MATLABFunction1
@@ -192,167 +192,167 @@ LOAD C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_
                 0x0000000048043080                Ball_and_Plat_EnabledSubsystem1
                 0x00000000480430e0                rt_hypotd_snf
                 0x0000000048043d30                Ball_and_Plate_MicroLabBox_student_output
-                0x0000000048047f80                Ball_and_Plate_MicroLabBox_student_derivatives
-                0x0000000048048010                Ball_and_Plate_MicroLabBox_student_update
-                0x0000000048048680                Ball_and_Plate_MicroLabBox_student_initialize
-                0x000000004804a3e0                Ball_and_Plate_MicroLabBox_student_terminate
- *fill*         0x000000004804a598        0x8 00000000
- .text          0x000000004804a5a0      0x68c rt_matrx.o07
-                0x000000004804a5a0                rt_mxCreateCharMatrixFromStrings
-                0x000000004804a7b0                rt_mxCreateString
-                0x000000004804a880                rt_mxCreateDoubleMatrix
-                0x000000004804a940                rt_mxCreateNumericArray
-                0x000000004804a980                rt_mxDuplicateArray
-                0x000000004804aa70                rt_mxGetDimensions
-                0x000000004804ab20                rt_mxGetEps
-                0x000000004804ab30                rt_mxGetString
- *fill*         0x000000004804ac2c        0x4 00000000
- .text          0x000000004804ac30       0xc8 rt_printf.o07
-                0x000000004804ac30                rtPrintfNoOp
- .text          0x000000004804acf8        0x0 Ball_and_Plate_MicroLabBox_student_data.o07
- .text          0x000000004804acf8      0x3a4 Ball_and_Plate_MicroLabBox_student_trc_ptr.o07
-                0x000000004804b068                Ball_and_Plate_MicroLabBox_student_rti_init_trc_pointers
- *fill*         0x000000004804b09c        0x4 00000000
- .text          0x000000004804b0a0       0x5c rtGetInf.o07
-                0x000000004804b0a0                rtGetInf
-                0x000000004804b0c0                rtGetInfF
-                0x000000004804b0d0                rtGetMinusInf
-                0x000000004804b0f0                rtGetMinusInfF
- *fill*         0x000000004804b0fc        0x4 00000000
- .text          0x000000004804b100       0x3c rtGetNaN.o07
-                0x000000004804b100                rtGetNaN
-                0x000000004804b130                rtGetNaNF
- *fill*         0x000000004804b13c        0x4 00000000
- .text          0x000000004804b140      0x158 rt_nonfinite.o07
-                0x000000004804b140                rt_InitInfAndNaN
-                0x000000004804b1a0                rtIsInf
-                0x000000004804b1d0                rtIsInfF
-                0x000000004804b200                rtIsNaN
-                0x000000004804b250                rtIsNaNF
- *fill*         0x000000004804b298        0x8 00000000
- .text          0x000000004804b2a0       0xf8 rt_zcfcn.o07
-                0x000000004804b2a0                rt_ZCFcn
- *fill*         0x000000004804b398        0x8 00000000
- .text          0x000000004804b3a0      0x2e0 dleadlag.o07
-                0x000000004804b640                dleadlag
- .text          0x000000004804b680      0x280 dlowpass1.o07
-                0x000000004804b8c0                dlowpass1
- .text          0x000000004804b900      0x774 rti_sim_engine.o07
-                0x000000004804c000                rtk_idle_function
-                0x000000004804c010                rti_th_timertask1_trigger_source
-                0x000000004804c060                initConditions
-                0x000000004804c070                initVariables
- *fill*         0x000000004804c074        0xc 00000000
- .text.startup  0x000000004804c080      0xa20 rti_sim_engine.o07
-                0x000000004804c080                main
- .text          0x000000004804caa0       0x40 rti_init_c.o07
-                0x000000004804caa0                rti_init
- .text          0x000000004804cae0       0x44 rt_sim.o07
-                0x000000004804cae0                rt_SimInitTimingEngine
-                0x000000004804cb10                rt_SimGetNextSampleHit
-                0x000000004804cb20                rt_SimUpdateDiscreteTaskSampleHits
- *fill*         0x000000004804cb24        0xc 00000000
- .text          0x000000004804cb30       0xd4 rti_assert.o07
-                0x000000004804cb30                rti_assertion_handler
-                0x000000004804cbc0                rti_assertion_mode_msg
- .text          0x000000004804cc04        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtversion.a(RtVersion.o)
- *fill*         0x000000004804cc04        0xc 00000000
- .text          0x000000004804cc10        0x4 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
-                0x000000004804cc10                DsEesPort_init()
- .text          0x000000004804cc14       0x20 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(w_pow.o)
-                0x000000004804cc14                pow
- .text          0x000000004804cc34      0x85c C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
-                0x000000004804cc34                __ieee754_pow
- .text          0x000000004804d490      0x188 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(s_scalbn.o)
-                0x000000004804d490                scalbn
- .text          0x000000004804d618       0x94 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
- .text          0x000000004804d6ac        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
+                0x0000000048048270                Ball_and_Plate_MicroLabBox_student_derivatives
+                0x0000000048048300                Ball_and_Plate_MicroLabBox_student_update
+                0x0000000048048a50                Ball_and_Plate_MicroLabBox_student_initialize
+                0x000000004804a810                Ball_and_Plate_MicroLabBox_student_terminate
+ *fill*         0x000000004804a9c8        0x8 00000000
+ .text          0x000000004804a9d0      0x68c rt_matrx.o07
+                0x000000004804a9d0                rt_mxCreateCharMatrixFromStrings
+                0x000000004804abe0                rt_mxCreateString
+                0x000000004804acb0                rt_mxCreateDoubleMatrix
+                0x000000004804ad70                rt_mxCreateNumericArray
+                0x000000004804adb0                rt_mxDuplicateArray
+                0x000000004804aea0                rt_mxGetDimensions
+                0x000000004804af50                rt_mxGetEps
+                0x000000004804af60                rt_mxGetString
+ *fill*         0x000000004804b05c        0x4 00000000
+ .text          0x000000004804b060       0xc8 rt_printf.o07
+                0x000000004804b060                rtPrintfNoOp
+ .text          0x000000004804b128        0x0 Ball_and_Plate_MicroLabBox_student_data.o07
+ .text          0x000000004804b128      0x3e4 Ball_and_Plate_MicroLabBox_student_trc_ptr.o07
+                0x000000004804b4d8                Ball_and_Plate_MicroLabBox_student_rti_init_trc_pointers
+ *fill*         0x000000004804b50c        0x4 00000000
+ .text          0x000000004804b510       0x5c rtGetInf.o07
+                0x000000004804b510                rtGetInf
+                0x000000004804b530                rtGetInfF
+                0x000000004804b540                rtGetMinusInf
+                0x000000004804b560                rtGetMinusInfF
+ *fill*         0x000000004804b56c        0x4 00000000
+ .text          0x000000004804b570       0x3c rtGetNaN.o07
+                0x000000004804b570                rtGetNaN
+                0x000000004804b5a0                rtGetNaNF
+ *fill*         0x000000004804b5ac        0x4 00000000
+ .text          0x000000004804b5b0      0x158 rt_nonfinite.o07
+                0x000000004804b5b0                rt_InitInfAndNaN
+                0x000000004804b610                rtIsInf
+                0x000000004804b640                rtIsInfF
+                0x000000004804b670                rtIsNaN
+                0x000000004804b6c0                rtIsNaNF
+ *fill*         0x000000004804b708        0x8 00000000
+ .text          0x000000004804b710       0xf8 rt_zcfcn.o07
+                0x000000004804b710                rt_ZCFcn
+ *fill*         0x000000004804b808        0x8 00000000
+ .text          0x000000004804b810      0x2e0 dleadlag.o07
+                0x000000004804bab0                dleadlag
+ .text          0x000000004804baf0      0x280 dlowpass1.o07
+                0x000000004804bd30                dlowpass1
+ .text          0x000000004804bd70      0x774 rti_sim_engine.o07
+                0x000000004804c470                rtk_idle_function
+                0x000000004804c480                rti_th_timertask1_trigger_source
+                0x000000004804c4d0                initConditions
+                0x000000004804c4e0                initVariables
+ *fill*         0x000000004804c4e4        0xc 00000000
+ .text.startup  0x000000004804c4f0      0xa20 rti_sim_engine.o07
+                0x000000004804c4f0                main
+ .text          0x000000004804cf10       0x40 rti_init_c.o07
+                0x000000004804cf10                rti_init
+ .text          0x000000004804cf50       0x44 rt_sim.o07
+                0x000000004804cf50                rt_SimInitTimingEngine
+                0x000000004804cf80                rt_SimGetNextSampleHit
+                0x000000004804cf90                rt_SimUpdateDiscreteTaskSampleHits
+ *fill*         0x000000004804cf94        0xc 00000000
+ .text          0x000000004804cfa0       0xd4 rti_assert.o07
+                0x000000004804cfa0                rti_assertion_handler
+                0x000000004804d030                rti_assertion_mode_msg
+ .text          0x000000004804d074        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtversion.a(RtVersion.o)
+ *fill*         0x000000004804d074        0xc 00000000
+ .text          0x000000004804d080        0x4 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
+                0x000000004804d080                DsEesPort_init()
+ .text          0x000000004804d084       0x20 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(w_pow.o)
+                0x000000004804d084                pow
+ .text          0x000000004804d0a4      0x85c C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
+                0x000000004804d0a4                __ieee754_pow
+ .text          0x000000004804d900      0x188 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(s_scalbn.o)
+                0x000000004804d900                scalbn
+ .text          0x000000004804da88       0x94 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
+ .text          0x000000004804db1c        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
  *(.gnu.warning)
  *(.glink)
- .glink         0x000000004804d6ac        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+ .glink         0x000000004804db1c        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
 
-.fini           0x000000004804d6ac       0x20
+.fini           0x000000004804db1c       0x20
  *(.fini)
- .fini          0x000000004804d6ac        0xc C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crti.o
-                0x000000004804d6ac                _fini
- .fini          0x000000004804d6b8        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
- .fini          0x000000004804d6bc       0x10 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
+ .fini          0x000000004804db1c        0xc C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crti.o
+                0x000000004804db1c                _fini
+ .fini          0x000000004804db28        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+ .fini          0x000000004804db2c       0x10 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
                 [!provide]                        PROVIDE (__etext, .)
-                0x000000004804d6cc                PROVIDE (_etext, .)
+                0x000000004804db3c                PROVIDE (_etext, .)
                 [!provide]                        PROVIDE (etext, .)
 
-.rodata         0x000000004804d6d0     0x8850
+.rodata         0x000000004804db40     0x8870
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x000000004804d6d0     0x7e1c Ball_and_Plate_MicroLabBox_student.o07
-                0x00000000480554e8                Ball_and_Plate_MicroLabBox_student_M
- .rodata.cst4   0x00000000480554ec       0x58 Ball_and_Plate_MicroLabBox_student.o07
- *fill*         0x0000000048055544        0x4 
- .rodata.cst8   0x0000000048055548      0x118 Ball_and_Plate_MicroLabBox_student.o07
+ .rodata        0x000000004804db40     0x7e1c Ball_and_Plate_MicroLabBox_student.o07
+                0x0000000048055958                Ball_and_Plate_MicroLabBox_student_M
+ .rodata.cst4   0x000000004805595c       0x58 Ball_and_Plate_MicroLabBox_student.o07
+ *fill*         0x00000000480559b4        0x4 
+ .rodata.cst8   0x00000000480559b8      0x138 Ball_and_Plate_MicroLabBox_student.o07
  .rodata.str1.4
-                0x0000000048055660      0x2ea Ball_and_Plate_MicroLabBox_student.o07
- *fill*         0x000000004805594a        0x2 
- .rodata.cst4   0x000000004805594c       0x1c rt_matrx.o07
+                0x0000000048055af0      0x2ea Ball_and_Plate_MicroLabBox_student.o07
+ *fill*         0x0000000048055dda        0x2 
+ .rodata.cst4   0x0000000048055ddc       0x1c rt_matrx.o07
  .rodata.str1.4
-                0x0000000048055968        0xf rt_printf.o07
- *fill*         0x0000000048055977        0x1 
- .rodata.cst4   0x0000000048055978        0x8 rtGetInf.o07
- .rodata.cst4   0x0000000048055980        0x4 rtGetNaN.o07
- .rodata        0x0000000048055984       0x13 rt_zcfcn.o07
- .rodata.cst4   0x0000000048055997        0x4 rt_zcfcn.o07
- .rodata.cst4   0x0000000048055997        0xc dleadlag.o07
- *fill*         0x0000000048055997        0x1 
- .rodata.cst8   0x0000000048055998       0x10 dleadlag.o07
+                0x0000000048055df8        0xf rt_printf.o07
+ *fill*         0x0000000048055e07        0x1 
+ .rodata.cst4   0x0000000048055e08        0x8 rtGetInf.o07
+ .rodata.cst4   0x0000000048055e10        0x4 rtGetNaN.o07
+ .rodata        0x0000000048055e14       0x13 rt_zcfcn.o07
+ .rodata.cst4   0x0000000048055e27        0x4 rt_zcfcn.o07
+ .rodata.cst4   0x0000000048055e27        0xc dleadlag.o07
+ *fill*         0x0000000048055e27        0x1 
+ .rodata.cst8   0x0000000048055e28       0x10 dleadlag.o07
                                          0x18 (size before relaxing)
- .rodata.cst4   0x00000000480559a8        0xc dlowpass1.o07
- .rodata.cst8   0x00000000480559a8       0x18 dlowpass1.o07
- .rodata        0x00000000480559a8        0xc rti_sim_engine.o07
-                0x00000000480559a8                rtiDataSetStorageEnabled
-                0x00000000480559ac                p_dsts_sum_of_reset_time
-                0x00000000480559b0                p_msg_last_error_no
- .rodata.cst4   0x00000000480559b4        0x4 rti_sim_engine.o07
+ .rodata.cst4   0x0000000048055e38        0xc dlowpass1.o07
+ .rodata.cst8   0x0000000048055e38       0x18 dlowpass1.o07
+ .rodata        0x0000000048055e38        0xc rti_sim_engine.o07
+                0x0000000048055e38                rtiDataSetStorageEnabled
+                0x0000000048055e3c                p_dsts_sum_of_reset_time
+                0x0000000048055e40                p_msg_last_error_no
+ .rodata.cst4   0x0000000048055e44        0x4 rti_sim_engine.o07
                                           0x8 (size before relaxing)
- .rodata.cst8   0x00000000480559b8        0x8 rti_sim_engine.o07
+ .rodata.cst8   0x0000000048055e48        0x8 rti_sim_engine.o07
  .rodata.str1.4
-                0x00000000480559b8      0x330 rti_sim_engine.o07
- .rodata.cst4   0x0000000048055ce8        0x4 rt_sim.o07
+                0x0000000048055e48      0x330 rti_sim_engine.o07
+ .rodata.cst4   0x0000000048056178        0x4 rt_sim.o07
                                           0x8 (size before relaxing)
  .rodata.str1.4
-                0x0000000048055cec       0x71 rt_sim.o07
- *fill*         0x0000000048055d5d        0x3 
+                0x000000004805617c       0x71 rt_sim.o07
+ *fill*         0x00000000480561ed        0x3 
  .rodata.str1.4
-                0x0000000048055d60       0x70 rti_assert.o07
+                0x00000000480561f0       0x70 rti_assert.o07
                                          0x6d (size before relaxing)
- .rodata        0x0000000048055dd0       0x30 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
- .rodata.cst4   0x0000000048055e00        0x8 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
- .rodata.cst8   0x0000000048055e08       0xe8 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
- .rodata.cst8   0x0000000048055ef0       0x30 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(s_scalbn.o)
+ .rodata        0x0000000048056260       0x30 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
+ .rodata.cst4   0x0000000048056290        0x8 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
+ .rodata.cst8   0x0000000048056298       0xe8 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
+ .rodata.cst8   0x0000000048056380       0x30 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(s_scalbn.o)
 
 .rodata1
  *(.rodata1)
 
-.sdata2         0x0000000048055f20        0x0
+.sdata2         0x00000000480563b0        0x0
                 0x0000000000008000                PROVIDE (_SDA2_BASE_, 0x8000)
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
- .sdata2        0x0000000048055f20        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+ .sdata2        0x00000000480563b0        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
 
 .sbss2
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
 
-.eh_frame_hdr   0x0000000048055f20       0x14
+.eh_frame_hdr   0x00000000480563b0       0x14
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x0000000048055f20       0x14 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
+ .eh_frame_hdr  0x00000000480563b0       0x14 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
 
-.eh_frame       0x0000000048055f34       0x2c
+.eh_frame       0x00000000480563c4       0x2c
  *(.eh_frame)
- .eh_frame      0x0000000048055f34        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
- .eh_frame      0x0000000048055f34        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
- .eh_frame      0x0000000048055f34       0x28 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
- .eh_frame      0x0000000048055f5c        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
+ .eh_frame      0x00000000480563c4        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+ .eh_frame      0x00000000480563c4        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+ .eh_frame      0x00000000480563c4       0x28 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
+ .eh_frame      0x00000000480563ec        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
-                0x0000000048055f60                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
-                0x0000000048056000                . = DATA_SEGMENT_ALIGN (0x1000, 0x1000)
+                0x00000000480563f0                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x00000000480573f0                . = DATA_SEGMENT_ALIGN (0x1000, 0x1000)
 
 .eh_frame
  *(.eh_frame)
@@ -367,46 +367,46 @@ LOAD C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
 
-.preinit_array  0x0000000048056000        0x0
-                0x0000000048056000                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x00000000480573f0        0x0
+                0x00000000480573f0                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x0000000048056000                PROVIDE (__preinit_array_end, .)
+                0x00000000480573f0                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0000000048056000        0x0
-                0x0000000048056000                PROVIDE (__init_array_start, .)
+.init_array     0x00000000480573f0        0x0
+                0x00000000480573f0                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array)
-                0x0000000048056000                PROVIDE (__init_array_end, .)
+                0x00000000480573f0                PROVIDE (__init_array_end, .)
 
-.fini_array     0x0000000048056000        0x0
-                0x0000000048056000                PROVIDE (__fini_array_start, .)
+.fini_array     0x00000000480573f0        0x0
+                0x00000000480573f0                PROVIDE (__fini_array_start, .)
  *(.fini_array)
  *(SORT(.fini_array.*))
-                0x0000000048056000                PROVIDE (__fini_array_end, .)
+                0x00000000480573f0                PROVIDE (__fini_array_end, .)
 
-.ctors          0x0000000048056000        0x8
+.ctors          0x00000000480573f0        0x8
  *crtbegin.o(.ctors)
- .ctors         0x0000000048056000        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+ .ctors         0x00000000480573f0        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
- .ctors         0x0000000048056004        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
+ .ctors         0x00000000480573f4        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
 
-.dtors          0x0000000048056008        0x8
+.dtors          0x00000000480573f8        0x8
  *crtbegin.o(.dtors)
- .dtors         0x0000000048056008        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+ .dtors         0x00000000480573f8        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
- .dtors         0x000000004805600c        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
-                0x000000004805600c                __DTOR_END__
+ .dtors         0x00000000480573fc        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
+                0x00000000480573fc                __DTOR_END__
 
-.jcr            0x0000000048056010        0x4
+.jcr            0x0000000048057400        0x4
  *(.jcr)
- .jcr           0x0000000048056010        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
- .jcr           0x0000000048056010        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
+ .jcr           0x0000000048057400        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+ .jcr           0x0000000048057400        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
 
 .data.rel.ro
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
@@ -421,338 +421,342 @@ LOAD C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_
 .got2
  *(.got2)
 
-.dynamic        0x0000000048056014      0x100
+.dynamic        0x0000000048057404      0x100
  *(.dynamic)
- .dynamic       0x0000000048056014      0x100 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
-                0x0000000048056014                _DYNAMIC
+ .dynamic       0x0000000048057404      0x100 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+                0x0000000048057404                _DYNAMIC
 
 .got
  *(.got)
-                0x0000000048056114                . = DATA_SEGMENT_RELRO_END (., 0x0)
+                0x0000000048057504                . = DATA_SEGMENT_RELRO_END (., 0x0)
 
 .plt
  *(.plt)
 
-.data           0x0000000048056118   0x49c078
+.data           0x0000000048057508   0x49c0f0
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x0000000048056118        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
- .data          0x0000000048056118        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crti.o
- .data          0x0000000048056118        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+ .data          0x0000000048057508        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+ .data          0x0000000048057508        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crti.o
+ .data          0x0000000048057508        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
  .data.rel.local
-                0x0000000048056118        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
-                0x0000000048056118                __dso_handle
- .data          0x000000004805611c        0x0 Ball_and_Plate_MicroLabBox_student.o07
- .data          0x000000004805611c        0x0 rt_matrx.o07
- .data          0x000000004805611c        0x0 rt_printf.o07
- *fill*         0x000000004805611c        0x4 
- .data          0x0000000048056120   0x49c050 Ball_and_Plate_MicroLabBox_student_data.o07
-                0x0000000048056120                Ball_and_Plate_MicroLabBox_student_P
- .data          0x00000000484f2170        0x0 Ball_and_Plate_MicroLabBox_student_trc_ptr.o07
- .data          0x00000000484f2170        0x0 rtGetInf.o07
- .data          0x00000000484f2170        0x0 rtGetNaN.o07
- .data          0x00000000484f2170        0x0 rt_nonfinite.o07
- .data          0x00000000484f2170        0x0 rt_zcfcn.o07
- .data          0x00000000484f2170        0x0 dleadlag.o07
- .data          0x00000000484f2170        0x0 dlowpass1.o07
- .data          0x00000000484f2170       0x14 rti_sim_engine.o07
-                0x00000000484f2170                simState
-                0x00000000484f2180                lastSimState
- .data          0x00000000484f2184        0x0 rti_init_c.o07
- .data          0x00000000484f2184        0x0 rt_sim.o07
- .data          0x00000000484f2184        0x0 rti_assert.o07
- .data          0x00000000484f2184        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtversion.a(RtVersion.o)
- .data          0x00000000484f2184        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
- .data.rel      0x00000000484f2184        0xc C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
-                0x00000000484f2184                p_xilapi_eesport_errorswitching_uint32_T
-                0x00000000484f2188                p_xilapi_eesport_erroractivated_uint32_T
-                0x00000000484f218c                p_xilapi_eesport_activeerrorset_uint32_T
- .data          0x00000000484f2190        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(w_pow.o)
- .data          0x00000000484f2190        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
- .data          0x00000000484f2190        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(s_scalbn.o)
- .data          0x00000000484f2190        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
- .data          0x00000000484f2190        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
+                0x0000000048057508        0x4 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+                0x0000000048057508                __dso_handle
+ .data          0x000000004805750c        0x0 Ball_and_Plate_MicroLabBox_student.o07
+ .data          0x000000004805750c        0x0 rt_matrx.o07
+ .data          0x000000004805750c        0x0 rt_printf.o07
+ *fill*         0x000000004805750c        0x4 
+ .data          0x0000000048057510   0x49c0c8 Ball_and_Plate_MicroLabBox_student_data.o07
+                0x0000000048057510                Ball_and_Plate_MicroLabBox_student_P
+ .data          0x00000000484f35d8        0x0 Ball_and_Plate_MicroLabBox_student_trc_ptr.o07
+ .data          0x00000000484f35d8        0x0 rtGetInf.o07
+ .data          0x00000000484f35d8        0x0 rtGetNaN.o07
+ .data          0x00000000484f35d8        0x0 rt_nonfinite.o07
+ .data          0x00000000484f35d8        0x0 rt_zcfcn.o07
+ .data          0x00000000484f35d8        0x0 dleadlag.o07
+ .data          0x00000000484f35d8        0x0 dlowpass1.o07
+ .data          0x00000000484f35d8       0x14 rti_sim_engine.o07
+                0x00000000484f35d8                simState
+                0x00000000484f35e8                lastSimState
+ .data          0x00000000484f35ec        0x0 rti_init_c.o07
+ .data          0x00000000484f35ec        0x0 rt_sim.o07
+ .data          0x00000000484f35ec        0x0 rti_assert.o07
+ .data          0x00000000484f35ec        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtversion.a(RtVersion.o)
+ .data          0x00000000484f35ec        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
+ .data.rel      0x00000000484f35ec        0xc C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
+                0x00000000484f35ec                p_xilapi_eesport_errorswitching_uint32_T
+                0x00000000484f35f0                p_xilapi_eesport_erroractivated_uint32_T
+                0x00000000484f35f4                p_xilapi_eesport_activeerrorset_uint32_T
+ .data          0x00000000484f35f8        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(w_pow.o)
+ .data          0x00000000484f35f8        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
+ .data          0x00000000484f35f8        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(s_scalbn.o)
+ .data          0x00000000484f35f8        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
+ .data          0x00000000484f35f8        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
 
 .tm_clone_table
-                0x00000000484f2190        0x0
+                0x00000000484f35f8        0x0
  .tm_clone_table
-                0x00000000484f2190        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+                0x00000000484f35f8        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
  .tm_clone_table
-                0x00000000484f2190        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
+                0x00000000484f35f8        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
 
 .data1
  *(.data1)
 
-.got            0x00000000484f2190       0x54
+.got            0x00000000484f35f8       0x54
  *(.got)
- .got           0x00000000484f2190       0x54 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
-                0x00000000484f21d8                _GLOBAL_OFFSET_TABLE_
+ .got           0x00000000484f35f8       0x54 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+                0x00000000484f3640                _GLOBAL_OFFSET_TABLE_
 
-.sdata          0x00000000484f21e4        0x0
+.sdata          0x00000000484f364c        0x0
                 0x0000000000008000                PROVIDE (_SDA_BASE_, 0x8000)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x00000000484f21e4        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
-                0x00000000484f21e4                _edata = .
+ .sdata         0x00000000484f364c        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+                0x00000000484f364c                _edata = .
                 [!provide]                        PROVIDE (edata, .)
-                0x00000000484f21e4                __bss_start = .
+                0x00000000484f364c                __bss_start = .
 
-.sbss           0x00000000484f21e4        0x0
+.sbss           0x00000000484f364c        0x0
                 [!provide]                        PROVIDE (__sbss_start, .)
                 [!provide]                        PROVIDE (___sbss_start, .)
  *(.dynsbss)
- .dynsbss       0x00000000484f21e4        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+ .dynsbss       0x00000000484f364c        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
  *(.scommon)
                 [!provide]                        PROVIDE (__sbss_end, .)
                 [!provide]                        PROVIDE (___sbss_end, .)
 
-.plt            0x00000000484f21e4      0x558
+.plt            0x00000000484f364c      0x558
  *(.plt)
- .plt           0x00000000484f21e4      0x558 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
-                0x00000000484f222c                DsIoEth_getLinkState
-                0x00000000484f2234                ts_reset
-                0x00000000484f223c                __register_frame_info
-                0x00000000484f2244                DioCl2EncoderIn_create
-                0x00000000484f224c                msg_error_clear
-                0x00000000484f2254                dsrtt_set_current_time
-                0x00000000484f225c                sqrt
-                0x00000000484f2264                DsIoEth_recvfrom
-                0x00000000484f226c                calloc
-                0x00000000484f2274                DioCl2EncoderIn_read
-                0x00000000484f227c                rtk_current_task_absolute_time_ptr_get
-                0x00000000484f2284                DsTimeSync_simstateRun
-                0x00000000484f228c                DacCl1AnalogOut_create
-                0x00000000484f2294                DioCl2EncoderIn_setEncPosition
-                0x00000000484f229c                DioCl2EncoderIn_stop
-                0x00000000484f22a4                floor
-                0x00000000484f22ac                memcpy
-                0x00000000484f22b4                rtk_setup_temp_overrun_handling
-                0x00000000484f22bc                DsIoEth_close
-                0x00000000484f22c4                DsIoEth_open
-                0x00000000484f22cc                DsIoEth_setAddrFilter
-                0x00000000484f22d4                DioCl2EncoderIn_setIndexMode
-                0x00000000484f22dc                DsIoEth_setNetMask
-                0x00000000484f22e4                SrtkIntBase_requestTaskMode
-                0x00000000484f22ec                rtk_reset_tasks
-                0x00000000484f22f4                __cxa_finalize
-                0x00000000484f22fc                malloc
-                0x00000000484f2304                _init_array
-                0x00000000484f230c                rtk_set_task_type
-                0x00000000484f2314                DsTimeSync_baserate
-                0x00000000484f231c                rtk_task_name_set
-                0x00000000484f2324                tan
-                0x00000000484f232c                DioCl2EncoderIn_write
-                0x00000000484f2334                DacCl1AnalogOut_apply
-                0x00000000484f233c                strlen
-                0x00000000484f2344                dsrtt_script_service_post_computation
-                0x00000000484f234c                rtk_create_task
-                0x00000000484f2354                msg_warning_printf
-                0x00000000484f235c                msg_last_error_number
-                0x00000000484f2364                DioCl2EncoderIn_start
-                0x00000000484f236c                dsparam_copy_data_set
-                0x00000000484f2374                SrtkPreload_preloadRegion
-                0x00000000484f237c                msg_error_set
-                0x00000000484f2384                asin
-                0x00000000484f238c                rtk_enable_services
-                0x00000000484f2394                SrtkDaq_Init
-                0x00000000484f239c                rtk_task_task_calls_get
-                0x00000000484f23a4                DsTimeSync_setCurrentTimePtr
-                0x00000000484f23ac                SrtkIntBase_enableIntGlobal
-                0x00000000484f23b4                vsprintf
-                0x00000000484f23bc                DsIoEth_getIpAddress
-                0x00000000484f23c4                DacCl1AnalogOut_write
-                0x00000000484f23cc                rtk_overrun_flag_clear
-                0x00000000484f23d4                rtk_bind_interrupt
-                0x00000000484f23dc                DacCl1AnalogOut_stop
-                0x00000000484f23e4                _init_libc
-                0x00000000484f23ec                DioCl2EncoderIn_setGatedMode
-                0x00000000484f23f4                dsrtt_init
-                0x00000000484f23fc                SrtkApp_terminate
-                0x00000000484f2404                DioCl2EncoderIn_setMaxPosition
-                0x00000000484f240c                DioCl2EncoderIn_setMinPosition
-                0x00000000484f2414                msg_info_set
-                0x00000000484f241c                DsIoEth_setIpAddress
-                0x00000000484f2424                dsrtt_script_service_pre_computation
-                0x00000000484f242c                DacCl1AnalogOut_start
-                0x00000000484f2434                msg_error_printf
-                0x00000000484f243c                DsIoEth_setGatewayAddress
-                0x00000000484f2444                DioCl2EncoderIn_setEncPosValidity
-                0x00000000484f244c                memset
-                0x00000000484f2454                _Sin
-                0x00000000484f245c                DioCl2EncoderIn_getEncPosition
-                0x00000000484f2464                rtk_leave_idle_mode
-                0x00000000484f246c                fmod
-                0x00000000484f2474                DsIoEth_getRecvFramesDropped
-                0x00000000484f247c                __wrap_exit
-                0x00000000484f2484                __wrap_atexit
-                0x00000000484f248c                DioCl2EncoderIn_setMeasurementInterval
-                0x00000000484f2494                DacCl1AnalogOut_setOutputValue
-                0x00000000484f249c                _fini_array
-                0x00000000484f24a4                SrtkDaq_Background
-                0x00000000484f24ac                _preinit_array
-                0x00000000484f24b4                SrtkApp_init
-                0x00000000484f24bc                SrtkDaq_Service
-                0x00000000484f24c4                rtk_task_task_name_get
-                0x00000000484f24cc                SrtkSim_notifyStateTransition
-                0x00000000484f24d4                DioCl2EncoderIn_apply
-                0x00000000484f24dc                DioCl2EncoderIn_getEncVelocity
-                0x00000000484f24e4                msg_info_printf
-                0x00000000484f24ec                msg_set
-                0x00000000484f24f4                DsIoEth_ntohs
-                0x00000000484f24fc                DsIoEth_getPortState
-                0x00000000484f2504                rtk_get_subentry
-                0x00000000484f250c                DsIoEth_htons
-                0x00000000484f2514                dsrtt_set_step_size
-                0x00000000484f251c                rtk_enter_idle_mode
-                0x00000000484f2524                rtk_initialize
-                0x00000000484f252c                DacCl1AnalogOut_setOutputHighZ
-                0x00000000484f2534                DsIoEth_create
-                0x00000000484f253c                DsIoEth_getMgmtEvent
-                0x00000000484f2544                DioCl2EncoderIn_setEncoderLines
-                0x00000000484f254c                SrtkApp_background
-                0x00000000484f2554                rtk_default_overrun_fcn
-                0x00000000484f255c                vcm_module_register
-                0x00000000484f2564                DsTimeSync_simstateStop
-                0x00000000484f256c                DsIoEth_setRecvFrameSize
-                0x00000000484f2574                SrtkIntBase_disableIntGlobal
-                0x00000000484f257c                SrtkSim_registerState
-                0x00000000484f2584                __deregister_frame_info
+ .plt           0x00000000484f364c      0x558 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+                0x00000000484f3694                DsIoEth_getLinkState
+                0x00000000484f369c                ts_reset
+                0x00000000484f36a4                __register_frame_info
+                0x00000000484f36ac                DioCl2EncoderIn_create
+                0x00000000484f36b4                msg_error_clear
+                0x00000000484f36bc                dsrtt_set_current_time
+                0x00000000484f36c4                sqrt
+                0x00000000484f36cc                DsIoEth_recvfrom
+                0x00000000484f36d4                calloc
+                0x00000000484f36dc                DioCl2EncoderIn_read
+                0x00000000484f36e4                rtk_current_task_absolute_time_ptr_get
+                0x00000000484f36ec                DsTimeSync_simstateRun
+                0x00000000484f36f4                DacCl1AnalogOut_create
+                0x00000000484f36fc                DioCl2EncoderIn_setEncPosition
+                0x00000000484f3704                DioCl2EncoderIn_stop
+                0x00000000484f370c                floor
+                0x00000000484f3714                memcpy
+                0x00000000484f371c                rtk_setup_temp_overrun_handling
+                0x00000000484f3724                DsIoEth_close
+                0x00000000484f372c                DsIoEth_open
+                0x00000000484f3734                DsIoEth_setAddrFilter
+                0x00000000484f373c                DioCl2EncoderIn_setIndexMode
+                0x00000000484f3744                DsIoEth_setNetMask
+                0x00000000484f374c                SrtkIntBase_requestTaskMode
+                0x00000000484f3754                rtk_reset_tasks
+                0x00000000484f375c                __cxa_finalize
+                0x00000000484f3764                malloc
+                0x00000000484f376c                _init_array
+                0x00000000484f3774                rtk_set_task_type
+                0x00000000484f377c                DsTimeSync_baserate
+                0x00000000484f3784                rtk_task_name_set
+                0x00000000484f378c                tan
+                0x00000000484f3794                DioCl2EncoderIn_write
+                0x00000000484f379c                DacCl1AnalogOut_apply
+                0x00000000484f37a4                strlen
+                0x00000000484f37ac                dsrtt_script_service_post_computation
+                0x00000000484f37b4                rtk_create_task
+                0x00000000484f37bc                msg_warning_printf
+                0x00000000484f37c4                msg_last_error_number
+                0x00000000484f37cc                DioCl2EncoderIn_start
+                0x00000000484f37d4                dsparam_copy_data_set
+                0x00000000484f37dc                SrtkPreload_preloadRegion
+                0x00000000484f37e4                msg_error_set
+                0x00000000484f37ec                asin
+                0x00000000484f37f4                rtk_enable_services
+                0x00000000484f37fc                SrtkDaq_Init
+                0x00000000484f3804                rtk_task_task_calls_get
+                0x00000000484f380c                DsTimeSync_setCurrentTimePtr
+                0x00000000484f3814                SrtkIntBase_enableIntGlobal
+                0x00000000484f381c                vsprintf
+                0x00000000484f3824                DsIoEth_getIpAddress
+                0x00000000484f382c                DacCl1AnalogOut_write
+                0x00000000484f3834                rtk_overrun_flag_clear
+                0x00000000484f383c                rtk_bind_interrupt
+                0x00000000484f3844                DacCl1AnalogOut_stop
+                0x00000000484f384c                _init_libc
+                0x00000000484f3854                DioCl2EncoderIn_setGatedMode
+                0x00000000484f385c                dsrtt_init
+                0x00000000484f3864                SrtkApp_terminate
+                0x00000000484f386c                DioCl2EncoderIn_setMaxPosition
+                0x00000000484f3874                DioCl2EncoderIn_setMinPosition
+                0x00000000484f387c                msg_info_set
+                0x00000000484f3884                DsIoEth_setIpAddress
+                0x00000000484f388c                dsrtt_script_service_pre_computation
+                0x00000000484f3894                DacCl1AnalogOut_start
+                0x00000000484f389c                msg_error_printf
+                0x00000000484f38a4                DsIoEth_setGatewayAddress
+                0x00000000484f38ac                DioCl2EncoderIn_setEncPosValidity
+                0x00000000484f38b4                memset
+                0x00000000484f38bc                _Sin
+                0x00000000484f38c4                DioCl2EncoderIn_getEncPosition
+                0x00000000484f38cc                rtk_leave_idle_mode
+                0x00000000484f38d4                fmod
+                0x00000000484f38dc                DsIoEth_getRecvFramesDropped
+                0x00000000484f38e4                __wrap_exit
+                0x00000000484f38ec                __wrap_atexit
+                0x00000000484f38f4                DioCl2EncoderIn_setMeasurementInterval
+                0x00000000484f38fc                DacCl1AnalogOut_setOutputValue
+                0x00000000484f3904                _fini_array
+                0x00000000484f390c                SrtkDaq_Background
+                0x00000000484f3914                _preinit_array
+                0x00000000484f391c                SrtkApp_init
+                0x00000000484f3924                SrtkDaq_Service
+                0x00000000484f392c                rtk_task_task_name_get
+                0x00000000484f3934                SrtkSim_notifyStateTransition
+                0x00000000484f393c                DioCl2EncoderIn_apply
+                0x00000000484f3944                DioCl2EncoderIn_getEncVelocity
+                0x00000000484f394c                msg_info_printf
+                0x00000000484f3954                msg_set
+                0x00000000484f395c                DsIoEth_ntohs
+                0x00000000484f3964                DsIoEth_getPortState
+                0x00000000484f396c                rtk_get_subentry
+                0x00000000484f3974                DsIoEth_htons
+                0x00000000484f397c                dsrtt_set_step_size
+                0x00000000484f3984                rtk_enter_idle_mode
+                0x00000000484f398c                rtk_initialize
+                0x00000000484f3994                DacCl1AnalogOut_setOutputHighZ
+                0x00000000484f399c                DsIoEth_create
+                0x00000000484f39a4                DsIoEth_getMgmtEvent
+                0x00000000484f39ac                DioCl2EncoderIn_setEncoderLines
+                0x00000000484f39b4                SrtkApp_background
+                0x00000000484f39bc                rtk_default_overrun_fcn
+                0x00000000484f39c4                vcm_module_register
+                0x00000000484f39cc                DsTimeSync_simstateStop
+                0x00000000484f39d4                DsIoEth_setRecvFrameSize
+                0x00000000484f39dc                SrtkIntBase_disableIntGlobal
+                0x00000000484f39e4                SrtkSim_registerState
+                0x00000000484f39ec                __deregister_frame_info
 
-.bss            0x00000000484f2740     0x4f54
+.bss            0x00000000484f3ba8     0x50b4
  *(.dynbss)
- .dynbss        0x00000000484f2740       0x14 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
-                0x00000000484f2740                errno
-                0x00000000484f2748                dsts_sum_of_reseted_time
-                0x00000000484f2750                msg_last_error_no
+ .dynbss        0x00000000484f3ba8       0x14 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+                0x00000000484f3ba8                errno
+                0x00000000484f3bb0                dsts_sum_of_reseted_time
+                0x00000000484f3bb8                msg_last_error_no
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x00000000484f2754        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
- .bss           0x00000000484f2754        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crti.o
- .bss           0x00000000484f2754       0x20 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
- *fill*         0x00000000484f2774        0x4 
- .bss           0x00000000484f2778     0x49a0 Ball_and_Plate_MicroLabBox_student.o07
-                0x00000000484f2778                Ball_and_Plate_MicroLabBox_student_M_
-                0x00000000484f54a8                Ball_and_Plate_MicroLabBox_student_B
-                0x00000000484f6bf0                Ball_and_Plate_MicroLabBox_student_Y
-                0x00000000484f6c28                Ball_and_Plate_MicroLabBox_student_DW
-                0x00000000484f70f8                Ball_and_Plate_MicroLabBox_student_PrevZCX
-                0x00000000484f7100                Ball_and_Plate_MicroLabBox_student_X
- .bss           0x00000000484f7118        0x8 rt_matrx.o07
- .bss           0x00000000484f7120      0x400 rt_printf.o07
- .bss           0x00000000484f7520        0x0 Ball_and_Plate_MicroLabBox_student_data.o07
- .bss           0x00000000484f7520       0xd4 Ball_and_Plate_MicroLabBox_student_trc_ptr.o07
-                0x00000000484f7520                p_0_Ball_and_Plate_MicroLabBox_student_real_T_0
-                0x00000000484f7524                p_0_Ball_and_Plate_MicroLabBox_student_uint32_T_1
-                0x00000000484f7528                p_0_Ball_and_Plate_MicroLabBox_student_uint16_T_2
-                0x00000000484f752c                p_0_Ball_and_Plate_MicroLabBox_student_uint8_T_3
-                0x00000000484f7530                p_0_Ball_and_Plate_MicroLabBox_student_boolean_T_4
-                0x00000000484f7534                p_0_Ball_and_Plate_MicroLabBox_student_real_T_5
-                0x00000000484f7538                p_0_Ball_and_Plate_MicroLabBox_student_real_T_6
-                0x00000000484f753c                p_0_Ball_and_Plate_MicroLabBox_student_real_T_7
-                0x00000000484f7540                p_0_Ball_and_Plate_MicroLabBox_student_real_T_8
-                0x00000000484f7544                p_0_Ball_and_Plate_MicroLabBox_student_real_T_9
-                0x00000000484f7548                p_0_Ball_and_Plate_MicroLabBox_student_real_T_10
-                0x00000000484f754c                p_0_Ball_and_Plate_MicroLabBox_student_real_T_11
-                0x00000000484f7550                p_0_Ball_and_Plate_MicroLabBox_student_real_T_12
-                0x00000000484f7554                p_0_Ball_and_Plate_MicroLabBox_student_real_T_13
-                0x00000000484f7558                p_0_Ball_and_Plate_MicroLabBox_student_real_T_14
-                0x00000000484f755c                p_0_Ball_and_Plate_MicroLabBox_student_real_T_15
-                0x00000000484f7560                p_0_Ball_and_Plate_MicroLabBox_student_real_T_16
-                0x00000000484f7564                p_0_Ball_and_Plate_MicroLabBox_student_real_T_17
-                0x00000000484f7568                p_1_Ball_and_Plate_MicroLabBox_student_real_T_0
-                0x00000000484f756c                p_1_Ball_and_Plate_MicroLabBox_student_boolean_T_1
-                0x00000000484f7570                p_1_Ball_and_Plate_MicroLabBox_student_real_T_2
-                0x00000000484f7574                p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_3
-                0x00000000484f7578                p_1_Ball_and_Plate_MicroLabBox_student_boolean_T_4
-                0x00000000484f757c                p_1_Ball_and_Plate_MicroLabBox_student_real_T_5
-                0x00000000484f7580                p_1_Ball_and_Plate_MicroLabBox_student_real_T_6
-                0x00000000484f7584                p_1_Ball_and_Plate_MicroLabBox_student_real_T_7
-                0x00000000484f7588                p_1_Ball_and_Plate_MicroLabBox_student_real_T_8
-                0x00000000484f758c                p_1_Ball_and_Plate_MicroLabBox_student_real_T_9
-                0x00000000484f7590                p_1_Ball_and_Plate_MicroLabBox_student_real_T_10
-                0x00000000484f7594                p_2_Ball_and_Plate_MicroLabBox_student_real_T_0
-                0x00000000484f7598                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_1
-                0x00000000484f759c                p_2_Ball_and_Plate_MicroLabBox_student_int8_T_2
-                0x00000000484f75a0                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_3
-                0x00000000484f75a4                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_4
-                0x00000000484f75a8                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_5
-                0x00000000484f75ac                p_2_Ball_and_Plate_MicroLabBox_student_real_T_6
-                0x00000000484f75b0                p_2_Ball_and_Plate_MicroLabBox_student_real_T_7
-                0x00000000484f75b4                p_2_Ball_and_Plate_MicroLabBox_student_real_T_8
-                0x00000000484f75b8                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_9
-                0x00000000484f75bc                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_10
-                0x00000000484f75c0                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_11
-                0x00000000484f75c4                p_2_Ball_and_Plate_MicroLabBox_student_real_T_12
-                0x00000000484f75c8                p_2_Ball_and_Plate_MicroLabBox_student_real_T_13
-                0x00000000484f75cc                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_14
-                0x00000000484f75d0                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_15
-                0x00000000484f75d4                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_16
-                0x00000000484f75d8                p_2_Ball_and_Plate_MicroLabBox_student_real_T_17
-                0x00000000484f75dc                p_2_Ball_and_Plate_MicroLabBox_student_real_T_18
-                0x00000000484f75e0                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_19
-                0x00000000484f75e4                p_3_Ball_and_Plate_MicroLabBox_student_real_T_0
-                0x00000000484f75e8                p_5_Ball_and_Plate_MicroLabBox_student_real_T_0
-                0x00000000484f75ec                p_5_Ball_and_Plate_MicroLabBox_student_uint32_T_1
-                0x00000000484f75f0                p_5_Ball_and_Plate_MicroLabBox_student_real_T_2
- .bss           0x00000000484f75f4        0x0 rtGetInf.o07
- .bss           0x00000000484f75f4        0x0 rtGetNaN.o07
- *fill*         0x00000000484f75f4        0x4 
- .bss           0x00000000484f75f8       0x2c rt_nonfinite.o07
-                0x00000000484f75f8                rtNaN
-                0x00000000484f7600                rtNaNF
-                0x00000000484f7608                rtInf
-                0x00000000484f7610                rtInfF
-                0x00000000484f7618                rtMinusInf
-                0x00000000484f7620                rtMinusInfF
- .bss           0x00000000484f7624        0x0 rt_zcfcn.o07
- .bss           0x00000000484f7624        0x0 dleadlag.o07
- .bss           0x00000000484f7624        0x0 dlowpass1.o07
- *fill*         0x00000000484f7624        0x4 
- .bss           0x00000000484f7628       0x54 rti_sim_engine.o07
-                0x00000000484f7628                currentTime
-                0x00000000484f762c                finalTime
-                0x00000000484f7630                modelStepSize
-                0x00000000484f7638                pRTIDacC1AnalogOut_Ch_1
-                0x00000000484f763c                pRTIEmcEncoder_Unit_1_DioCl_2_Port_1_Ch1
-                0x00000000484f7640                pRTIDacC1AnalogOut_Ch_2
-                0x00000000484f7644                pRTIEmcEncoder_Unit_2_DioCl_2_Port_1_Ch3
-                0x00000000484f7648                pRTIDacC1AnalogOut_Ch_3
-                0x00000000484f764c                pRTIEmcEncoder_Unit_3_DioCl_2_Port_1_Ch5
-                0x00000000484f7650                taskMode
-                0x00000000484f7654                pRti_TIMERA_STime
-                0x00000000484f7658                pRti_TIMERA_TTime
-                0x00000000484f765c                pRti_TIMERA_TState
-                0x00000000484f7660                pRti_TIMERA_OType
-                0x00000000484f7664                pRti_TIMERA_OMax
-                0x00000000484f7668                pRti_TIMERA_ORpt
-                0x00000000484f766c                pRti_TIMERA_OCnt
-                0x00000000484f7670                pRti_TIMERA_TCnt
-                0x00000000484f7674                pRti_TIMERA_Prio
-                0x00000000484f7678                rtiAssertionMode
- .bss           0x00000000484f767c        0x4 rti_init_c.o07
- .bss           0x00000000484f7680        0x0 rt_sim.o07
- .bss           0x00000000484f7680        0x0 rti_assert.o07
- .bss           0x00000000484f7680        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtversion.a(RtVersion.o)
- .bss           0x00000000484f7680       0x14 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
-                0x00000000484f7680                xilapi_eesport_trigger_uint32_T
-                0x00000000484f7684                xilapi_eesport_flags_uint32_T
-                0x00000000484f7688                xilapi_eesport_errorswitching_uint32_T
-                0x00000000484f768c                xilapi_eesport_erroractivated_uint32_T
-                0x00000000484f7690                xilapi_eesport_activeerrorset_uint32_T
- .bss           0x00000000484f7694        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(w_pow.o)
- .bss           0x00000000484f7694        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
- .bss           0x00000000484f7694        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(s_scalbn.o)
- .bss           0x00000000484f7694        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
- .bss           0x00000000484f7694        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
+ .bss           0x00000000484f3bbc        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+ .bss           0x00000000484f3bbc        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crti.o
+ .bss           0x00000000484f3bbc       0x20 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtbegin.o
+ *fill*         0x00000000484f3bdc        0x4 
+ .bss           0x00000000484f3be0     0x4af0 Ball_and_Plate_MicroLabBox_student.o07
+                0x00000000484f3be0                Ball_and_Plate_MicroLabBox_student_M_
+                0x00000000484f6910                Ball_and_Plate_MicroLabBox_student_B
+                0x00000000484f8150                Ball_and_Plate_MicroLabBox_student_Y
+                0x00000000484f8188                Ball_and_Plate_MicroLabBox_student_DW
+                0x00000000484f86b0                Ball_and_Plate_MicroLabBox_student_PrevZCX
+                0x00000000484f86b8                Ball_and_Plate_MicroLabBox_student_X
+ .bss           0x00000000484f86d0        0x8 rt_matrx.o07
+ .bss           0x00000000484f86d8      0x400 rt_printf.o07
+ .bss           0x00000000484f8ad8        0x0 Ball_and_Plate_MicroLabBox_student_data.o07
+ .bss           0x00000000484f8ad8       0xe4 Ball_and_Plate_MicroLabBox_student_trc_ptr.o07
+                0x00000000484f8ad8                p_0_Ball_and_Plate_MicroLabBox_student_real_T_0
+                0x00000000484f8adc                p_0_Ball_and_Plate_MicroLabBox_student_uint32_T_1
+                0x00000000484f8ae0                p_0_Ball_and_Plate_MicroLabBox_student_real32_T_2
+                0x00000000484f8ae4                p_0_Ball_and_Plate_MicroLabBox_student_uint16_T_3
+                0x00000000484f8ae8                p_0_Ball_and_Plate_MicroLabBox_student_uint8_T_4
+                0x00000000484f8aec                p_0_Ball_and_Plate_MicroLabBox_student_int8_T_5
+                0x00000000484f8af0                p_0_Ball_and_Plate_MicroLabBox_student_boolean_T_6
+                0x00000000484f8af4                p_0_Ball_and_Plate_MicroLabBox_student_real_T_7
+                0x00000000484f8af8                p_0_Ball_and_Plate_MicroLabBox_student_real_T_8
+                0x00000000484f8afc                p_0_Ball_and_Plate_MicroLabBox_student_real_T_9
+                0x00000000484f8b00                p_0_Ball_and_Plate_MicroLabBox_student_real_T_10
+                0x00000000484f8b04                p_0_Ball_and_Plate_MicroLabBox_student_real_T_11
+                0x00000000484f8b08                p_0_Ball_and_Plate_MicroLabBox_student_real_T_12
+                0x00000000484f8b0c                p_0_Ball_and_Plate_MicroLabBox_student_real_T_13
+                0x00000000484f8b10                p_0_Ball_and_Plate_MicroLabBox_student_real_T_14
+                0x00000000484f8b14                p_0_Ball_and_Plate_MicroLabBox_student_real_T_15
+                0x00000000484f8b18                p_0_Ball_and_Plate_MicroLabBox_student_real_T_16
+                0x00000000484f8b1c                p_0_Ball_and_Plate_MicroLabBox_student_real_T_17
+                0x00000000484f8b20                p_0_Ball_and_Plate_MicroLabBox_student_real_T_18
+                0x00000000484f8b24                p_0_Ball_and_Plate_MicroLabBox_student_real_T_19
+                0x00000000484f8b28                p_1_Ball_and_Plate_MicroLabBox_student_real_T_0
+                0x00000000484f8b2c                p_1_Ball_and_Plate_MicroLabBox_student_boolean_T_1
+                0x00000000484f8b30                p_1_Ball_and_Plate_MicroLabBox_student_real_T_2
+                0x00000000484f8b34                p_1_Ball_and_Plate_MicroLabBox_student_real32_T_3
+                0x00000000484f8b38                p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4
+                0x00000000484f8b3c                p_1_Ball_and_Plate_MicroLabBox_student_boolean_T_5
+                0x00000000484f8b40                p_1_Ball_and_Plate_MicroLabBox_student_real_T_6
+                0x00000000484f8b44                p_1_Ball_and_Plate_MicroLabBox_student_real_T_7
+                0x00000000484f8b48                p_1_Ball_and_Plate_MicroLabBox_student_real_T_8
+                0x00000000484f8b4c                p_1_Ball_and_Plate_MicroLabBox_student_real_T_9
+                0x00000000484f8b50                p_1_Ball_and_Plate_MicroLabBox_student_real_T_10
+                0x00000000484f8b54                p_1_Ball_and_Plate_MicroLabBox_student_real_T_11
+                0x00000000484f8b58                p_2_Ball_and_Plate_MicroLabBox_student_real_T_0
+                0x00000000484f8b5c                p_2_Ball_and_Plate_MicroLabBox_student_int_T_1
+                0x00000000484f8b60                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_2
+                0x00000000484f8b64                p_2_Ball_and_Plate_MicroLabBox_student_int8_T_3
+                0x00000000484f8b68                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_4
+                0x00000000484f8b6c                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_5
+                0x00000000484f8b70                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_6
+                0x00000000484f8b74                p_2_Ball_and_Plate_MicroLabBox_student_real_T_7
+                0x00000000484f8b78                p_2_Ball_and_Plate_MicroLabBox_student_real_T_8
+                0x00000000484f8b7c                p_2_Ball_and_Plate_MicroLabBox_student_real_T_9
+                0x00000000484f8b80                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_10
+                0x00000000484f8b84                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_11
+                0x00000000484f8b88                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_12
+                0x00000000484f8b8c                p_2_Ball_and_Plate_MicroLabBox_student_real_T_13
+                0x00000000484f8b90                p_2_Ball_and_Plate_MicroLabBox_student_real_T_14
+                0x00000000484f8b94                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_15
+                0x00000000484f8b98                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_16
+                0x00000000484f8b9c                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_17
+                0x00000000484f8ba0                p_2_Ball_and_Plate_MicroLabBox_student_real_T_18
+                0x00000000484f8ba4                p_2_Ball_and_Plate_MicroLabBox_student_real_T_19
+                0x00000000484f8ba8                p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_20
+                0x00000000484f8bac                p_3_Ball_and_Plate_MicroLabBox_student_real_T_0
+                0x00000000484f8bb0                p_5_Ball_and_Plate_MicroLabBox_student_real_T_0
+                0x00000000484f8bb4                p_5_Ball_and_Plate_MicroLabBox_student_uint32_T_1
+                0x00000000484f8bb8                p_5_Ball_and_Plate_MicroLabBox_student_real_T_2
+ .bss           0x00000000484f8bbc        0x0 rtGetInf.o07
+ .bss           0x00000000484f8bbc        0x0 rtGetNaN.o07
+ *fill*         0x00000000484f8bbc        0x4 
+ .bss           0x00000000484f8bc0       0x2c rt_nonfinite.o07
+                0x00000000484f8bc0                rtNaN
+                0x00000000484f8bc8                rtNaNF
+                0x00000000484f8bd0                rtInf
+                0x00000000484f8bd8                rtInfF
+                0x00000000484f8be0                rtMinusInf
+                0x00000000484f8be8                rtMinusInfF
+ .bss           0x00000000484f8bec        0x0 rt_zcfcn.o07
+ .bss           0x00000000484f8bec        0x0 dleadlag.o07
+ .bss           0x00000000484f8bec        0x0 dlowpass1.o07
+ *fill*         0x00000000484f8bec        0x4 
+ .bss           0x00000000484f8bf0       0x54 rti_sim_engine.o07
+                0x00000000484f8bf0                currentTime
+                0x00000000484f8bf4                finalTime
+                0x00000000484f8bf8                modelStepSize
+                0x00000000484f8c00                pRTIDacC1AnalogOut_Ch_1
+                0x00000000484f8c04                pRTIEmcEncoder_Unit_1_DioCl_2_Port_1_Ch1
+                0x00000000484f8c08                pRTIDacC1AnalogOut_Ch_2
+                0x00000000484f8c0c                pRTIEmcEncoder_Unit_2_DioCl_2_Port_1_Ch3
+                0x00000000484f8c10                pRTIDacC1AnalogOut_Ch_3
+                0x00000000484f8c14                pRTIEmcEncoder_Unit_3_DioCl_2_Port_1_Ch5
+                0x00000000484f8c18                taskMode
+                0x00000000484f8c1c                pRti_TIMERA_STime
+                0x00000000484f8c20                pRti_TIMERA_TTime
+                0x00000000484f8c24                pRti_TIMERA_TState
+                0x00000000484f8c28                pRti_TIMERA_OType
+                0x00000000484f8c2c                pRti_TIMERA_OMax
+                0x00000000484f8c30                pRti_TIMERA_ORpt
+                0x00000000484f8c34                pRti_TIMERA_OCnt
+                0x00000000484f8c38                pRti_TIMERA_TCnt
+                0x00000000484f8c3c                pRti_TIMERA_Prio
+                0x00000000484f8c40                rtiAssertionMode
+ .bss           0x00000000484f8c44        0x4 rti_init_c.o07
+ .bss           0x00000000484f8c48        0x0 rt_sim.o07
+ .bss           0x00000000484f8c48        0x0 rti_assert.o07
+ .bss           0x00000000484f8c48        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtversion.a(RtVersion.o)
+ .bss           0x00000000484f8c48       0x14 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/librtglobals.a(DsEESPort.o)
+                0x00000000484f8c48                xilapi_eesport_trigger_uint32_T
+                0x00000000484f8c4c                xilapi_eesport_flags_uint32_T
+                0x00000000484f8c50                xilapi_eesport_errorswitching_uint32_T
+                0x00000000484f8c54                xilapi_eesport_erroractivated_uint32_T
+                0x00000000484f8c58                xilapi_eesport_activeerrorset_uint32_T
+ .bss           0x00000000484f8c5c        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(w_pow.o)
+ .bss           0x00000000484f8c5c        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(e_pow.o)
+ .bss           0x00000000484f8c5c        0x0 C:\Program Files\dSPACE RCPHIL 2020-B\DS1202\Lib/libm_fastpow.a(s_scalbn.o)
+ .bss           0x00000000484f8c5c        0x0 c:/programdata/dspace/a8efd7e5-f405-47e4-9a8a-de544031d1f0/compiler/qnx650_520/host/win32/x86/usr/bin/../lib/gcc/powerpc-unknown-nto-qnx6.5.0/5.2.0/crtend.o
+ .bss           0x00000000484f8c5c        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crtn.o
  *(COMMON)
-                0x00000000484f7694                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x00000000484f8c5c                . = ALIGN ((. != 0x0)?0x4:0x1)
 
-.iplt           0x00000000484f76a0        0x0
- .iplt          0x00000000484f76a0        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
-                0x00000000484f76a0                . = ALIGN (0x4)
-                0x00000000484f76a0                . = ALIGN (0x4)
-                0x00000000484f76a0                __end = .
-                0x00000000484f76a0                _end = .
+.iplt           0x00000000484f8c60        0x0
+ .iplt          0x00000000484f8c60        0x0 C:\ProgramData\dSPACE\A8EFD7E5-F405-47E4-9A8A-DE544031D1F0\Compiler\QNX650_520\target\qnx6/ppcbe/lib/crt1.o
+                0x00000000484f8c60                . = ALIGN (0x4)
+                0x00000000484f8c60                . = ALIGN (0x4)
+                0x00000000484f8c60                __end = .
+                0x00000000484f8c60                _end = .
                 [!provide]                        PROVIDE (end, .)
-                0x00000000484f76a0                . = DATA_SEGMENT_END (.)
+                0x00000000484f8c60                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)

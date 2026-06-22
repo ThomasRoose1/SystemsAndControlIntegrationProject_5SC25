@@ -7,11 +7,32 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   0 \
+    NumChartData   3 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
       IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "alpha_I"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Ball_and_Plate_MicroLabBox_student:1756:394-401"\
+    }\
+    ChartData {\
+      Name         "beta_I"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Ball_and_Plate_MicroLabBox_student:1756:402-408"\
+    }\
+    ChartData {\
+      Name         "initialized_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Ball_and_Plate_MicroLabBox_student:1756:409-420"\
     }\
   }
   %return ChartDataElements

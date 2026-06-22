@@ -6,7 +6,7 @@
    the hardware and software interrupts used.
 
    RTI1202 7.15 (02-Nov-2020)
-   Fri Jun 19 11:33:27 2026
+   Mon Jun 22 18:00:50 2026
 
    Copyright 2026, dSPACE GmbH. All rights reserved.
 
@@ -608,7 +608,7 @@ static void rti_mdl_initialize_io_units(void)
     {
       Int32 iRet =
         DsIoEth_setRecvFrameSize( DSIOETH_CONNECTION_ID_1,
-        12U,
+        32U,
         DSIOETH_RECV_MODE_MAXIMUM_SIZE
         );
 

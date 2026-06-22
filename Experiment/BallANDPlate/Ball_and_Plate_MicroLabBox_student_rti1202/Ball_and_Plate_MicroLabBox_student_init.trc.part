@@ -11,8 +11,9 @@ typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_1_Col col flt(64,IEEE)[2][
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_2_Col col flt(64,IEEE)[26][2]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col col flt(64,IEEE)[26][4]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT7_3 uint(32)[3]
-typedef Ball_and_Plate_MicroLabBox_student_ArrayDT3_12 uint(8)[12]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT3_32 uint(8)[32]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT3_4 uint(8)[4]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT2_19 int(8)[19]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT8_212 uint(8)[212]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_16_16_Col col flt(64,IEEE)[16][16]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_16_4_Col col flt(64,IEEE)[16][4]
@@ -32,6 +33,7 @@ typedef Ball_and_Plate_MicroLabBox_student_ArrayDT5_5 uint(16)[5]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT5_6 uint(16)[6]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT5_9 uint(16)[9]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_16 flt(64,IEEE)[16]
+typedef Ball_and_Plate_MicroLabBox_student_ArrayDT10_10 int(32)[10]
 typedef Ball_and_Plate_MicroLabBox_student_ArrayDT0_6 flt(64,IEEE)[6]
 
 
