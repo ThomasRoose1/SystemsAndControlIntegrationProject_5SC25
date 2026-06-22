@@ -60,6 +60,10 @@
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
 							<item>
+								<Name type="key">rec1_015.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
 								<Name type="key">Data Sets</Name>
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
@@ -91,6 +95,10 @@
 					</item>
 					<item>
 						<Name type="key">rec1_014.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec1_015.mf4</Name>
 						<ViewFlags type="key">5</ViewFlags>
 					</item>
 				</item>

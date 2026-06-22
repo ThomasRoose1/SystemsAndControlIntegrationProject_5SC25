@@ -70,11 +70,23 @@ Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
 
 %% Load robust controller
 load('optimalK.mat');
-K_robust = c2d(K, Ts_Inner);
-A_robust = K_robust.A;
-B_robust = K_robust.B;
-C_robust = K_robust.C;
-D_robust = K_robust.D;
+A_robust = K.A;
+B_robust = K.B;
+C_robust = K.C;
+D_robust = K.D;
+
+nK_robust = size(A_robust,1);
+
+Kaw_robust = 0.08;
+
+alpha_lim = deg2rad(6.0);
+beta_lim  = deg2rad(6.0);
+
+u_min_robust = [-alpha_lim; -beta_lim];
+u_max_robust = [ alpha_lim;  beta_lim];
+
+aw_reg = 1e-8;
+Baw_robust = C_robust' / (C_robust*C_robust' + aw_reg*eye(2));
 
 %% LQR design
 % Discrete-Time Model Conversion
