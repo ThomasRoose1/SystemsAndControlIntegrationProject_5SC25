@@ -96,26 +96,26 @@ fprintf('Rank observability matrix   = %d / %d\n', rank(Ob), size(Acheck,1));
 %% Design assumptions / requirements
 
 r_max = 0.25;                 % [m] 25 cm plate scale
-v_max = 0.80;                 % [m/s]
+v_max = 0.15;                 % [m/s]
 
-alpha_max = deg2rad(1.0);     % [rad], soft design angle
-beta_max  = deg2rad(1.0);     % [rad]
+alpha_max = deg2rad(4);     % [rad], soft design angle
+beta_max  = deg2rad(4);     % [rad]
 
-d_alpha_max = deg2rad(0.03);  % [rad]
-d_beta_max  = deg2rad(0.03);  % [rad]
+d_alpha_max = deg2rad(0.12);  % [rad]
+d_beta_max  = deg2rad(0.12);  % [rad]
 
-f_ref   = 0.1;               % [Hz]
-f_sens  = 0.25;               % [Hz]
-f_input = 0.1;               % [Hz]
-f_noise =1.5;               % [Hz], only used if useWt = true
+f_ref   = 0.08;               % [Hz]
+f_sens  = 0.11;               % [Hz]
+f_input = 0.05;               % [Hz]
+f_noise =0.8;               % [Hz], only used if useWt = true
 
 w_ref   = 2*pi*f_ref;
 w_sens  = 2*pi*f_sens;
 w_input = 2*pi*f_input;
 w_noise = 2*pi*f_noise;
 
-Ms   = 2.2;
-epsS = 0.30;                  % low-frequency sensitivity weight = 5
+Ms   = 1.8;
+epsS = 0.2;                  % low-frequency sensitivity weight = 5
 
 useWt = true;
 useStrokeWeight = true;
@@ -139,16 +139,16 @@ Ws_ch = makeweight(1/epsS, [w_sens 1], 1/Ms);
 Ws = blkdiag(Ws_ch, Ws_ch);
 
 % 4. Velocity weight Wv
-Wv_ch = (1/v_max) * makeweight(0.10, [w_sens 1], 1.1);
+Wv_ch = (1/v_max) * makeweight(0.05, [w_sens 1], 2);
 Wv = blkdiag(Wv_ch, Wv_ch);
 
 % 5. Complementary sensitivity weight Wt
-Wt_ch = makeweight(0.02, [w_noise sqrt(0.02*5)], 5);
+Wt_ch = makeweight(0.02, [w_noise sqrt(0.02*5)], 20);
 Wt = blkdiag(Wt_ch, Wt_ch);
 
 % 6. Angle command weight Wu
-Wu_hf = 60;
-Wu_lf = 0.4;
+Wu_hf = 120;
+Wu_lf = 0.5;
 Wu_mid = sqrt(Wu_lf*Wu_hf);
 
 Wu_alpha_ch = (1/alpha_max) * makeweight(Wu_lf, [w_input Wu_mid], Wu_hf);
