@@ -140,20 +140,29 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     UDPClientSocket.sendto(packet, serverAddressPort)
 
 
-def get_median_depth_mm(depth_raw, x, y, depth_scale):
-    x1 = max(0, x - DEPTH_ROI_RADIUS)
-    x2 = min(depth_raw.shape[1], x + DEPTH_ROI_RADIUS + 1)
-    y1 = max(0, y - DEPTH_ROI_RADIUS)
-    y2 = min(depth_raw.shape[0], y + DEPTH_ROI_RADIUS + 1)
+def get_mean_depth_mm(depth_raw, x, y, depth_scale):
+    depth_radius = max(3, int(ball_radius_ref * 0.4)) if ball_radius_ref is not None else DEPTH_ROI_RADIUS
+
+    x1 = max(0, x - depth_radius)
+    x2 = min(depth_raw.shape[1], x + depth_radius + 1)
+
+    y1 = max(0, y - depth_radius)
+    y2 = min(depth_raw.shape[0], y + depth_radius + 1)
 
     roi = depth_raw[y1:y2, x1:x2]
-    valid = roi[roi > 0]
+    yy, xx = np.ogrid[:roi.shape[0], :roi.shape[1]]
 
+    cx = x - x1
+    cy = y - y1
+
+    circle_mask = ((xx - cx)**2 + (yy - cy)**2) <= depth_radius**2
+
+    valid = roi[np.logical_and(circle_mask, roi > 0)]
     if valid.size == 0:
         return None
 
-    z_raw = np.median(valid)
-    return z_raw * depth_scale * 1000.0
+    z_raw = np.mean(valid.astype(np.float32))
+    return float(z_raw * depth_scale * 1000.0)
 
 
 def draw_coordinate_overlay(frame):
@@ -343,6 +352,8 @@ last_valid_z = 0.0
 fps_counter = 0
 fps_timer = time.perf_counter()
 camera_fps = 0
+camera_fps_timestamp = 0
+prev_timestamp = None
 
 try:
     while True:
@@ -442,7 +453,7 @@ try:
             chosen = filtered_pos
             ctrl_coords = pixel_to_control_coords(chosen)
 
-            z_mm = get_median_depth_mm(depth_raw, int(round(chosen[0])), int(round(chosen[1])), depth_scale)
+            z_mm = get_mean_depth_mm(depth_raw, int(round(chosen[0])), int(round(chosen[1])), depth_scale)
 
             if z_mm is not None:
                 z_display = z_mm if z_reference_mm is None else z_reference_mm - z_mm
@@ -529,21 +540,22 @@ try:
         
         # ================= FPS UPDATE =================
         fps_counter += 1
-        dt_camera = color_frame.get_timestamp() - timestamp
+        if prev_timestamp is not None:
+            dt_camera = timestamp - prev_timestamp
+            if dt_camera > 0:
+                camera_fps_timestamp = 1000.0 / dt_camera
+        prev_timestamp = timestamp
 
         elapsed = time.perf_counter() - fps_timer
-
         if elapsed >= 1.0:
-
             camera_fps = fps_counter / elapsed
 
             fps_counter = 0
             fps_timer = time.perf_counter()
 
         # ================= FPS DISPLAY =================
-        fps_text = f'FPS: {camera_fps:5.1f}'
-        (text_w, text_h), _ = cv2.getTextSize(fps_text, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2)
-        cv2.putText(display, fps_text, (WIDTH - text_w - 15, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+        cv2.putText(display, f'Proc FPS: {camera_fps:5.1f}', (WIDTH - 180, HEIGHT - 40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+        cv2.putText(display, f'Cam FPS: {camera_fps_timestamp:5.1f}', (WIDTH - 180, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,0), 2)
 
         # ================= DEBUG OVERLAYS =================
 
@@ -585,7 +597,10 @@ try:
 
         if SHOW_DEPTH_VIEW:
             depth_mm = depth_raw.astype(np.float32) * depth_scale * 1000.0
-            depth_center = (int(round(chosen[0])), int(round(chosen[1])))
+            depth_center = None
+
+            if chosen is not None:
+                depth_center = (int(round(chosen[0])), int(round(chosen[1])))
             depth_clipped = np.clip(depth_mm, DEPTH_MIN_MM, DEPTH_MAX_MM)
             depth_norm = ((depth_clipped - DEPTH_MIN_MM) / (DEPTH_MAX_MM - DEPTH_MIN_MM) * 255).astype(np.uint8)
             depth_vis = cv2.applyColorMap(depth_norm, cv2.COLORMAP_JET)
