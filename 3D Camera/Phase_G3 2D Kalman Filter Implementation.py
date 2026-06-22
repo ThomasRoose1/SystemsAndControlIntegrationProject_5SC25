@@ -55,7 +55,7 @@ DEBUG_PRINT_UDP = False
 SHOW_MASK = True
 SHOW_DEPTH_VIEW = False
 SHOW_XY_STATS = False
-SHOW_Z_STATS = False
+SHOW_Z_STATS = True
 SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
 SHOW_TRACKING_DEBUG = False
@@ -149,9 +149,6 @@ def get_mean_depth_mm(depth_raw, x, y, depth_scale):
     global current_depth_x1
     global current_depth_y1
     current_depth_radius = depth_radius
-    current_depth_mask = accepted_mask
-    current_depth_x1 = x1
-    current_depth_y1 = y1
 
     x1 = max(0, x - depth_radius)
     x2 = min(depth_raw.shape[1], x + depth_radius + 1)
@@ -168,6 +165,9 @@ def get_mean_depth_mm(depth_raw, x, y, depth_scale):
     circle_mask = ((xx - cx)**2 + (yy - cy)**2) <= depth_radius**2
 
     accepted_mask = np.logical_and(circle_mask, roi > 0)
+    current_depth_mask = accepted_mask
+    current_depth_x1 = x1
+    current_depth_y1 = y1
 
     valid = roi[accepted_mask]
     if valid.size == 0:
