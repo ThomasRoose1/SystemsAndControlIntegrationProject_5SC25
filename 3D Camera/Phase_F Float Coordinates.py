@@ -94,7 +94,7 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
         x_mm,
         y_mm,
         z_mm,
-        detected_flag
+        bool(detected_flag)
     )
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
