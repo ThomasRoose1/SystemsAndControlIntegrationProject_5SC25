@@ -59,6 +59,7 @@ SHOW_Z_STATS = False
 SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
 SHOW_TRACKING_DEBUG = False
+SHOW_DEPTH_ROI = True
 
 # Other parameters
 STATS_WINDOW = 300
@@ -142,6 +143,8 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
 
 def get_mean_depth_mm(depth_raw, x, y, depth_scale):
     depth_radius = max(3, int(ball_radius_ref * 0.4)) if ball_radius_ref is not None else DEPTH_ROI_RADIUS
+    global current_depth_radius
+    current_depth_radius = depth_radius
 
     x1 = max(0, x - depth_radius)
     x2 = min(depth_raw.shape[1], x + depth_radius + 1)
@@ -347,6 +350,7 @@ ball_radius_ref = None
 z_reference_mm = None
 last_valid_ctrl_coords = (0.0, 0.0)
 last_valid_z = 0.0
+current_depth_radius = DEPTH_ROI_RADIUS
 
 # FPS measurement
 fps_counter = 0
@@ -489,6 +493,9 @@ try:
             raw_int = (int(round(raw_center[0])), int(round(raw_center[1])))
             comp_int = (int(round(comp_center[0])), int(round(comp_center[1])))
             filt_int = (int(round(chosen[0])), int(round(chosen[1])))
+
+            if SHOW_DEPTH_ROI:
+                cv2.circle(display, filt_int, current_depth_radius, (255,255,255), 1)
 
             if (not near_edge) or (not USE_EDGE_COMPENSATION):
                 cv2.drawContours(display, [contour], -1, (255,0,255), 2)
