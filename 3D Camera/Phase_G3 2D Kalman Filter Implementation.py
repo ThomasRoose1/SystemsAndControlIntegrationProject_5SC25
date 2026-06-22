@@ -23,7 +23,7 @@ GRID_SPACING_MM = 100.0
 # Mask parameters
 MAX_TRACK_DISTANCE = 120
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
-THRESHOLD = 100 # Adjust based on lighting conditions and ball color
+THRESHOLD = 75 # Adjust based on lighting conditions and ball color
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
@@ -121,21 +121,18 @@ def pixel_to_control_coords(pixel_xy):
 
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
-    x_mm = int(ctrl_xy[0])
-    y_mm = int(ctrl_xy[1])
-    z_mm = int(z_value)
 
-    x_bytes = x_mm.to_bytes(2, byteorder='little', signed=True)
-    y_bytes = y_mm.to_bytes(2, byteorder='little', signed=True)
-    z_bytes = z_mm.to_bytes(2, byteorder='little', signed=True)
+    x_mm = round(float(ctrl_xy[0]),2)
+    y_mm = round(float(ctrl_xy[1]),2)
+    z_mm = round(float(z_value),2)
 
-    packet = bytearray([
-        x_bytes[0], x_bytes[1],
-        0, 0,
-        y_bytes[0], y_bytes[1],
-        0, 0,
-        z_bytes[0], z_bytes[1],
-        detected_flag])
+    packet = struct.pack(
+        '>fffb',
+        x_mm,
+        y_mm,
+        z_mm,
+        bool(detected_flag)
+    )
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)

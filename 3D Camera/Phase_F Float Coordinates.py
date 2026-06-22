@@ -90,7 +90,7 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     z_mm = round(float(z_value),2)
 
     packet = struct.pack(
-        '<fffI',
+        '<fffb',
         x_mm,
         y_mm,
         z_mm,
@@ -107,7 +107,7 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
 # y = double(typecast(uint8(u(5:8)), 'single'));
 # z = double(typecast(uint8(u(9:12)), 'single'));
 
-# flag = double(typecast(uint8(u(13:16)), 'uint32'));
+# flag = double(typecast(uint8(u(13:16)), 'single'));
 
 # end
 
