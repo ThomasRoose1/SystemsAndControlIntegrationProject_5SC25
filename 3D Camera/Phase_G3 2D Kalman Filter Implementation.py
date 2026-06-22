@@ -340,9 +340,9 @@ last_valid_ctrl_coords = (0.0, 0.0)
 last_valid_z = 0.0
 
 # FPS measurement
-fps = 0.0
-fps_alpha = 0.1
-prev_time = time.perf_counter()
+fps_counter = 0
+fps_timer = time.perf_counter()
+camera_fps = 0
 
 try:
     while True:
@@ -350,6 +350,7 @@ try:
         aligned_frames = align.process(frames)
 
         color_frame = aligned_frames.get_color_frame()
+        timestamp = color_frame.get_timestamp()
         depth_frame = aligned_frames.get_depth_frame()
 
         if not color_frame or not depth_frame:
@@ -452,8 +453,8 @@ try:
                 
             if prev_pos is not None:
                 velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
-                vx_mm = velocity[0] * SCALE_X * fps
-                vy_mm = -velocity[1] * SCALE_Y * fps
+                vx_mm = velocity[0] * SCALE_X * camera_fps
+                vy_mm = -velocity[1] * SCALE_Y * camera_fps
                 speed_mm = math.hypot(vx_mm, vy_mm)
             else:
                 velocity = (0, 0)
@@ -525,9 +526,22 @@ try:
                 cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
         else:
             send_ball_position_xyz_mm(last_valid_ctrl_coords, last_valid_z, detected_flag=0)
+        
+        # ================= FPS UPDATE =================
+        fps_counter += 1
+        dt_camera = color_frame.get_timestamp() - timestamp
+
+        elapsed = time.perf_counter() - fps_timer
+
+        if elapsed >= 1.0:
+
+            camera_fps = fps_counter / elapsed
+
+            fps_counter = 0
+            fps_timer = time.perf_counter()
 
         # ================= FPS DISPLAY =================
-        fps_text = f'FPS: {fps:5.1f}'
+        fps_text = f'FPS: {camera_fps:5.1f}'
         (text_w, text_h), _ = cv2.getTextSize(fps_text, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2)
         cv2.putText(display, fps_text, (WIDTH - text_w - 15, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
@@ -549,6 +563,8 @@ try:
             cv2.putText(display, f'R std : {radius_std:.2f}px', (20, 360), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
             cv2.putText(display, f'R min : {radius_min:.2f}px', (20, 390), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
             cv2.putText(display, f'R max : {radius_max:.2f}px', (20, 420), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+            if ball_radius_ref is not None:
+                cv2.putText(display, f'Rref: {ball_radius_ref:.1f}px', (20,300), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
         
         if SHOW_TRACKING_DEBUG:
             cv2.putText(display, 'GREEN  = Raw Fit', (20,300), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
@@ -561,15 +577,11 @@ try:
             if predicted is not None:
                 cv2.circle(display, predicted, 6, (255,0,0), 2)
         
-        if near_edge:
-            # print(f'Near edge ON')
-            cv2.putText(display, 'EDGE MODE', (20,450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)
-        
         if SHOW_EDGE_ZONE:
             cv2.rectangle(display, (PLATE_X1 + EDGE_MARGIN, PLATE_Y1 + EDGE_MARGIN), (PLATE_X2 - EDGE_MARGIN, PLATE_Y2 - EDGE_MARGIN), (100,100,255), 1)
-
-        # if ball_radius_ref is not None:
-        #     cv2.putText(display, f'Rref: {ball_radius_ref:.1f}px', (20,300), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)       
+            if near_edge:
+                # print(f'Near edge ON')
+                cv2.putText(display, 'EDGE MODE', (20,450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)       
 
         if SHOW_DEPTH_VIEW:
             depth_mm = depth_raw.astype(np.float32) * depth_scale * 1000.0
@@ -590,15 +602,6 @@ try:
             cv2.imshow('Final Filter Visualization', filter_vis)
 
         cv2.imshow('Phase_G3 2D Adaptative EMA + Partial KF', display)
-        # ================= FPS UPDATE =================
-        current_time = time.perf_counter()
-        dt = current_time - prev_time
-
-        if dt > 0:
-            fps_new = 1.0 / dt
-            fps = (1.0 - fps_alpha) * fps + fps_alpha * fps_new
-
-        prev_time = current_time
 
         key = cv2.waitKey(1) & 0xFF
         if key == ord('z') and z_mm is not None:
