@@ -22,14 +22,14 @@
 				</item>
 				<item>
 					<Name type="key">Variable Descriptions</Name>
-					<ViewFlags type="key">0</ViewFlags>
+					<ViewFlags type="key">1</ViewFlags>
 					<item>
 						<Name type="key">BallANDPlate.vdb</Name>
 						<ViewFlags type="key">1</ViewFlags>
 					</item>
 					<item>
 						<Name type="key">ball_and_plate_microlabbox_student.sdf</Name>
-						<ViewFlags type="key">0</ViewFlags>
+						<ViewFlags type="key">1</ViewFlags>
 						<item>
 							<Name type="key">ball_and_plate_microlabbox_student.trc</Name>
 							<ViewFlags type="key">1</ViewFlags>

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.131
+ * Model version              : 1.136
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Mon Jun 22 18:00:50 2026
+ * C source code generated on : Tue Jun 23 14:46:00 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -3933,59 +3933,8 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       Ball_and_Plate_MicroLabBox_student_B.r[3] -
       Ball_and_Plate_MicroLabBox_student_B.Switch[3];
 
-    /* Gain: '<S119>/Proportional Gain' */
-    Ball_and_Plate_MicroLabBox_student_B.ProportionalGain =
-      Ball_and_Plate_MicroLabBox_student_P.PIDController_P *
-      Ball_and_Plate_MicroLabBox_student_B.Add3[0];
-
-    /* DiscreteIntegrator: '<S114>/Integrator' incorporates:
-     *  Constant: '<Root>/enable_outer_controller'
-     */
-    if ((Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value >
-         0.0) &&
-        (Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState <= 0))
-    {
-      Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE =
-        Ball_and_Plate_MicroLabBox_student_P.PIDController_InitialConditio_l;
-    }
-
-    Ball_and_Plate_MicroLabBox_student_B.Integrator =
-      Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE;
-
-    /* End of DiscreteIntegrator: '<S114>/Integrator' */
-
-    /* Gain: '<S108>/Derivative Gain' */
-    Ball_and_Plate_MicroLabBox_student_B.DerivativeGain =
-      Ball_and_Plate_MicroLabBox_student_P.PIDController_D *
-      Ball_and_Plate_MicroLabBox_student_B.Add3[0];
-
-    /* DiscreteIntegrator: '<S109>/Filter' incorporates:
-     *  Constant: '<Root>/enable_outer_controller'
-     */
-    if ((Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value >
-         0.0) && (Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState <=
-                  0)) {
-      Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE =
-        Ball_and_Plate_MicroLabBox_student_P.PIDController_InitialConditionF;
-    }
-
-    Ball_and_Plate_MicroLabBox_student_B.Filter =
-      Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE;
-
-    /* End of DiscreteIntegrator: '<S109>/Filter' */
-
-    /* Sum: '<S109>/SumD' */
-    Ball_and_Plate_MicroLabBox_student_B.SumD =
-      Ball_and_Plate_MicroLabBox_student_B.DerivativeGain -
-      Ball_and_Plate_MicroLabBox_student_B.Filter;
-
-    /* Gain: '<S117>/Filter Coefficient' */
-    Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient =
-      Ball_and_Plate_MicroLabBox_student_P.PIDController_N *
-      Ball_and_Plate_MicroLabBox_student_B.SumD;
-
     /* Gain: '<S163>/Proportional Gain' */
-    Ball_and_Plate_MicroLabBox_student_B.ProportionalGain_b =
+    Ball_and_Plate_MicroLabBox_student_B.ProportionalGain =
       Ball_and_Plate_MicroLabBox_student_P.PIDController1_P *
       Ball_and_Plate_MicroLabBox_student_B.Add3[2];
 
@@ -3994,19 +3943,19 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      */
     if ((Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value >
          0.0) &&
-        (Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_d <= 0))
+        (Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState <= 0))
     {
-      Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE_a =
+      Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE =
         Ball_and_Plate_MicroLabBox_student_P.PIDController1_InitialConditi_b;
     }
 
-    Ball_and_Plate_MicroLabBox_student_B.Integrator_c =
-      Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE_a;
+    Ball_and_Plate_MicroLabBox_student_B.Integrator =
+      Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE;
 
     /* End of DiscreteIntegrator: '<S158>/Integrator' */
 
     /* Gain: '<S152>/Derivative Gain' */
-    Ball_and_Plate_MicroLabBox_student_B.DerivativeGain_i =
+    Ball_and_Plate_MicroLabBox_student_B.DerivativeGain =
       Ball_and_Plate_MicroLabBox_student_P.PIDController1_D *
       Ball_and_Plate_MicroLabBox_student_B.Add3[2];
 
@@ -4014,26 +3963,77 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      *  Constant: '<Root>/enable_outer_controller'
      */
     if ((Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value >
-         0.0) && (Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_k <=
+         0.0) && (Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState <=
                   0)) {
-      Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE_e =
+      Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE =
         Ball_and_Plate_MicroLabBox_student_P.PIDController1_InitialCondition;
     }
 
-    Ball_and_Plate_MicroLabBox_student_B.Filter_c =
-      Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE_e;
+    Ball_and_Plate_MicroLabBox_student_B.Filter =
+      Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE;
 
     /* End of DiscreteIntegrator: '<S153>/Filter' */
 
     /* Sum: '<S153>/SumD' */
-    Ball_and_Plate_MicroLabBox_student_B.SumD_c =
-      Ball_and_Plate_MicroLabBox_student_B.DerivativeGain_i -
-      Ball_and_Plate_MicroLabBox_student_B.Filter_c;
+    Ball_and_Plate_MicroLabBox_student_B.SumD =
+      Ball_and_Plate_MicroLabBox_student_B.DerivativeGain -
+      Ball_and_Plate_MicroLabBox_student_B.Filter;
 
     /* Gain: '<S161>/Filter Coefficient' */
-    Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient_g =
+    Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient =
       Ball_and_Plate_MicroLabBox_student_P.PIDController1_N *
-      Ball_and_Plate_MicroLabBox_student_B.SumD_c;
+      Ball_and_Plate_MicroLabBox_student_B.SumD;
+
+    /* Gain: '<S119>/Proportional Gain' */
+    Ball_and_Plate_MicroLabBox_student_B.ProportionalGain_e =
+      Ball_and_Plate_MicroLabBox_student_P.PIDController_P *
+      Ball_and_Plate_MicroLabBox_student_B.Add3[0];
+
+    /* DiscreteIntegrator: '<S114>/Integrator' incorporates:
+     *  Constant: '<Root>/enable_outer_controller'
+     */
+    if ((Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value >
+         0.0) &&
+        (Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_n <= 0))
+    {
+      Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE_n =
+        Ball_and_Plate_MicroLabBox_student_P.PIDController_InitialConditio_l;
+    }
+
+    Ball_and_Plate_MicroLabBox_student_B.Integrator_l =
+      Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE_n;
+
+    /* End of DiscreteIntegrator: '<S114>/Integrator' */
+
+    /* Gain: '<S108>/Derivative Gain' */
+    Ball_and_Plate_MicroLabBox_student_B.DerivativeGain_j =
+      Ball_and_Plate_MicroLabBox_student_P.PIDController_D *
+      Ball_and_Plate_MicroLabBox_student_B.Add3[0];
+
+    /* DiscreteIntegrator: '<S109>/Filter' incorporates:
+     *  Constant: '<Root>/enable_outer_controller'
+     */
+    if ((Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value >
+         0.0) && (Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_h <=
+                  0)) {
+      Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE_p =
+        Ball_and_Plate_MicroLabBox_student_P.PIDController_InitialConditionF;
+    }
+
+    Ball_and_Plate_MicroLabBox_student_B.Filter_e =
+      Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE_p;
+
+    /* End of DiscreteIntegrator: '<S109>/Filter' */
+
+    /* Sum: '<S109>/SumD' */
+    Ball_and_Plate_MicroLabBox_student_B.SumD_d =
+      Ball_and_Plate_MicroLabBox_student_B.DerivativeGain_j -
+      Ball_and_Plate_MicroLabBox_student_B.Filter_e;
+
+    /* Gain: '<S117>/Filter Coefficient' */
+    Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient_l =
+      Ball_and_Plate_MicroLabBox_student_P.PIDController_N *
+      Ball_and_Plate_MicroLabBox_student_B.SumD_d;
 
     /* MultiPortSwitch: '<Root>/Multiport Switch' incorporates:
      *  Constant: '<Root>/Controller_select'
@@ -4094,21 +4094,26 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       break;
 
      default:
-      /* Sum: '<S123>/Sum' */
-      Ball_and_Plate_MicroLabBox_student_B.Sum_n =
+      /* Sum: '<S167>/Sum' */
+      Ball_and_Plate_MicroLabBox_student_B.Sum_f =
         (Ball_and_Plate_MicroLabBox_student_B.ProportionalGain +
          Ball_and_Plate_MicroLabBox_student_B.Integrator) +
         Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient;
 
-      /* Sum: '<S167>/Sum' */
-      Ball_and_Plate_MicroLabBox_student_B.Sum_f =
-        (Ball_and_Plate_MicroLabBox_student_B.ProportionalGain_b +
-         Ball_and_Plate_MicroLabBox_student_B.Integrator_c) +
-        Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient_g;
-      Ball_and_Plate_MicroLabBox_student_B.MultiportSwitch[0] =
-        Ball_and_Plate_MicroLabBox_student_B.Sum_n;
-      Ball_and_Plate_MicroLabBox_student_B.MultiportSwitch[1] =
+      /* Gain: '<Root>/Gain8' */
+      Ball_and_Plate_MicroLabBox_student_B.Gain8 =
+        Ball_and_Plate_MicroLabBox_student_P.Gain8_Gain *
         Ball_and_Plate_MicroLabBox_student_B.Sum_f;
+
+      /* Sum: '<S123>/Sum' */
+      Ball_and_Plate_MicroLabBox_student_B.Sum_n =
+        (Ball_and_Plate_MicroLabBox_student_B.ProportionalGain_e +
+         Ball_and_Plate_MicroLabBox_student_B.Integrator_l) +
+        Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient_l;
+      Ball_and_Plate_MicroLabBox_student_B.MultiportSwitch[0] =
+        Ball_and_Plate_MicroLabBox_student_B.Gain8;
+      Ball_and_Plate_MicroLabBox_student_B.MultiportSwitch[1] =
+        Ball_and_Plate_MicroLabBox_student_B.Sum_n;
       break;
     }
 
@@ -5767,13 +5772,13 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
     Ball_and_Plate_MicroLabBox_student_DW.DelayInput1_DSTATE =
       Ball_and_Plate_MicroLabBox_student_B.Compare;
 
-    /* Update for DiscreteIntegrator: '<S114>/Integrator' incorporates:
+    /* Update for DiscreteIntegrator: '<S158>/Integrator' incorporates:
      *  Constant: '<Root>/enable_outer_controller'
-     *  DiscreteIntegrator: '<S109>/Filter'
+     *  DiscreteIntegrator: '<S153>/Filter'
      */
     Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE +=
       Ball_and_Plate_MicroLabBox_student_P.Integrator_gainval *
-      Ball_and_Plate_MicroLabBox_student_B.IntegralGain;
+      Ball_and_Plate_MicroLabBox_student_B.IntegralGain_f;
     if (Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value > 0.0)
     {
       Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState = 1;
@@ -5802,54 +5807,54 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
       }
     }
 
-    /* End of Update for DiscreteIntegrator: '<S114>/Integrator' */
+    /* End of Update for DiscreteIntegrator: '<S158>/Integrator' */
 
-    /* Update for DiscreteIntegrator: '<S109>/Filter' */
+    /* Update for DiscreteIntegrator: '<S153>/Filter' */
     Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE +=
       Ball_and_Plate_MicroLabBox_student_P.Filter_gainval *
       Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient;
 
-    /* Update for DiscreteIntegrator: '<S158>/Integrator' incorporates:
+    /* Update for DiscreteIntegrator: '<S114>/Integrator' incorporates:
      *  Constant: '<Root>/enable_outer_controller'
-     *  DiscreteIntegrator: '<S153>/Filter'
+     *  DiscreteIntegrator: '<S109>/Filter'
      */
-    Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE_a +=
-      Ball_and_Plate_MicroLabBox_student_P.Integrator_gainval_j *
-      Ball_and_Plate_MicroLabBox_student_B.IntegralGain_f;
+    Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE_n +=
+      Ball_and_Plate_MicroLabBox_student_P.Integrator_gainval_b *
+      Ball_and_Plate_MicroLabBox_student_B.IntegralGain;
     if (Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value > 0.0)
     {
-      Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_d = 1;
-      Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_k = 1;
+      Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_n = 1;
+      Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_h = 1;
     } else {
       if (Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value <
           0.0) {
-        Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_d = -1;
+        Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_n = -1;
       } else if
           (Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value ==
            0.0) {
-        Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_d = 0;
+        Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_n = 0;
       } else {
-        Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_d = 2;
+        Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_n = 2;
       }
 
       if (Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value <
           0.0) {
-        Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_k = -1;
+        Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_h = -1;
       } else if
           (Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value ==
            0.0) {
-        Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_k = 0;
+        Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_h = 0;
       } else {
-        Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_k = 2;
+        Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_h = 2;
       }
     }
 
-    /* End of Update for DiscreteIntegrator: '<S158>/Integrator' */
+    /* End of Update for DiscreteIntegrator: '<S114>/Integrator' */
 
-    /* Update for DiscreteIntegrator: '<S153>/Filter' */
-    Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE_e +=
-      Ball_and_Plate_MicroLabBox_student_P.Filter_gainval_a *
-      Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient_g;
+    /* Update for DiscreteIntegrator: '<S109>/Filter' */
+    Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE_p +=
+      Ball_and_Plate_MicroLabBox_student_P.Filter_gainval_g *
+      Ball_and_Plate_MicroLabBox_student_B.FilterCoefficient_l;
   }
 
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
@@ -8056,25 +8061,25 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
            &Ball_and_Plate_MicroLabBox_student_P.Memory_InitialCondition[0],
            212U * sizeof(boolean_T));
 
-    /* InitializeConditions for DiscreteIntegrator: '<S114>/Integrator' */
+    /* InitializeConditions for DiscreteIntegrator: '<S158>/Integrator' */
     Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE =
-      Ball_and_Plate_MicroLabBox_student_P.PIDController_InitialConditio_l;
+      Ball_and_Plate_MicroLabBox_student_P.PIDController1_InitialConditi_b;
     Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState = 2;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S109>/Filter' */
+    /* InitializeConditions for DiscreteIntegrator: '<S153>/Filter' */
     Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE =
-      Ball_and_Plate_MicroLabBox_student_P.PIDController_InitialConditionF;
+      Ball_and_Plate_MicroLabBox_student_P.PIDController1_InitialCondition;
     Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState = 2;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S158>/Integrator' */
-    Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE_a =
-      Ball_and_Plate_MicroLabBox_student_P.PIDController1_InitialConditi_b;
-    Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_d = 2;
+    /* InitializeConditions for DiscreteIntegrator: '<S114>/Integrator' */
+    Ball_and_Plate_MicroLabBox_student_DW.Integrator_DSTATE_n =
+      Ball_and_Plate_MicroLabBox_student_P.PIDController_InitialConditio_l;
+    Ball_and_Plate_MicroLabBox_student_DW.Integrator_PrevResetState_n = 2;
 
-    /* InitializeConditions for DiscreteIntegrator: '<S153>/Filter' */
-    Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE_e =
-      Ball_and_Plate_MicroLabBox_student_P.PIDController1_InitialCondition;
-    Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_k = 2;
+    /* InitializeConditions for DiscreteIntegrator: '<S109>/Filter' */
+    Ball_and_Plate_MicroLabBox_student_DW.Filter_DSTATE_p =
+      Ball_and_Plate_MicroLabBox_student_P.PIDController_InitialConditionF;
+    Ball_and_Plate_MicroLabBox_student_DW.Filter_PrevResetState_h = 2;
 
     /* InitializeConditions for DiscreteIntegrator: '<S26>/Discrete-Time Integrator' */
     Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =

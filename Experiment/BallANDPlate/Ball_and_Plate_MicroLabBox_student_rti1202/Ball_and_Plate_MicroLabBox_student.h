@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.131
+ * Model version              : 1.136
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Mon Jun 22 18:00:50 2026
+ * C source code generated on : Tue Jun 23 14:46:00 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -278,18 +278,18 @@ typedef struct {
   real_T DataTypeConversion11;         /* '<S63>/Data Type Conversion11' */
   real_T umin_scale1[2];               /* '<S63>/umin_scale1' */
   real_T Add3[4];                      /* '<Root>/Add3' */
-  real_T ProportionalGain;             /* '<S119>/Proportional Gain' */
-  real_T Integrator;                   /* '<S114>/Integrator' */
-  real_T DerivativeGain;               /* '<S108>/Derivative Gain' */
-  real_T Filter;                       /* '<S109>/Filter' */
-  real_T SumD;                         /* '<S109>/SumD' */
-  real_T FilterCoefficient;            /* '<S117>/Filter Coefficient' */
-  real_T ProportionalGain_b;           /* '<S163>/Proportional Gain' */
-  real_T Integrator_c;                 /* '<S158>/Integrator' */
-  real_T DerivativeGain_i;             /* '<S152>/Derivative Gain' */
-  real_T Filter_c;                     /* '<S153>/Filter' */
-  real_T SumD_c;                       /* '<S153>/SumD' */
-  real_T FilterCoefficient_g;          /* '<S161>/Filter Coefficient' */
+  real_T ProportionalGain;             /* '<S163>/Proportional Gain' */
+  real_T Integrator;                   /* '<S158>/Integrator' */
+  real_T DerivativeGain;               /* '<S152>/Derivative Gain' */
+  real_T Filter;                       /* '<S153>/Filter' */
+  real_T SumD;                         /* '<S153>/SumD' */
+  real_T FilterCoefficient;            /* '<S161>/Filter Coefficient' */
+  real_T ProportionalGain_e;           /* '<S119>/Proportional Gain' */
+  real_T Integrator_l;                 /* '<S114>/Integrator' */
+  real_T DerivativeGain_j;             /* '<S108>/Derivative Gain' */
+  real_T Filter_e;                     /* '<S109>/Filter' */
+  real_T SumD_d;                       /* '<S109>/SumD' */
+  real_T FilterCoefficient_l;          /* '<S117>/Filter Coefficient' */
   real_T MultiportSwitch[2];           /* '<Root>/Multiport Switch' */
   real_T Switch1;                      /* '<Root>/Switch1' */
   real_T Add1;                         /* '<Root>/Add1' */
@@ -413,8 +413,9 @@ typedef struct {
   real_T pos3;                         /* '<S3>/AngleToPos ' */
   real_T Add_n[4];                     /* '<Root>/Add' */
   real_T Gain1_j[2];                   /* '<Root>/Gain1' */
-  real_T Sum_n;                        /* '<S123>/Sum' */
   real_T Sum_f;                        /* '<S167>/Sum' */
+  real_T Gain8;                        /* '<Root>/Gain8' */
+  real_T Sum_n;                        /* '<S123>/Sum' */
   real_T Gain_ff_x;                    /* '<Root>/Gain_ff_x' */
   real_T Gain_ff_y;                    /* '<Root>/Gain_ff_y ' */
   uint32_T SFunction1_o4;              /* '<S15>/S-Function1' */
@@ -468,10 +469,10 @@ typedef struct {
   real_T UD_DSTATE;                    /* '<S1>/UD' */
   real_T Delay_DSTATE[2];              /* '<Root>/Delay' */
   real_T last_mv_DSTATE[2];            /* '<S63>/last_mv' */
-  real_T Integrator_DSTATE;            /* '<S114>/Integrator' */
-  real_T Filter_DSTATE;                /* '<S109>/Filter' */
-  real_T Integrator_DSTATE_a;          /* '<S158>/Integrator' */
-  real_T Filter_DSTATE_e;              /* '<S153>/Filter' */
+  real_T Integrator_DSTATE;            /* '<S158>/Integrator' */
+  real_T Filter_DSTATE;                /* '<S153>/Filter' */
+  real_T Integrator_DSTATE_n;          /* '<S114>/Integrator' */
+  real_T Filter_DSTATE_p;              /* '<S109>/Filter' */
   real_T DiscreteTimeIntegrator_DSTATE;/* '<S26>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_DSTATE_p;/* '<S39>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_DSTATE_o;/* '<S54>/Discrete-Time Integrator' */
@@ -516,10 +517,10 @@ typedef struct {
   int_T ByteUnpacking_IWORK[10];       /* '<S2>/Byte Unpacking ' */
   boolean_T DelayInput1_DSTATE;        /* '<S176>/Delay Input1' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
-  int8_T Integrator_PrevResetState;    /* '<S114>/Integrator' */
-  int8_T Filter_PrevResetState;        /* '<S109>/Filter' */
-  int8_T Integrator_PrevResetState_d;  /* '<S158>/Integrator' */
-  int8_T Filter_PrevResetState_k;      /* '<S153>/Filter' */
+  int8_T Integrator_PrevResetState;    /* '<S158>/Integrator' */
+  int8_T Filter_PrevResetState;        /* '<S153>/Filter' */
+  int8_T Integrator_PrevResetState_n;  /* '<S114>/Integrator' */
+  int8_T Filter_PrevResetState_h;      /* '<S109>/Filter' */
   int8_T DiscreteTimeIntegrator_PrevRese;/* '<S26>/Discrete-Time Integrator' */
   int8_T DiscreteTimeIntegrator_PrevRe_h;/* '<S39>/Discrete-Time Integrator' */
   int8_T DiscreteTimeIntegrator_PrevRe_e;/* '<S54>/Discrete-Time Integrator' */
@@ -684,11 +685,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T u_min_robust[2];              /* Variable: u_min_robust
                                         * Referenced by: '<S10>/Constant6'
                                         */
-  real_T PIDController_D;              /* Mask Parameter: PIDController_D
-                                        * Referenced by: '<S108>/Derivative Gain'
-                                        */
   real_T PIDController1_D;             /* Mask Parameter: PIDController1_D
                                         * Referenced by: '<S152>/Derivative Gain'
+                                        */
+  real_T PIDController_D;              /* Mask Parameter: PIDController_D
+                                        * Referenced by: '<S108>/Derivative Gain'
                                         */
   real_T PIDController_I;              /* Mask Parameter: PIDController_I
                                         * Referenced by: '<S111>/Integral Gain'
@@ -699,33 +700,33 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Difference_ICPrevInput;       /* Mask Parameter: Difference_ICPrevInput
                                         * Referenced by: '<S1>/UD'
                                         */
-  real_T PIDController_InitialConditionF;
-                              /* Mask Parameter: PIDController_InitialConditionF
-                               * Referenced by: '<S109>/Filter'
-                               */
   real_T PIDController1_InitialCondition;
                               /* Mask Parameter: PIDController1_InitialCondition
                                * Referenced by: '<S153>/Filter'
                                */
-  real_T PIDController_InitialConditio_l;
-                              /* Mask Parameter: PIDController_InitialConditio_l
-                               * Referenced by: '<S114>/Integrator'
+  real_T PIDController_InitialConditionF;
+                              /* Mask Parameter: PIDController_InitialConditionF
+                               * Referenced by: '<S109>/Filter'
                                */
   real_T PIDController1_InitialConditi_b;
                               /* Mask Parameter: PIDController1_InitialConditi_b
                                * Referenced by: '<S158>/Integrator'
                                */
-  real_T PIDController_N;              /* Mask Parameter: PIDController_N
-                                        * Referenced by: '<S117>/Filter Coefficient'
-                                        */
+  real_T PIDController_InitialConditio_l;
+                              /* Mask Parameter: PIDController_InitialConditio_l
+                               * Referenced by: '<S114>/Integrator'
+                               */
   real_T PIDController1_N;             /* Mask Parameter: PIDController1_N
                                         * Referenced by: '<S161>/Filter Coefficient'
                                         */
-  real_T PIDController_P;              /* Mask Parameter: PIDController_P
-                                        * Referenced by: '<S119>/Proportional Gain'
+  real_T PIDController_N;              /* Mask Parameter: PIDController_N
+                                        * Referenced by: '<S117>/Filter Coefficient'
                                         */
   real_T PIDController1_P;             /* Mask Parameter: PIDController1_P
                                         * Referenced by: '<S163>/Proportional Gain'
+                                        */
+  real_T PIDController_P;              /* Mask Parameter: PIDController_P
+                                        * Referenced by: '<S119>/Proportional Gain'
                                         */
   boolean_T DetectRisePositive_vinit;/* Mask Parameter: DetectRisePositive_vinit
                                       * Referenced by: '<S176>/Delay Input1'
@@ -744,6 +745,9 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T Constant3_Value[4];           /* Expression: [0;0;0;0]
                                         * Referenced by: '<Root>/Constant3'
+                                        */
+  real_T Gain8_Gain;                   /* Expression: -1
+                                        * Referenced by: '<Root>/Gain8'
                                         */
   real_T Constant_Value;               /* Expression: 0.32
                                         * Referenced by: '<S3>/Constant'
@@ -1028,16 +1032,16 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         * Referenced by: '<S63>/umin_scale1'
                                         */
   real_T Integrator_gainval;           /* Computed Parameter: Integrator_gainval
-                                        * Referenced by: '<S114>/Integrator'
+                                        * Referenced by: '<S158>/Integrator'
                                         */
   real_T Filter_gainval;               /* Computed Parameter: Filter_gainval
-                                        * Referenced by: '<S109>/Filter'
-                                        */
-  real_T Integrator_gainval_j;       /* Computed Parameter: Integrator_gainval_j
-                                      * Referenced by: '<S158>/Integrator'
-                                      */
-  real_T Filter_gainval_a;             /* Computed Parameter: Filter_gainval_a
                                         * Referenced by: '<S153>/Filter'
+                                        */
+  real_T Integrator_gainval_b;       /* Computed Parameter: Integrator_gainval_b
+                                      * Referenced by: '<S114>/Integrator'
+                                      */
+  real_T Filter_gainval_g;             /* Computed Parameter: Filter_gainval_g
+                                        * Referenced by: '<S109>/Filter'
                                         */
   real_T ff_enable_Value;              /* Expression: 0
                                         * Referenced by: '<Root>/ff_enable'
