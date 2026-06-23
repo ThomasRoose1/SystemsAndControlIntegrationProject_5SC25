@@ -7,11 +7,27 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   0 \
+    NumChartData   2 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
       IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "xK"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Ball_and_Plate_MicroLabBox_student:1651:627-629"\
+      Dimensions   [16]\
+    }\
+    ChartData {\
+      Name         "u_prev"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Ball_and_Plate_MicroLabBox_student:1651:630-636"\
+      Dimensions   [2]\
     }\
   }
   %return ChartDataElements

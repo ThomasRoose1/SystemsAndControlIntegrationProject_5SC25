@@ -8,7 +8,7 @@ WIDTH = 640
 HEIGHT = 480
 FPS = 60
 
-ANGLE = -0.35
+ANGLE = 0
 CENTER = (WIDTH // 2, HEIGHT // 2)
 ROT_MAT = cv2.getRotationMatrix2D(CENTER, ANGLE, 1.0)
 

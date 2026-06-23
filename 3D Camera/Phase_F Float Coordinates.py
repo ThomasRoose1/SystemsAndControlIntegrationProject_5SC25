@@ -45,7 +45,7 @@ DEPTH_ROI_RADIUS = 5   # 11x11 median ROI
 # UDP
 serverAddressPort = ("192.168.140.8", 49001)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-DEBUG_PRINT_UDP = False
+DEBUG_PRINT_UDP = True
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -85,31 +85,20 @@ def pixel_to_control_coords(pixel_xy):
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
 
-    x_mm = float(ctrl_xy[0])
-    y_mm = float(ctrl_xy[1])
-    z_mm = float(z_value)
+    x_mm = round(float(ctrl_xy[0]),2)
+    y_mm = round(float(ctrl_xy[1]),2)
+    z_mm = round(float(z_value),2)
 
     packet = struct.pack(
-        '<fffB',
+        '<fffb',
         x_mm,
         y_mm,
         z_mm,
-        detected_flag
+        bool(detected_flag)
     )
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
-
-# MATLAB Function to read the coordinates
-# function [x,y,z,flag] = fcn(u)
-
-# x = double(typecast(uint8(u(1:4)), 'single'));
-# y = double(typecast(uint8(u(5:8)), 'single'));
-# z = double(typecast(uint8(u(9:12)), 'single'));
-
-# flag = double(u(13));
-
-# end
 
 def get_median_depth_mm(depth_raw, x, y, depth_scale):
     x1 = max(0, x - DEPTH_ROI_RADIUS)
@@ -258,8 +247,6 @@ pipeline = rs.pipeline()
 config = rs.config()
 config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8, FPS)
 config.enable_stream(rs.stream.depth, WIDTH, HEIGHT, rs.format.z16, FPS_Depth)
-color_stream = pipeline.get_stream(rs.stream.color)
-depth_stream = pipeline.get_stream(rs.stream.depth)
 
 profile = pipeline.start(config)
 align = rs.align(rs.stream.color)

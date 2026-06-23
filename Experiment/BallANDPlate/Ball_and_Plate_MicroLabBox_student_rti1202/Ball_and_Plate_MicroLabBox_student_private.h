@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.74
+ * Model version              : 1.117
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Mon Jun  8 18:07:52 2026
+ * C source code generated on : Fri Jun 19 11:33:27 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -48,25 +48,19 @@ extern DioCl2EncoderInSDrvObject *pRTIEmcEncoder_Unit_2_DioCl_2_Port_1_Ch3;
 extern DacCl1AnalogOutSDrvObject *pRTIDacC1AnalogOut_Ch_3;
 extern DioCl2EncoderInSDrvObject *pRTIEmcEncoder_Unit_3_DioCl_2_Port_1_Ch5;
 extern real_T rt_powd_snf(real_T u0, real_T u1);
+extern real_T rt_hypotd_snf(real_T u0, real_T u1);
 extern void dlowpass1(SimStruct *rts);
 extern void dleadlag(SimStruct *rts);
-extern void Ball_and_Pl_MATLABFunction_Init(DW_MATLABFunction_Ball_and_Pl_T
-  *localDW);
-extern void Ball_and_Plate_M_MATLABFunction(real_T rtu_enable, const real_T
-  rtu_u[3001], B_MATLABFunction_Ball_and_Pla_T *localB,
-  DW_MATLABFunction_Ball_and_Pl_T *localDW);
-extern void Ball_and_Plate__MATLABFunction2(real_T rtu_y, real_T rtu_start,
-  real_T rtu_init_value, B_MATLABFunction2_Ball_and_Pl_T *localB);
 extern void Ball_and_P_MATLABFunction1_Init(DW_MATLABFunction1_Ball_and_P_T
   *localDW);
 extern void Ball_and_Plate__MATLABFunction1(real_T rtu_reference_end, real_T
   rtu_end_time, real_T rtu_Ts, B_MATLABFunction1_Ball_and_Pl_T *localB,
   DW_MATLABFunction1_Ball_and_P_T *localDW);
-extern void Ball_and__MATLABFunction_o_Init(DW_MATLABFunction_Ball_and__j_T
+extern void Ball_and_Pl_MATLABFunction_Init(DW_MATLABFunction_Ball_and_Pl_T
   *localDW);
-extern void Ball_and_Plate_MATLABFunction_e(real_T rtu_enable, const real_T
-  rtu_u[200000], B_MATLABFunction_Ball_and_P_m_T *localB,
-  DW_MATLABFunction_Ball_and__j_T *localDW);
+extern void Ball_and_Plate_M_MATLABFunction(real_T rtu_enable, const real_T
+  rtu_u[200000], B_MATLABFunction_Ball_and_Pla_T *localB,
+  DW_MATLABFunction_Ball_and_Pl_T *localDW);
 extern void Ball_and__EnabledSubsystem_Init(B_EnabledSubsystem_Ball_and_P_T
   *localB, P_EnabledSubsystem_Ball_and_P_T *localP);
 extern void Ball_and_EnabledSubsystem_Start(DW_EnabledSubsystem_Ball_and__T

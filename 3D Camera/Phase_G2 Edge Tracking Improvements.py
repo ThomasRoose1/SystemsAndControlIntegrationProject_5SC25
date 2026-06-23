@@ -23,18 +23,18 @@ GRID_SPACING_MM = 100.0
 # Mask parameters
 MAX_TRACK_DISTANCE = 120
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
-THRESHOLD = 80 # Adjust based on lighting conditions and ball color
+THRESHOLD = 100 # Adjust based on lighting conditions and ball color
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
 # Potential continuous auto-calibration --> MIN_RADIUS = ball_radius_ref - 3*radius_std // MAX_RADIUS = ball_radius_ref + 3*radius_std
 MIN_RADIUS = 15 # Need to be calibrated
-MAX_RADIUS = 20 # Need to be calibrated
+MAX_RADIUS = 30 # Need to be calibrated
 EDGE_MARGIN = 30 # Need to be calibrated
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
 
-BALL_RADIUS_ALPHA = 0.02 # 0.0 = no smoothing, 1.0 = max smoothing (very slow response)
-XY_FILTER_ALPHA = 0.5 # 0.0 = no filtering, 1.0 = max filtering (static position)
+BALL_RADIUS_ALPHA = 0.2 # 1.0 = no smoothing, 0.1 = max smoothing (very slow response)
+XY_FILTER_ALPHA = 0.6 # 1.0 = no filtering, 0.1 = max filtering 
 
 # Depth Parameters
 DEPTH_MIN_MM = 400
@@ -54,7 +54,7 @@ SHOW_DEPTH_VIEW = False
 SHOW_XY_STATS = False
 SHOW_Z_STATS = False
 SHOW_RADIUS_CALIBRATION = False
-SHOW_EDGE_ZONE = False
+SHOW_EDGE_ZONE = True
 SHOW_TRACKING_DEBUG = True
 
 # Other parameters
@@ -222,34 +222,55 @@ def detect_ball(gray, predicted=None):
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    filter_vis = cv2.cvtColor(mask.copy(), cv2.COLOR_GRAY2BGR)
+    
     candidates = []
 
     for contour in contours:
         area = cv2.contourArea(contour)
+        x, y, w, h = cv2.boundingRect(contour)
+        contour_near_edge = (
+            x < PLATE_X1 + EDGE_MARGIN or
+            x + w > PLATE_X2 - EDGE_MARGIN or
+            y < PLATE_Y1 + EDGE_MARGIN or
+            y + h > PLATE_Y2 - EDGE_MARGIN)
+        
         if area < MIN_AREA or area > MAX_AREA:
+            cv2.drawContours(filter_vis, [contour], -1, (0,0,255), 2)
             continue
 
         circ = contour_circularity(contour)
-        if circ < MIN_CIRCULARITY:
+        if (not contour_near_edge) and circ < MIN_CIRCULARITY:
+            cv2.drawContours(filter_vis, [contour], -1, (0,165,255), 2)
             continue
 
         ctr, radius = contour_circle_fit(contour)
+        # print(f"Radius={radius:.2f}")
+        contour_near_edge = (ctr[0] < PLATE_X1 + EDGE_MARGIN or
+                             ctr[0] > PLATE_X2 - EDGE_MARGIN or
+                             ctr[1] < PLATE_Y1 + EDGE_MARGIN or
+                             ctr[1] > PLATE_Y2 - EDGE_MARGIN)
+        
         if radius < MIN_RADIUS:
+            cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
             continue
 
         if radius > MAX_RADIUS:
+            cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
             continue
 
         if not (PLATE_X1 <= ctr[0] <= PLATE_X2 and PLATE_Y1 <= ctr[1] <= PLATE_Y2):
             continue
-
+        
+        cv2.drawContours(filter_vis, [contour], -1, (0,255,0), 2)
         candidates.append((contour,ctr,area,radius))
 
     if not candidates:
-        return None, mask
+        return None, mask, filter_vis
 
     if predicted is None:
-        return max(candidates, key=lambda x: x[2]), mask
+        return max(candidates, key=lambda x: x[2]), mask, filter_vis
 
     valid = []
     for candidate in candidates:
@@ -259,9 +280,9 @@ def detect_ball(gray, predicted=None):
 
     if valid:
         valid.sort(key=lambda x: x[1])
-        return valid[0][0], mask
+        return valid[0][0], mask, filter_vis
 
-    return max(candidates, key=lambda x: x[2]), mask
+    return max(candidates, key=lambda x: x[2]), mask, filter_vis
 
 # ================= REALSENSE =================
 pipeline = rs.pipeline()
@@ -320,7 +341,7 @@ try:
         if prev_pos is not None and velocity is not None:
             predicted = (int(prev_pos[0] + velocity[0]), int(prev_pos[1] + velocity[1]))
 
-        result, mask = detect_ball(gray, predicted)
+        result, mask, filter_vis = detect_ball(gray, predicted)
 
         chosen = None
         ctrl_coords = None
@@ -328,6 +349,7 @@ try:
         z_display = None
         raw_center = None
         comp_center = None
+        near_edge = False
 
         # Stats initialization
         x_mean = 0
@@ -401,14 +423,18 @@ try:
         draw_coordinate_overlay(display)
 
         if result is not None:
-            cv2.drawContours(display, [contour], -1, (255, 0, 255), 2)
-            
+
             raw_int = (int(round(raw_center[0])), int(round(raw_center[1])))
             comp_int = (int(round(comp_center[0])), int(round(comp_center[1])))
-
             filt_int = (int(round(chosen[0])), int(round(chosen[1])))
-            # Fitted circle
-            cv2.circle(display, raw_int, int(round(radius)), (0,255,255), 2)
+
+            if (not near_edge) or (not USE_EDGE_COMPENSATION):
+                cv2.drawContours(display, [contour], -1, (255,0,255), 2)
+                cv2.circle(display, filt_int, 6, (0,0,255), -1)
+
+            else:
+                cv2.circle(display, raw_int, int(round(radius)), (0,255,255), 2)
+                cv2.circle(display, filt_int, 6, (0,0,255), -1)
 
             if SHOW_TRACKING_DEBUG:
                 # Raw circle fit center
@@ -500,7 +526,11 @@ try:
             cv2.imshow('Depth View', depth_vis)
 
         if SHOW_MASK:
-            cv2.imshow('Binary Mask', mask)
+            cv2.putText(filter_vis, 'GREEN = Accepted', (10,25), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+            cv2.putText(filter_vis, 'RED = Area Reject', (10,50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,255), 2)
+            cv2.putText(filter_vis, 'ORANGE = Circularity Reject', (10,75), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,165,255), 2)
+            cv2.putText(filter_vis, 'BLUE = Radius Reject', (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
+            cv2.imshow('Final Filter Visualization', filter_vis)
 
         cv2.imshow('Phase_G1 2D Tracking Improvement', display)
         # ================= FPS UPDATE =================

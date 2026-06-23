@@ -4,68 +4,122 @@ group "Tunable Parameters"
 
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[0]
 	{
-	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_4_Col*
-	 alias:   "K_lqr"
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_16_16_Col*
+	 alias:   "A_robust"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[8]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[256]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_16_4_Col*
+	 alias:   "B_robust"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[320]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_16_2_Col*
+	 alias:   "Baw_robust"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[352]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_16_Col*
+	 alias:   "C_robust"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[384]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_4_Col*
+	 alias:   "D_robust"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[392]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Kaw_robust"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[393]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4_4_Col*
 	 alias:   "Q_kf"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[24]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[409]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_2_Col*
 	 alias:   "R_kf"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[28]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[413]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Ts_Inner"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[414]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "Ts_Outer"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[29]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[415]
 	{
 	 type:    flt(64,IEEE)*
-	 alias:   "Ts_fast"
+	 alias:   "ball_pos_sat"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[30]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[416]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "ball_vel_sat"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[417]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "inner_I_sat"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[418]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_3001*
 	 alias:   "path"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3031]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3419]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "plate_angle_sat"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3032]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[3420]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uA"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[203032]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[203420]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uB"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[403032]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[403420]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uC"
 	 flags:   PARAM
 	}
-	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603032]
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603420]
 	{
-	 type:    flt(64,IEEE)*
-	 alias:   "vel_sat"
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
+	 alias:   "u_max_robust"
+	 flags:   PARAM
+	}
+	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[603422]
+	{
+	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
+	 alias:   "u_min_robust"
 	 flags:   PARAM
 	}
 
