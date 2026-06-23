@@ -39,6 +39,9 @@ XY_FILTER_ALPHA = 0.6 # 1.0 = no filtering, 0.1 = max filtering
 # Depth Parameters
 DEPTH_MIN_MM = 400
 DEPTH_MAX_MM = 900
+XY_FILTER_ALPHA_MIN = 0.3
+XY_FILTER_ALPHA_MAX = 0.7
+ADAPTIVE_FILTER_SPEED = 50.0
 TEMPORAL_ALPHA = 0.4 # 0.0 = no temporal smoothing, 1.0 = max smoothing (very slow response)
 TEMPORAL_DELTA = 20 # 0 = no temporal threshold, higher values reject more sudden changes (noise) but can cause lag
 DEPTH_ROI_RADIUS = 5 # Radius for median depth calculation (11x11 window)
@@ -54,8 +57,8 @@ SHOW_DEPTH_VIEW = False
 SHOW_XY_STATS = False
 SHOW_Z_STATS = False
 SHOW_RADIUS_CALIBRATION = False
-SHOW_EDGE_ZONE = True
-SHOW_TRACKING_DEBUG = True
+SHOW_EDGE_ZONE = False
+SHOW_TRACKING_DEBUG = False
 
 # Other parameters
 STATS_WINDOW = 300
@@ -64,6 +67,9 @@ y_history = deque(maxlen=STATS_WINDOW)
 z_history = deque(maxlen=STATS_WINDOW)
 radius_history = deque(maxlen=STATS_WINDOW)
 
+# Reference parameters
+REFERENCE_MODE = "" # "LIVE" = use current mouse position as reference, "PATH" = draw reference path by dragging mouse, "" = no reference
+mouse_down = False
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -72,12 +78,27 @@ with open(CALIBRATION_FILE, 'r') as f:
 plate_quad = np.array(calib['plate_quad'], dtype=np.float32)
 TL, TR, BR, BL = plate_quad
 
-edge = TR - TL
-angle_deg = math.degrees(math.atan2(edge[1], edge[0]))
-print(f'Computed plate angle: {angle_deg:.2f} deg')
+# Horizontal edges
+top_angle = math.degrees(math.atan2(TR[1] - TL[1], TR[0] - TL[0]))
+bottom_angle = math.degrees(math.atan2(BR[1] - BL[1], BR[0] - BL[0]))
+
+# Vertical edges
+left_angle = math.degrees(math.atan2(BL[1] - TL[1], BL[0] - TL[0])) - 90.0
+right_angle = math.degrees(math.atan2(BR[1] - TR[1], BR[0] - TR[0])) - 90.0
+
+angle_deg = np.mean([ top_angle, bottom_angle, left_angle, right_angle])
+
+print()
+print('===== PLATE ANGLE ESTIMATION =====')
+print(f'Top    : {top_angle:.3f}')
+print(f'Bottom : {bottom_angle:.3f}')
+print(f'Left   : {left_angle:.3f}')
+print(f'Right  : {right_angle:.3f}')
+print(f'Final  : {angle_deg:.3f}')
+print('==================================')
 
 CENTER = (WIDTH // 2, HEIGHT // 2)
-ROT_MAT = cv2.getRotationMatrix2D(CENTER, -angle_deg, 1.0)
+ROT_MAT = cv2.getRotationMatrix2D(CENTER, angle_deg, 1.0)
 
 ones = np.ones((4, 1))
 plate_h = np.hstack([plate_quad, ones])
@@ -100,6 +121,30 @@ def pixel_to_control_coords(pixel_xy):
     y_mm = (PLATE_CENTER_Y - pixel_xy[1]) * SCALE_Y
     return x_mm, y_mm
 
+def reference_pixel_to_mm(pixel_xy):
+
+    return pixel_to_control_coords(pixel_xy)
+
+def mouse_callback(event, x, y, flags, param):
+
+    global ref_pixel
+    global ref_path_pixels
+    global mouse_down
+
+    if REFERENCE_MODE == "LIVE":
+        if event == cv2.EVENT_MOUSEMOVE:
+            ref_pixel = (x, y)
+
+    elif REFERENCE_MODE == "PATH":
+        if event == cv2.EVENT_LBUTTONDOWN:
+            mouse_down = True
+            ref_path_pixels = [(x, y)]
+
+        elif event == cv2.EVENT_MOUSEMOVE and mouse_down:
+            ref_path_pixels.append((x, y))
+
+        elif event == cv2.EVENT_LBUTTONUP:
+            mouse_down = False
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     x_mm = int(ctrl_xy[0])
@@ -120,6 +165,23 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
+
+def send_reference_xy(ref_xy, ref_flag):
+
+    x_ref = int(ref_xy[0])
+    y_ref = int(ref_xy[1])
+
+    x_bytes = x_ref.to_bytes(2, byteorder='little', signed=True)
+    y_bytes = y_ref.to_bytes(2, byteorder='little', signed=True)
+
+    packet = bytearray([
+        x_bytes[0],
+        x_bytes[1],
+        y_bytes[0],
+        y_bytes[1],
+        ref_flag])
+
+    UDPClientSocket.sendto(packet, ("192.168.140.8",49002))
 
 
 def get_median_depth_mm(depth_raw, x, y, depth_scale):
@@ -205,6 +267,16 @@ def edge_compensated_center(center, radius):
 
     return (x, y)
 
+def compute_adaptive_alpha(speed_px):
+
+    alpha = np.interp(
+        speed_px,
+        [0, ADAPTIVE_FILTER_SPEED],
+        [XY_FILTER_ALPHA_MIN,
+         XY_FILTER_ALPHA_MAX]
+    )
+
+    return float(alpha)
 
 def detect_ball(gray, predicted=None):
     gray = cv2.GaussianBlur(gray,(5,5),0) # gaussian Blur to reduce noise and improve thresholding
@@ -303,16 +375,28 @@ temporal.set_option(rs.option.filter_smooth_delta,TEMPORAL_DELTA)
 # Values initialization
 prev_pos = None
 velocity = None
+lost_frames = 0
+LOST_TIMEOUT_FRAMES = 5
 filtered_pos = None
 ball_radius_ref = None
 z_reference_mm = None
 last_valid_ctrl_coords = (0.0, 0.0)
 last_valid_z = 0.0
 
+ref_pixel = (PLATE_CENTER_X, PLATE_CENTER_Y)
+ref_path_pixels = []
+
+playback_index = 0
+playback_active = False
+
 # FPS measurement
 fps = 0.0
 fps_alpha = 0.1
 prev_time = time.perf_counter()
+
+WINDOW_NAME = 'Phase_H Final Reference'
+cv2.namedWindow(WINDOW_NAME)
+cv2.setMouseCallback(WINDOW_NAME, mouse_callback)
 
 try:
     while True:
@@ -340,6 +424,7 @@ try:
         predicted = None
         if prev_pos is not None and velocity is not None:
             predicted = (int(prev_pos[0] + velocity[0]), int(prev_pos[1] + velocity[1]))
+            predicted_pos = predicted
 
         result, mask, filter_vis = detect_ball(gray, predicted)
 
@@ -361,9 +446,15 @@ try:
         radius_mean = 0
         radius_std = 0
 
+        vx_mm = 0
+        vy_mm = 0
+        speed_mm = 0
+
+        ref_mm = (0.0, 0.0)
+
         if result is not None:
             contour, chosen, area, radius = result
-
+            lost_frames = 0
             raw_center = chosen
 
             radius_history.append(radius)
@@ -391,12 +482,18 @@ try:
             else:
                 comp_center = chosen
 
+            if velocity is None:
+                alpha_xy = XY_FILTER_ALPHA_MIN
+            else:
+                speed_px = math.hypot(velocity[0], velocity[1])
+                alpha_xy = compute_adaptive_alpha(speed_px)
+                # print(f"Adaptive filter -> {alpha_xy:.3f} (speed={speed_px:.2f}px)")
+
             if filtered_pos is None:
                 filtered_pos = chosen
             else:
-                filtered_pos = (XY_FILTER_ALPHA * chosen[0] + (1.0 - XY_FILTER_ALPHA) * filtered_pos[0], 
-                                XY_FILTER_ALPHA * chosen[1] + (1.0 - XY_FILTER_ALPHA) * filtered_pos[1])
-
+                filtered_pos = (alpha_xy * chosen[0] + (1.0 - alpha_xy) * filtered_pos[0], 
+                                alpha_xy * chosen[1] + (1.0 - alpha_xy) * filtered_pos[1])
             chosen = filtered_pos
             ctrl_coords = pixel_to_control_coords(chosen)
 
@@ -411,17 +508,33 @@ try:
                 
             if prev_pos is not None:
                 velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
+                vx_mm = velocity[0] * SCALE_X * fps
+                vy_mm = -velocity[1] * SCALE_Y * fps
+                speed_mm = math.hypot(vx_mm, vy_mm)
             else:
                 velocity = (0, 0)
 
             prev_pos = chosen
         else:
-            prev_pos = None
-            velocity = None
+            lost_frames += 1
+            if lost_frames <= LOST_TIMEOUT_FRAMES:
+                if (prev_pos is not None and velocity is not None):
+                    prev_pos = (prev_pos[0] + velocity[0], prev_pos[1] + velocity[1])
+            else:
+                prev_pos = None
+                velocity = None
+                filtered_pos = None
 
         display = frame.copy()
         draw_coordinate_overlay(display)
-
+        
+        if REFERENCE_MODE != "":
+            cv2.circle(display, (int(ref_pixel[0]), int(ref_pixel[1])), 8, (255,255,255), -1)
+        
+        if (REFERENCE_MODE == "PATH" and len(ref_path_pixels) > 1):
+            pts = np.array(ref_path_pixels, dtype=np.int32)
+            cv2.polylines(display, [pts], False, (255,255,255), 2)
+        
         if result is not None:
 
             raw_int = (int(round(raw_center[0])), int(round(raw_center[1])))
@@ -504,6 +617,12 @@ try:
             cv2.putText(display, 'GREEN  = Raw Fit', (20,300), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
             cv2.putText(display, 'YELLOW = Edge Comp', (20,325), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2)
             cv2.putText(display, 'RED    = Filtered', (20,350), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2)
+            cv2.putText(display, f'Vx: {vx_mm:+6.1f} mm/s', (20, 380), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+            cv2.putText(display, f'Vy: {vy_mm:+6.1f} mm/s', (20, 405), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+            cv2.putText(display, f'|V|: {speed_mm:6.1f} mm/s', (20, 430), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+
+            if predicted is not None:
+                cv2.circle(display, predicted, 6, (255,0,0), 2)
         
         if near_edge:
             # print(f'Near edge ON')
@@ -517,12 +636,14 @@ try:
 
         if SHOW_DEPTH_VIEW:
             depth_mm = depth_raw.astype(np.float32) * depth_scale * 1000.0
+            if chosen is not None:
+                depth_center = (int(round(chosen[0])), int(round(chosen[1])))
             depth_clipped = np.clip(depth_mm, DEPTH_MIN_MM, DEPTH_MAX_MM)
             depth_norm = ((depth_clipped - DEPTH_MIN_MM) / (DEPTH_MAX_MM - DEPTH_MIN_MM) * 255).astype(np.uint8)
             depth_vis = cv2.applyColorMap(depth_norm, cv2.COLORMAP_JET)
             draw_depth_legend(depth_vis)
             if chosen is not None:
-                cv2.circle(depth_vis, chosen, 5, (255,255,255), -1)
+                cv2.circle(depth_vis, depth_center, 5, (255,255,255), -1)
             cv2.imshow('Depth View', depth_vis)
 
         if SHOW_MASK:
@@ -532,7 +653,51 @@ try:
             cv2.putText(filter_vis, 'BLUE = Radius Reject', (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
             cv2.imshow('Final Filter Visualization', filter_vis)
 
-        cv2.imshow('Phase_G1 2D Tracking Improvement', display)
+        if REFERENCE_MODE == "":
+             cv2.putText(display, 'REF MODE: OFF', (WIDTH - 220, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (128,128,128), 2)
+             send_reference_xy((0,0), 0)
+
+        elif REFERENCE_MODE == "LIVE":
+            cv2.putText(display, 'REF MODE: LIVE', (WIDTH - 220, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
+            ref_mm = reference_pixel_to_mm(ref_pixel)
+            send_reference_xy(ref_mm, 1)
+
+            cv2.putText(display, f'Xref: {ref_mm[0]:+6.1f} mm', (WIDTH - 240, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+            cv2.putText(display, f'Yref: {ref_mm[1]:+6.1f} mm', (WIDTH - 240, 85), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+
+        elif REFERENCE_MODE == "PATH":
+            if playback_active and len(ref_path_pixels) > 0:
+                color = (0,255,255)
+                text = 'REF MODE: PLAYBACK'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+
+                ref_pixel = ref_path_pixels[playback_index]
+
+                ref_mm = reference_pixel_to_mm(ref_pixel)
+                send_reference_xy(ref_mm, 1)
+
+                cv2.putText(display, f'Xref: {ref_mm[0]:+6.1f} mm', (WIDTH - 240, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+                cv2.putText(display, f'Yref: {ref_mm[1]:+6.1f} mm', (WIDTH - 240, 85), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+
+                playback_index += 1
+
+                if playback_index >= len(ref_path_pixels):
+                    playback_index = 0
+
+            elif mouse_down:
+                color = (0,0,255)
+                text = 'REF MODE: RECORDING'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+            
+            else:
+                color = (255,255,0)
+                text = 'REF MODE: READY'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+
+                send_reference_xy((0,0),0)
+
+        cv2.imshow('Phase_H Final Reference', display)
+
         # ================= FPS UPDATE =================
         current_time = time.perf_counter()
         dt = current_time - prev_time
@@ -549,6 +714,31 @@ try:
             print(f'Z reference set to {z_reference_mm:.1f} mm')
         if key == 27:
             break
+
+        if key == ord('l'):
+            REFERENCE_MODE = "LIVE"
+            print("LIVE REFERENCE MODE")
+
+        elif key == ord('r'):
+            REFERENCE_MODE = "PATH"
+            playback_active = False
+            print("PATH DRAW MODE")
+
+        elif key == ord(' '):
+            if len(ref_path_pixels) > 0:
+                playback_active = True
+                playback_index = 0
+                print("PATH PLAYBACK")
+
+        elif key == ord('c'):
+            ref_path_pixels.clear()
+            playback_active = False
+            print("Trajectory cleared")
+
+        elif key == ord('n'):
+            REFERENCE_MODE = ""
+            playback_active = False
+            print("REFERENCE DISABLED")
 
 finally:
     pipeline.stop()

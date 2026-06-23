@@ -100,17 +100,6 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
 
-# MATLAB Function to read the coordinates
-# function [x,y,z,flag] = fcn(u)
-
-# x = double(typecast(uint8(u(1:4)), 'single'));
-# y = double(typecast(uint8(u(5:8)), 'single'));
-# z = double(typecast(uint8(u(9:12)), 'single'));
-
-# flag = double(typecast(uint8(u(13:16)), 'single'));
-
-# end
-
 def get_median_depth_mm(depth_raw, x, y, depth_scale):
     x1 = max(0, x - DEPTH_ROI_RADIUS)
     x2 = min(depth_raw.shape[1], x + DEPTH_ROI_RADIUS + 1)

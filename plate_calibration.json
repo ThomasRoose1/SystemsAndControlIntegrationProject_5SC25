@@ -1,42 +1,43 @@
 {
     "plate_size_mm": 400,
     "top_left": [
-        97,
-        50
+        96,
+        51
     ],
     "top_right": [
-        503,
+        500,
         47
     ],
     "bottom_right": [
-        506,
-        449
+        509,
+        454
     ],
     "bottom_left": [
-        100,
-        454
+        98,
+        462
     ],
     "plate_quad": [
         [
-            97,
-            50
+            96,
+            51
         ],
         [
-            503,
+            500,
             47
         ],
         [
-            506,
-            449
+            509,
+            454
         ],
         [
-            100,
-            454
+            98,
+            462
         ]
     ],
-    "plate_x1": 97,
-    "plate_x2": 506,
+    "homography_size_px": 400,
+    "plate_x1": 96,
+    "plate_x2": 509,
     "plate_y1": 47,
-    "plate_y2": 454,
+    "plate_y2": 462,
     "depth_reference_file": "plate_depth_reference.npy"
 }

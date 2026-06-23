@@ -338,12 +338,19 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{D405576B-9380-4921-A82A-B730BF64D212}</EntityID>
 					<ItemInfoDate type="key">19/06/2026 11:22:38</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+<<<<<<< HEAD
 					<ItemInfoDescr type="key"/>
+=======
+>>>>>>> 536b41ed6bd863c9010faceeb6dafc5206dc9b36
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
+<<<<<<< HEAD
+=======
+					<ItemInfoDescr type="key"/>
+>>>>>>> 536b41ed6bd863c9010faceeb6dafc5206dc9b36
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -694,6 +701,38 @@ ControlDesk version: 7.3</ItemInfoLog>
 			</Variable>
 			<Variable>
 				<Name type="key">Model Root/Ethernet communication/Byte Unpacking /Out2</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/First Order Hold/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/First Order Hold1/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Gain_ff_x/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Gain_ff_y\n/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -1091,6 +1130,42 @@ ControlDesk version: 7.3</ItemInfoLog>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/First Order Hold1/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Gain_ff_x/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Gain_ff_y\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/First Order Hold/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
