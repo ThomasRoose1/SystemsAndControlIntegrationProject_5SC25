@@ -19,7 +19,7 @@
 					</item>
 					<item>
 						<Name type="key">Layout1.lay</Name>
-						<ViewFlags type="key">1</ViewFlags>
+						<ViewFlags type="key">5</ViewFlags>
 					</item>
 					<item>
 						<Name type="key">Layout2.lay</Name>
@@ -35,34 +35,10 @@
 					<ViewFlags type="key">1</ViewFlags>
 					<item>
 						<Name type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Name>
-						<ViewFlags type="key">1</ViewFlags>
+						<ViewFlags type="key">65</ViewFlags>
 						<item>
 							<Name type="key">ball_and_plate_microlabbox_student.sdf</Name>
 							<ViewFlags type="key">1</ViewFlags>
-							<item>
-								<Name type="key">rec1_010.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_011.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_012.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_013.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_014.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
-								<Name type="key">rec1_015.mf4</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
 							<item>
 								<Name type="key">rec1_010.mf4</Name>
 								<ViewFlags type="key">1</ViewFlags>
@@ -123,11 +99,7 @@
 					</item>
 					<item>
 						<Name type="key">rec1_015.mf4</Name>
-<<<<<<< HEAD
 						<ViewFlags type="key">1</ViewFlags>
-=======
-						<ViewFlags type="key">5</ViewFlags>
->>>>>>> 536b41ed6bd863c9010faceeb6dafc5206dc9b36
 					</item>
 				</item>
 				<item>
@@ -180,10 +152,10 @@
 	<Instrumentation>
 		<Layouts Version="3">
 			<Layout1>
-				<Data type="key">Layout1.lay|1|2bca74c0-4866-430d-b7d5-8f1919ef3418/0|1:sm:mm 26 26 1638 552 -1 -1:</Data>
+				<Data type="key">Layout1.lay|1|2bca74c0-4866-430d-b7d5-8f1919ef3418/0|1:sm:mm 26 26 1664 521 -1 -1:</Data>
 			</Layout1>
 			<Layout2>
-				<Data type="key">Layout2.lay|1|090df5ef-b1ce-4947-ac99-cace898eae9f/1|1:sm:mm 52 52 1658 645 -1 -1:</Data>
+				<Data type="key">Layout2.lay|1|090df5ef-b1ce-4947-ac99-cace898eae9f/1|1:sm:mm 52 52 1710 543 -1 -1:</Data>
 			</Layout2>
 			<Layout3>
 				<Data type="key">Layout3.lay|1|87e35ca5-d9d1-4a28-9ce9-ff5cfc3649f7/2|1:sm:mm 78 78 1736 569 -1 -1:</Data>

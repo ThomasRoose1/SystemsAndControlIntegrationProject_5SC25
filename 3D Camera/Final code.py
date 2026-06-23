@@ -23,7 +23,7 @@ GRID_SPACING_MM = 100.0
 # Mask parameters
 MAX_TRACK_DISTANCE = 120
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
-THRESHOLD = 75 # Adjust based on lighting conditions and ball color
+THRESHOLD = 85 # Adjust based on lighting conditions and ball color
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels

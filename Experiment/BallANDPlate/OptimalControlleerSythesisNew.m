@@ -96,16 +96,16 @@ fprintf('Rank observability matrix   = %d / %d\n', rank(Ob), size(Acheck,1));
 %% Design assumptions / requirements
 
 r_max = 0.25;                 % [m] 25 cm plate scale
-v_max = 0.15;                 % [m/s]
+v_max = 0.22;                 % [m/s]
 
-alpha_max = deg2rad(4);     % [rad], soft design angle
-beta_max  = deg2rad(4);     % [rad]
+alpha_max = deg2rad(3.2);     % [rad], soft design angle
+beta_max  = deg2rad(3.2);     % [rad]
 
 d_alpha_max = deg2rad(0.12);  % [rad]
 d_beta_max  = deg2rad(0.12);  % [rad]
 
 f_ref   = 0.08;               % [Hz]
-f_sens  = 0.11;               % [Hz]
+f_sens  = 0.09;               % [Hz]
 f_input = 0.05;               % [Hz]
 f_noise =0.8;               % [Hz], only used if useWt = true
 
@@ -115,7 +115,7 @@ w_input = 2*pi*f_input;
 w_noise = 2*pi*f_noise;
 
 Ms   = 1.8;
-epsS = 0.2;                  % low-frequency sensitivity weight = 5
+epsS = 0.025;                  % low-frequency sensitivity weight = 5
 
 useWt = true;
 useStrokeWeight = true;
@@ -148,7 +148,7 @@ Wt = blkdiag(Wt_ch, Wt_ch);
 
 % 6. Angle command weight Wu
 Wu_hf = 120;
-Wu_lf = 0.5;
+Wu_lf = 0.45;
 Wu_mid = sqrt(Wu_lf*Wu_hf);
 
 Wu_alpha_ch = (1/alpha_max) * makeweight(Wu_lf, [w_input Wu_mid], Wu_hf);
