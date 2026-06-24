@@ -19,7 +19,7 @@
 					</item>
 					<item>
 						<Name type="key">Layout1.lay</Name>
-						<ViewFlags type="key">5</ViewFlags>
+						<ViewFlags type="key">1</ViewFlags>
 					</item>
 					<item>
 						<Name type="key">Layout2.lay</Name>
@@ -35,10 +35,10 @@
 					<ViewFlags type="key">1</ViewFlags>
 					<item>
 						<Name type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Name>
-						<ViewFlags type="key">65</ViewFlags>
+						<ViewFlags type="key">1</ViewFlags>
 						<item>
 							<Name type="key">ball_and_plate_microlabbox_student.sdf</Name>
-							<ViewFlags type="key">1</ViewFlags>
+							<ViewFlags type="key">5</ViewFlags>
 							<item>
 								<Name type="key">rec1_010.mf4</Name>
 								<ViewFlags type="key">1</ViewFlags>
@@ -162,7 +162,4 @@
 			</Layout3>
 		</Layouts>
 	</Instrumentation>
-	<XILAPIEESPort>
-		<ErrorConfigurationDocuments Version="1"/>
-	</XILAPIEESPort>
 </Root>

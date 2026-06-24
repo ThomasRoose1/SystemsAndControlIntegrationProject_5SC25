@@ -158,6 +158,9 @@ setoutdist(mpcobj, 'model', tf(zeros(nx, 1)));
 
 disp('MPC Object created successfully!');
 
+%% load references
+
+
 %% done
 disp('Initialization complete. Ready for Simulink simulation.');
 
