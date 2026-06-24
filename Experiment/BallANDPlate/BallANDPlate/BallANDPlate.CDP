@@ -763,6 +763,24 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-23 1
 
 Variable description reloaded on 24.06.2026 11:36:15 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
 Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 09:35:46 (UTC)]
+
+Variable description reloaded on 24.06.2026 12:05:08 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 10:04:43 (UTC)]
+
+Variable description reloaded on 24.06.2026 12:06:59 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 10:06:37 (UTC)]
+
+Variable description reloaded on 24.06.2026 12:07:35 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 10:06:37 (UTC)]
+
+Variable description reloaded on 24.06.2026 12:26:45 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 10:25:57 (UTC)]
+
+Variable description reloaded on 24.06.2026 12:41:21 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 10:40:20 (UTC)]
+
+Variable description reloaded on 24.06.2026 12:50:46 (C:\git\SystemsAndControlIntegrationProject_5SC25\Experiment\BallANDPlate\ball_and_plate_microlabbox_student.sdf)
+Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 10:50:25 (UTC)]
 </ItemInfoLog>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20223094</ItemInfoAuthor>
@@ -774,9 +792,9 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">4</Type>
-						<UniqueID type="key">702247871</UniqueID>
-						<EntityID type="key">{4D97777A-00E8-49A1-AABF-ED1350CF6B01}</EntityID>
-						<ItemInfoDate type="key">24/06/2026 11:36:15</ItemInfoDate>
+						<UniqueID type="key">411280116</UniqueID>
+						<EntityID type="key">{6A5F35AF-9E7A-4BD3-BBF1-3460558723BE}</EntityID>
+						<ItemInfoDate type="key">24/06/2026 12:50:46</ItemInfoDate>
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
@@ -790,9 +808,9 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">4</Type>
-						<UniqueID type="key">957443718</UniqueID>
-						<EntityID type="key">{7C58E7E4-D5BE-4824-AD89-04DBC016F21A}</EntityID>
-						<ItemInfoDate type="key">24/06/2026 11:36:15</ItemInfoDate>
+						<UniqueID type="key">565895954</UniqueID>
+						<EntityID type="key">{99829501-7900-4028-B95F-90EDEBFE811F}</EntityID>
+						<ItemInfoDate type="key">24/06/2026 12:50:46</ItemInfoDate>
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
@@ -806,9 +824,9 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 0
 						<Flags type="key">18692</Flags>
 						<ExtendedFlags type="key">1</ExtendedFlags>
 						<Type type="key">30</Type>
-						<UniqueID type="key">165121682</UniqueID>
-						<EntityID type="key">{118853FD-21B9-4C09-A812-268E1EDDEE7C}</EntityID>
-						<ItemInfoDate type="key">24/06/2026 11:36:15</ItemInfoDate>
+						<UniqueID type="key">385290476</UniqueID>
+						<EntityID type="key">{E109E4DA-38F7-48FA-AF0A-60DA262E4CC8}</EntityID>
+						<ItemInfoDate type="key">24/06/2026 12:50:46</ItemInfoDate>
 						<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 						<ItemInfoDescr type="key"/>
 						<ItemInfoAddInfoDb type="key"/>
@@ -942,13 +960,15 @@ Original file added from ..\ball_and_plate_microlabbox_student.sdf [2026-06-24 0
 	</ProjectExperiment>
 	<Instrumentation Version="1">
 		<UniqueIds Version="3">
-			<Count type="key">3</Count>
+			<Count type="key">4</Count>
 			<File1 type="key">Experiment_001/Layout1</File1>
 			<Id1 type="key">0</Id1>
 			<File2 type="key">Experiment_001/Layout2</File2>
 			<Id2 type="key">1</Id2>
 			<File3 type="key">Experiment_001/Layout3</File3>
 			<Id3 type="key">2</Id3>
+			<File4 type="key">Experiment_001/Layout6</File4>
+			<Id4 type="key">3</Id4>
 		</UniqueIds>
 	</Instrumentation>
 	<DiagnosticsManagement/>
