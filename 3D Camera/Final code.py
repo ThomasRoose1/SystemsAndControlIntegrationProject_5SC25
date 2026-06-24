@@ -17,7 +17,7 @@ FPS_Depth = 90
 
 #Calibration parameters
 CALIBRATION_FILE = 'plate_calibration.json'
-PLATE_SIZE_MM = 400.0
+PLATE_SIZE_MM = 390.0
 GRID_SPACING_MM = 100.0
 
 # Mask parameters
@@ -30,7 +30,7 @@ MAX_AREA = 2000 # Adjust based on expected ball size in pixels
 # Potential continuous auto-calibration --> MIN_RADIUS = ball_radius_ref - 3*radius_std // MAX_RADIUS = ball_radius_ref + 3*radius_std
 MIN_RADIUS = 15 # Need to be calibrated
 MAX_RADIUS = 30 # Need to be calibrated
-EDGE_MARGIN = 30 # Need to be calibrated
+EDGE_MARGIN = 40 # Need to be calibrated
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
 
 BALL_RADIUS_ALPHA = 0.2 # 1.0 = no smoothing, 0.1 = max smoothing (very slow response)
