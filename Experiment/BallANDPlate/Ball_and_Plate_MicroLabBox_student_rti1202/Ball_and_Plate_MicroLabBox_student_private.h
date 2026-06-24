@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.136
+ * Model version              : 1.144
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue Jun 23 14:46:00 2026
+ * C source code generated on : Wed Jun 24 12:50:01 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -48,6 +48,8 @@ extern DioCl2EncoderInSDrvObject *pRTIEmcEncoder_Unit_2_DioCl_2_Port_1_Ch3;
 extern DacCl1AnalogOutSDrvObject *pRTIDacC1AnalogOut_Ch_3;
 extern DioCl2EncoderInSDrvObject *pRTIEmcEncoder_Unit_3_DioCl_2_Port_1_Ch5;
 extern real_T rt_powd_snf(real_T u0, real_T u1);
+extern real_T rt_urand_Upu32_Yd_f_pw_snf(uint32_T *u);
+extern real_T rt_nrand_Upu32_Yd_f_pw_snf(uint32_T *u);
 extern real_T rt_hypotd_snf(real_T u0, real_T u1);
 extern void dlowpass1(SimStruct *rts);
 extern void dleadlag(SimStruct *rts);

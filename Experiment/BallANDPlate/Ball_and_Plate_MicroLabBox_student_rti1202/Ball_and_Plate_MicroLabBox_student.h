@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.136
+ * Model version              : 1.144
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue Jun 23 14:46:00 2026
+ * C source code generated on : Wed Jun 24 12:50:01 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -41,7 +41,6 @@
 #include "multiword_types.h"
 #include "rtGetInf.h"
 #include "rt_nonfinite.h"
-#include "rtGetNaN.h"
 #include "rt_zcfcn.h"
 
 /* Macros for accessing real-time model data structure */
@@ -234,14 +233,12 @@ typedef struct {
   real_T Gain;                         /* '<Root>/Gain' */
   real_T FirstOrderHold;               /* '<Root>/First Order Hold' */
   real_T FirstOrderHold1;              /* '<Root>/First Order Hold1' */
-  real_T Delay[2];                     /* '<Root>/Delay' */
   real_T Switch[4];                    /* '<Root>/Switch' */
-  real_T Gain7;                        /* '<Root>/Gain7' */
   real_T Sum[4];                       /* '<S10>/Sum' */
   real_T RateLimiter[2];               /* '<S10>/Rate Limiter' */
   real_T moorxConversion[4];           /* '<S63>/mo or x Conversion' */
   real_T last_mv[2];                   /* '<S63>/last_mv' */
-  real_T DataTypeConversion1[4];       /* '<S63>/Data Type Conversion1' */
+  real_T DataTypeConversion1[100];     /* '<S63>/Data Type Conversion1' */
   real_T DataTypeConversion2;          /* '<S63>/Data Type Conversion2' */
   real_T DataTypeConversion4[2];       /* '<S63>/Data Type Conversion4' */
   real_T umin_scale[2];                /* '<S63>/umin_scale' */
@@ -305,26 +302,31 @@ typedef struct {
   real_T Beta_sat;                     /* '<Root>/Beta_sat ' */
   real_T CastToDouble;                 /* '<Root>/Cast To Double' */
   real_T CastToDouble1;                /* '<Root>/Cast To Double1' */
+  real_T Delay[2];                     /* '<Root>/Delay' */
   real_T SFunction1[2];                /* '<S16>/S-Function1' */
   real_T Switch_h;                     /* '<S18>/Switch' */
   real_T enable_ref;                   /* '<S18>/enable_ref ' */
   real_T Sum1;                         /* '<S18>/Sum1' */
-  real_T Gain2;                        /* '<S26>/Gain2' */
-  real_T Dctleadlag1;                  /* '<S26>/Dctleadlag1' */
-  real_T Dct1lowpass1;                 /* '<S26>/Dct1lowpass1' */
+  real_T Gain1_b;                      /* '<S26>/Gain1' */
+  real_T Dctleadlag2;                  /* '<S26>/Dctleadlag2' */
+  real_T Dct1lowpass3;                 /* '<S26>/Dct1lowpass3' */
   real_T DiscreteTimeIntegrator;       /* '<S26>/Discrete-Time Integrator' */
   real_T Switch2_k;                    /* '<S18>/Switch2' */
-  real_T Sum_p;                        /* '<S18>/Sum' */
+  real_T RandomNumber;                 /* '<S18>/Random Number' */
+  real_T dA;                           /* '<S18>/enable_white_noise_A ' */
+  real_T uA;                           /* '<S18>/Sum' */
   real_T Switch3;                      /* '<S18>/Switch3' */
   real_T Switch1_j;                    /* '<S19>/Switch1' */
   real_T Switch_j;                     /* '<S19>/Switch' */
   real_T Sum1_f;                       /* '<S19>/Sum1' */
-  real_T Gain2_o;                      /* '<S39>/Gain2' */
-  real_T Dctleadlag1_d;                /* '<S39>/Dctleadlag1' */
-  real_T Dct1lowpass1_c;               /* '<S39>/Dct1lowpass1' */
+  real_T Gain1_f;                      /* '<S39>/Gain1' */
+  real_T Dctleadlag2_k;                /* '<S39>/Dctleadlag2' */
+  real_T Dct1lowpass3_c;               /* '<S39>/Dct1lowpass3' */
   real_T DiscreteTimeIntegrator_m;     /* '<S39>/Discrete-Time Integrator' */
   real_T Switch2_p;                    /* '<S19>/Switch2' */
-  real_T Sum_g;                        /* '<S19>/Sum' */
+  real_T RandomNumber_o;               /* '<S19>/Random Number' */
+  real_T dB;                           /* '<S19>/enable_white_noise_B ' */
+  real_T uB;                           /* '<S19>/Sum' */
   real_T Switch3_d;                    /* '<S19>/Switch3' */
   real_T Switch_n;                     /* '<S34>/Switch' */
   real_T Constant1;                    /* '<S34>/Constant1' */
@@ -332,12 +334,14 @@ typedef struct {
   real_T Switch1_k;                    /* '<S20>/Switch1' */
   real_T Switch_jo;                    /* '<S20>/Switch' */
   real_T Sum1_h;                       /* '<S20>/Sum1' */
-  real_T Gain1_a;                      /* '<S54>/Gain1' */
-  real_T Dctleadlag2;                  /* '<S54>/Dctleadlag2' */
-  real_T Dct1lowpass2_p;               /* '<S54>/Dct1lowpass2' */
+  real_T Gain2;                        /* '<S54>/Gain2' */
+  real_T Dctleadlag1;                  /* '<S54>/Dctleadlag1' */
+  real_T Dct1lowpass1;                 /* '<S54>/Dct1lowpass1' */
   real_T DiscreteTimeIntegrator_h;     /* '<S54>/Discrete-Time Integrator' */
   real_T Switch2_h;                    /* '<S20>/Switch2' */
-  real_T Sum_h;                        /* '<S20>/Sum' */
+  real_T RandomNumber_n;               /* '<S20>/Random Number' */
+  real_T dC;                           /* '<S20>/enable_white_noise_C ' */
+  real_T uC;                           /* '<S20>/Sum' */
   real_T Switch3_l;                    /* '<S20>/Switch3' */
   real_T reser_integrator;             /* '<S3>/reser_integrator' */
   real_T DataTypeConversion14;         /* '<S63>/Data Type Conversion14' */
@@ -363,9 +367,11 @@ typedef struct {
   real_T yseq[104];                    /* '<S83>/optimizer' */
   real_T status;                       /* '<S83>/optimizer' */
   real_T xest[4];                      /* '<S83>/optimizer' */
-  real_T r[4];                         /* '<Root>/MATLAB Function3' */
-  real_T a[2];                         /* '<Root>/MATLAB Function3' */
+  real_T rsample[4];                   /* '<Root>/MATLAB Function1' */
+  real_T asample[2];                   /* '<Root>/MATLAB Function1' */
+  real_T rpreview[100];                /* '<Root>/MATLAB Function1' */
   real_T TmpSignalConversionAtSFunctionI[2];/* '<Root>/MATLAB Function' */
+  real_T TmpSignalConversionAtSFunctio_e[2];/* '<Root>/MATLAB Function' */
   real_T x_est[4];                     /* '<Root>/MATLAB Function' */
   real_T alpha;                        /* '<S3>/PosToAngle ' */
   real_T beta;                         /* '<S3>/PosToAngle ' */
@@ -467,12 +473,12 @@ typedef struct {
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T UD_DSTATE;                    /* '<S1>/UD' */
-  real_T Delay_DSTATE[2];              /* '<Root>/Delay' */
   real_T last_mv_DSTATE[2];            /* '<S63>/last_mv' */
   real_T Integrator_DSTATE;            /* '<S158>/Integrator' */
   real_T Filter_DSTATE;                /* '<S153>/Filter' */
   real_T Integrator_DSTATE_n;          /* '<S114>/Integrator' */
   real_T Filter_DSTATE_p;              /* '<S109>/Filter' */
+  real_T Delay_DSTATE[2];              /* '<Root>/Delay' */
   real_T DiscreteTimeIntegrator_DSTATE;/* '<S26>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_DSTATE_p;/* '<S39>/Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_DSTATE_o;/* '<S54>/Discrete-Time Integrator' */
@@ -486,13 +492,15 @@ typedef struct {
   real_T Mk_g;                         /* '<Root>/First Order Hold1' */
   real_T Uk_i;                         /* '<Root>/First Order Hold1' */
   real_T PrevY[2];                     /* '<S10>/Rate Limiter' */
+  real_T NextOutput;                   /* '<S18>/Random Number' */
+  real_T NextOutput_d;                 /* '<S19>/Random Number' */
+  real_T NextOutput_p;                 /* '<S20>/Random Number' */
   real_T last_x_PreviousInput[4];      /* '<S63>/last_x' */
   real_T xK[16];                       /* '<S10>/MATLAB Function1' */
   real_T u_prev[2];                    /* '<S10>/MATLAB Function1' */
   real_T alpha_I;                      /* '<S10>/MATLAB Function' */
   real_T beta_I;                       /* '<S10>/MATLAB Function' */
-  real_T theta;                        /* '<Root>/MATLAB Function3' */
-  real_T current_R;                    /* '<Root>/MATLAB Function3' */
+  real_T idx_ref;                      /* '<Root>/MATLAB Function1' */
   real_T x_hat[4];                     /* '<Root>/MATLAB Function' */
   real_T P[16];                        /* '<Root>/MATLAB Function' */
   real_T index;                        /* '<S34>/MATLAB Function' */
@@ -507,13 +515,16 @@ typedef struct {
     real_T RX_DROPPED_FRAMES[2];
   } SFunction1_RWORK_l;                /* '<S16>/S-Function1' */
 
-  real_T Dctleadlag1_RWORK[2];         /* '<S26>/Dctleadlag1' */
-  real_T Dct1lowpass1_RWORK[2];        /* '<S26>/Dct1lowpass1' */
-  real_T Dctleadlag1_RWORK_l[2];       /* '<S39>/Dctleadlag1' */
-  real_T Dct1lowpass1_RWORK_p[2];      /* '<S39>/Dct1lowpass1' */
-  real_T Dctleadlag2_RWORK[2];         /* '<S54>/Dctleadlag2' */
-  real_T Dct1lowpass2_RWORK_f[2];      /* '<S54>/Dct1lowpass2' */
+  real_T Dctleadlag2_RWORK[2];         /* '<S26>/Dctleadlag2' */
+  real_T Dct1lowpass3_RWORK[2];        /* '<S26>/Dct1lowpass3' */
+  real_T Dctleadlag2_RWORK_o[2];       /* '<S39>/Dctleadlag2' */
+  real_T Dct1lowpass3_RWORK_b[2];      /* '<S39>/Dct1lowpass3' */
+  real_T Dctleadlag1_RWORK[2];         /* '<S54>/Dctleadlag1' */
+  real_T Dct1lowpass1_RWORK[2];        /* '<S54>/Dct1lowpass1' */
   real_T Dct1lowpass2_RWORK_j[2];      /* '<S13>/Dct1lowpass2' */
+  uint32_T RandSeed;                   /* '<S18>/Random Number' */
+  uint32_T RandSeed_g;                 /* '<S19>/Random Number' */
+  uint32_T RandSeed_e;                 /* '<S20>/Random Number' */
   int_T ByteUnpacking_IWORK[10];       /* '<S2>/Byte Unpacking ' */
   boolean_T DelayInput1_DSTATE;        /* '<S176>/Delay Input1' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
@@ -637,12 +648,13 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         * Referenced by: '<Root>/Constant1'
                                         */
   real_T Ts_Inner;                     /* Variable: Ts_Inner
-                                        * Referenced by:
-                                        *   '<Root>/Constant2'
-                                        *   '<Root>/Constant4'
+                                        * Referenced by: '<Root>/Constant2'
                                         */
   real_T Ts_Outer;                     /* Variable: Ts_Outer
                                         * Referenced by: '<Root>/Gain'
+                                        */
+  real_T a[112002];                    /* Variable: a
+                                        * Referenced by: '<Root>/Constant6'
                                         */
   real_T ball_pos_sat;                 /* Variable: ball_pos_sat
                                         * Referenced by:
@@ -653,6 +665,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         * Referenced by:
                                         *   '<Root>/Saturation'
                                         *   '<Root>/Saturation1'
+                                        */
+  real_T g;                            /* Variable: g
+                                        * Referenced by:
+                                        *   '<Root>/Gain_ff_x'
+                                        *   '<Root>/Gain_ff_y '
                                         */
   real_T inner_I_sat;                  /* Variable: inner_I_sat
                                         * Referenced by:
@@ -667,6 +684,9 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         * Referenced by:
                                         *   '<Root>/Alpha_sat '
                                         *   '<Root>/Beta_sat '
+                                        */
+  real_T r[224004];                    /* Variable: r
+                                        * Referenced by: '<Root>/Constant5'
                                         */
   real_T uA[200000];                   /* Variable: uA
                                         * Referenced by:
@@ -734,14 +754,8 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Constant8_Value;              /* Expression: 0
                                         * Referenced by: '<Root>/Constant8'
                                         */
-  real_T Gain_ff_y_Gain;               /* Expression: 1
-                                        * Referenced by: '<Root>/Gain_ff_y '
-                                        */
   real_T Constant7_Value;              /* Expression: 0
                                         * Referenced by: '<Root>/Constant7'
-                                        */
-  real_T Gain_ff_x_Gain;               /* Expression: 1
-                                        * Referenced by: '<Root>/Gain_ff_x'
                                         */
   real_T Constant3_Value[4];           /* Expression: [0;0;0;0]
                                         * Referenced by: '<Root>/Constant3'
@@ -914,8 +928,8 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T FirstOrderHold1_ErrTol;       /* Expression: inf
                                         * Referenced by: '<Root>/First Order Hold1'
                                         */
-  real_T Delay_InitialCondition;       /* Expression: 0.0
-                                        * Referenced by: '<Root>/Delay'
+  real_T Init_Value;                   /* Expression: 0
+                                        * Referenced by: '<S3>/Init  '
                                         */
   real_T enable_outer_controller_Value;/* Expression: 0
                                         * Referenced by: '<Root>/enable_outer_controller'
@@ -923,19 +937,10 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch_Threshold;             /* Expression: 0
                                         * Referenced by: '<Root>/Switch'
                                         */
-  real_T radius_circ_Value;            /* Expression: 0.1
-                                        * Referenced by: '<Root>/radius_circ'
+  real_T enable_ref_Value;             /* Expression: 0
+                                        * Referenced by: '<Root>/enable_ref '
                                         */
-  real_T ball_freq_Value;              /* Expression: 1/10
-                                        * Referenced by: '<Root>/ball_freq'
-                                        */
-  real_T Gain7_Gain;                   /* Expression: 2*pi
-                                        * Referenced by: '<Root>/Gain7'
-                                        */
-  real_T enable_circ_Value;            /* Expression: 0
-                                        * Referenced by: '<Root>/enable_circ'
-                                        */
-  real_T Controller_select_Value;      /* Expression: 2
+  real_T Controller_select_Value;      /* Expression: 1
                                         * Referenced by: '<Root>/Controller_select'
                                         */
   real_T RateLimiter_RisingLim;     /* Computed Parameter: RateLimiter_RisingLim
@@ -1088,11 +1093,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Dct1lowpass2_P2_b;            /* Expression: 0.001
                                         * Referenced by: '<S12>/Dct1lowpass2'
                                         */
+  real_T Delay_InitialCondition;       /* Expression: 0.0
+                                        * Referenced by: '<Root>/Delay'
+                                        */
   real_T Psi_ref_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Psi_ref '
-                                        */
-  real_T Init_Value;                   /* Expression: 0
-                                        * Referenced by: '<S3>/Init  '
                                         */
   real_T enable_outerloop_Value;       /* Expression: 0
                                         * Referenced by: '<S3>/enable_outerloop '
@@ -1115,38 +1120,38 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T enable_ref_Threshold;         /* Expression: 0
                                         * Referenced by: '<S18>/enable_ref '
                                         */
-  real_T Gain2_Gain;                   /* Expression: 350
-                                        * Referenced by: '<S26>/Gain2'
+  real_T Gain1_Gain_j;                 /* Expression: 500
+                                        * Referenced by: '<S26>/Gain1'
                                         */
-  real_T Dctleadlag1_P1_Size[2];      /* Computed Parameter: Dctleadlag1_P1_Size
-                                       * Referenced by: '<S26>/Dctleadlag1'
+  real_T Dctleadlag2_P1_Size[2];      /* Computed Parameter: Dctleadlag2_P1_Size
+                                       * Referenced by: '<S26>/Dctleadlag2'
                                        */
-  real_T Dctleadlag1_P1;               /* Expression: f_num
-                                        * Referenced by: '<S26>/Dctleadlag1'
+  real_T Dctleadlag2_P1;               /* Expression: f_num
+                                        * Referenced by: '<S26>/Dctleadlag2'
                                         */
-  real_T Dctleadlag1_P2_Size[2];      /* Computed Parameter: Dctleadlag1_P2_Size
-                                       * Referenced by: '<S26>/Dctleadlag1'
+  real_T Dctleadlag2_P2_Size[2];      /* Computed Parameter: Dctleadlag2_P2_Size
+                                       * Referenced by: '<S26>/Dctleadlag2'
                                        */
-  real_T Dctleadlag1_P2;               /* Expression: f_den
-                                        * Referenced by: '<S26>/Dctleadlag1'
+  real_T Dctleadlag2_P2;               /* Expression: f_den
+                                        * Referenced by: '<S26>/Dctleadlag2'
                                         */
-  real_T Dctleadlag1_P3_Size[2];      /* Computed Parameter: Dctleadlag1_P3_Size
-                                       * Referenced by: '<S26>/Dctleadlag1'
+  real_T Dctleadlag2_P3_Size[2];      /* Computed Parameter: Dctleadlag2_P3_Size
+                                       * Referenced by: '<S26>/Dctleadlag2'
                                        */
-  real_T Dctleadlag1_P3;               /* Expression: 0.001
-                                        * Referenced by: '<S26>/Dctleadlag1'
+  real_T Dctleadlag2_P3;               /* Expression: 0.001
+                                        * Referenced by: '<S26>/Dctleadlag2'
                                         */
-  real_T Dct1lowpass1_P1_Size[2];    /* Computed Parameter: Dct1lowpass1_P1_Size
-                                      * Referenced by: '<S26>/Dct1lowpass1'
+  real_T Dct1lowpass3_P1_Size[2];    /* Computed Parameter: Dct1lowpass3_P1_Size
+                                      * Referenced by: '<S26>/Dct1lowpass3'
                                       */
-  real_T Dct1lowpass1_P1;              /* Expression: f_den
-                                        * Referenced by: '<S26>/Dct1lowpass1'
+  real_T Dct1lowpass3_P1;              /* Expression: f_den
+                                        * Referenced by: '<S26>/Dct1lowpass3'
                                         */
-  real_T Dct1lowpass1_P2_Size[2];    /* Computed Parameter: Dct1lowpass1_P2_Size
-                                      * Referenced by: '<S26>/Dct1lowpass1'
+  real_T Dct1lowpass3_P2_Size[2];    /* Computed Parameter: Dct1lowpass3_P2_Size
+                                      * Referenced by: '<S26>/Dct1lowpass3'
                                       */
-  real_T Dct1lowpass1_P2;              /* Expression: 0.001
-                                        * Referenced by: '<S26>/Dct1lowpass1'
+  real_T Dct1lowpass3_P2;              /* Expression: 0.001
+                                        * Referenced by: '<S26>/Dct1lowpass3'
                                         */
   real_T enable_inner_controller_Value;/* Expression: 0
                                         * Referenced by: '<S3>/enable_inner_controller'
@@ -1161,14 +1166,26 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch2_Threshold_g;          /* Expression: 0.5
                                         * Referenced by: '<S18>/Switch2'
                                         */
-  real_T enable_ID_A_Value;            /* Expression: 0
-                                        * Referenced by: '<S18>/enable_ID_A '
+  real_T RandomNumber_Mean;            /* Expression: 0
+                                        * Referenced by: '<S18>/Random Number'
+                                        */
+  real_T RandomNumber_StdDev;         /* Computed Parameter: RandomNumber_StdDev
+                                       * Referenced by: '<S18>/Random Number'
+                                       */
+  real_T RandomNumber_Seed;            /* Expression: 0
+                                        * Referenced by: '<S18>/Random Number'
+                                        */
+  real_T enable_white_noise_A_Gain;    /* Expression: 0
+                                        * Referenced by: '<S18>/enable_white_noise_A '
                                         */
   real_T enable_inner_closeLoop_Value; /* Expression: 0
                                         * Referenced by: '<S3>/enable_inner_closeLoop'
                                         */
   real_T Switch3_Threshold;            /* Expression: 0.5
                                         * Referenced by: '<S18>/Switch3'
+                                        */
+  real_T enable_ID_A_Value;            /* Expression: 0
+                                        * Referenced by: '<S18>/enable_ID_A '
                                         */
   real_T Switch1_Threshold_j;          /* Expression: 0.5
                                         * Referenced by: '<S19>/Switch1'
@@ -1182,38 +1199,38 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch_Threshold_a;           /* Expression: 0
                                         * Referenced by: '<S19>/Switch'
                                         */
-  real_T Gain2_Gain_l;                 /* Expression: 450
-                                        * Referenced by: '<S39>/Gain2'
+  real_T Gain1_Gain_l;                 /* Expression: 650
+                                        * Referenced by: '<S39>/Gain1'
                                         */
-  real_T Dctleadlag1_P1_Size_n[2];  /* Computed Parameter: Dctleadlag1_P1_Size_n
-                                     * Referenced by: '<S39>/Dctleadlag1'
+  real_T Dctleadlag2_P1_Size_o[2];  /* Computed Parameter: Dctleadlag2_P1_Size_o
+                                     * Referenced by: '<S39>/Dctleadlag2'
                                      */
-  real_T Dctleadlag1_P1_k;             /* Expression: f_num
-                                        * Referenced by: '<S39>/Dctleadlag1'
+  real_T Dctleadlag2_P1_g;             /* Expression: f_num
+                                        * Referenced by: '<S39>/Dctleadlag2'
                                         */
-  real_T Dctleadlag1_P2_Size_c[2];  /* Computed Parameter: Dctleadlag1_P2_Size_c
-                                     * Referenced by: '<S39>/Dctleadlag1'
+  real_T Dctleadlag2_P2_Size_b[2];  /* Computed Parameter: Dctleadlag2_P2_Size_b
+                                     * Referenced by: '<S39>/Dctleadlag2'
                                      */
-  real_T Dctleadlag1_P2_o;             /* Expression: f_den
-                                        * Referenced by: '<S39>/Dctleadlag1'
+  real_T Dctleadlag2_P2_b;             /* Expression: f_den
+                                        * Referenced by: '<S39>/Dctleadlag2'
                                         */
-  real_T Dctleadlag1_P3_Size_o[2];  /* Computed Parameter: Dctleadlag1_P3_Size_o
-                                     * Referenced by: '<S39>/Dctleadlag1'
+  real_T Dctleadlag2_P3_Size_f[2];  /* Computed Parameter: Dctleadlag2_P3_Size_f
+                                     * Referenced by: '<S39>/Dctleadlag2'
                                      */
-  real_T Dctleadlag1_P3_d;             /* Expression: 0.001
-                                        * Referenced by: '<S39>/Dctleadlag1'
+  real_T Dctleadlag2_P3_j;             /* Expression: 0.001
+                                        * Referenced by: '<S39>/Dctleadlag2'
                                         */
-  real_T Dct1lowpass1_P1_Size_h[2];/* Computed Parameter: Dct1lowpass1_P1_Size_h
-                                    * Referenced by: '<S39>/Dct1lowpass1'
+  real_T Dct1lowpass3_P1_Size_m[2];/* Computed Parameter: Dct1lowpass3_P1_Size_m
+                                    * Referenced by: '<S39>/Dct1lowpass3'
                                     */
-  real_T Dct1lowpass1_P1_d;            /* Expression: f_den
-                                        * Referenced by: '<S39>/Dct1lowpass1'
+  real_T Dct1lowpass3_P1_a;            /* Expression: f_den
+                                        * Referenced by: '<S39>/Dct1lowpass3'
                                         */
-  real_T Dct1lowpass1_P2_Size_h[2];/* Computed Parameter: Dct1lowpass1_P2_Size_h
-                                    * Referenced by: '<S39>/Dct1lowpass1'
+  real_T Dct1lowpass3_P2_Size_i[2];/* Computed Parameter: Dct1lowpass3_P2_Size_i
+                                    * Referenced by: '<S39>/Dct1lowpass3'
                                     */
-  real_T Dct1lowpass1_P2_n;            /* Expression: 0.001
-                                        * Referenced by: '<S39>/Dct1lowpass1'
+  real_T Dct1lowpass3_P2_h;            /* Expression: 0.001
+                                        * Referenced by: '<S39>/Dct1lowpass3'
                                         */
   real_T DiscreteTimeIntegrator_gainva_m;
                           /* Computed Parameter: DiscreteTimeIntegrator_gainva_m
@@ -1225,8 +1242,17 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch2_Threshold_k;          /* Expression: 0.5
                                         * Referenced by: '<S19>/Switch2'
                                         */
-  real_T enable_ID_B_Value;            /* Expression: 0
-                                        * Referenced by: '<S19>/enable_ID_B '
+  real_T RandomNumber_Mean_c;          /* Expression: 0
+                                        * Referenced by: '<S19>/Random Number'
+                                        */
+  real_T RandomNumber_StdDev_j;     /* Computed Parameter: RandomNumber_StdDev_j
+                                     * Referenced by: '<S19>/Random Number'
+                                     */
+  real_T RandomNumber_Seed_m;          /* Expression: 0
+                                        * Referenced by: '<S19>/Random Number'
+                                        */
+  real_T enable_white_noise_B_Gain;    /* Expression: 0
+                                        * Referenced by: '<S19>/enable_white_noise_B '
                                         */
   real_T Switch3_Threshold_m;          /* Expression: 0.5
                                         * Referenced by: '<S19>/Switch3'
@@ -1246,6 +1272,9 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Constant2_Value_g;            /* Expression: 0.001
                                         * Referenced by: '<S34>/Constant2'
                                         */
+  real_T enable_ID_B_Value;            /* Expression: 0
+                                        * Referenced by: '<S19>/enable_ID_B '
+                                        */
   real_T Switch1_Threshold_jm;         /* Expression: 0.5
                                         * Referenced by: '<S20>/Switch1'
                                         */
@@ -1258,38 +1287,38 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch_Threshold_e;           /* Expression: 0
                                         * Referenced by: '<S20>/Switch'
                                         */
-  real_T Gain1_Gain_p;                 /* Expression: 350
-                                        * Referenced by: '<S54>/Gain1'
+  real_T Gain2_Gain;                   /* Expression: 400
+                                        * Referenced by: '<S54>/Gain2'
                                         */
-  real_T Dctleadlag2_P1_Size[2];      /* Computed Parameter: Dctleadlag2_P1_Size
-                                       * Referenced by: '<S54>/Dctleadlag2'
+  real_T Dctleadlag1_P1_Size[2];      /* Computed Parameter: Dctleadlag1_P1_Size
+                                       * Referenced by: '<S54>/Dctleadlag1'
                                        */
-  real_T Dctleadlag2_P1;               /* Expression: f_num
-                                        * Referenced by: '<S54>/Dctleadlag2'
+  real_T Dctleadlag1_P1;               /* Expression: f_num
+                                        * Referenced by: '<S54>/Dctleadlag1'
                                         */
-  real_T Dctleadlag2_P2_Size[2];      /* Computed Parameter: Dctleadlag2_P2_Size
-                                       * Referenced by: '<S54>/Dctleadlag2'
+  real_T Dctleadlag1_P2_Size[2];      /* Computed Parameter: Dctleadlag1_P2_Size
+                                       * Referenced by: '<S54>/Dctleadlag1'
                                        */
-  real_T Dctleadlag2_P2;               /* Expression: f_den
-                                        * Referenced by: '<S54>/Dctleadlag2'
+  real_T Dctleadlag1_P2;               /* Expression: f_den
+                                        * Referenced by: '<S54>/Dctleadlag1'
                                         */
-  real_T Dctleadlag2_P3_Size[2];      /* Computed Parameter: Dctleadlag2_P3_Size
-                                       * Referenced by: '<S54>/Dctleadlag2'
+  real_T Dctleadlag1_P3_Size[2];      /* Computed Parameter: Dctleadlag1_P3_Size
+                                       * Referenced by: '<S54>/Dctleadlag1'
                                        */
-  real_T Dctleadlag2_P3;               /* Expression: 0.001
-                                        * Referenced by: '<S54>/Dctleadlag2'
+  real_T Dctleadlag1_P3;               /* Expression: 0.001
+                                        * Referenced by: '<S54>/Dctleadlag1'
                                         */
-  real_T Dct1lowpass2_P1_Size_i[2];/* Computed Parameter: Dct1lowpass2_P1_Size_i
-                                    * Referenced by: '<S54>/Dct1lowpass2'
-                                    */
-  real_T Dct1lowpass2_P1_m;            /* Expression: f_den
-                                        * Referenced by: '<S54>/Dct1lowpass2'
+  real_T Dct1lowpass1_P1_Size[2];    /* Computed Parameter: Dct1lowpass1_P1_Size
+                                      * Referenced by: '<S54>/Dct1lowpass1'
+                                      */
+  real_T Dct1lowpass1_P1;              /* Expression: f_den
+                                        * Referenced by: '<S54>/Dct1lowpass1'
                                         */
-  real_T Dct1lowpass2_P2_Size_e[2];/* Computed Parameter: Dct1lowpass2_P2_Size_e
-                                    * Referenced by: '<S54>/Dct1lowpass2'
-                                    */
-  real_T Dct1lowpass2_P2_i;            /* Expression: 0.001
-                                        * Referenced by: '<S54>/Dct1lowpass2'
+  real_T Dct1lowpass1_P2_Size[2];    /* Computed Parameter: Dct1lowpass1_P2_Size
+                                      * Referenced by: '<S54>/Dct1lowpass1'
+                                      */
+  real_T Dct1lowpass1_P2;              /* Expression: 0.001
+                                        * Referenced by: '<S54>/Dct1lowpass1'
                                         */
   real_T DiscreteTimeIntegrator_gainva_g;
                           /* Computed Parameter: DiscreteTimeIntegrator_gainva_g
@@ -1301,14 +1330,26 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch2_Threshold_b;          /* Expression: 0.5
                                         * Referenced by: '<S20>/Switch2'
                                         */
-  real_T Enable_ID_C_Value;            /* Expression: 0
-                                        * Referenced by: '<S20>/Enable_ID_C '
+  real_T RandomNumber_Mean_o;          /* Expression: 0
+                                        * Referenced by: '<S20>/Random Number'
+                                        */
+  real_T RandomNumber_StdDev_e;     /* Computed Parameter: RandomNumber_StdDev_e
+                                     * Referenced by: '<S20>/Random Number'
+                                     */
+  real_T RandomNumber_Seed_g;          /* Expression: 0
+                                        * Referenced by: '<S20>/Random Number'
+                                        */
+  real_T enable_white_noise_C_Gain;    /* Expression: 0
+                                        * Referenced by: '<S20>/enable_white_noise_C '
                                         */
   real_T Switch3_Threshold_g;          /* Expression: 0.5
                                         * Referenced by: '<S20>/Switch3'
                                         */
   real_T u_to_enable_id_Value;         /* Expression: 0
                                         * Referenced by: '<S20>/1_to_enable_id'
+                                        */
+  real_T Enable_ID_C_Value;            /* Expression: 0
+                                        * Referenced by: '<S20>/Enable_ID_C '
                                         */
   real_T reser_integrator_Value;       /* Expression: 0
                                         * Referenced by: '<S3>/reser_integrator'
@@ -1337,10 +1378,9 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Gain1_Gain_i;                 /* Expression: 1
                                         * Referenced by: '<S13>/Gain1'
                                         */
-  real_T Dct1lowpass2_P1_Size_i5[2];
-                                  /* Computed Parameter: Dct1lowpass2_P1_Size_i5
-                                   * Referenced by: '<S13>/Dct1lowpass2'
-                                   */
+  real_T Dct1lowpass2_P1_Size_i[2];/* Computed Parameter: Dct1lowpass2_P1_Size_i
+                                    * Referenced by: '<S13>/Dct1lowpass2'
+                                    */
   real_T Dct1lowpass2_P1_n;            /* Expression: f_den
                                         * Referenced by: '<S13>/Dct1lowpass2'
                                         */
@@ -1942,7 +1982,7 @@ extern RT_MODEL_Ball_and_Plate_MicroLabBox_student_T *const
  * '<S2>'   : 'Ball_and_Plate_MicroLabBox_student/Ethernet communication'
  * '<S3>'   : 'Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator'
  * '<S4>'   : 'Ball_and_Plate_MicroLabBox_student/MATLAB Function'
- * '<S5>'   : 'Ball_and_Plate_MicroLabBox_student/MATLAB Function3'
+ * '<S5>'   : 'Ball_and_Plate_MicroLabBox_student/MATLAB Function1'
  * '<S6>'   : 'Ball_and_Plate_MicroLabBox_student/MPC Controller'
  * '<S7>'   : 'Ball_and_Plate_MicroLabBox_student/PID Controller'
  * '<S8>'   : 'Ball_and_Plate_MicroLabBox_student/PID Controller1'

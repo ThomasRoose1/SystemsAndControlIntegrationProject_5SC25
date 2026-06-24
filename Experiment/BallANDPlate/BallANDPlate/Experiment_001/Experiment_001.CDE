@@ -105,6 +105,21 @@
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
+				<item>
+					<Component type="key">Instrumentation</Component>
+					<Name type="key">Layout6.lay</Name>
+					<DisplayName type="key">Layout6.lay</DisplayName>
+					<Path type="key">.\Experiment Layouts</Path>
+					<Flags type="key">16448</Flags>
+					<Type type="key">10</Type>
+					<UniqueID type="key">640225639</UniqueID>
+					<EntityID type="key">{B0D884C3-109E-4051-B99F-9D5AC749E738}</EntityID>
+					<ItemInfoDate type="key">24/06/2026 11:36:25</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
 			</item>
 			<item>
 				<Targets type="key">devicemanagement,platformmanagement,diagnosticsmanagement</Targets>
@@ -178,6 +193,12 @@
 							<Flags type="key">1380</Flags>
 							<UniqueID type="key">1063069374</UniqueID>
 							<LinkedItem type="key">192171824</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">5388260</UniqueID>
+							<LinkedItem type="key">805507421</LinkedItem>
 						</item>
 						<item>
 							<Component type="key">DataSetManager</Component>
@@ -344,6 +365,26 @@ Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microl
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec2_001.mf4</Name>
+					<DisplayName type="key">rec2_001.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">805507421</UniqueID>
+					<EntityID type="key">{F8CC1EE8-8D7C-4C7C-9390-C47A1749CD23}</EntityID>
+					<ItemInfoDate type="key">24/06/2026 11:53:41</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -664,7 +705,7 @@ ControlDesk version: 7.3</ItemInfoLog>
 		</DeviceFactory>
 	</PlatformManagement>
 	<MeasurementConfiguration>
-		<NextUniqueKey type="key">5</NextUniqueKey>
+		<NextUniqueKey type="key">6</NextUniqueKey>
 		<SortedColumn type="key">4</SortedColumn>
 		<SortAscending type="key">-1</SortAscending>
 		<SignalList>
@@ -741,6 +782,22 @@ ControlDesk version: 7.3</ItemInfoLog>
 				</Signal>
 			</Variable>
 			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_white_noise_A\n/Gain</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">OnChange</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_white_noise_A\n/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/MATLAB Function1/path</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
@@ -750,14 +807,6 @@ ControlDesk version: 7.3</ItemInfoLog>
 			</Variable>
 			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/motorA\n/Discrete-Time\nIntegrator/Out1</Name>
-				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-				<Active type="key">-1</Active>
-				<Signal>
-					<Raster type="key">HostService</Raster>
-				</Signal>
-			</Variable>
-			<Variable>
-				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Multisine/y</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -781,7 +830,15 @@ ControlDesk version: 7.3</ItemInfoLog>
 				</Signal>
 			</Variable>
 			<Variable>
-				<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Multisine/y</Name>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_B/enable_white_noise_B\n/Gain</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">OnChange</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_B/enable_white_noise_B\n/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -813,7 +870,15 @@ ControlDesk version: 7.3</ItemInfoLog>
 				</Signal>
 			</Variable>
 			<Variable>
-				<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Multisine1/y</Name>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_C/enable_white_noise_C\n/Gain</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">OnChange</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Motor_C/enable_white_noise_C\n/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -838,22 +903,6 @@ ControlDesk version: 7.3</ItemInfoLog>
 			</Variable>
 			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch3/Out1</Name>
-				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-				<Active type="key">-1</Active>
-				<Signal>
-					<Raster type="key">HostService</Raster>
-				</Signal>
-			</Variable>
-			<Variable>
-				<Name type="key">Model Root/MATLAB Function3/r[0]</Name>
-				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-				<Active type="key">-1</Active>
-				<Signal>
-					<Raster type="key">HostService</Raster>
-				</Signal>
-			</Variable>
-			<Variable>
-				<Name type="key">Model Root/MATLAB Function3/r[2]</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -1132,6 +1181,24 @@ ControlDesk version: 7.3</ItemInfoLog>
 						</Signal>
 					</Variable>
 					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_white_noise_A\n/Gain</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_white_noise_A\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/MATLAB Function1/path</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
@@ -1145,15 +1212,6 @@ ControlDesk version: 7.3</ItemInfoLog>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>
-						<Signal>
-							<Raster type="key">HostService</Raster>
-						</Signal>
-					</Variable>
-					<Variable>
-						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Multisine/y</Name>
-						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">0</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -1177,10 +1235,19 @@ ControlDesk version: 7.3</ItemInfoLog>
 						</Signal>
 					</Variable>
 					<Variable>
-						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Multisine/y</Name>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/enable_white_noise_B\n/Gain</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">0</Recorded>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/enable_white_noise_B\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -1213,10 +1280,19 @@ ControlDesk version: 7.3</ItemInfoLog>
 						</Signal>
 					</Variable>
 					<Variable>
-						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Multisine1/y</Name>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/enable_white_noise_C\n/Gain</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">0</Recorded>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/enable_white_noise_C\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -1244,24 +1320,6 @@ ControlDesk version: 7.3</ItemInfoLog>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">0</Recorded>
-						<Signal>
-							<Raster type="key">HostService</Raster>
-						</Signal>
-					</Variable>
-					<Variable>
-						<Name type="key">Model Root/MATLAB Function3/r[0]</Name>
-						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
-						<Signal>
-							<Raster type="key">HostService</Raster>
-						</Signal>
-					</Variable>
-					<Variable>
-						<Name type="key">Model Root/MATLAB Function3/r[2]</Name>
-						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -1304,6 +1362,155 @@ ControlDesk version: 7.3</ItemInfoLog>
 					</Variable>
 					<Variable>
 						<Name type="key">Model Root/y_obs/In1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+				</SignalList>
+			</Recorder>
+			<Recorder>
+				<Name type="key">Recorder 2</Name>
+				<UniqueKey type="key">5</UniqueKey>
+				<AutomaticSignalConfigurationEnabled type="key">0</AutomaticSignalConfigurationEnabled>
+				<WriteToFileEnabled type="key">-1</WriteToFileEnabled>
+				<MeasurementTimestampsEnabled type="key">0</MeasurementTimestampsEnabled>
+				<StartAudioSignalEnabled type="key">0</StartAudioSignalEnabled>
+				<StopAudioSignalEnabled type="key">0</StopAudioSignalEnabled>
+				<Active type="key">-1</Active>
+				<StartCondition>
+					<Enabled type="key">0</Enabled>
+					<RecordingCycleCount type="key">1</RecordingCycleCount>
+					<SelectedTriggerRule type="key"/>
+					<TriggerDelay type="key">0</TriggerDelay>
+				</StartCondition>
+				<StopCondition>
+					<RecordingStopWarningEnabled type="key">0</RecordingStopWarningEnabled>
+					<RecordingStopWarningTime type="key">60</RecordingStopWarningTime>
+					<SelectedTriggerRule type="key"/>
+					<Type type="key">0</Type>
+					<TimeLimit type="key">3600</TimeLimit>
+					<TriggerDelay type="key">0</TriggerDelay>
+				</StopCondition>
+				<StorageInformation>
+					<AddToExperimentEnabled type="key">-1</AddToExperimentEnabled>
+					<AutomaticSaveDialogEnabled type="key">0</AutomaticSaveDialogEnabled>
+					<AutomaticExportEnabled type="key">0</AutomaticExportEnabled>
+					<AutomaticExportFileNamePrefix type="key">exp2_</AutomaticExportFileNamePrefix>
+					<AutomaticExportFileType type="key">ASAM MDF 4.1 Files (*.mf4)</AutomaticExportFileType>
+					<AutomaticExportFolder type="key"/>
+					<AutomaticNamingEnabled type="key">-1</AutomaticNamingEnabled>
+					<AutomaticNamingMinimunDigits type="key">3</AutomaticNamingMinimunDigits>
+					<AutomaticNamingStartIndex type="key">2</AutomaticNamingStartIndex>
+					<Description type="key"/>
+					<FileNamePrefix type="key">rec2_</FileNamePrefix>
+					<OpenInMeasurementDataPoolEnabled type="key">0</OpenInMeasurementDataPoolEnabled>
+					<RecordingFileType type="key">ASAM MDF 4.1 Files (*.mf4)</RecordingFileType>
+				</StorageInformation>
+				<SignalList>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_white_noise_A\n/Gain</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_white_noise_A\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Position Measurement/Position [m]</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/Switch3/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/enable_white_noise_B\n/Gain</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/enable_white_noise_B\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Position Measurement/Position [m]</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_B/Switch3/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/enable_white_noise_C\n/Gain</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/enable_white_noise_C\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Position Measurement/Position [m]</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch3/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>

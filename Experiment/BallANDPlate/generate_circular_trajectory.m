@@ -10,7 +10,7 @@ function [r, a] = generate_circular_trajectory(R, Tcircle, N_circles, Ts)
     T_in_out = 2.0;    % Time taken to travel from (0,0) to (0,R). Adjust as needed.
     
     % --- Phase 1: Entry from (0,0) to (0,R) ---
-    [y_in, ydot_in, yddot_in] = quintic_traj(0, R, T_in_out, Ts);
+    [y_in, ydot_in, yddot_in] = quintic_traj(0, -R, T_in_out, Ts);
     N_in = length(y_in);
     x_in = zeros(1, N_in);
     xdot_in = zeros(1, N_in);
@@ -25,7 +25,7 @@ function [r, a] = generate_circular_trajectory(R, Tcircle, N_circles, Ts)
     xdot_rest1 = zeros(1, N_rest);
     xddot_rest1 = zeros(1, N_rest);
     
-    y_rest1 = R * ones(1, N_rest);
+    y_rest1 = -R * ones(1, N_rest);
     ydot_rest1 = zeros(1, N_rest);
     yddot_rest1 = zeros(1, N_rest);
     
@@ -33,8 +33,8 @@ function [r, a] = generate_circular_trajectory(R, Tcircle, N_circles, Ts)
     % We apply the quintic polynomial to the ANGLE (theta) to ensure the 
     % trajectory starts and ends from rest perfectly smoothly.
     T_circ_total = N_circles * Tcircle;
-    theta_start = pi/2; % Starting angle corresponding to (0, R)
-    theta_end = pi/2 - N_circles * 2 * pi; % Going clockwise
+    theta_start = -pi/2; % Starting angle corresponding to (0, R)
+    theta_end = -pi/2 - N_circles * 2 * pi; % Going clockwise
     
     [theta, thetadot, thetaddot] = quintic_traj(theta_start, theta_end, T_circ_total, Ts);
     
@@ -57,12 +57,12 @@ function [r, a] = generate_circular_trajectory(R, Tcircle, N_circles, Ts)
     xdot_rest2 = zeros(1, N_rest);
     xddot_rest2 = zeros(1, N_rest);
     
-    y_rest2 = R * ones(1, N_rest);
+    y_rest2 = -R * ones(1, N_rest);
     ydot_rest2 = zeros(1, N_rest);
     yddot_rest2 = zeros(1, N_rest);
     
     % --- Phase 5: Exit from (0,R) back to (0,0) ---
-    [y_out, ydot_out, yddot_out] = quintic_traj(R, 0, T_in_out, Ts);
+    [y_out, ydot_out, yddot_out] = quintic_traj(-R, 0, T_in_out, Ts);
     
     % Strip the first point
     y_out = y_out(2:end);

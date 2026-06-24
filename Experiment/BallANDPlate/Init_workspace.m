@@ -158,6 +158,12 @@ setoutdist(mpcobj, 'model', tf(zeros(nx, 1)));
 
 disp('MPC Object created successfully!');
 
+%% load references
+R = 0.1;
+Tcircle = 5;
+N_circles = 10;
+[r, a] = generate_circular_trajectory(R, Tcircle, N_circles, Ts_Inner);
+
 %% done
 disp('Initialization complete. Ready for Simulink simulation.');
 
