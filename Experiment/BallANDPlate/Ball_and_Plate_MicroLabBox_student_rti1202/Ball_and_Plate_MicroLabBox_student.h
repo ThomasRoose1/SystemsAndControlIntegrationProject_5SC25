@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.146
+ * Model version              : 1.147
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Thu Jun 25 14:46:12 2026
+ * C source code generated on : Thu Jun 25 16:40:41 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -307,7 +307,7 @@ typedef struct {
   real_T CastToDouble1;                /* '<Root>/Cast To Double1' */
   real_T Delay[2];                     /* '<Root>/Delay' */
   real_T SFunction1[2];                /* '<S17>/S-Function1' */
-  real_T Switch_h;                     /* '<S19>/Switch' */
+  real_T Add1_m;                       /* '<S3>/Add1' */
   real_T enable_ref;                   /* '<S19>/enable_ref ' */
   real_T Sum1;                         /* '<S19>/Sum1' */
   real_T Gain1_b;                      /* '<S27>/Gain1' */
@@ -315,10 +315,11 @@ typedef struct {
   real_T Dct1lowpass3;                 /* '<S27>/Dct1lowpass3' */
   real_T DiscreteTimeIntegrator;       /* '<S27>/Discrete-Time Integrator' */
   real_T Switch2_k;                    /* '<S19>/Switch2' */
-  real_T RandomNumber;                 /* '<S19>/Random Number' */
+  real_T UniformRandomNumber;          /* '<S19>/Uniform Random Number' */
   real_T dA;                           /* '<S19>/enable_white_noise_A ' */
   real_T uA;                           /* '<S19>/Sum' */
   real_T Switch3;                      /* '<S19>/Switch3' */
+  real_T Switch_h;                     /* '<S19>/Switch' */
   real_T Switch1_j;                    /* '<S20>/Switch1' */
   real_T Switch_j;                     /* '<S20>/Switch' */
   real_T Sum1_f;                       /* '<S20>/Sum1' */
@@ -327,13 +328,14 @@ typedef struct {
   real_T Dct1lowpass3_c;               /* '<S40>/Dct1lowpass3' */
   real_T DiscreteTimeIntegrator_m;     /* '<S40>/Discrete-Time Integrator' */
   real_T Switch2_p;                    /* '<S20>/Switch2' */
-  real_T RandomNumber_o;               /* '<S20>/Random Number' */
+  real_T UniformRandomNumber_j;        /* '<S20>/Uniform Random Number' */
   real_T dB;                           /* '<S20>/enable_white_noise_B ' */
   real_T uB;                           /* '<S20>/Sum' */
   real_T Switch3_d;                    /* '<S20>/Switch3' */
   real_T Switch_n;                     /* '<S35>/Switch' */
   real_T Constant1;                    /* '<S35>/Constant1' */
   real_T Constant2;                    /* '<S35>/Constant2' */
+  real_T RandomNumber;                 /* '<S20>/Random Number' */
   real_T Switch1_k;                    /* '<S21>/Switch1' */
   real_T Switch_jo;                    /* '<S21>/Switch' */
   real_T Sum1_h;                       /* '<S21>/Sum1' */
@@ -342,10 +344,11 @@ typedef struct {
   real_T Dct1lowpass1;                 /* '<S55>/Dct1lowpass1' */
   real_T DiscreteTimeIntegrator_h;     /* '<S55>/Discrete-Time Integrator' */
   real_T Switch2_h;                    /* '<S21>/Switch2' */
-  real_T RandomNumber_n;               /* '<S21>/Random Number' */
+  real_T UniformRandomNumber_l;        /* '<S21>/Uniform Random Number' */
   real_T dC;                           /* '<S21>/enable_white_noise_C ' */
   real_T uC;                           /* '<S21>/Sum' */
   real_T Switch3_l;                    /* '<S21>/Switch3' */
+  real_T RandomNumber_n;               /* '<S21>/Random Number' */
   real_T reser_integrator;             /* '<S3>/reser_integrator' */
   real_T DataTypeConversion14;         /* '<S64>/Data Type Conversion14' */
   real_T DataTypeConversion15;         /* '<S64>/Data Type Conversion15' */
@@ -419,7 +422,6 @@ typedef struct {
   real_T Current2V_h;                  /* '<S25>/Current2V' */
   real_T DSPscale_m;                   /* '<S25>/DSPscale' */
   real_T Add_h;                        /* '<S27>/Add' */
-  real_T Add1_m;                       /* '<S3>/Add1' */
   real_T pos1;                         /* '<S3>/AngleToPos ' */
   real_T pos2;                         /* '<S3>/AngleToPos ' */
   real_T pos3;                         /* '<S3>/AngleToPos ' */
@@ -498,8 +500,10 @@ typedef struct {
   real_T Mk_g;                         /* '<Root>/First Order Hold1' */
   real_T Uk_i;                         /* '<Root>/First Order Hold1' */
   real_T PrevY[2];                     /* '<S9>/Rate Limiter' */
-  real_T NextOutput;                   /* '<S19>/Random Number' */
-  real_T NextOutput_d;                 /* '<S20>/Random Number' */
+  real_T UniformRandomNumber_NextOutput;/* '<S19>/Uniform Random Number' */
+  real_T UniformRandomNumber_NextOutpu_n;/* '<S20>/Uniform Random Number' */
+  real_T NextOutput;                   /* '<S20>/Random Number' */
+  real_T UniformRandomNumber_NextOutpu_m;/* '<S21>/Uniform Random Number' */
   real_T NextOutput_p;                 /* '<S21>/Random Number' */
   real_T last_x_PreviousInput[4];      /* '<S64>/last_x' */
   real_T idx_ref;                      /* '<Root>/square_ref_player ' */
@@ -529,9 +533,11 @@ typedef struct {
   real_T Dctleadlag1_RWORK[2];         /* '<S55>/Dctleadlag1' */
   real_T Dct1lowpass1_RWORK[2];        /* '<S55>/Dct1lowpass1' */
   real_T Dct1lowpass2_RWORK_j[2];      /* '<S13>/Dct1lowpass2' */
-  uint32_T RandSeed;                   /* '<S19>/Random Number' */
+  uint32_T RandSeed;                   /* '<S19>/Uniform Random Number' */
+  uint32_T RandSeed_e;                 /* '<S20>/Uniform Random Number' */
   uint32_T RandSeed_g;                 /* '<S20>/Random Number' */
-  uint32_T RandSeed_e;                 /* '<S21>/Random Number' */
+  uint32_T RandSeed_c;                 /* '<S21>/Uniform Random Number' */
+  uint32_T RandSeed_e2;                /* '<S21>/Random Number' */
   int_T ByteUnpacking_IWORK[10];       /* '<S2>/Byte Unpacking ' */
   boolean_T DelayInput1_DSTATE;        /* '<S177>/Delay Input1' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
@@ -776,10 +782,13 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Gain8_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain8'
                                         */
-  real_T Constant_Value;               /* Expression: 0.32
-                                        * Referenced by: '<S3>/Constant'
+  real_T Constant2_Value;              /* Expression: -0.0289
+                                        * Referenced by: '<S19>/Constant2'
                                         */
-  real_T Constant_Value_h;             /* Expression: 0
+  real_T Constant4_Value;              /* Expression: -0.0289 + 0.01
+                                        * Referenced by: '<S19>/Constant4'
+                                        */
+  real_T Constant_Value;               /* Expression: 0
                                         * Referenced by: '<S19>/Constant'
                                         */
   real_T Constant3_Value_d;            /* Expression: -0.0289
@@ -881,7 +890,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Constant3_Value_n;            /* Expression: -0.0289
                                         * Referenced by: '<S21>/Constant3'
                                         */
-  real_T Constant2_Value;              /* Expression: 0.32
+  real_T Constant2_Value_n;            /* Expression: 0.32
                                         * Referenced by: '<S3>/Constant2'
                                         */
   real_T Saturation_UpperSat_h;        /* Expression: 3
@@ -923,7 +932,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T mm2m_Gain_o;                  /* Expression: 0.001
                                         * Referenced by: '<S54>/mm2m'
                                         */
-  real_T Constant_Value_hi;            /* Expression: 0
+  real_T Constant_Value_h;             /* Expression: 0
                                         * Referenced by: '<S180>/Constant'
                                         */
   real_T Constant_Value_i;             /* Expression: 1
@@ -1115,23 +1124,11 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Psi_ref_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Psi_ref '
                                         */
-  real_T enable_outerloop_Value;       /* Expression: 0
-                                        * Referenced by: '<S3>/enable_outerloop '
+  real_T Constant_Value_o;             /* Expression: 0.32
+                                        * Referenced by: '<S3>/Constant'
                                         */
-  real_T quintic_ref_Value;            /* Expression: 0
-                                        * Referenced by: '<S3>/quintic_ref '
-                                        */
-  real_T enable_quintic_Value;         /* Expression: 0
-                                        * Referenced by: '<S3>/enable_quintic  '
-                                        */
-  real_T Switch_Threshold_j;           /* Expression: 0.5
-                                        * Referenced by: '<S19>/Switch'
-                                        */
-  real_T end_time_A_Value;             /* Expression: 1
-                                        * Referenced by: '<S19>/end_time_A'
-                                        */
-  real_T Constant1_Value_na;           /* Expression: 0.001
-                                        * Referenced by: '<S19>/Constant1'
+  real_T step_Value;                   /* Expression: 0
+                                        * Referenced by: '<S19>/step'
                                         */
   real_T enable_ref_Threshold;         /* Expression: 0
                                         * Referenced by: '<S19>/enable_ref '
@@ -1182,14 +1179,14 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch2_Threshold_g;          /* Expression: 0.5
                                         * Referenced by: '<S19>/Switch2'
                                         */
-  real_T RandomNumber_Mean;            /* Expression: 0
-                                        * Referenced by: '<S19>/Random Number'
+  real_T UniformRandomNumber_Minimum;  /* Expression: -2.4
+                                        * Referenced by: '<S19>/Uniform Random Number'
                                         */
-  real_T RandomNumber_StdDev;         /* Computed Parameter: RandomNumber_StdDev
-                                       * Referenced by: '<S19>/Random Number'
-                                       */
-  real_T RandomNumber_Seed;            /* Expression: 0
-                                        * Referenced by: '<S19>/Random Number'
+  real_T UniformRandomNumber_Maximum;  /* Expression: 2.4
+                                        * Referenced by: '<S19>/Uniform Random Number'
+                                        */
+  real_T UniformRandomNumber_Seed;     /* Expression: 0
+                                        * Referenced by: '<S19>/Uniform Random Number'
                                         */
   real_T enable_white_noise_A_Gain;    /* Expression: 0
                                         * Referenced by: '<S19>/enable_white_noise_A '
@@ -1200,8 +1197,26 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch3_Threshold;            /* Expression: 0.5
                                         * Referenced by: '<S19>/Switch3'
                                         */
+  real_T Constant1_Value_na;           /* Expression: 0.001
+                                        * Referenced by: '<S19>/Constant1'
+                                        */
+  real_T quintic_ref_Value;            /* Expression: 0
+                                        * Referenced by: '<S3>/quintic_ref '
+                                        */
+  real_T enable_quintic_Value;         /* Expression: 0
+                                        * Referenced by: '<S3>/enable_quintic  '
+                                        */
+  real_T Switch_Threshold_j;           /* Expression: 0.5
+                                        * Referenced by: '<S19>/Switch'
+                                        */
+  real_T end_time_A_Value;             /* Expression: 1
+                                        * Referenced by: '<S19>/end_time_A'
+                                        */
   real_T enable_ID_A_Value;            /* Expression: 0
                                         * Referenced by: '<S19>/enable_ID_A '
+                                        */
+  real_T enable_outerloop_Value;       /* Expression: 0
+                                        * Referenced by: '<S3>/enable_outerloop '
                                         */
   real_T Switch1_Threshold_j;          /* Expression: 0.5
                                         * Referenced by: '<S20>/Switch1'
@@ -1258,14 +1273,14 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch2_Threshold_k;          /* Expression: 0.5
                                         * Referenced by: '<S20>/Switch2'
                                         */
-  real_T RandomNumber_Mean_c;          /* Expression: 0
-                                        * Referenced by: '<S20>/Random Number'
+  real_T UniformRandomNumber_Minimum_m;/* Expression: -1.8
+                                        * Referenced by: '<S20>/Uniform Random Number'
                                         */
-  real_T RandomNumber_StdDev_j;     /* Computed Parameter: RandomNumber_StdDev_j
-                                     * Referenced by: '<S20>/Random Number'
-                                     */
-  real_T RandomNumber_Seed_m;          /* Expression: 0
-                                        * Referenced by: '<S20>/Random Number'
+  real_T UniformRandomNumber_Maximum_l;/* Expression: 1.8
+                                        * Referenced by: '<S20>/Uniform Random Number'
+                                        */
+  real_T UniformRandomNumber_Seed_e;   /* Expression: 0
+                                        * Referenced by: '<S20>/Uniform Random Number'
                                         */
   real_T enable_white_noise_B_Gain;    /* Expression: 0
                                         * Referenced by: '<S20>/enable_white_noise_B '
@@ -1276,7 +1291,7 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T u_no_0_init_motion_Value;     /* Expression: 1
                                         * Referenced by: '<S20>/1_no_0_init_motion'
                                         */
-  real_T Constant4_Value;              /* Expression: -0.0289
+  real_T Constant4_Value_b;            /* Expression: -0.0289
                                         * Referenced by: '<S20>/Constant4'
                                         */
   real_T Switch_Threshold_k;           /* Expression: 0.5
@@ -1290,6 +1305,15 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T enable_ID_B_Value;            /* Expression: 0
                                         * Referenced by: '<S20>/enable_ID_B '
+                                        */
+  real_T RandomNumber_Mean;            /* Expression: 0
+                                        * Referenced by: '<S20>/Random Number'
+                                        */
+  real_T RandomNumber_StdDev;         /* Computed Parameter: RandomNumber_StdDev
+                                       * Referenced by: '<S20>/Random Number'
+                                       */
+  real_T RandomNumber_Seed;            /* Expression: 0
+                                        * Referenced by: '<S20>/Random Number'
                                         */
   real_T Switch1_Threshold_jm;         /* Expression: 0.5
                                         * Referenced by: '<S21>/Switch1'
@@ -1346,14 +1370,14 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch2_Threshold_b;          /* Expression: 0.5
                                         * Referenced by: '<S21>/Switch2'
                                         */
-  real_T RandomNumber_Mean_o;          /* Expression: 0
-                                        * Referenced by: '<S21>/Random Number'
+  real_T UniformRandomNumber_Minimum_c;/* Expression: -1.8
+                                        * Referenced by: '<S21>/Uniform Random Number'
                                         */
-  real_T RandomNumber_StdDev_e;     /* Computed Parameter: RandomNumber_StdDev_e
-                                     * Referenced by: '<S21>/Random Number'
-                                     */
-  real_T RandomNumber_Seed_g;          /* Expression: 0
-                                        * Referenced by: '<S21>/Random Number'
+  real_T UniformRandomNumber_Maximum_o;/* Expression: 1.8
+                                        * Referenced by: '<S21>/Uniform Random Number'
+                                        */
+  real_T UniformRandomNumber_Seed_b;   /* Expression: 0
+                                        * Referenced by: '<S21>/Uniform Random Number'
                                         */
   real_T enable_white_noise_C_Gain;    /* Expression: 0
                                         * Referenced by: '<S21>/enable_white_noise_C '
@@ -1366,6 +1390,15 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                         */
   real_T Enable_ID_C_Value;            /* Expression: 0
                                         * Referenced by: '<S21>/Enable_ID_C '
+                                        */
+  real_T RandomNumber_Mean_o;          /* Expression: 0
+                                        * Referenced by: '<S21>/Random Number'
+                                        */
+  real_T RandomNumber_StdDev_e;     /* Computed Parameter: RandomNumber_StdDev_e
+                                     * Referenced by: '<S21>/Random Number'
+                                     */
+  real_T RandomNumber_Seed_g;          /* Expression: 0
+                                        * Referenced by: '<S21>/Random Number'
                                         */
   real_T reser_integrator_Value;       /* Expression: 0
                                         * Referenced by: '<S3>/reser_integrator'
