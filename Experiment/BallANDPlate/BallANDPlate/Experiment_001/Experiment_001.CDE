@@ -267,6 +267,12 @@
 							<LinkedItem type="key">710567423</LinkedItem>
 						</item>
 						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">712176519</UniqueID>
+							<LinkedItem type="key">593424662</LinkedItem>
+						</item>
+						<item>
 							<Component type="key">DataSetManager</Component>
 							<Name type="key">Data Sets</Name>
 							<DisplayName type="key">Data Sets</DisplayName>
@@ -664,6 +670,26 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<UniqueID type="key">710567423</UniqueID>
 					<EntityID type="key">{CCDECFC7-5C7E-4D46-BAD6-7D2535BBFC1E}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 16:24:57</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec2_007.mf4</Name>
+					<DisplayName type="key">rec2_007.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">593424662</UniqueID>
+					<EntityID type="key">{50E48C6B-65FC-48A8-A309-69EC6950875A}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 16:35:13</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
@@ -1791,7 +1817,7 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<AutomaticExportFolder type="key"/>
 					<AutomaticNamingEnabled type="key">-1</AutomaticNamingEnabled>
 					<AutomaticNamingMinimunDigits type="key">3</AutomaticNamingMinimunDigits>
-					<AutomaticNamingStartIndex type="key">7</AutomaticNamingStartIndex>
+					<AutomaticNamingStartIndex type="key">8</AutomaticNamingStartIndex>
 					<Description type="key"/>
 					<FileNamePrefix type="key">rec2_</FileNamePrefix>
 					<OpenInMeasurementDataPoolEnabled type="key">0</OpenInMeasurementDataPoolEnabled>
