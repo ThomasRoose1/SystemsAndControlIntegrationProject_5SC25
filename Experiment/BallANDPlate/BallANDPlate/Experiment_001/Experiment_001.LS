@@ -2,7 +2,7 @@
 <Root>
 	<ProjectExperiment>
 		<window>
-			<RelativeDocumentPlacement type="key">1:m 2 Instrumentation|87e35ca5-d9d1-4a28-9ce9-ff5cfc3649f7/2:m 0 Instrumentation|2bca74c0-4866-430d-b7d5-8f1919ef3418/0:m 1 Instrumentation|090df5ef-b1ce-4947-ac99-cace898eae9f/1:m 3 Instrumentation|5019f4ad-b977-4a0d-97ce-b9577f952c07/3:</RelativeDocumentPlacement>
+			<RelativeDocumentPlacement type="key">1:m 0 Instrumentation|2bca74c0-4866-430d-b7d5-8f1919ef3418/0:m 2 Instrumentation|87e35ca5-d9d1-4a28-9ce9-ff5cfc3649f7/2:m 1 Instrumentation|090df5ef-b1ce-4947-ac99-cace898eae9f/1:m 3 Instrumentation|5019f4ad-b977-4a0d-97ce-b9577f952c07/3:</RelativeDocumentPlacement>
 		</window>
 		<viewflags>
 			<Name type="key">Experiment_001.CDE</Name>
@@ -39,7 +39,7 @@
 					<ViewFlags type="key">1</ViewFlags>
 					<item>
 						<Name type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Name>
-						<ViewFlags type="key">65</ViewFlags>
+						<ViewFlags type="key">1</ViewFlags>
 						<item>
 							<Name type="key">ball_and_plate_microlabbox_student.sdf</Name>
 							<ViewFlags type="key">5</ViewFlags>
@@ -177,7 +177,4 @@
 			</Layout4>
 		</Layouts>
 	</Instrumentation>
-	<XILAPIEESPort>
-		<ErrorConfigurationDocuments Version="1"/>
-	</XILAPIEESPort>
 </Root>
