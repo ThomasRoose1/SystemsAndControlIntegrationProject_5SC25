@@ -32,9 +32,9 @@ MIN_RADIUS = 15 # Need to be calibrated
 MAX_RADIUS = 30 # Need to be calibrated
 EDGE_MARGIN = 40 # Need to be calibrated
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
-USE_GAUSSIAN_BLUR = True
-USE_RADIUS_FILTER = True
-USE_HOMOGRAPHY = False
+USE_GAUSSIAN_BLUR = False
+USE_RADIUS_FILTER = False
+USE_HOMOGRAPHY = True
 
 BALL_RADIUS_ALPHA = 0.2 # 1.0 = no smoothing, 0.1 = max smoothing (very slow response)
 XY_FILTER_ALPHA = 0.6 # 1.0 = no filtering, 0.1 = max filtering 
@@ -62,7 +62,7 @@ SHOW_Z_STATS = False
 SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
 SHOW_TRACKING_DEBUG = False
-SHOW_DEPTH_ROI = True
+SHOW_DEPTH_ROI = False
 
 # Other parameters
 STATS_WINDOW = 300
@@ -193,7 +193,7 @@ def send_reference_xy(ref_xy, ref_flag):
     y_ref = round(float(ref_xy[1]),2)
 
     packet = struct.pack(
-        '>fffb',
+        '>ffb',
         x_ref,
         y_ref,
         bool(ref_flag)
@@ -663,7 +663,7 @@ try:
             fps_timer = time.perf_counter()
 
         # ================= FPS DISPLAY =================
-        cv2.putText(display, f'Proc FPS: {camera_fps:5.1f}', (WIDTH - 180, HEIGHT - 40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+        cv2.putText(display, f'Loop FPS: {camera_fps:5.1f}', (WIDTH - 180, HEIGHT - 40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
         cv2.putText(display, f'Cam FPS: {camera_fps_timestamp:5.1f}', (WIDTH - 180, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,0), 2)
 
         # ================= DEBUG OVERLAYS =================
@@ -781,7 +781,7 @@ try:
 
                 send_reference_xy((0,0),0)
 
-        cv2.imshow('Phase_G3 2D Adaptative EMA + Partial KF', display)
+        cv2.imshow('Final Code', display)
 
         key = cv2.waitKey(1) & 0xFF
         if key == ord('z') and z_mm is not None:
