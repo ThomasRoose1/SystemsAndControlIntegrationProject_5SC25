@@ -42,7 +42,7 @@
 						<ViewFlags type="key">1</ViewFlags>
 						<item>
 							<Name type="key">ball_and_plate_microlabbox_student.sdf</Name>
-							<ViewFlags type="key">5</ViewFlags>
+							<ViewFlags type="key">1</ViewFlags>
 							<item>
 								<Name type="key">rec1_010.mf4</Name>
 								<ViewFlags type="key">1</ViewFlags>
@@ -69,6 +69,30 @@
 							</item>
 							<item>
 								<Name type="key">rec2_001.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec3_001.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec3_002.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec3_003.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec3_004.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec3_005.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec3_006.mf4</Name>
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
 							<item>
@@ -112,6 +136,30 @@
 					<item>
 						<Name type="key">rec2_001.mf4</Name>
 						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec3_001.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec3_002.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec3_003.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec3_004.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec3_005.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec3_006.mf4</Name>
+						<ViewFlags type="key">5</ViewFlags>
 					</item>
 				</item>
 				<item>
