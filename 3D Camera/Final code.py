@@ -32,6 +32,8 @@ MIN_RADIUS = 15 # Need to be calibrated
 MAX_RADIUS = 30 # Need to be calibrated
 EDGE_MARGIN = 40 # Need to be calibrated
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
+USE_GAUSSIAN_BLUR = True
+USE_RADIUS_FILTER = True
 
 BALL_RADIUS_ALPHA = 0.2 # 1.0 = no smoothing, 0.1 = max smoothing (very slow response)
 XY_FILTER_ALPHA = 0.6 # 1.0 = no filtering, 0.1 = max filtering 
@@ -253,7 +255,8 @@ def compute_adaptive_alpha(speed_px):
     return float(alpha)
 
 def detect_ball(gray, predicted=None):
-    gray = cv2.GaussianBlur(gray,(5,5),0) # gaussian Blur to reduce noise and improve thresholding
+    if USE_GAUSSIAN_BLUR:
+        gray = cv2.GaussianBlur(gray, (5,5), 0)
     _, mask = cv2.threshold(gray,THRESHOLD,255,cv2.THRESH_BINARY_INV) # binary inverse thresholding to get white ball on black background
     plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8) # create empty mask for plate region
 
@@ -298,13 +301,15 @@ def detect_ball(gray, predicted=None):
                              ctr[1] < PLATE_Y1 + EDGE_MARGIN or
                              ctr[1] > PLATE_Y2 - EDGE_MARGIN)
         
-        if radius < MIN_RADIUS:
-            cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
-            continue
+        if USE_RADIUS_FILTER:
 
-        if radius > MAX_RADIUS:
-            cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
-            continue
+            if radius < MIN_RADIUS:
+                cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
+                continue
+
+            if radius > MAX_RADIUS:
+                cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
+                continue
 
         if not (PLATE_X1 <= ctr[0] <= PLATE_X2 and PLATE_Y1 <= ctr[1] <= PLATE_Y2):
             continue
@@ -647,7 +652,8 @@ try:
             cv2.putText(filter_vis, 'GREEN = Accepted', (10,25), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
             cv2.putText(filter_vis, 'RED = Area Reject', (10,50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,255), 2)
             cv2.putText(filter_vis, 'ORANGE = Circularity Reject', (10,75), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,165,255), 2)
-            cv2.putText(filter_vis, 'BLUE = Radius Reject', (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
+            if USE_RADIUS_FILTER:
+                cv2.putText(filter_vis, 'BLUE = Radius Reject', (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
             cv2.imshow('Final Filter Visualization', filter_vis)
 
         cv2.imshow('Phase_G3 2D Adaptative EMA + Partial KF', display)
