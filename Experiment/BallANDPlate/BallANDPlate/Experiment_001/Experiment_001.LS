@@ -2,7 +2,7 @@
 <Root>
 	<ProjectExperiment>
 		<window>
-			<RelativeDocumentPlacement type="key">1:m 0 Instrumentation|2bca74c0-4866-430d-b7d5-8f1919ef3418/0:m 2 Instrumentation|87e35ca5-d9d1-4a28-9ce9-ff5cfc3649f7/2:m 1 Instrumentation|090df5ef-b1ce-4947-ac99-cace898eae9f/1:m 3 Instrumentation|5019f4ad-b977-4a0d-97ce-b9577f952c07/3:</RelativeDocumentPlacement>
+			<RelativeDocumentPlacement type="key">1:m 0 Instrumentation|2bca74c0-4866-430d-b7d5-8f1919ef3418/0:m 3 Instrumentation|5019f4ad-b977-4a0d-97ce-b9577f952c07/3:m 2 Instrumentation|87e35ca5-d9d1-4a28-9ce9-ff5cfc3649f7/2:m 1 Instrumentation|090df5ef-b1ce-4947-ac99-cace898eae9f/1:</RelativeDocumentPlacement>
 		</window>
 		<viewflags>
 			<Name type="key">Experiment_001.CDE</Name>
@@ -96,6 +96,14 @@
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
 							<item>
+								<Name type="key">rec2_002.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">rec2_003.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
 								<Name type="key">Data Sets</Name>
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
@@ -159,6 +167,14 @@
 					</item>
 					<item>
 						<Name type="key">rec3_006.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec2_002.mf4</Name>
+						<ViewFlags type="key">1</ViewFlags>
+					</item>
+					<item>
+						<Name type="key">rec2_003.mf4</Name>
 						<ViewFlags type="key">5</ViewFlags>
 					</item>
 				</item>

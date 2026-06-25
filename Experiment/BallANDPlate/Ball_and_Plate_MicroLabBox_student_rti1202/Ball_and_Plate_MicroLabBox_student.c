@@ -9,7 +9,7 @@
  *
  * Model version              : 1.146
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Thu Jun 25 15:22:32 2026
+ * C source code generated on : Thu Jun 25 16:00:44 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -5132,14 +5132,14 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
     /* End of Switch: '<S19>/Switch2' */
 
-    /* RandomNumber: '<S19>/Random Number' */
-    Ball_and_Plate_MicroLabBox_student_B.RandomNumber =
-      Ball_and_Plate_MicroLabBox_student_DW.NextOutput;
+    /* UniformRandomNumber: '<S19>/Uniform Random Number' */
+    Ball_and_Plate_MicroLabBox_student_B.UniformRandomNumber =
+      Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutput;
 
     /* Gain: '<S19>/enable_white_noise_A ' */
     Ball_and_Plate_MicroLabBox_student_B.dA =
       Ball_and_Plate_MicroLabBox_student_P.enable_white_noise_A_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.RandomNumber;
+      Ball_and_Plate_MicroLabBox_student_B.UniformRandomNumber;
 
     /* Sum: '<S19>/Sum' */
     Ball_and_Plate_MicroLabBox_student_B.uA =
@@ -5340,13 +5340,13 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* End of Switch: '<S20>/Switch2' */
 
     /* RandomNumber: '<S20>/Random Number' */
-    Ball_and_Plate_MicroLabBox_student_B.RandomNumber_o =
-      Ball_and_Plate_MicroLabBox_student_DW.NextOutput_d;
+    Ball_and_Plate_MicroLabBox_student_B.RandomNumber =
+      Ball_and_Plate_MicroLabBox_student_DW.NextOutput;
 
     /* Gain: '<S20>/enable_white_noise_B ' */
     Ball_and_Plate_MicroLabBox_student_B.dB =
       Ball_and_Plate_MicroLabBox_student_P.enable_white_noise_B_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.RandomNumber_o;
+      Ball_and_Plate_MicroLabBox_student_B.RandomNumber;
 
     /* Sum: '<S20>/Sum' */
     Ball_and_Plate_MicroLabBox_student_B.uB =
@@ -5809,8 +5809,8 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 void Ball_and_Plate_MicroLabBox_student_update(void)
 {
   boolean_T resetCoeff;
-  real_T tol;
   real_T err;
+  real_T tmin;
   boolean_T guard1 = false;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
@@ -5824,25 +5824,25 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
     if (!resetCoeff) {
       if ((Ball_and_Plate_MicroLabBox_student_B.CastToDouble >= -1.0) &&
           (Ball_and_Plate_MicroLabBox_student_B.CastToDouble <= 1.0)) {
-        tol = Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol;
+        tmin = Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol;
       } else if (Ball_and_Plate_MicroLabBox_student_B.CastToDouble > 1.0) {
-        tol = Ball_and_Plate_MicroLabBox_student_B.CastToDouble *
+        tmin = Ball_and_Plate_MicroLabBox_student_B.CastToDouble *
           Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol;
       } else {
-        tol = -(Ball_and_Plate_MicroLabBox_student_B.CastToDouble *
-                Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol);
+        tmin = -(Ball_and_Plate_MicroLabBox_student_B.CastToDouble *
+                 Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold_ErrTol);
       }
 
       err = Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold -
         Ball_and_Plate_MicroLabBox_student_B.CastToDouble;
-      if ((err > tol) || (err < -tol)) {
+      if ((err > tmin) || (err < -tmin)) {
         guard1 = true;
       } else {
-        tol = Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] -
+        tmin = Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] -
           Ball_and_Plate_MicroLabBox_student_DW.Tk;
         Ball_and_Plate_MicroLabBox_student_DW.Mk =
           (Ball_and_Plate_MicroLabBox_student_B.CastToDouble -
-           Ball_and_Plate_MicroLabBox_student_DW.Uk) / tol;
+           Ball_and_Plate_MicroLabBox_student_DW.Uk) / tmin;
         Ball_and_Plate_MicroLabBox_student_DW.Ck =
           Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold;
       }
@@ -5877,25 +5877,25 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
     if (!resetCoeff) {
       if ((Ball_and_Plate_MicroLabBox_student_B.CastToDouble1 >= -1.0) &&
           (Ball_and_Plate_MicroLabBox_student_B.CastToDouble1 <= 1.0)) {
-        tol = Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol;
+        tmin = Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol;
       } else if (Ball_and_Plate_MicroLabBox_student_B.CastToDouble1 > 1.0) {
-        tol = Ball_and_Plate_MicroLabBox_student_B.CastToDouble1 *
+        tmin = Ball_and_Plate_MicroLabBox_student_B.CastToDouble1 *
           Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol;
       } else {
-        tol = -(Ball_and_Plate_MicroLabBox_student_B.CastToDouble1 *
-                Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol);
+        tmin = -(Ball_and_Plate_MicroLabBox_student_B.CastToDouble1 *
+                 Ball_and_Plate_MicroLabBox_student_P.FirstOrderHold1_ErrTol);
       }
 
       err = Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold1 -
         Ball_and_Plate_MicroLabBox_student_B.CastToDouble1;
-      if ((err > tol) || (err < -tol)) {
+      if ((err > tmin) || (err < -tmin)) {
         guard1 = true;
       } else {
-        tol = Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] -
+        tmin = Ball_and_Plate_MicroLabBox_student_M->Timing.t[0] -
           Ball_and_Plate_MicroLabBox_student_DW.Tk_c;
         Ball_and_Plate_MicroLabBox_student_DW.Mk_g =
           (Ball_and_Plate_MicroLabBox_student_B.CastToDouble1 -
-           Ball_and_Plate_MicroLabBox_student_DW.Uk_i) / tol;
+           Ball_and_Plate_MicroLabBox_student_DW.Uk_i) / tmin;
         Ball_and_Plate_MicroLabBox_student_DW.Ck_h =
           Ball_and_Plate_MicroLabBox_student_B.FirstOrderHold1;
       }
@@ -6021,11 +6021,12 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
     Ball_and_Plate_MicroLabBox_student_DW.Delay_DSTATE[1] =
       Ball_and_Plate_MicroLabBox_student_B.MultiportSwitch[1];
 
-    /* Update for RandomNumber: '<S19>/Random Number' */
-    Ball_and_Plate_MicroLabBox_student_DW.NextOutput =
-      rt_nrand_Upu32_Yd_f_pw_snf(&Ball_and_Plate_MicroLabBox_student_DW.RandSeed)
-      * Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev +
-      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean;
+    /* Update for UniformRandomNumber: '<S19>/Uniform Random Number' */
+    tmin = Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Minimum;
+    Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutput =
+      (Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Maximum - tmin) *
+      rt_urand_Upu32_Yd_f_pw_snf(&Ball_and_Plate_MicroLabBox_student_DW.RandSeed)
+      + tmin;
 
     /* Update for DiscreteIntegrator: '<S39>/Discrete-Time Integrator' incorporates:
      *  Constant: '<S3>/enable_inner_controller'
@@ -6038,9 +6039,9 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
       Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
         Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
     } else {
-      tol = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
+      tmin = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
       if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE <=
-          tol) {
+          tmin) {
         Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
           -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
       }
@@ -6064,11 +6065,11 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
     /* End of Update for DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
 
     /* Update for RandomNumber: '<S20>/Random Number' */
-    Ball_and_Plate_MicroLabBox_student_DW.NextOutput_d =
+    Ball_and_Plate_MicroLabBox_student_DW.NextOutput =
       rt_nrand_Upu32_Yd_f_pw_snf
       (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_g) *
-      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev_j +
-      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean_c;
+      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev +
+      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean;
 
     /* Update for DiscreteIntegrator: '<S54>/Discrete-Time Integrator' incorporates:
      *  Constant: '<S3>/enable_inner_controller'
@@ -6081,9 +6082,9 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
       Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o =
         Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
     } else {
-      tol = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
+      tmin = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
       if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o <=
-          tol) {
+          tmin) {
         Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o =
           -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
       }
@@ -7786,9 +7787,9 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     uint32_T tseed;
     int32_T r;
     int32_T t;
-    real_T tmp;
-    static const real_T tmp_0[16] = { 0.1, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0,
-      0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.0, 0.1 };
+    real_T tmin;
+    static const real_T tmp[16] = { 0.1, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0,
+      0.0, 0.1, 0.0, 0.0, 0.0, 0.0, 0.1 };
 
     /* InitializeConditions for UnitDelay: '<S1>/UD' */
     Ball_and_Plate_MicroLabBox_student_DW.UD_DSTATE =
@@ -7859,15 +7860,15 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_Plate_MicroLabBox_student_DW.Delay_DSTATE[1] =
       Ball_and_Plate_MicroLabBox_student_P.Delay_InitialCondition;
 
-    /* InitializeConditions for RandomNumber: '<S19>/Random Number' */
-    tmp = floor(Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Seed);
-    if (rtIsNaN(tmp) || rtIsInf(tmp)) {
-      tmp = 0.0;
+    /* InitializeConditions for UniformRandomNumber: '<S19>/Uniform Random Number' */
+    tmin = floor(Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Seed);
+    if (rtIsNaN(tmin) || rtIsInf(tmin)) {
+      tmin = 0.0;
     } else {
-      tmp = fmod(tmp, 4.294967296E+9);
+      tmin = fmod(tmin, 4.294967296E+9);
     }
 
-    tseed = tmp < 0.0 ? (uint32_T)-(int32_T)(uint32_T)-tmp : (uint32_T)tmp;
+    tseed = tmin < 0.0 ? (uint32_T)-(int32_T)(uint32_T)-tmin : (uint32_T)tmin;
     r = (int32_T)(tseed >> 16U);
     t = (int32_T)(tseed & 32768U);
     tseed = ((((tseed - ((uint32_T)r << 16U)) + t) << 16U) + t) + r;
@@ -7880,12 +7881,13 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     }
 
     Ball_and_Plate_MicroLabBox_student_DW.RandSeed = tseed;
-    Ball_and_Plate_MicroLabBox_student_DW.NextOutput =
-      rt_nrand_Upu32_Yd_f_pw_snf(&Ball_and_Plate_MicroLabBox_student_DW.RandSeed)
-      * Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev +
-      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean;
+    tmin = Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Minimum;
+    Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutput =
+      (Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Maximum - tmin) *
+      rt_urand_Upu32_Yd_f_pw_snf(&Ball_and_Plate_MicroLabBox_student_DW.RandSeed)
+      + tmin;
 
-    /* End of InitializeConditions for RandomNumber: '<S19>/Random Number' */
+    /* End of InitializeConditions for UniformRandomNumber: '<S19>/Uniform Random Number' */
 
     /* InitializeConditions for DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
     Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
@@ -7893,14 +7895,14 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRese = 2;
 
     /* InitializeConditions for RandomNumber: '<S20>/Random Number' */
-    tmp = floor(Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Seed_m);
-    if (rtIsNaN(tmp) || rtIsInf(tmp)) {
-      tmp = 0.0;
+    tmin = floor(Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Seed);
+    if (rtIsNaN(tmin) || rtIsInf(tmin)) {
+      tmin = 0.0;
     } else {
-      tmp = fmod(tmp, 4.294967296E+9);
+      tmin = fmod(tmin, 4.294967296E+9);
     }
 
-    tseed = tmp < 0.0 ? (uint32_T)-(int32_T)(uint32_T)-tmp : (uint32_T)tmp;
+    tseed = tmin < 0.0 ? (uint32_T)-(int32_T)(uint32_T)-tmin : (uint32_T)tmin;
     r = (int32_T)(tseed >> 16U);
     t = (int32_T)(tseed & 32768U);
     tseed = ((((tseed - ((uint32_T)r << 16U)) + t) << 16U) + t) + r;
@@ -7913,11 +7915,11 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     }
 
     Ball_and_Plate_MicroLabBox_student_DW.RandSeed_g = tseed;
-    Ball_and_Plate_MicroLabBox_student_DW.NextOutput_d =
+    Ball_and_Plate_MicroLabBox_student_DW.NextOutput =
       rt_nrand_Upu32_Yd_f_pw_snf
       (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_g) *
-      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev_j +
-      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean_c;
+      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev +
+      Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean;
 
     /* End of InitializeConditions for RandomNumber: '<S20>/Random Number' */
 
@@ -7927,14 +7929,14 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_e = 2;
 
     /* InitializeConditions for RandomNumber: '<S21>/Random Number' */
-    tmp = floor(Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Seed_g);
-    if (rtIsNaN(tmp) || rtIsInf(tmp)) {
-      tmp = 0.0;
+    tmin = floor(Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Seed_g);
+    if (rtIsNaN(tmin) || rtIsInf(tmin)) {
+      tmin = 0.0;
     } else {
-      tmp = fmod(tmp, 4.294967296E+9);
+      tmin = fmod(tmin, 4.294967296E+9);
     }
 
-    tseed = tmp < 0.0 ? (uint32_T)-(int32_T)(uint32_T)-tmp : (uint32_T)tmp;
+    tseed = tmin < 0.0 ? (uint32_T)-(int32_T)(uint32_T)-tmin : (uint32_T)tmin;
     r = (int32_T)(tseed >> 16U);
     t = (int32_T)(tseed & 32768U);
     tseed = ((((tseed - ((uint32_T)r << 16U)) + t) << 16U) + t) + r;
@@ -8035,7 +8037,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_Plate_MicroLabBox_student_DW.idx_ref = 1.0;
     for (r = 0; r < 16; r++) {
       /* SystemInitialize for MATLAB Function: '<Root>/MATLAB Function' */
-      Ball_and_Plate_MicroLabBox_student_DW.P[r] = tmp_0[r];
+      Ball_and_Plate_MicroLabBox_student_DW.P[r] = tmp[r];
 
       /* SystemInitialize for MATLAB Function: '<S9>/MATLAB Function1' */
       Ball_and_Plate_MicroLabBox_student_DW.xK[r] = 0.0;

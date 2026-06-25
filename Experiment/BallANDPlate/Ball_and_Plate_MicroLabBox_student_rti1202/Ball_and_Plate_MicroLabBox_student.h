@@ -9,7 +9,7 @@
  *
  * Model version              : 1.146
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Thu Jun 25 15:22:32 2026
+ * C source code generated on : Thu Jun 25 16:00:44 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -309,7 +309,7 @@ typedef struct {
   real_T SFunction1[2];                /* '<S17>/S-Function1' */
   real_T Switch_h;                     /* '<S19>/Switch' */
   real_T Switch2_k;                    /* '<S19>/Switch2' */
-  real_T RandomNumber;                 /* '<S19>/Random Number' */
+  real_T UniformRandomNumber;          /* '<S19>/Uniform Random Number' */
   real_T dA;                           /* '<S19>/enable_white_noise_A ' */
   real_T uA;                           /* '<S19>/Sum' */
   real_T Switch3;                      /* '<S19>/Switch3' */
@@ -321,7 +321,7 @@ typedef struct {
   real_T Dct1lowpass3;                 /* '<S39>/Dct1lowpass3' */
   real_T DiscreteTimeIntegrator;       /* '<S39>/Discrete-Time Integrator' */
   real_T Switch2_p;                    /* '<S20>/Switch2' */
-  real_T RandomNumber_o;               /* '<S20>/Random Number' */
+  real_T RandomNumber;                 /* '<S20>/Random Number' */
   real_T dB;                           /* '<S20>/enable_white_noise_B ' */
   real_T uB;                           /* '<S20>/Sum' */
   real_T Switch3_d;                    /* '<S20>/Switch3' */
@@ -493,8 +493,8 @@ typedef struct {
   real_T Mk_g;                         /* '<Root>/First Order Hold1' */
   real_T Uk_i;                         /* '<Root>/First Order Hold1' */
   real_T PrevY[2];                     /* '<S9>/Rate Limiter' */
-  real_T NextOutput;                   /* '<S19>/Random Number' */
-  real_T NextOutput_d;                 /* '<S20>/Random Number' */
+  real_T UniformRandomNumber_NextOutput;/* '<S19>/Uniform Random Number' */
+  real_T NextOutput;                   /* '<S20>/Random Number' */
   real_T NextOutput_p;                 /* '<S21>/Random Number' */
   real_T last_x_PreviousInput[4];      /* '<S63>/last_x' */
   real_T idx_ref;                      /* '<Root>/square_ref_player ' */
@@ -522,7 +522,7 @@ typedef struct {
   real_T Dctleadlag1_RWORK[2];         /* '<S54>/Dctleadlag1' */
   real_T Dct1lowpass1_RWORK[2];        /* '<S54>/Dct1lowpass1' */
   real_T Dct1lowpass2_RWORK_j[2];      /* '<S13>/Dct1lowpass2' */
-  uint32_T RandSeed;                   /* '<S19>/Random Number' */
+  uint32_T RandSeed;                   /* '<S19>/Uniform Random Number' */
   uint32_T RandSeed_g;                 /* '<S20>/Random Number' */
   uint32_T RandSeed_e;                 /* '<S21>/Random Number' */
   int_T ByteUnpacking_IWORK[10];       /* '<S2>/Byte Unpacking ' */
@@ -1136,14 +1136,14 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch2_Threshold_g;          /* Expression: 0.5
                                         * Referenced by: '<S19>/Switch2'
                                         */
-  real_T RandomNumber_Mean;            /* Expression: 0
-                                        * Referenced by: '<S19>/Random Number'
+  real_T UniformRandomNumber_Minimum;  /* Expression: -2.4
+                                        * Referenced by: '<S19>/Uniform Random Number'
                                         */
-  real_T RandomNumber_StdDev;         /* Computed Parameter: RandomNumber_StdDev
-                                       * Referenced by: '<S19>/Random Number'
-                                       */
-  real_T RandomNumber_Seed;            /* Expression: 0
-                                        * Referenced by: '<S19>/Random Number'
+  real_T UniformRandomNumber_Maximum;  /* Expression: 2.4
+                                        * Referenced by: '<S19>/Uniform Random Number'
+                                        */
+  real_T UniformRandomNumber_Seed;     /* Expression: 0
+                                        * Referenced by: '<S19>/Uniform Random Number'
                                         */
   real_T enable_white_noise_A_Gain;    /* Expression: 0
                                         * Referenced by: '<S19>/enable_white_noise_A '
@@ -1212,13 +1212,13 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Switch2_Threshold_k;          /* Expression: 0.5
                                         * Referenced by: '<S20>/Switch2'
                                         */
-  real_T RandomNumber_Mean_c;          /* Expression: 0
+  real_T RandomNumber_Mean;            /* Expression: 0
                                         * Referenced by: '<S20>/Random Number'
                                         */
-  real_T RandomNumber_StdDev_j;     /* Computed Parameter: RandomNumber_StdDev_j
-                                     * Referenced by: '<S20>/Random Number'
-                                     */
-  real_T RandomNumber_Seed_m;          /* Expression: 0
+  real_T RandomNumber_StdDev;         /* Computed Parameter: RandomNumber_StdDev
+                                       * Referenced by: '<S20>/Random Number'
+                                       */
+  real_T RandomNumber_Seed;            /* Expression: 0
                                         * Referenced by: '<S20>/Random Number'
                                         */
   real_T enable_white_noise_B_Gain;    /* Expression: 0

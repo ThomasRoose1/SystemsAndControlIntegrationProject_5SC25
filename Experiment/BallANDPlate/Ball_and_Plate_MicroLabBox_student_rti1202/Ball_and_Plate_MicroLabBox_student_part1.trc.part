@@ -1679,38 +1679,6 @@ group "Model Root"
 
 			endgroup -- block-group "enable_white_noise_A\n"
 
-			group "Random\nNumber" -- block-group
-			{
-			 block: "RandomNumber"
-			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[349]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Out1"
-				 flags:   OUTPUT|READONLY
-				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[172]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Mean"
-				 flags:   PARAM
-				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[173]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "StdDev"
-				 flags:   PARAM
-				}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[174]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Seed"
-				 flags:   PARAM
-				}
-
-
-			endgroup -- block-group "Random\nNumber"
-
 			group "Sum" -- block-group
 			{
 			 block: "Sum"
@@ -1818,6 +1786,38 @@ group "Model Root"
 
 
 			endgroup -- block-group "enable_ref\n"
+
+			group "Uniform Random\nNumber" -- block-group
+			{
+			 block: "UniformRandomNumber"
+			}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[349]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[172]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Minimum"
+				 flags:   PARAM
+				}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[173]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Maximum"
+				 flags:   PARAM
+				}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[174]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Seed"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Uniform Random\nNumber"
 
   
   

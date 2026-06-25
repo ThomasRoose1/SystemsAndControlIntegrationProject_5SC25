@@ -237,6 +237,18 @@
 							<LinkedItem type="key">138115637</LinkedItem>
 						</item>
 						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">195295209</UniqueID>
+							<LinkedItem type="key">921640045</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">881316607</UniqueID>
+							<LinkedItem type="key">688314641</LinkedItem>
+						</item>
+						<item>
 							<Component type="key">DataSetManager</Component>
 							<Name type="key">Data Sets</Name>
 							<DisplayName type="key">Data Sets</DisplayName>
@@ -534,6 +546,46 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<UniqueID type="key">138115637</UniqueID>
 					<EntityID type="key">{6ABB1E9E-3B39-4671-A561-020895B230F5}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 15:12:28</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec2_002.mf4</Name>
+					<DisplayName type="key">rec2_002.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">921640045</UniqueID>
+					<EntityID type="key">{C10F6F8D-CB06-4732-921E-B0EB3D665483}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 15:29:44</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec2_003.mf4</Name>
+					<DisplayName type="key">rec2_003.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">688314641</UniqueID>
+					<EntityID type="key">{9766D84C-C1B4-43D8-BA8C-6E40C6FDE666}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 15:46:38</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
@@ -1644,7 +1696,7 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<AutomaticExportFolder type="key"/>
 					<AutomaticNamingEnabled type="key">-1</AutomaticNamingEnabled>
 					<AutomaticNamingMinimunDigits type="key">3</AutomaticNamingMinimunDigits>
-					<AutomaticNamingStartIndex type="key">2</AutomaticNamingStartIndex>
+					<AutomaticNamingStartIndex type="key">4</AutomaticNamingStartIndex>
 					<Description type="key"/>
 					<FileNamePrefix type="key">rec2_</FileNamePrefix>
 					<OpenInMeasurementDataPoolEnabled type="key">0</OpenInMeasurementDataPoolEnabled>
