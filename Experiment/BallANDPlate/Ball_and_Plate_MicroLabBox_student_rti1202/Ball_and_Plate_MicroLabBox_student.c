@@ -9,7 +9,7 @@
  *
  * Model version              : 1.146
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Thu Jun 25 16:00:44 2026
+ * C source code generated on : Thu Jun 25 16:30:03 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -404,9 +404,9 @@ void Ball_and_Plate__MATLABFunction1(real_T rtu_reference_end, real_T
 /*
  * System initialize for atomic system:
  *    '<S24>/MATLAB Function'
- *    '<S36>/MATLAB Function'
- *    '<S50>/MATLAB Function'
+ *    '<S37>/MATLAB Function'
  *    '<S51>/MATLAB Function'
+ *    '<S52>/MATLAB Function'
  */
 void Ball_and_Pl_MATLABFunction_Init(DW_MATLABFunction_Ball_and_Pl_T *localDW)
 {
@@ -417,75 +417,75 @@ void Ball_and_Pl_MATLABFunction_Init(DW_MATLABFunction_Ball_and_Pl_T *localDW)
 /*
  * Output and update for atomic system:
  *    '<S24>/MATLAB Function'
- *    '<S36>/MATLAB Function'
- *    '<S50>/MATLAB Function'
+ *    '<S37>/MATLAB Function'
  *    '<S51>/MATLAB Function'
+ *    '<S52>/MATLAB Function'
  */
 void Ball_and_Plate_M_MATLABFunction(real_T rtu_enable, const real_T rtu_u
   [200000], B_MATLABFunction_Ball_and_Pla_T *localB,
   DW_MATLABFunction_Ball_and_Pl_T *localDW)
 {
-  /* MATLAB Function 'Innerloop_Actuator/Motor_A/Multisine/MATLAB Function': '<S27>:1' */
-  /* '<S27>:1:14' */
+  /* MATLAB Function 'Innerloop_Actuator/Motor_A/Multisine/MATLAB Function': '<S28>:1' */
+  /* '<S28>:1:14' */
   if ((rtu_enable != 0.0) && (!(localDW->previous_enable != 0.0))) {
-    /* '<S27>:1:17' */
-    /* '<S27>:1:18' */
+    /* '<S28>:1:17' */
+    /* '<S28>:1:18' */
     localDW->index = 1.0;
   }
 
   if (rtu_enable != 0.0) {
     if (localDW->index <= 200000.0) {
-      /* '<S27>:1:25' */
-      /* '<S27>:1:26' */
+      /* '<S28>:1:25' */
+      /* '<S28>:1:26' */
       localB->y = rtu_u[(int32_T)localDW->index - 1];
 
-      /* '<S27>:1:27' */
+      /* '<S28>:1:27' */
       localDW->index++;
     } else {
-      /* '<S27>:1:31' */
+      /* '<S28>:1:31' */
       localB->y = 0.0;
     }
   } else {
-    /* '<S27>:1:36' */
+    /* '<S28>:1:36' */
     localB->y = 0.0;
   }
 
-  /* '<S27>:1:39' */
+  /* '<S28>:1:39' */
   localDW->previous_enable = rtu_enable;
 }
 
 /*
  * System initialize for enable system:
- *    '<S31>/Enabled Subsystem'
- *    '<S46>/Enabled Subsystem'
+ *    '<S32>/Enabled Subsystem'
+ *    '<S47>/Enabled Subsystem'
  *    '<S60>/Enabled Subsystem'
  */
 void Ball_and__EnabledSubsystem_Init(B_EnabledSubsystem_Ball_and_P_T *localB,
   P_EnabledSubsystem_Ball_and_P_T *localP)
 {
-  /* SystemInitialize for Outport: '<S32>/Out1' */
+  /* SystemInitialize for Outport: '<S33>/Out1' */
   localB->OutportBufferForOut1 = localP->Out1_Y0;
 }
 
 /*
  * Disable for enable system:
- *    '<S31>/Enabled Subsystem'
- *    '<S46>/Enabled Subsystem'
+ *    '<S32>/Enabled Subsystem'
+ *    '<S47>/Enabled Subsystem'
  *    '<S60>/Enabled Subsystem'
  */
 void Ball_a_EnabledSubsystem_Disable(B_EnabledSubsystem_Ball_and_P_T *localB,
   DW_EnabledSubsystem_Ball_and__T *localDW, P_EnabledSubsystem_Ball_and_P_T
   *localP)
 {
-  /* Disable for Outport: '<S32>/Out1' */
+  /* Disable for Outport: '<S33>/Out1' */
   localB->OutportBufferForOut1 = localP->Out1_Y0;
   localDW->EnabledSubsystem_MODE = false;
 }
 
 /*
  * Start for enable system:
- *    '<S31>/Enabled Subsystem'
- *    '<S46>/Enabled Subsystem'
+ *    '<S32>/Enabled Subsystem'
+ *    '<S47>/Enabled Subsystem'
  *    '<S60>/Enabled Subsystem'
  */
 void Ball_and_EnabledSubsystem_Start(DW_EnabledSubsystem_Ball_and__T *localDW)
@@ -495,8 +495,8 @@ void Ball_and_EnabledSubsystem_Start(DW_EnabledSubsystem_Ball_and__T *localDW)
 
 /*
  * Output and update for enable system:
- *    '<S31>/Enabled Subsystem'
- *    '<S46>/Enabled Subsystem'
+ *    '<S32>/Enabled Subsystem'
+ *    '<S47>/Enabled Subsystem'
  *    '<S60>/Enabled Subsystem'
  */
 void Ball_and_Plate_EnabledSubsystem
@@ -505,8 +505,8 @@ void Ball_and_Plate_EnabledSubsystem
    B_EnabledSubsystem_Ball_and_P_T *localB, DW_EnabledSubsystem_Ball_and__T
    *localDW, P_EnabledSubsystem_Ball_and_P_T *localP)
 {
-  /* Outputs for Enabled SubSystem: '<S31>/Enabled Subsystem' incorporates:
-   *  EnablePort: '<S32>/Enable'
+  /* Outputs for Enabled SubSystem: '<S32>/Enabled Subsystem' incorporates:
+   *  EnablePort: '<S33>/Enable'
    */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M)) {
     if (rtu_Enable > 0.0) {
@@ -519,32 +519,32 @@ void Ball_and_Plate_EnabledSubsystem
   }
 
   if (localDW->EnabledSubsystem_MODE) {
-    /* SignalConversion generated from: '<S32>/Out1' incorporates:
-     *  Constant: '<S32>/Constant'
+    /* SignalConversion generated from: '<S33>/Out1' incorporates:
+     *  Constant: '<S33>/Constant'
      */
     localB->OutportBufferForOut1 = localP->Constant_Value;
   }
 
-  /* End of Outputs for SubSystem: '<S31>/Enabled Subsystem' */
+  /* End of Outputs for SubSystem: '<S32>/Enabled Subsystem' */
 }
 
 /*
  * System initialize for enable system:
- *    '<S31>/Enabled Subsystem1'
- *    '<S46>/Enabled Subsystem1'
+ *    '<S32>/Enabled Subsystem1'
+ *    '<S47>/Enabled Subsystem1'
  *    '<S60>/Enabled Subsystem1'
  */
 void Ball_and_EnabledSubsystem1_Init(B_EnabledSubsystem1_Ball_and__T *localB,
   P_EnabledSubsystem1_Ball_and__T *localP)
 {
-  /* SystemInitialize for Outport: '<S33>/Out1' */
+  /* SystemInitialize for Outport: '<S34>/Out1' */
   localB->In1 = localP->Out1_Y0;
 }
 
 /*
  * Disable for enable system:
- *    '<S31>/Enabled Subsystem1'
- *    '<S46>/Enabled Subsystem1'
+ *    '<S32>/Enabled Subsystem1'
+ *    '<S47>/Enabled Subsystem1'
  *    '<S60>/Enabled Subsystem1'
  */
 void Ball__EnabledSubsystem1_Disable(DW_EnabledSubsystem1_Ball_and_T *localDW)
@@ -554,8 +554,8 @@ void Ball__EnabledSubsystem1_Disable(DW_EnabledSubsystem1_Ball_and_T *localDW)
 
 /*
  * Start for enable system:
- *    '<S31>/Enabled Subsystem1'
- *    '<S46>/Enabled Subsystem1'
+ *    '<S32>/Enabled Subsystem1'
+ *    '<S47>/Enabled Subsystem1'
  *    '<S60>/Enabled Subsystem1'
  */
 void Ball_an_EnabledSubsystem1_Start(DW_EnabledSubsystem1_Ball_and_T *localDW)
@@ -565,8 +565,8 @@ void Ball_an_EnabledSubsystem1_Start(DW_EnabledSubsystem1_Ball_and_T *localDW)
 
 /*
  * Output and update for enable system:
- *    '<S31>/Enabled Subsystem1'
- *    '<S46>/Enabled Subsystem1'
+ *    '<S32>/Enabled Subsystem1'
+ *    '<S47>/Enabled Subsystem1'
  *    '<S60>/Enabled Subsystem1'
  */
 void Ball_and_Plat_EnabledSubsystem1
@@ -575,8 +575,8 @@ void Ball_and_Plat_EnabledSubsystem1
    B_EnabledSubsystem1_Ball_and__T *localB, DW_EnabledSubsystem1_Ball_and_T
    *localDW)
 {
-  /* Outputs for Enabled SubSystem: '<S31>/Enabled Subsystem1' incorporates:
-   *  EnablePort: '<S33>/Enable'
+  /* Outputs for Enabled SubSystem: '<S32>/Enabled Subsystem1' incorporates:
+   *  EnablePort: '<S34>/Enable'
    */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M)) {
     if (rtu_Enable) {
@@ -591,11 +591,11 @@ void Ball_and_Plat_EnabledSubsystem1
   if (localDW->EnabledSubsystem1_MODE && (rtmIsMajorTimeStep
        (Ball_and_Plate_MicroLabBox_student_M) &&
        Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0)) {
-    /* Inport: '<S33>/In1' */
+    /* Inport: '<S34>/In1' */
     localB->In1 = rtu_In1;
   }
 
-  /* End of Outputs for SubSystem: '<S31>/Enabled Subsystem1' */
+  /* End of Outputs for SubSystem: '<S32>/Enabled Subsystem1' */
 }
 
 real_T rt_urand_Upu32_Yd_f_pw_snf(uint32_T *u)
@@ -2658,7 +2658,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
     /* Outputs for Triggered SubSystem: '<S26>/EMC_ENCODER_POS_SET_BL1' incorporates:
-     *  TriggerPort: '<S30>/Trigger'
+     *  TriggerPort: '<S31>/Trigger'
      */
     if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M)) {
       /* Constant: '<S3>/Init  ' */
@@ -2666,7 +2666,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
                          &Ball_and_Plate_MicroLabBox_student_PrevZCX.EMC_ENCODER_POS_SET_BL1_Trig_fh,
                          (Ball_and_Plate_MicroLabBox_student_P.Init_Value));
       if (zcEvent != NO_ZCEVENT) {
-        /* S-Function (rti_commonblock): '<S30>/S-Function1' incorporates:
+        /* S-Function (rti_commonblock): '<S31>/S-Function1' incorporates:
          *  Constant: '<S26>/Constant'
          */
         /* This comment workarounds a code generation problem */
@@ -2698,7 +2698,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
     /* End of Outputs for SubSystem: '<S26>/EMC_ENCODER_POS_SET_BL1' */
 
-    /* S-Function (rti_commonblock): '<S29>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S30>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* Gain: '<S26>/Inc2Pos' */
@@ -2715,11 +2715,11 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
        Ball_and_Plate_MicroLabBox_student_P.ZP_Value) -
       Ball_and_Plate_MicroLabBox_student_P.Pos_offset_Value;
 
-    /* Abs: '<S31>/Abs' */
+    /* Abs: '<S32>/Abs' */
     Ball_and_Plate_MicroLabBox_student_B.Abs_h = fabs
       (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o2_d);
 
-    /* Outputs for Enabled SubSystem: '<S31>/Enabled Subsystem' */
+    /* Outputs for Enabled SubSystem: '<S32>/Enabled Subsystem' */
     /* Constant: '<S3>/Init  ' */
     Ball_and_Plate_EnabledSubsystem(Ball_and_Plate_MicroLabBox_student_M,
       Ball_and_Plate_MicroLabBox_student_P.Init_Value,
@@ -2727,30 +2727,30 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem,
       &Ball_and_Plate_MicroLabBox_student_P.EnabledSubsystem);
 
-    /* End of Outputs for SubSystem: '<S31>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S32>/Enabled Subsystem' */
 
-    /* RelationalOperator: '<S31>/Relational Operator1' incorporates:
-     *  Constant: '<S31>/Const'
+    /* RelationalOperator: '<S32>/Relational Operator1' incorporates:
+     *  Constant: '<S32>/Const'
      */
     Ball_and_Plate_MicroLabBox_student_B.RelationalOperator1_f =
       (Ball_and_Plate_MicroLabBox_student_B.Abs_h <=
        Ball_and_Plate_MicroLabBox_student_P.Const_Value);
   }
 
-  /* TransferFcn: '<S31>/Transfer Fcn' */
+  /* TransferFcn: '<S32>/Transfer Fcn' */
   Ball_and_Plate_MicroLabBox_student_B.TransferFcn_f = 0.0;
   Ball_and_Plate_MicroLabBox_student_B.TransferFcn_f +=
     Ball_and_Plate_MicroLabBox_student_P.TransferFcn_C *
     Ball_and_Plate_MicroLabBox_student_X.TransferFcn_CSTATE_l;
 
-  /* RelationalOperator: '<S31>/Relational Operator' incorporates:
-   *  Constant: '<S31>/Const1'
+  /* RelationalOperator: '<S32>/Relational Operator' incorporates:
+   *  Constant: '<S32>/Const1'
    */
   Ball_and_Plate_MicroLabBox_student_B.RelationalOperator_a =
     (Ball_and_Plate_MicroLabBox_student_P.Const1_Value >=
      Ball_and_Plate_MicroLabBox_student_B.TransferFcn_f);
 
-  /* Logic: '<S31>/Logical Operator2' incorporates:
+  /* Logic: '<S32>/Logical Operator2' incorporates:
    *  Constant: '<S3>/Init  '
    */
   Ball_and_Plate_MicroLabBox_student_B.LogicalOperator2_a =
@@ -2758,14 +2758,14 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      Ball_and_Plate_MicroLabBox_student_B.RelationalOperator_a &&
      (Ball_and_Plate_MicroLabBox_student_P.Init_Value != 0.0));
 
-  /* Outputs for Enabled SubSystem: '<S31>/Enabled Subsystem1' */
+  /* Outputs for Enabled SubSystem: '<S32>/Enabled Subsystem1' */
   Ball_and_Plat_EnabledSubsystem1(Ball_and_Plate_MicroLabBox_student_M,
     Ball_and_Plate_MicroLabBox_student_B.LogicalOperator2_a,
     Ball_and_Plate_MicroLabBox_student_B.Inc2Pos_p,
     &Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem1,
     &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem1);
 
-  /* End of Outputs for SubSystem: '<S31>/Enabled Subsystem1' */
+  /* End of Outputs for SubSystem: '<S32>/Enabled Subsystem1' */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
     /* Gain: '<S26>/mm2m' */
@@ -2779,8 +2779,8 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   /* Outputs for Atomic SubSystem: '<S20>/Position Measurement' */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* Outputs for Triggered SubSystem: '<S38>/EMC_ENCODER_POS_SET_BL1' incorporates:
-     *  TriggerPort: '<S45>/Trigger'
+    /* Outputs for Triggered SubSystem: '<S39>/EMC_ENCODER_POS_SET_BL1' incorporates:
+     *  TriggerPort: '<S46>/Trigger'
      */
     if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M)) {
       /* Constant: '<S3>/Init  ' */
@@ -2788,8 +2788,8 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
                          &Ball_and_Plate_MicroLabBox_student_PrevZCX.EMC_ENCODER_POS_SET_BL1_Trig__f,
                          (Ball_and_Plate_MicroLabBox_student_P.Init_Value));
       if (zcEvent != NO_ZCEVENT) {
-        /* S-Function (rti_commonblock): '<S45>/S-Function1' incorporates:
-         *  Constant: '<S38>/Constant'
+        /* S-Function (rti_commonblock): '<S46>/S-Function1' incorporates:
+         *  Constant: '<S39>/Constant'
          */
         /* This comment workarounds a code generation problem */
         {
@@ -2818,30 +2818,30 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       }
     }
 
-    /* End of Outputs for SubSystem: '<S38>/EMC_ENCODER_POS_SET_BL1' */
+    /* End of Outputs for SubSystem: '<S39>/EMC_ENCODER_POS_SET_BL1' */
 
-    /* S-Function (rti_commonblock): '<S44>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S45>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* Gain: '<S38>/Inc2Pos' */
+    /* Gain: '<S39>/Inc2Pos' */
     Ball_and_Plate_MicroLabBox_student_B.Inc2Pos_e =
       Ball_and_Plate_MicroLabBox_student_P.Inc2Pos_Gain_k *
       Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_i;
 
-    /* Sum: '<S38>/AbsPosition' incorporates:
-     *  Constant: '<S38>/Pos_offset'
-     *  Constant: '<S38>/ZP'
+    /* Sum: '<S39>/AbsPosition' incorporates:
+     *  Constant: '<S39>/Pos_offset'
+     *  Constant: '<S39>/ZP'
      */
     Ball_and_Plate_MicroLabBox_student_B.AbsPosition_i =
       (Ball_and_Plate_MicroLabBox_student_B.Inc2Pos_e -
        Ball_and_Plate_MicroLabBox_student_P.ZP_Value_m) -
       Ball_and_Plate_MicroLabBox_student_P.Pos_offset_Value_k;
 
-    /* Abs: '<S46>/Abs' */
+    /* Abs: '<S47>/Abs' */
     Ball_and_Plate_MicroLabBox_student_B.Abs_j = fabs
       (Ball_and_Plate_MicroLabBox_student_B.SFunction1_o2_p);
 
-    /* Outputs for Enabled SubSystem: '<S46>/Enabled Subsystem' */
+    /* Outputs for Enabled SubSystem: '<S47>/Enabled Subsystem' */
     /* Constant: '<S3>/Init  ' */
     Ball_and_Plate_EnabledSubsystem(Ball_and_Plate_MicroLabBox_student_M,
       Ball_and_Plate_MicroLabBox_student_P.Init_Value,
@@ -2849,30 +2849,30 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem_a,
       &Ball_and_Plate_MicroLabBox_student_P.EnabledSubsystem_a);
 
-    /* End of Outputs for SubSystem: '<S46>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S47>/Enabled Subsystem' */
 
-    /* RelationalOperator: '<S46>/Relational Operator1' incorporates:
-     *  Constant: '<S46>/Const'
+    /* RelationalOperator: '<S47>/Relational Operator1' incorporates:
+     *  Constant: '<S47>/Const'
      */
     Ball_and_Plate_MicroLabBox_student_B.RelationalOperator1_c =
       (Ball_and_Plate_MicroLabBox_student_B.Abs_j <=
        Ball_and_Plate_MicroLabBox_student_P.Const_Value_g);
   }
 
-  /* TransferFcn: '<S46>/Transfer Fcn' */
+  /* TransferFcn: '<S47>/Transfer Fcn' */
   Ball_and_Plate_MicroLabBox_student_B.TransferFcn_o = 0.0;
   Ball_and_Plate_MicroLabBox_student_B.TransferFcn_o +=
     Ball_and_Plate_MicroLabBox_student_P.TransferFcn_C_e *
     Ball_and_Plate_MicroLabBox_student_X.TransferFcn_CSTATE_h;
 
-  /* RelationalOperator: '<S46>/Relational Operator' incorporates:
-   *  Constant: '<S46>/Const1'
+  /* RelationalOperator: '<S47>/Relational Operator' incorporates:
+   *  Constant: '<S47>/Const1'
    */
   Ball_and_Plate_MicroLabBox_student_B.RelationalOperator_n =
     (Ball_and_Plate_MicroLabBox_student_P.Const1_Value_a >=
      Ball_and_Plate_MicroLabBox_student_B.TransferFcn_o);
 
-  /* Logic: '<S46>/Logical Operator2' incorporates:
+  /* Logic: '<S47>/Logical Operator2' incorporates:
    *  Constant: '<S3>/Init  '
    */
   Ball_and_Plate_MicroLabBox_student_B.LogicalOperator2_l =
@@ -2880,17 +2880,17 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      Ball_and_Plate_MicroLabBox_student_B.RelationalOperator_n &&
      (Ball_and_Plate_MicroLabBox_student_P.Init_Value != 0.0));
 
-  /* Outputs for Enabled SubSystem: '<S46>/Enabled Subsystem1' */
+  /* Outputs for Enabled SubSystem: '<S47>/Enabled Subsystem1' */
   Ball_and_Plat_EnabledSubsystem1(Ball_and_Plate_MicroLabBox_student_M,
     Ball_and_Plate_MicroLabBox_student_B.LogicalOperator2_l,
     Ball_and_Plate_MicroLabBox_student_B.Inc2Pos_e,
     &Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem1_f,
     &Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem1_f);
 
-  /* End of Outputs for SubSystem: '<S46>/Enabled Subsystem1' */
+  /* End of Outputs for SubSystem: '<S47>/Enabled Subsystem1' */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* Gain: '<S38>/mm2m' */
+    /* Gain: '<S39>/mm2m' */
     Ball_and_Plate_MicroLabBox_student_B.mm2m_p =
       Ball_and_Plate_MicroLabBox_student_P.mm2m_Gain_f *
       Ball_and_Plate_MicroLabBox_student_B.AbsPosition_i;
@@ -2901,7 +2901,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   /* Outputs for Atomic SubSystem: '<S21>/Position Measurement' */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* Outputs for Triggered SubSystem: '<S53>/EMC_ENCODER_POS_SET_BL1' incorporates:
+    /* Outputs for Triggered SubSystem: '<S54>/EMC_ENCODER_POS_SET_BL1' incorporates:
      *  TriggerPort: '<S59>/Trigger'
      */
     if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M)) {
@@ -2911,7 +2911,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
                          (Ball_and_Plate_MicroLabBox_student_P.Init_Value));
       if (zcEvent != NO_ZCEVENT) {
         /* S-Function (rti_commonblock): '<S59>/S-Function1' incorporates:
-         *  Constant: '<S53>/Constant'
+         *  Constant: '<S54>/Constant'
          */
         /* This comment workarounds a code generation problem */
         {
@@ -2940,19 +2940,19 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       }
     }
 
-    /* End of Outputs for SubSystem: '<S53>/EMC_ENCODER_POS_SET_BL1' */
+    /* End of Outputs for SubSystem: '<S54>/EMC_ENCODER_POS_SET_BL1' */
 
     /* S-Function (rti_commonblock): '<S58>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* Gain: '<S53>/Inc2Pos' */
+    /* Gain: '<S54>/Inc2Pos' */
     Ball_and_Plate_MicroLabBox_student_B.Inc2Pos =
       Ball_and_Plate_MicroLabBox_student_P.Inc2Pos_Gain_h *
       Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1;
 
-    /* Sum: '<S53>/AbsPosition' incorporates:
-     *  Constant: '<S53>/Pos_offset'
-     *  Constant: '<S53>/ZP'
+    /* Sum: '<S54>/AbsPosition' incorporates:
+     *  Constant: '<S54>/Pos_offset'
+     *  Constant: '<S54>/ZP'
      */
     Ball_and_Plate_MicroLabBox_student_B.AbsPosition =
       (Ball_and_Plate_MicroLabBox_student_B.Inc2Pos -
@@ -3012,7 +3012,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   /* End of Outputs for SubSystem: '<S60>/Enabled Subsystem1' */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* Gain: '<S53>/mm2m' */
+    /* Gain: '<S54>/mm2m' */
     Ball_and_Plate_MicroLabBox_student_B.mm2m =
       Ball_and_Plate_MicroLabBox_student_P.mm2m_Gain_o *
       Ball_and_Plate_MicroLabBox_student_B.AbsPosition;
@@ -3415,7 +3415,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      *  Outport: '<Root>/y_obs'
      */
     if (Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value >
-        Ball_and_Plate_MicroLabBox_student_P.Switch_Threshold) {
+        Ball_and_Plate_MicroLabBox_student_P.Switch_Threshold_h) {
       Ball_and_Plate_MicroLabBox_student_B.Switch[0] =
         Ball_and_Plate_MicroLabBox_student_Y.x_obs;
       Ball_and_Plate_MicroLabBox_student_B.Switch[1] =
@@ -3714,7 +3714,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      */
     Ball_and_Plate_MicroLabBox_student_B.Compare =
       (Ball_and_Plate_MicroLabBox_student_P.enable_outer_controller_Value >
-       Ball_and_Plate_MicroLabBox_student_P.Constant_Value_h);
+       Ball_and_Plate_MicroLabBox_student_P.Constant_Value_hi);
 
     /* UnitDelay: '<S176>/Delay Input1' */
     Ball_and_Plate_MicroLabBox_student_B.Uk1_j =
@@ -4853,8 +4853,8 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* End of Saturate: '<Root>/Beta_sat ' */
 
     /* Gain: '<Root>/Gain2' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain2_j =
-      Ball_and_Plate_MicroLabBox_student_P.Gain2_Gain_p *
+    Ball_and_Plate_MicroLabBox_student_B.Gain2 =
+      Ball_and_Plate_MicroLabBox_student_P.Gain2_Gain *
       Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o1;
 
     /* Gain: '<Root>/Gain3' */
@@ -4869,7 +4869,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[2] == 0) {
     Ball_and_Plate_MicroLabBox_student_B.RateTransition4 =
-      Ball_and_Plate_MicroLabBox_student_B.Gain2_j;
+      Ball_and_Plate_MicroLabBox_student_B.Gain2;
 
     /* DataTypeConversion: '<Root>/Cast To Double' */
     Ball_and_Plate_MicroLabBox_student_B.CastToDouble =
@@ -5088,46 +5088,96 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
        &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction1,
        &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction1);
 
+    /* Switch: '<S19>/enable_ref ' incorporates:
+     *  Constant: '<S3>/enable_outerloop '
+     */
+    if (Ball_and_Plate_MicroLabBox_student_P.enable_outerloop_Value >
+        Ball_and_Plate_MicroLabBox_student_P.enable_ref_Threshold) {
+      /* Sum: '<S3>/Add1' incorporates:
+       *  Constant: '<S3>/Constant'
+       */
+      Ball_and_Plate_MicroLabBox_student_B.Add1_m =
+        Ball_and_Plate_MicroLabBox_student_B.pos1 -
+        Ball_and_Plate_MicroLabBox_student_P.Constant_Value;
+      Ball_and_Plate_MicroLabBox_student_B.enable_ref =
+        Ball_and_Plate_MicroLabBox_student_B.Add1_m;
+    } else {
+      Ball_and_Plate_MicroLabBox_student_B.enable_ref =
+        Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction1.path;
+    }
+
+    /* End of Switch: '<S19>/enable_ref ' */
+
+    /* Sum: '<S19>/Sum1' */
+    Ball_and_Plate_MicroLabBox_student_B.Sum1 =
+      Ball_and_Plate_MicroLabBox_student_B.enable_ref -
+      Ball_and_Plate_MicroLabBox_student_B.mm2m_po;
+
+    /* Gain: '<S27>/Gain1' */
+    Ball_and_Plate_MicroLabBox_student_B.Gain1_b =
+      Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_j *
+      Ball_and_Plate_MicroLabBox_student_B.Sum1;
+
+    /* S-Function (dleadlag): '<S27>/Dctleadlag2' */
+
+    /* Level2 S-Function Block: '<S27>/Dctleadlag2' (dleadlag) */
+    {
+      SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[2];
+      sfcnOutputs(rts,1);
+    }
+
+    /* S-Function (dlowpass1): '<S27>/Dct1lowpass3' */
+
+    /* Level2 S-Function Block: '<S27>/Dct1lowpass3' (dlowpass1) */
+    {
+      SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[3];
+      sfcnOutputs(rts,1);
+    }
+
+    /* DiscreteIntegrator: '<S27>/Discrete-Time Integrator' incorporates:
+     *  Constant: '<S3>/enable_inner_controller'
+     */
+    if ((Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value >
+         0.0) &&
+        (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRese <=
+         0)) {
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
+        Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_IC;
+    }
+
+    if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE >=
+        Ball_and_Plate_MicroLabBox_student_P.inner_I_sat) {
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
+        Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
+    } else {
+      a21 = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
+      if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE <=
+          a21) {
+        Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
+          -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
+      }
+    }
+
+    Ball_and_Plate_MicroLabBox_student_B.DiscreteTimeIntegrator =
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE;
+
+    /* End of DiscreteIntegrator: '<S27>/Discrete-Time Integrator' */
+
     /* Switch: '<S19>/Switch2' incorporates:
      *  Constant: '<S19>/Constant'
      *  Constant: '<S3>/enable_inner_controller'
      */
     if (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value >=
         Ball_and_Plate_MicroLabBox_student_P.Switch2_Threshold_g) {
-      /* Switch: '<S19>/enable_ref ' incorporates:
-       *  Constant: '<S3>/enable_outerloop '
-       */
-      if (Ball_and_Plate_MicroLabBox_student_P.enable_outerloop_Value >
-          Ball_and_Plate_MicroLabBox_student_P.enable_ref_Threshold) {
-        /* Sum: '<S3>/Add1' incorporates:
-         *  Constant: '<S3>/Constant'
-         */
-        Ball_and_Plate_MicroLabBox_student_B.Add1_m =
-          Ball_and_Plate_MicroLabBox_student_B.pos1 -
-          Ball_and_Plate_MicroLabBox_student_P.Constant_Value_o;
-        Ball_and_Plate_MicroLabBox_student_B.enable_ref =
-          Ball_and_Plate_MicroLabBox_student_B.Add1_m;
-      } else {
-        Ball_and_Plate_MicroLabBox_student_B.enable_ref =
-          Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction1.path;
-      }
-
-      /* End of Switch: '<S19>/enable_ref ' */
-
-      /* Sum: '<S19>/Sum1' */
-      Ball_and_Plate_MicroLabBox_student_B.Sum1_b =
-        Ball_and_Plate_MicroLabBox_student_B.enable_ref -
-        Ball_and_Plate_MicroLabBox_student_B.mm2m_po;
-
-      /* Gain: '<S19>/Gain' */
-      Ball_and_Plate_MicroLabBox_student_B.Gain_k =
-        Ball_and_Plate_MicroLabBox_student_P.Gain_Gain *
-        Ball_and_Plate_MicroLabBox_student_B.Sum1_b;
+      /* Sum: '<S27>/Add' */
+      Ball_and_Plate_MicroLabBox_student_B.Add_h =
+        Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3 +
+        Ball_and_Plate_MicroLabBox_student_B.DiscreteTimeIntegrator;
       Ball_and_Plate_MicroLabBox_student_B.Switch2_k =
-        Ball_and_Plate_MicroLabBox_student_B.Gain_k;
+        Ball_and_Plate_MicroLabBox_student_B.Add_h;
     } else {
       Ball_and_Plate_MicroLabBox_student_B.Switch2_k =
-        Ball_and_Plate_MicroLabBox_student_P.Constant_Value;
+        Ball_and_Plate_MicroLabBox_student_P.Constant_Value_h;
     }
 
     /* End of Switch: '<S19>/Switch2' */
@@ -5188,7 +5238,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.Current2V_h;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* S-Function (rti_commonblock): '<S28>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S29>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Outputs to Amplifier/DAC_CLASS1_BL1 --- */
@@ -5266,59 +5316,59 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* End of Switch: '<S20>/Switch' */
 
     /* Sum: '<S20>/Sum1' */
-    Ball_and_Plate_MicroLabBox_student_B.Sum1 =
+    Ball_and_Plate_MicroLabBox_student_B.Sum1_f =
       Ball_and_Plate_MicroLabBox_student_B.Switch_j -
       Ball_and_Plate_MicroLabBox_student_B.mm2m_p;
 
-    /* Gain: '<S39>/Gain1' */
+    /* Gain: '<S40>/Gain1' */
     Ball_and_Plate_MicroLabBox_student_B.Gain1_f =
       Ball_and_Plate_MicroLabBox_student_P.Gain1_Gain_l *
-      Ball_and_Plate_MicroLabBox_student_B.Sum1;
+      Ball_and_Plate_MicroLabBox_student_B.Sum1_f;
 
-    /* S-Function (dleadlag): '<S39>/Dctleadlag2' */
+    /* S-Function (dleadlag): '<S40>/Dctleadlag2' */
 
-    /* Level2 S-Function Block: '<S39>/Dctleadlag2' (dleadlag) */
+    /* Level2 S-Function Block: '<S40>/Dctleadlag2' (dleadlag) */
     {
-      SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[2];
+      SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[4];
       sfcnOutputs(rts,1);
     }
 
-    /* S-Function (dlowpass1): '<S39>/Dct1lowpass3' */
+    /* S-Function (dlowpass1): '<S40>/Dct1lowpass3' */
 
-    /* Level2 S-Function Block: '<S39>/Dct1lowpass3' (dlowpass1) */
+    /* Level2 S-Function Block: '<S40>/Dct1lowpass3' (dlowpass1) */
     {
-      SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[3];
+      SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[5];
       sfcnOutputs(rts,1);
     }
 
-    /* DiscreteIntegrator: '<S39>/Discrete-Time Integrator' incorporates:
+    /* DiscreteIntegrator: '<S40>/Discrete-Time Integrator' incorporates:
      *  Constant: '<S3>/enable_inner_controller'
      */
     if ((Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value >
          0.0) &&
-        (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRese <=
+        (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_h <=
          0)) {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
-        Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_IC;
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p =
+        Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_IC_m;
     }
 
-    if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE >=
+    if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p >=
         Ball_and_Plate_MicroLabBox_student_P.inner_I_sat) {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p =
         Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
     } else {
       a21 = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
-      if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE <=
+      if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p <=
           a21) {
-        Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
+        Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p =
           -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
       }
     }
 
-    Ball_and_Plate_MicroLabBox_student_B.DiscreteTimeIntegrator =
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE;
+    Ball_and_Plate_MicroLabBox_student_B.DiscreteTimeIntegrator_m =
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p;
 
-    /* End of DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
+    /* End of DiscreteIntegrator: '<S40>/Discrete-Time Integrator' */
 
     /* Switch: '<S20>/Switch2' incorporates:
      *  Constant: '<S20>/Constant1'
@@ -5326,12 +5376,12 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
      */
     if (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value >=
         Ball_and_Plate_MicroLabBox_student_P.Switch2_Threshold_k) {
-      /* Sum: '<S39>/Add' */
-      Ball_and_Plate_MicroLabBox_student_B.Add_f =
-        Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3 +
-        Ball_and_Plate_MicroLabBox_student_B.DiscreteTimeIntegrator;
+      /* Sum: '<S40>/Add' */
+      Ball_and_Plate_MicroLabBox_student_B.Add =
+        Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_c +
+        Ball_and_Plate_MicroLabBox_student_B.DiscreteTimeIntegrator_m;
       Ball_and_Plate_MicroLabBox_student_B.Switch2_p =
-        Ball_and_Plate_MicroLabBox_student_B.Add_f;
+        Ball_and_Plate_MicroLabBox_student_B.Add;
     } else {
       Ball_and_Plate_MicroLabBox_student_B.Switch2_p =
         Ball_and_Plate_MicroLabBox_student_P.Constant1_Value;
@@ -5339,14 +5389,14 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
     /* End of Switch: '<S20>/Switch2' */
 
-    /* RandomNumber: '<S20>/Random Number' */
-    Ball_and_Plate_MicroLabBox_student_B.RandomNumber =
-      Ball_and_Plate_MicroLabBox_student_DW.NextOutput;
+    /* UniformRandomNumber: '<S20>/Uniform Random Number' */
+    Ball_and_Plate_MicroLabBox_student_B.UniformRandomNumber_j =
+      Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutpu_n;
 
     /* Gain: '<S20>/enable_white_noise_B ' */
     Ball_and_Plate_MicroLabBox_student_B.dB =
       Ball_and_Plate_MicroLabBox_student_P.enable_white_noise_B_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.RandomNumber;
+      Ball_and_Plate_MicroLabBox_student_B.UniformRandomNumber_j;
 
     /* Sum: '<S20>/Sum' */
     Ball_and_Plate_MicroLabBox_student_B.uB =
@@ -5370,7 +5420,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
   /* Outputs for Atomic SubSystem: '<S20>/Outputs to Amplifier' */
 
-  /* Saturate: '<S37>/Saturation' */
+  /* Saturate: '<S38>/Saturation' */
   center_idx_2 = Ball_and_Plate_MicroLabBox_student_B.Switch3_d;
   uX_idx_1 = Ball_and_Plate_MicroLabBox_student_P.Saturation_LowerSat_f;
   uX_idx_0 = Ball_and_Plate_MicroLabBox_student_P.Saturation_UpperSat_e;
@@ -5382,20 +5432,20 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.Saturation_l = center_idx_2;
   }
 
-  /* End of Saturate: '<S37>/Saturation' */
+  /* End of Saturate: '<S38>/Saturation' */
 
-  /* Gain: '<S37>/Current2V' */
+  /* Gain: '<S38>/Current2V' */
   Ball_and_Plate_MicroLabBox_student_B.Current2V_f =
     Ball_and_Plate_MicroLabBox_student_P.Current2V_Gain_f *
     Ball_and_Plate_MicroLabBox_student_B.Saturation_l;
 
-  /* Gain: '<S37>/DSPscale' */
+  /* Gain: '<S38>/DSPscale' */
   Ball_and_Plate_MicroLabBox_student_B.DSPscale_o =
     Ball_and_Plate_MicroLabBox_student_P.DSPscale_Gain_d *
     Ball_and_Plate_MicroLabBox_student_B.Current2V_f;
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* S-Function (rti_commonblock): '<S43>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S44>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* --- Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Outputs to Amplifier/DAC_CLASS1_BL1 --- */
@@ -5415,41 +5465,41 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   /* End of Outputs for SubSystem: '<S20>/Outputs to Amplifier' */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* MATLAB Function: '<S34>/MATLAB Function' */
-    /* MATLAB Function 'Innerloop_Actuator/Motor_B/Init_motion/MATLAB Function': '<S40>:1' */
-    /* '<S40>:1:14' */
-    /* '<S40>:1:36' */
+    /* MATLAB Function: '<S35>/MATLAB Function' */
+    /* MATLAB Function 'Innerloop_Actuator/Motor_B/Init_motion/MATLAB Function': '<S41>:1' */
+    /* '<S41>:1:14' */
+    /* '<S41>:1:36' */
     Ball_and_Plate_MicroLabBox_student_B.y = -0.0289;
 
-    /* '<S40>:1:39' */
+    /* '<S41>:1:39' */
     Ball_and_Plate_MicroLabBox_student_DW.previous_enable = 0.0;
 
-    /* MATLAB Function: '<S34>/MATLAB Function2' incorporates:
+    /* MATLAB Function: '<S35>/MATLAB Function2' incorporates:
      *  Constant: '<S20>/1_no_0_init_motion'
      *  Constant: '<S20>/Constant4'
      */
-    /* MATLAB Function 'Innerloop_Actuator/Motor_B/Init_motion/MATLAB Function2': '<S41>:1' */
+    /* MATLAB Function 'Innerloop_Actuator/Motor_B/Init_motion/MATLAB Function2': '<S42>:1' */
     if (Ball_and_Plate_MicroLabBox_student_P.u_no_0_init_motion_Value > 0.5) {
-      /* '<S41>:1:3' */
-      /* '<S41>:1:4' */
+      /* '<S42>:1:3' */
+      /* '<S42>:1:4' */
       Ball_and_Plate_MicroLabBox_student_B.path =
         Ball_and_Plate_MicroLabBox_student_P.Constant4_Value;
     } else if (Ball_and_Plate_MicroLabBox_student_P.u_no_0_init_motion_Value <
                0.5) {
-      /* '<S41>:1:5' */
-      /* '<S41>:1:6' */
+      /* '<S42>:1:5' */
+      /* '<S42>:1:6' */
       Ball_and_Plate_MicroLabBox_student_B.path = 0.0;
     } else {
-      /* '<S41>:1:8' */
+      /* '<S42>:1:8' */
       Ball_and_Plate_MicroLabBox_student_B.path = 0.0;
     }
 
-    /* End of MATLAB Function: '<S34>/MATLAB Function2' */
+    /* End of MATLAB Function: '<S35>/MATLAB Function2' */
 
-    /* Switch: '<S34>/Switch' incorporates:
+    /* Switch: '<S35>/Switch' incorporates:
      *  Constant: '<S20>/1_no_0_init_motion'
      *  Constant: '<S20>/Constant4'
-     *  Constant: '<S34>/Constant3'
+     *  Constant: '<S35>/Constant3'
      */
     if (Ball_and_Plate_MicroLabBox_student_P.u_no_0_init_motion_Value >
         Ball_and_Plate_MicroLabBox_student_P.Switch_Threshold_k) {
@@ -5460,25 +5510,29 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
         Ball_and_Plate_MicroLabBox_student_P.Constant3_Value_i;
     }
 
-    /* End of Switch: '<S34>/Switch' */
+    /* End of Switch: '<S35>/Switch' */
 
-    /* Constant: '<S34>/Constant1' */
+    /* Constant: '<S35>/Constant1' */
     Ball_and_Plate_MicroLabBox_student_B.Constant1 =
       Ball_and_Plate_MicroLabBox_student_P.Constant1_Value_p;
 
-    /* Constant: '<S34>/Constant2' */
+    /* Constant: '<S35>/Constant2' */
     Ball_and_Plate_MicroLabBox_student_B.Constant2 =
       Ball_and_Plate_MicroLabBox_student_P.Constant2_Value_g;
 
-    /* MATLAB Function: '<S36>/MATLAB Function' incorporates:
+    /* MATLAB Function: '<S37>/MATLAB Function' incorporates:
      *  Constant: '<S20>/enable_ID_B '
-     *  Constant: '<S36>/Constant'
+     *  Constant: '<S37>/Constant'
      */
     Ball_and_Plate_M_MATLABFunction
       (Ball_and_Plate_MicroLabBox_student_P.enable_ID_B_Value,
        Ball_and_Plate_MicroLabBox_student_P.uB,
        &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_ko,
        &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_ko);
+
+    /* RandomNumber: '<S20>/Random Number' */
+    Ball_and_Plate_MicroLabBox_student_B.RandomNumber =
+      Ball_and_Plate_MicroLabBox_student_DW.NextOutput;
 
     /* Switch: '<S21>/Switch1' incorporates:
      *  Constant: '<S21>/Constant3'
@@ -5507,93 +5561,43 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
        &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction1_h,
        &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction1_h);
 
-    /* Switch: '<S21>/Switch' incorporates:
-     *  Constant: '<S3>/enable_outerloop '
-     */
-    if (Ball_and_Plate_MicroLabBox_student_P.enable_outerloop_Value >
-        Ball_and_Plate_MicroLabBox_student_P.Switch_Threshold_e) {
-      /* Sum: '<S3>/Add3' incorporates:
-       *  Constant: '<S3>/Constant2'
-       */
-      Ball_and_Plate_MicroLabBox_student_B.Add3_n =
-        Ball_and_Plate_MicroLabBox_student_B.pos3 -
-        Ball_and_Plate_MicroLabBox_student_P.Constant2_Value;
-      Ball_and_Plate_MicroLabBox_student_B.Switch_jo =
-        Ball_and_Plate_MicroLabBox_student_B.Add3_n;
-    } else {
-      Ball_and_Plate_MicroLabBox_student_B.Switch_jo =
-        Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction1_h.path;
-    }
-
-    /* End of Switch: '<S21>/Switch' */
-
-    /* Sum: '<S21>/Sum1' */
-    Ball_and_Plate_MicroLabBox_student_B.Sum1_h =
-      Ball_and_Plate_MicroLabBox_student_B.Switch_jo -
-      Ball_and_Plate_MicroLabBox_student_B.mm2m;
-
-    /* Gain: '<S54>/Gain2' */
-    Ball_and_Plate_MicroLabBox_student_B.Gain2 =
-      Ball_and_Plate_MicroLabBox_student_P.Gain2_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.Sum1_h;
-
-    /* S-Function (dleadlag): '<S54>/Dctleadlag1' */
-
-    /* Level2 S-Function Block: '<S54>/Dctleadlag1' (dleadlag) */
-    {
-      SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[4];
-      sfcnOutputs(rts,1);
-    }
-
-    /* S-Function (dlowpass1): '<S54>/Dct1lowpass1' */
-
-    /* Level2 S-Function Block: '<S54>/Dct1lowpass1' (dlowpass1) */
-    {
-      SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[5];
-      sfcnOutputs(rts,1);
-    }
-
-    /* DiscreteIntegrator: '<S54>/Discrete-Time Integrator' incorporates:
-     *  Constant: '<S3>/enable_inner_controller'
-     */
-    if ((Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value >
-         0.0) &&
-        (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_e <=
-         0)) {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o =
-        Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_IC_j;
-    }
-
-    if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o >=
-        Ball_and_Plate_MicroLabBox_student_P.inner_I_sat) {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o =
-        Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
-    } else {
-      a21 = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
-      if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o <=
-          a21) {
-        Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o =
-          -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
-      }
-    }
-
-    Ball_and_Plate_MicroLabBox_student_B.DiscreteTimeIntegrator_h =
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o;
-
-    /* End of DiscreteIntegrator: '<S54>/Discrete-Time Integrator' */
-
     /* Switch: '<S21>/Switch2' incorporates:
      *  Constant: '<S21>/Constant'
      *  Constant: '<S3>/enable_inner_controller'
      */
     if (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value >=
         Ball_and_Plate_MicroLabBox_student_P.Switch2_Threshold_b) {
-      /* Sum: '<S54>/Add' */
-      Ball_and_Plate_MicroLabBox_student_B.Add =
-        Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass1 +
-        Ball_and_Plate_MicroLabBox_student_B.DiscreteTimeIntegrator_h;
+      /* Switch: '<S21>/Switch' incorporates:
+       *  Constant: '<S3>/enable_outerloop '
+       */
+      if (Ball_and_Plate_MicroLabBox_student_P.enable_outerloop_Value >
+          Ball_and_Plate_MicroLabBox_student_P.Switch_Threshold) {
+        /* Sum: '<S3>/Add3' incorporates:
+         *  Constant: '<S3>/Constant2'
+         */
+        Ball_and_Plate_MicroLabBox_student_B.Add3_n =
+          Ball_and_Plate_MicroLabBox_student_B.pos3 -
+          Ball_and_Plate_MicroLabBox_student_P.Constant2_Value;
+        Ball_and_Plate_MicroLabBox_student_B.Switch_jo =
+          Ball_and_Plate_MicroLabBox_student_B.Add3_n;
+      } else {
+        Ball_and_Plate_MicroLabBox_student_B.Switch_jo =
+          Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction1_h.path;
+      }
+
+      /* End of Switch: '<S21>/Switch' */
+
+      /* Sum: '<S21>/Sum1' */
+      Ball_and_Plate_MicroLabBox_student_B.Sum1_h =
+        Ball_and_Plate_MicroLabBox_student_B.Switch_jo -
+        Ball_and_Plate_MicroLabBox_student_B.mm2m;
+
+      /* Gain: '<S21>/Gain_controller ' */
+      Ball_and_Plate_MicroLabBox_student_B.Gain_controller =
+        Ball_and_Plate_MicroLabBox_student_P.Gain_controller_Gain *
+        Ball_and_Plate_MicroLabBox_student_B.Sum1_h;
       Ball_and_Plate_MicroLabBox_student_B.Switch2_h =
-        Ball_and_Plate_MicroLabBox_student_B.Add;
+        Ball_and_Plate_MicroLabBox_student_B.Gain_controller;
     } else {
       Ball_and_Plate_MicroLabBox_student_B.Switch2_h =
         Ball_and_Plate_MicroLabBox_student_P.Constant_Value_e;
@@ -5601,14 +5605,14 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
     /* End of Switch: '<S21>/Switch2' */
 
-    /* RandomNumber: '<S21>/Random Number' */
-    Ball_and_Plate_MicroLabBox_student_B.RandomNumber_n =
-      Ball_and_Plate_MicroLabBox_student_DW.NextOutput_p;
+    /* UniformRandomNumber: '<S21>/Uniform Random Number' */
+    Ball_and_Plate_MicroLabBox_student_B.UniformRandomNumber_l =
+      Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutpu_m;
 
     /* Gain: '<S21>/enable_white_noise_C ' */
     Ball_and_Plate_MicroLabBox_student_B.dC =
       Ball_and_Plate_MicroLabBox_student_P.enable_white_noise_C_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.RandomNumber_n;
+      Ball_and_Plate_MicroLabBox_student_B.UniformRandomNumber_l;
 
     /* Sum: '<S21>/Sum' */
     Ball_and_Plate_MicroLabBox_student_B.uC =
@@ -5632,7 +5636,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
   /* Outputs for Atomic SubSystem: '<S21>/Outputs to Amplifier' */
 
-  /* Saturate: '<S52>/Saturation' */
+  /* Saturate: '<S53>/Saturation' */
   center_idx_2 = Ball_and_Plate_MicroLabBox_student_B.Switch3_l;
   uX_idx_1 = Ball_and_Plate_MicroLabBox_student_P.Saturation_LowerSat_p;
   uX_idx_0 = Ball_and_Plate_MicroLabBox_student_P.Saturation_UpperSat_h;
@@ -5644,14 +5648,14 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.Saturation_i = center_idx_2;
   }
 
-  /* End of Saturate: '<S52>/Saturation' */
+  /* End of Saturate: '<S53>/Saturation' */
 
-  /* Gain: '<S52>/Current2V' */
+  /* Gain: '<S53>/Current2V' */
   Ball_and_Plate_MicroLabBox_student_B.Current2V =
     Ball_and_Plate_MicroLabBox_student_P.Current2V_Gain_p *
     Ball_and_Plate_MicroLabBox_student_B.Saturation_i;
 
-  /* Gain: '<S52>/DSPscale' */
+  /* Gain: '<S53>/DSPscale' */
   Ball_and_Plate_MicroLabBox_student_B.DSPscale =
     Ball_and_Plate_MicroLabBox_student_P.DSPscale_Gain_h *
     Ball_and_Plate_MicroLabBox_student_B.Current2V;
@@ -5677,9 +5681,9 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
   /* End of Outputs for SubSystem: '<S21>/Outputs to Amplifier' */
   if (rtmIsMajorTimeStep(Ball_and_Plate_MicroLabBox_student_M) &&
       Ball_and_Plate_MicroLabBox_student_M->Timing.TaskCounters.TID[1] == 0) {
-    /* MATLAB Function: '<S50>/MATLAB Function' incorporates:
+    /* MATLAB Function: '<S51>/MATLAB Function' incorporates:
      *  Constant: '<S21>/1_to_enable_id'
-     *  Constant: '<S50>/Constant'
+     *  Constant: '<S51>/Constant'
      */
     Ball_and_Plate_M_MATLABFunction
       (Ball_and_Plate_MicroLabBox_student_P.u_to_enable_id_Value,
@@ -5687,15 +5691,19 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
        &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_g,
        &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_g);
 
-    /* MATLAB Function: '<S51>/MATLAB Function' incorporates:
+    /* MATLAB Function: '<S52>/MATLAB Function' incorporates:
      *  Constant: '<S21>/Enable_ID_C '
-     *  Constant: '<S51>/Constant'
+     *  Constant: '<S52>/Constant'
      */
     Ball_and_Plate_M_MATLABFunction
       (Ball_and_Plate_MicroLabBox_student_P.Enable_ID_C_Value,
        Ball_and_Plate_MicroLabBox_student_P.uC,
        &Ball_and_Plate_MicroLabBox_student_B.sf_MATLABFunction_h,
        &Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_h);
+
+    /* RandomNumber: '<S21>/Random Number' */
+    Ball_and_Plate_MicroLabBox_student_B.RandomNumber_n =
+      Ball_and_Plate_MicroLabBox_student_DW.NextOutput_p;
 
     /* Constant: '<S3>/reser_integrator' */
     Ball_and_Plate_MicroLabBox_student_B.reser_integrator =
@@ -6021,14 +6029,7 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
     Ball_and_Plate_MicroLabBox_student_DW.Delay_DSTATE[1] =
       Ball_and_Plate_MicroLabBox_student_B.MultiportSwitch[1];
 
-    /* Update for UniformRandomNumber: '<S19>/Uniform Random Number' */
-    tmin = Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Minimum;
-    Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutput =
-      (Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Maximum - tmin) *
-      rt_urand_Upu32_Yd_f_pw_snf(&Ball_and_Plate_MicroLabBox_student_DW.RandSeed)
-      + tmin;
-
-    /* Update for DiscreteIntegrator: '<S39>/Discrete-Time Integrator' incorporates:
+    /* Update for DiscreteIntegrator: '<S27>/Discrete-Time Integrator' incorporates:
      *  Constant: '<S3>/enable_inner_controller'
      */
     Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE +=
@@ -6062,7 +6063,57 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
       Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRese = 2;
     }
 
-    /* End of Update for DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
+    /* End of Update for DiscreteIntegrator: '<S27>/Discrete-Time Integrator' */
+
+    /* Update for UniformRandomNumber: '<S19>/Uniform Random Number' */
+    tmin = Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Minimum;
+    Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutput =
+      (Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Maximum - tmin) *
+      rt_urand_Upu32_Yd_f_pw_snf(&Ball_and_Plate_MicroLabBox_student_DW.RandSeed)
+      + tmin;
+
+    /* Update for DiscreteIntegrator: '<S40>/Discrete-Time Integrator' incorporates:
+     *  Constant: '<S3>/enable_inner_controller'
+     */
+    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p +=
+      Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_gainva_m *
+      Ball_and_Plate_MicroLabBox_student_B.Sum1_f;
+    if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p >=
+        Ball_and_Plate_MicroLabBox_student_P.inner_I_sat) {
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p =
+        Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
+    } else {
+      tmin = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
+      if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p <=
+          tmin) {
+        Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p =
+          -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
+      }
+    }
+
+    if (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value > 0.0)
+    {
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_h = 1;
+    } else if
+        (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value <
+         0.0) {
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_h = -1;
+    } else if
+        (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value ==
+         0.0) {
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_h = 0;
+    } else {
+      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_h = 2;
+    }
+
+    /* End of Update for DiscreteIntegrator: '<S40>/Discrete-Time Integrator' */
+
+    /* Update for UniformRandomNumber: '<S20>/Uniform Random Number' */
+    tmin = Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Minimum_m;
+    Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutpu_n =
+      (Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Maximum_l - tmin)
+      * rt_urand_Upu32_Yd_f_pw_snf
+      (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e) + tmin;
 
     /* Update for RandomNumber: '<S20>/Random Number' */
     Ball_and_Plate_MicroLabBox_student_DW.NextOutput =
@@ -6071,46 +6122,17 @@ void Ball_and_Plate_MicroLabBox_student_update(void)
       Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev +
       Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean;
 
-    /* Update for DiscreteIntegrator: '<S54>/Discrete-Time Integrator' incorporates:
-     *  Constant: '<S3>/enable_inner_controller'
-     */
-    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o +=
-      Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_gainva_g *
-      Ball_and_Plate_MicroLabBox_student_B.Sum1_h;
-    if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o >=
-        Ball_and_Plate_MicroLabBox_student_P.inner_I_sat) {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o =
-        Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
-    } else {
-      tmin = -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
-      if (Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o <=
-          tmin) {
-        Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o =
-          -Ball_and_Plate_MicroLabBox_student_P.inner_I_sat;
-      }
-    }
-
-    if (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value > 0.0)
-    {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_e = 1;
-    } else if
-        (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value <
-         0.0) {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_e = -1;
-    } else if
-        (Ball_and_Plate_MicroLabBox_student_P.enable_inner_controller_Value ==
-         0.0) {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_e = 0;
-    } else {
-      Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_e = 2;
-    }
-
-    /* End of Update for DiscreteIntegrator: '<S54>/Discrete-Time Integrator' */
+    /* Update for UniformRandomNumber: '<S21>/Uniform Random Number' */
+    tmin = Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Minimum_c;
+    Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutpu_m =
+      (Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Maximum_o - tmin)
+      * rt_urand_Upu32_Yd_f_pw_snf
+      (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_c) + tmin;
 
     /* Update for RandomNumber: '<S21>/Random Number' */
     Ball_and_Plate_MicroLabBox_student_DW.NextOutput_p =
       rt_nrand_Upu32_Yd_f_pw_snf
-      (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e) *
+      (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e2) *
       Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev_e +
       Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean_o;
   }
@@ -6206,7 +6228,7 @@ void Ball_and_Plate_MicroLabBox_student_derivatives(void)
              Ball_and_Plate_MicroLabBox_student_M->derivs);
 
   /* Derivatives for Atomic SubSystem: '<S19>/Position Measurement' */
-  /* Derivatives for TransferFcn: '<S31>/Transfer Fcn' */
+  /* Derivatives for TransferFcn: '<S32>/Transfer Fcn' */
   _rtXdot->TransferFcn_CSTATE_l = 0.0;
   _rtXdot->TransferFcn_CSTATE_l +=
     Ball_and_Plate_MicroLabBox_student_P.TransferFcn_A *
@@ -6217,7 +6239,7 @@ void Ball_and_Plate_MicroLabBox_student_derivatives(void)
   /* End of Derivatives for SubSystem: '<S19>/Position Measurement' */
 
   /* Derivatives for Atomic SubSystem: '<S20>/Position Measurement' */
-  /* Derivatives for TransferFcn: '<S46>/Transfer Fcn' */
+  /* Derivatives for TransferFcn: '<S47>/Transfer Fcn' */
   _rtXdot->TransferFcn_CSTATE_h = 0.0;
   _rtXdot->TransferFcn_CSTATE_h +=
     Ball_and_Plate_MicroLabBox_student_P.TransferFcn_A_g *
@@ -6779,7 +6801,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Ball_and_Plate_MicroLabBox_student/<S39>/Dctleadlag2 (dleadlag) */
+    /* Level2 S-Function Block: Ball_and_Plate_MicroLabBox_student/<S27>/Dctleadlag2 (dleadlag) */
     {
       SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[2];
 
@@ -6861,7 +6883,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Ball_and_Plate_MicroLabBox_student_M->NonInlinedSFcns.Sfcn2.UPtrs0;
-          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Gain1_f;
+          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Gain1_b;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -6895,7 +6917,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dctleadlag2");
       ssSetPath(rts,
-                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/motorB/Dctleadlag2");
+                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/motorA /Dctleadlag2");
       ssSetRTModel(rts,Ball_and_Plate_MicroLabBox_student_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -6958,7 +6980,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Ball_and_Plate_MicroLabBox_student/<S39>/Dct1lowpass3 (dlowpass1) */
+    /* Level2 S-Function Block: Ball_and_Plate_MicroLabBox_student/<S27>/Dct1lowpass3 (dlowpass1) */
     {
       SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[3];
 
@@ -7074,7 +7096,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dct1lowpass3");
       ssSetPath(rts,
-                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/motorB/Dct1lowpass3");
+                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/motorA /Dct1lowpass3");
       ssSetRTModel(rts,Ball_and_Plate_MicroLabBox_student_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7135,7 +7157,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Ball_and_Plate_MicroLabBox_student/<S54>/Dctleadlag1 (dleadlag) */
+    /* Level2 S-Function Block: Ball_and_Plate_MicroLabBox_student/<S40>/Dctleadlag2 (dleadlag) */
     {
       SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[4];
 
@@ -7217,7 +7239,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Ball_and_Plate_MicroLabBox_student_M->NonInlinedSFcns.Sfcn4.UPtrs0;
-          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Gain2;
+          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Gain1_f;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -7244,14 +7266,14 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag1));
+            &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_k));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dctleadlag1");
+      ssSetModelName(rts, "Dctleadlag2");
       ssSetPath(rts,
-                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/motorC/Dctleadlag1");
+                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/motorB/Dctleadlag2");
       ssSetRTModel(rts,Ball_and_Plate_MicroLabBox_student_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7264,16 +7286,16 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetSFcnParamsCount(rts, 3);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag1_P1_Size);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P1_Size_o);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag1_P2_Size);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P2_Size_b);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag1_P3_Size);
+                       Ball_and_Plate_MicroLabBox_student_P.Dctleadlag2_P3_Size_f);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag1_RWORK[0]);
+                 &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_o[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -7289,7 +7311,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
         ssSetDWork(rts, 0,
-                   &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag1_RWORK[0]);
+                   &Ball_and_Plate_MicroLabBox_student_DW.Dctleadlag2_RWORK_o[0]);
       }
 
       /* registration */
@@ -7314,7 +7336,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Ball_and_Plate_MicroLabBox_student/<S54>/Dct1lowpass1 (dlowpass1) */
+    /* Level2 S-Function Block: Ball_and_Plate_MicroLabBox_student/<S40>/Dct1lowpass3 (dlowpass1) */
     {
       SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[5];
 
@@ -7396,7 +7418,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Ball_and_Plate_MicroLabBox_student_M->NonInlinedSFcns.Sfcn5.UPtrs0;
-          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag1;
+          sfcnUPtrs[0] = &Ball_and_Plate_MicroLabBox_student_B.Dctleadlag2_k;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -7423,14 +7445,14 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass1));
+            &Ball_and_Plate_MicroLabBox_student_B.Dct1lowpass3_c));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Dct1lowpass1");
+      ssSetModelName(rts, "Dct1lowpass3");
       ssSetPath(rts,
-                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/motorC/Dct1lowpass1");
+                "Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/motorB/Dct1lowpass3");
       ssSetRTModel(rts,Ball_and_Plate_MicroLabBox_student_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7443,14 +7465,14 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass1_P1_Size);
+                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P1_Size_m);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass1_P2_Size);
+                       Ball_and_Plate_MicroLabBox_student_P.Dct1lowpass3_P2_Size_i);
       }
 
       /* work vectors */
       ssSetRWork(rts, (real_T *)
-                 &Ball_and_Plate_MicroLabBox_student_DW.Dct1lowpass1_RWORK[0]);
+                 &Ball_and_Plate_MicroLabBox_student_DW.Dct1lowpass3_RWORK_b[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -7466,7 +7488,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
         ssSetDWork(rts, 0,
-                   &Ball_and_Plate_MicroLabBox_student_DW.Dct1lowpass1_RWORK[0]);
+                   &Ball_and_Plate_MicroLabBox_student_DW.Dct1lowpass3_RWORK_b[0]);
       }
 
       /* registration */
@@ -7674,30 +7696,30 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_Plate_MicroLabBox_student_rti_init_trc_pointers();
   }
 
-  /* Start for Enabled SubSystem: '<S31>/Enabled Subsystem' */
+  /* Start for Enabled SubSystem: '<S32>/Enabled Subsystem' */
   Ball_and_EnabledSubsystem_Start
     (&Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem);
 
-  /* End of Start for SubSystem: '<S31>/Enabled Subsystem' */
+  /* End of Start for SubSystem: '<S32>/Enabled Subsystem' */
 
-  /* Start for Enabled SubSystem: '<S31>/Enabled Subsystem1' */
+  /* Start for Enabled SubSystem: '<S32>/Enabled Subsystem1' */
   Ball_an_EnabledSubsystem1_Start
     (&Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem1);
 
-  /* End of Start for SubSystem: '<S31>/Enabled Subsystem1' */
+  /* End of Start for SubSystem: '<S32>/Enabled Subsystem1' */
   /* End of Start for SubSystem: '<S19>/Position Measurement' */
 
-  /* Start for Enabled SubSystem: '<S46>/Enabled Subsystem' */
+  /* Start for Enabled SubSystem: '<S47>/Enabled Subsystem' */
   Ball_and_EnabledSubsystem_Start
     (&Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem_a);
 
-  /* End of Start for SubSystem: '<S46>/Enabled Subsystem' */
+  /* End of Start for SubSystem: '<S47>/Enabled Subsystem' */
 
-  /* Start for Enabled SubSystem: '<S46>/Enabled Subsystem1' */
+  /* Start for Enabled SubSystem: '<S47>/Enabled Subsystem1' */
   Ball_an_EnabledSubsystem1_Start
     (&Ball_and_Plate_MicroLabBox_student_DW.EnabledSubsystem1_f);
 
-  /* End of Start for SubSystem: '<S46>/Enabled Subsystem1' */
+  /* End of Start for SubSystem: '<S47>/Enabled Subsystem1' */
   /* End of Start for SubSystem: '<S20>/Position Measurement' */
 
   /* Start for Enabled SubSystem: '<S60>/Enabled Subsystem' */
@@ -7731,8 +7753,8 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dleadlag): '<S39>/Dctleadlag2' */
-  /* Level2 S-Function Block: '<S39>/Dctleadlag2' (dleadlag) */
+  /* Start for S-Function (dleadlag): '<S27>/Dctleadlag2' */
+  /* Level2 S-Function Block: '<S27>/Dctleadlag2' (dleadlag) */
   {
     SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[2];
     sfcnStart(rts);
@@ -7740,8 +7762,8 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dlowpass1): '<S39>/Dct1lowpass3' */
-  /* Level2 S-Function Block: '<S39>/Dct1lowpass3' (dlowpass1) */
+  /* Start for S-Function (dlowpass1): '<S27>/Dct1lowpass3' */
+  /* Level2 S-Function Block: '<S27>/Dct1lowpass3' (dlowpass1) */
   {
     SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[3];
     sfcnStart(rts);
@@ -7749,8 +7771,8 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dleadlag): '<S54>/Dctleadlag1' */
-  /* Level2 S-Function Block: '<S54>/Dctleadlag1' (dleadlag) */
+  /* Start for S-Function (dleadlag): '<S40>/Dctleadlag2' */
+  /* Level2 S-Function Block: '<S40>/Dctleadlag2' (dleadlag) */
   {
     SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[4];
     sfcnStart(rts);
@@ -7758,8 +7780,8 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dlowpass1): '<S54>/Dct1lowpass1' */
-  /* Level2 S-Function Block: '<S54>/Dct1lowpass1' (dlowpass1) */
+  /* Start for S-Function (dlowpass1): '<S40>/Dct1lowpass3' */
+  /* Level2 S-Function Block: '<S40>/Dct1lowpass3' (dlowpass1) */
   {
     SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[5];
     sfcnStart(rts);
@@ -7860,6 +7882,11 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_Plate_MicroLabBox_student_DW.Delay_DSTATE[1] =
       Ball_and_Plate_MicroLabBox_student_P.Delay_InitialCondition;
 
+    /* InitializeConditions for DiscreteIntegrator: '<S27>/Discrete-Time Integrator' */
+    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
+      Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_IC;
+    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRese = 2;
+
     /* InitializeConditions for UniformRandomNumber: '<S19>/Uniform Random Number' */
     tmin = floor(Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Seed);
     if (rtIsNaN(tmin) || rtIsInf(tmin)) {
@@ -7889,10 +7916,39 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
 
     /* End of InitializeConditions for UniformRandomNumber: '<S19>/Uniform Random Number' */
 
-    /* InitializeConditions for DiscreteIntegrator: '<S39>/Discrete-Time Integrator' */
-    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE =
-      Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_IC;
-    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRese = 2;
+    /* InitializeConditions for DiscreteIntegrator: '<S40>/Discrete-Time Integrator' */
+    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_p =
+      Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_IC_m;
+    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_h = 2;
+
+    /* InitializeConditions for UniformRandomNumber: '<S20>/Uniform Random Number' */
+    tmin = floor(Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Seed_e);
+    if (rtIsNaN(tmin) || rtIsInf(tmin)) {
+      tmin = 0.0;
+    } else {
+      tmin = fmod(tmin, 4.294967296E+9);
+    }
+
+    tseed = tmin < 0.0 ? (uint32_T)-(int32_T)(uint32_T)-tmin : (uint32_T)tmin;
+    r = (int32_T)(tseed >> 16U);
+    t = (int32_T)(tseed & 32768U);
+    tseed = ((((tseed - ((uint32_T)r << 16U)) + t) << 16U) + t) + r;
+    if (tseed < 1U) {
+      tseed = 1144108930U;
+    } else {
+      if (tseed > 2147483646U) {
+        tseed = 2147483646U;
+      }
+    }
+
+    Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e = tseed;
+    tmin = Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Minimum_m;
+    Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutpu_n =
+      (Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Maximum_l - tmin)
+      * rt_urand_Upu32_Yd_f_pw_snf
+      (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e) + tmin;
+
+    /* End of InitializeConditions for UniformRandomNumber: '<S20>/Uniform Random Number' */
 
     /* InitializeConditions for RandomNumber: '<S20>/Random Number' */
     tmin = floor(Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Seed);
@@ -7923,10 +7979,34 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
 
     /* End of InitializeConditions for RandomNumber: '<S20>/Random Number' */
 
-    /* InitializeConditions for DiscreteIntegrator: '<S54>/Discrete-Time Integrator' */
-    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_DSTATE_o =
-      Ball_and_Plate_MicroLabBox_student_P.DiscreteTimeIntegrator_IC_j;
-    Ball_and_Plate_MicroLabBox_student_DW.DiscreteTimeIntegrator_PrevRe_e = 2;
+    /* InitializeConditions for UniformRandomNumber: '<S21>/Uniform Random Number' */
+    tmin = floor(Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Seed_b);
+    if (rtIsNaN(tmin) || rtIsInf(tmin)) {
+      tmin = 0.0;
+    } else {
+      tmin = fmod(tmin, 4.294967296E+9);
+    }
+
+    tseed = tmin < 0.0 ? (uint32_T)-(int32_T)(uint32_T)-tmin : (uint32_T)tmin;
+    r = (int32_T)(tseed >> 16U);
+    t = (int32_T)(tseed & 32768U);
+    tseed = ((((tseed - ((uint32_T)r << 16U)) + t) << 16U) + t) + r;
+    if (tseed < 1U) {
+      tseed = 1144108930U;
+    } else {
+      if (tseed > 2147483646U) {
+        tseed = 2147483646U;
+      }
+    }
+
+    Ball_and_Plate_MicroLabBox_student_DW.RandSeed_c = tseed;
+    tmin = Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Minimum_c;
+    Ball_and_Plate_MicroLabBox_student_DW.UniformRandomNumber_NextOutpu_m =
+      (Ball_and_Plate_MicroLabBox_student_P.UniformRandomNumber_Maximum_o - tmin)
+      * rt_urand_Upu32_Yd_f_pw_snf
+      (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_c) + tmin;
+
+    /* End of InitializeConditions for UniformRandomNumber: '<S21>/Uniform Random Number' */
 
     /* InitializeConditions for RandomNumber: '<S21>/Random Number' */
     tmin = floor(Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Seed_g);
@@ -7948,10 +8028,10 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       }
     }
 
-    Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e = tseed;
+    Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e2 = tseed;
     Ball_and_Plate_MicroLabBox_student_DW.NextOutput_p =
       rt_nrand_Upu32_Yd_f_pw_snf
-      (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e) *
+      (&Ball_and_Plate_MicroLabBox_student_DW.RandSeed_e2) *
       Ball_and_Plate_MicroLabBox_student_P.RandomNumber_StdDev_e +
       Ball_and_Plate_MicroLabBox_student_P.RandomNumber_Mean_o;
 
@@ -7968,41 +8048,41 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
       Ball_and_Plate_MicroLabBox_student_P.last_x_InitialCondition[3];
 
     /* SystemInitialize for Atomic SubSystem: '<S19>/Position Measurement' */
-    /* InitializeConditions for TransferFcn: '<S31>/Transfer Fcn' */
+    /* InitializeConditions for TransferFcn: '<S32>/Transfer Fcn' */
     Ball_and_Plate_MicroLabBox_student_X.TransferFcn_CSTATE_l = 0.0;
 
-    /* SystemInitialize for Enabled SubSystem: '<S31>/Enabled Subsystem' */
+    /* SystemInitialize for Enabled SubSystem: '<S32>/Enabled Subsystem' */
     Ball_and__EnabledSubsystem_Init
       (&Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem,
        &Ball_and_Plate_MicroLabBox_student_P.EnabledSubsystem);
 
-    /* End of SystemInitialize for SubSystem: '<S31>/Enabled Subsystem' */
+    /* End of SystemInitialize for SubSystem: '<S32>/Enabled Subsystem' */
 
-    /* SystemInitialize for Enabled SubSystem: '<S31>/Enabled Subsystem1' */
+    /* SystemInitialize for Enabled SubSystem: '<S32>/Enabled Subsystem1' */
     Ball_and_EnabledSubsystem1_Init
       (&Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem1,
        &Ball_and_Plate_MicroLabBox_student_P.EnabledSubsystem1);
 
-    /* End of SystemInitialize for SubSystem: '<S31>/Enabled Subsystem1' */
+    /* End of SystemInitialize for SubSystem: '<S32>/Enabled Subsystem1' */
     /* End of SystemInitialize for SubSystem: '<S19>/Position Measurement' */
 
     /* SystemInitialize for Atomic SubSystem: '<S20>/Position Measurement' */
-    /* InitializeConditions for TransferFcn: '<S46>/Transfer Fcn' */
+    /* InitializeConditions for TransferFcn: '<S47>/Transfer Fcn' */
     Ball_and_Plate_MicroLabBox_student_X.TransferFcn_CSTATE_h = 0.0;
 
-    /* SystemInitialize for Enabled SubSystem: '<S46>/Enabled Subsystem' */
+    /* SystemInitialize for Enabled SubSystem: '<S47>/Enabled Subsystem' */
     Ball_and__EnabledSubsystem_Init
       (&Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem_a,
        &Ball_and_Plate_MicroLabBox_student_P.EnabledSubsystem_a);
 
-    /* End of SystemInitialize for SubSystem: '<S46>/Enabled Subsystem' */
+    /* End of SystemInitialize for SubSystem: '<S47>/Enabled Subsystem' */
 
-    /* SystemInitialize for Enabled SubSystem: '<S46>/Enabled Subsystem1' */
+    /* SystemInitialize for Enabled SubSystem: '<S47>/Enabled Subsystem1' */
     Ball_and_EnabledSubsystem1_Init
       (&Ball_and_Plate_MicroLabBox_student_B.EnabledSubsystem1_f,
        &Ball_and_Plate_MicroLabBox_student_P.EnabledSubsystem1_f);
 
-    /* End of SystemInitialize for SubSystem: '<S46>/Enabled Subsystem1' */
+    /* End of SystemInitialize for SubSystem: '<S47>/Enabled Subsystem1' */
     /* End of SystemInitialize for SubSystem: '<S20>/Position Measurement' */
 
     /* SystemInitialize for Atomic SubSystem: '<S21>/Position Measurement' */
@@ -8062,11 +8142,11 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_P_MATLABFunction1_Init
       (&Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction2_d);
 
-    /* SystemInitialize for MATLAB Function: '<S34>/MATLAB Function' */
+    /* SystemInitialize for MATLAB Function: '<S35>/MATLAB Function' */
     Ball_and_Plate_MicroLabBox_student_DW.index = 1.0;
     Ball_and_Plate_MicroLabBox_student_DW.previous_enable = 0.0;
 
-    /* SystemInitialize for MATLAB Function: '<S36>/MATLAB Function' */
+    /* SystemInitialize for MATLAB Function: '<S37>/MATLAB Function' */
     Ball_and_Pl_MATLABFunction_Init
       (&Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_ko);
 
@@ -8074,11 +8154,11 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_P_MATLABFunction1_Init
       (&Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction1_h);
 
-    /* SystemInitialize for MATLAB Function: '<S50>/MATLAB Function' */
+    /* SystemInitialize for MATLAB Function: '<S51>/MATLAB Function' */
     Ball_and_Pl_MATLABFunction_Init
       (&Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_g);
 
-    /* SystemInitialize for MATLAB Function: '<S51>/MATLAB Function' */
+    /* SystemInitialize for MATLAB Function: '<S52>/MATLAB Function' */
     Ball_and_Pl_MATLABFunction_Init
       (&Ball_and_Plate_MicroLabBox_student_DW.sf_MATLABFunction_h);
   }
@@ -8089,7 +8169,7 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
 {
   /* Terminate for Atomic SubSystem: '<S19>/Position Measurement' */
   /* Terminate for Triggered SubSystem: '<S26>/EMC_ENCODER_POS_SET_BL1' */
-  /* Terminate for S-Function (rti_commonblock): '<S30>/S-Function1' incorporates:
+  /* Terminate for S-Function (rti_commonblock): '<S31>/S-Function1' incorporates:
    *  Constant: '<S26>/Constant'
    */
 
@@ -8106,7 +8186,7 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
 
   /* End of Terminate for SubSystem: '<S26>/EMC_ENCODER_POS_SET_BL1' */
 
-  /* Terminate for S-Function (rti_commonblock): '<S29>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S30>/S-Function1' */
 
   /* --- Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Position Measurement/EMC_ENCODER_BL1 --- */
   /* --- [RTIEMC, Encoder] - DIO class: 2 - Unit: 1 - Port: 1 - Channel: 1 --- */
@@ -8118,9 +8198,9 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
   /* End of Terminate for SubSystem: '<S19>/Position Measurement' */
 
   /* Terminate for Atomic SubSystem: '<S20>/Position Measurement' */
-  /* Terminate for Triggered SubSystem: '<S38>/EMC_ENCODER_POS_SET_BL1' */
-  /* Terminate for S-Function (rti_commonblock): '<S45>/S-Function1' incorporates:
-   *  Constant: '<S38>/Constant'
+  /* Terminate for Triggered SubSystem: '<S39>/EMC_ENCODER_POS_SET_BL1' */
+  /* Terminate for S-Function (rti_commonblock): '<S46>/S-Function1' incorporates:
+   *  Constant: '<S39>/Constant'
    */
 
   /* --- Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/EMC_ENCODER_POS_SET_BL1 --- */
@@ -8134,9 +8214,9 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
     DioCl2EncoderIn_write(pRTIEmcEncoder_Unit_2_DioCl_2_Port_1_Ch3);
   }
 
-  /* End of Terminate for SubSystem: '<S38>/EMC_ENCODER_POS_SET_BL1' */
+  /* End of Terminate for SubSystem: '<S39>/EMC_ENCODER_POS_SET_BL1' */
 
-  /* Terminate for S-Function (rti_commonblock): '<S44>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S45>/S-Function1' */
 
   /* --- Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Position Measurement/EMC_ENCODER_BL1 --- */
   /* --- [RTIEMC, Encoder] - DIO class: 2 - Unit: 2 - Port: 1 - Channel: 3 --- */
@@ -8148,9 +8228,9 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
   /* End of Terminate for SubSystem: '<S20>/Position Measurement' */
 
   /* Terminate for Atomic SubSystem: '<S21>/Position Measurement' */
-  /* Terminate for Triggered SubSystem: '<S53>/EMC_ENCODER_POS_SET_BL1' */
+  /* Terminate for Triggered SubSystem: '<S54>/EMC_ENCODER_POS_SET_BL1' */
   /* Terminate for S-Function (rti_commonblock): '<S59>/S-Function1' incorporates:
-   *  Constant: '<S53>/Constant'
+   *  Constant: '<S54>/Constant'
    */
 
   /* --- Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_C/Position Measurement/EMC_ENCODER_POS_SET_BL1 --- */
@@ -8164,7 +8244,7 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
     DioCl2EncoderIn_write(pRTIEmcEncoder_Unit_3_DioCl_2_Port_1_Ch5);
   }
 
-  /* End of Terminate for SubSystem: '<S53>/EMC_ENCODER_POS_SET_BL1' */
+  /* End of Terminate for SubSystem: '<S54>/EMC_ENCODER_POS_SET_BL1' */
 
   /* Terminate for S-Function (rti_commonblock): '<S58>/S-Function1' */
 
@@ -8204,8 +8284,22 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
     DsIoEth_close(DSIOETH_CONNECTION_ID_1);
   }
 
+  /* Terminate for S-Function (dleadlag): '<S27>/Dctleadlag2' */
+  /* Level2 S-Function Block: '<S27>/Dctleadlag2' (dleadlag) */
+  {
+    SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[2];
+    sfcnTerminate(rts);
+  }
+
+  /* Terminate for S-Function (dlowpass1): '<S27>/Dct1lowpass3' */
+  /* Level2 S-Function Block: '<S27>/Dct1lowpass3' (dlowpass1) */
+  {
+    SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[3];
+    sfcnTerminate(rts);
+  }
+
   /* Terminate for Atomic SubSystem: '<S19>/Outputs to Amplifier' */
-  /* Terminate for S-Function (rti_commonblock): '<S28>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S29>/S-Function1' */
 
   /* --- Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_A/Outputs to Amplifier/DAC_CLASS1_BL1 --- */
   /* --- [RTI120X, DAC C1] - Channel: 1 --- */
@@ -8218,22 +8312,22 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
 
   /* End of Terminate for SubSystem: '<S19>/Outputs to Amplifier' */
 
-  /* Terminate for S-Function (dleadlag): '<S39>/Dctleadlag2' */
-  /* Level2 S-Function Block: '<S39>/Dctleadlag2' (dleadlag) */
+  /* Terminate for S-Function (dleadlag): '<S40>/Dctleadlag2' */
+  /* Level2 S-Function Block: '<S40>/Dctleadlag2' (dleadlag) */
   {
-    SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[2];
+    SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[4];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dlowpass1): '<S39>/Dct1lowpass3' */
-  /* Level2 S-Function Block: '<S39>/Dct1lowpass3' (dlowpass1) */
+  /* Terminate for S-Function (dlowpass1): '<S40>/Dct1lowpass3' */
+  /* Level2 S-Function Block: '<S40>/Dct1lowpass3' (dlowpass1) */
   {
-    SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[3];
+    SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[5];
     sfcnTerminate(rts);
   }
 
   /* Terminate for Atomic SubSystem: '<S20>/Outputs to Amplifier' */
-  /* Terminate for S-Function (rti_commonblock): '<S43>/S-Function1' */
+  /* Terminate for S-Function (rti_commonblock): '<S44>/S-Function1' */
 
   /* --- Ball_and_Plate_MicroLabBox_student/Innerloop_Actuator/Motor_B/Outputs to Amplifier/DAC_CLASS1_BL1 --- */
   /* --- [RTI120X, DAC C1] - Channel: 2 --- */
@@ -8245,20 +8339,6 @@ void Ball_and_Plate_MicroLabBox_student_terminate(void)
   DacCl1AnalogOut_stop(pRTIDacC1AnalogOut_Ch_2);
 
   /* End of Terminate for SubSystem: '<S20>/Outputs to Amplifier' */
-
-  /* Terminate for S-Function (dleadlag): '<S54>/Dctleadlag1' */
-  /* Level2 S-Function Block: '<S54>/Dctleadlag1' (dleadlag) */
-  {
-    SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[4];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dlowpass1): '<S54>/Dct1lowpass1' */
-  /* Level2 S-Function Block: '<S54>/Dct1lowpass1' (dlowpass1) */
-  {
-    SimStruct *rts = Ball_and_Plate_MicroLabBox_student_M->childSfunctions[5];
-    sfcnTerminate(rts);
-  }
 
   /* Terminate for Atomic SubSystem: '<S21>/Outputs to Amplifier' */
   /* Terminate for S-Function (rti_commonblock): '<S57>/S-Function1' */
