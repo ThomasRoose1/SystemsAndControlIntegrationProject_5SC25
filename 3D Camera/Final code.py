@@ -23,7 +23,7 @@ GRID_SPACING_MM = 100.0
 # Mask parameters
 MAX_TRACK_DISTANCE = 120
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
-THRESHOLD = 85 # Adjust based on lighting conditions and ball color
+THRESHOLD = 95 # Adjust based on lighting conditions and ball color
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
@@ -63,6 +63,16 @@ SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
 SHOW_TRACKING_DEBUG = False
 SHOW_DEPTH_ROI = False
+PROFILE = True
+timing_stats = {
+    "acquisition": [],
+    "detection": [],
+    "tracking": [],
+    "depth": [],
+    "udp": [],
+    "display": [],
+    "total": []
+}
 
 # Other parameters
 STATS_WINDOW = 300
@@ -448,6 +458,9 @@ cv2.setMouseCallback(WINDOW_NAME, mouse_callback)
 
 try:
     while True:
+        total_start = time.perf_counter()
+        t0 = time.perf_counter()
+
         frames = pipeline.wait_for_frames()
         aligned_frames = align.process(frames)
 
@@ -458,11 +471,12 @@ try:
         if not color_frame or not depth_frame:
             continue
 
-        # RealSense filtering
         depth_frame = temporal.process(depth_frame)
 
         frame = np.asanyarray(color_frame.get_data())
         depth_raw = np.asanyarray(depth_frame.get_data())
+
+        t1 = time.perf_counter()
 
         frame = cv2.warpAffine(frame, ROT_MAT, (WIDTH, HEIGHT))
         frame = cv2.flip(frame, -1)
@@ -475,7 +489,9 @@ try:
             predicted = (int(prev_pos[0] + velocity[0]), int(prev_pos[1] + velocity[1]))
             predicted_pos = predicted
 
+        t_det_start = time.perf_counter()
         result, mask, filter_vis = detect_ball(gray, predicted)
+        t2 = time.perf_counter()
 
         chosen = None
         ctrl_coords = None
@@ -501,6 +517,7 @@ try:
 
         ref_mm = (0.0, 0.0)
 
+        t_track_start = time.perf_counter()
         if result is not None:
             contour, chosen, area, radius = result
             lost_frames = 0
@@ -546,7 +563,9 @@ try:
             chosen = filtered_pos
             ctrl_coords = pixel_to_control_coords(chosen)
 
+            t_depth_start = time.perf_counter()
             z_mm = get_mean_depth_mm(depth_raw, int(round(chosen[0])), int(round(chosen[1])), depth_scale)
+            t4 = time.perf_counter()
 
             if z_mm is not None:
                 z_display = z_mm if z_reference_mm is None else z_reference_mm - z_mm
@@ -557,8 +576,8 @@ try:
                 
             if prev_pos is not None:
                 velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
-                vx_mm = velocity[0] * SCALE_X * camera_fps
-                vy_mm = -velocity[1] * SCALE_Y * camera_fps
+                vx_mm = (ctrl_coords[0] - last_valid_ctrl_coords[0]) * camera_fps
+                vy_mm = (ctrl_coords[1] - last_valid_ctrl_coords[1]) * camera_fps
                 speed_mm = math.hypot(vx_mm, vy_mm)
             else:
                 velocity = (0, 0)
@@ -573,6 +592,8 @@ try:
                 prev_pos = None
                 velocity = None
                 filtered_pos = None
+            
+        t3 = time.perf_counter()
 
         display = frame.copy()
         draw_coordinate_overlay(display)
@@ -619,6 +640,7 @@ try:
             else:
                 cv2.circle(display, filt_int, 6, (0,0,255), -1)
 
+        t_udp_start = time.perf_counter() 
         if ctrl_coords is not None and z_display is not None:
             x_history.append(ctrl_coords[0])
             y_history.append(ctrl_coords[1])
@@ -631,7 +653,7 @@ try:
                 y_std = np.std(y_history)
 
             last_valid_ctrl_coords = ctrl_coords
-            last_valid_z = z_display          
+            last_valid_z = z_display         
             send_ball_position_xyz_mm(ctrl_coords, z_display,detected_flag=1)
 
             cv2.putText(display, f'X: {ctrl_coords[0]:+6.1f} mm', (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
@@ -646,6 +668,7 @@ try:
                 cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
         else:
             send_ball_position_xyz_mm(last_valid_ctrl_coords, last_valid_z, detected_flag=0)
+        t5 = time.perf_counter()
         
         # ================= FPS UPDATE =================
         fps_counter += 1
@@ -781,9 +804,22 @@ try:
 
                 send_reference_xy((0,0),0)
 
+        t_disp_start = time.perf_counter()
         cv2.imshow('Final Code', display)
 
         key = cv2.waitKey(1) & 0xFF
+        t6 = time.perf_counter()
+
+        if PROFILE:
+
+            timing_stats["acquisition"].append((t1 - t0) * 1000)
+            timing_stats["detection"].append((t2 - t_det_start) * 1000)
+            timing_stats["tracking"].append((t3 - t_track_start) * 1000)
+            timing_stats["depth"].append((t4 - t_depth_start) * 1000)
+            timing_stats["udp"].append((t5 - t_udp_start) * 1000)
+            timing_stats["display"].append((t6 - t_disp_start) * 1000)
+            timing_stats["total"].append((t6 - total_start) * 1000)
+
         if key == ord('z') and z_mm is not None:
             z_reference_mm = z_mm
             print(f'Z reference set to {z_reference_mm:.1f} mm')
@@ -817,3 +853,16 @@ try:
 finally:
     pipeline.stop()
     cv2.destroyAllWindows()
+    
+    if PROFILE:
+
+        print("\n================ FINAL SYSTEM REPORT ================")
+        for key, values in timing_stats.items():
+            if len(values):
+                print(
+                    f"{key:12s}: "
+                    f"avg = {np.mean(values):7.2f} ms | "
+                    f"max = {np.max(values):7.2f} ms | "
+                    f"min = {np.min(values):7.2f} ms"
+                )
+        print("=====================================================")
