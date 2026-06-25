@@ -201,6 +201,42 @@
 							<LinkedItem type="key">805507421</LinkedItem>
 						</item>
 						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">1014626823</UniqueID>
+							<LinkedItem type="key">149660698</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">833773559</UniqueID>
+							<LinkedItem type="key">278125681</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">889347262</UniqueID>
+							<LinkedItem type="key">615514869</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">794708215</UniqueID>
+							<LinkedItem type="key">906504165</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">334401735</UniqueID>
+							<LinkedItem type="key">534936008</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">514840492</UniqueID>
+							<LinkedItem type="key">138115637</LinkedItem>
+						</item>
+						<item>
 							<Component type="key">DataSetManager</Component>
 							<Name type="key">Data Sets</Name>
 							<DisplayName type="key">Data Sets</DisplayName>
@@ -378,6 +414,126 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<UniqueID type="key">805507421</UniqueID>
 					<EntityID type="key">{F8CC1EE8-8D7C-4C7C-9390-C47A1749CD23}</EntityID>
 					<ItemInfoDate type="key">24/06/2026 11:53:41</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_001.mf4</Name>
+					<DisplayName type="key">rec3_001.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">149660698</UniqueID>
+					<EntityID type="key">{C7DA55EB-213E-4F18-9C5A-FBCE7BD2197B}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 14:55:10</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_002.mf4</Name>
+					<DisplayName type="key">rec3_002.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">278125681</UniqueID>
+					<EntityID type="key">{ACD1A5D4-06B3-40BA-8168-95AF7CFD4401}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 14:57:36</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_003.mf4</Name>
+					<DisplayName type="key">rec3_003.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">615514869</UniqueID>
+					<EntityID type="key">{E8D0BA02-C52C-416A-B069-F9E038A12041}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 15:02:40</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_004.mf4</Name>
+					<DisplayName type="key">rec3_004.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">906504165</UniqueID>
+					<EntityID type="key">{D9044F88-5BC5-4D8A-9DEC-3E139E28F678}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 15:06:15</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_005.mf4</Name>
+					<DisplayName type="key">rec3_005.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">534936008</UniqueID>
+					<EntityID type="key">{957F2112-4CDF-43D5-8E87-7A2574F5768B}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 15:11:08</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_006.mf4</Name>
+					<DisplayName type="key">rec3_006.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">138115637</UniqueID>
+					<EntityID type="key">{6ABB1E9E-3B39-4671-A561-020895B230F5}</EntityID>
+					<ItemInfoDate type="key">25/06/2026 15:12:28</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
@@ -705,7 +861,7 @@ ControlDesk version: 7.3</ItemInfoLog>
 		</DeviceFactory>
 	</PlatformManagement>
 	<MeasurementConfiguration>
-		<NextUniqueKey type="key">6</NextUniqueKey>
+		<NextUniqueKey type="key">7</NextUniqueKey>
 		<SortedColumn type="key">4</SortedColumn>
 		<SortAscending type="key">-1</SortAscending>
 		<SignalList>
@@ -723,6 +879,30 @@ ControlDesk version: 7.3</ItemInfoLog>
 				<Active type="key">-1</Active>
 				<Signal>
 					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/enable_circ_ref\n\n/Value</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">OnChange</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/enable_outer_controller/Value</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">OnChange</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/enable_square_ref\n/Value</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">OnChange</Raster>
 				</Signal>
 			</Variable>
 			<Variable>
@@ -774,6 +954,22 @@ ControlDesk version: 7.3</ItemInfoLog>
 				</Signal>
 			</Variable>
 			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Alpha_out</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/Innerloop_Actuator/Beta_out</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_ref\n/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
@@ -799,14 +995,6 @@ ControlDesk version: 7.3</ItemInfoLog>
 			</Variable>
 			<Variable>
 				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/MATLAB Function1/path</Name>
-				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-				<Active type="key">-1</Active>
-				<Signal>
-					<Raster type="key">HostService</Raster>
-				</Signal>
-			</Variable>
-			<Variable>
-				<Name type="key">Model Root/Innerloop_Actuator/Motor_A/motorA\n/Discrete-Time\nIntegrator/Out1</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
 				<Signal>
@@ -947,6 +1135,14 @@ ControlDesk version: 7.3</ItemInfoLog>
 				<Active type="key">-1</Active>
 				<Signal>
 					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Tunable Parameters/plate_angle_sat</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">OnChange</Raster>
 				</Signal>
 			</Variable>
 		</SignalList>
@@ -1118,6 +1314,33 @@ ControlDesk version: 7.3</ItemInfoLog>
 						</Signal>
 					</Variable>
 					<Variable>
+						<Name type="key">Model Root/enable_circ_ref\n\n/Value</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/enable_outer_controller/Value</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/enable_square_ref\n/Value</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
 						<Name type="key">Model Root/Ethernet communication/Byte Unpacking /Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
@@ -1172,6 +1395,24 @@ ControlDesk version: 7.3</ItemInfoLog>
 						</Signal>
 					</Variable>
 					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Alpha_out</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Beta_out</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/enable_ref\n/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
@@ -1203,15 +1444,6 @@ ControlDesk version: 7.3</ItemInfoLog>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">0</Recorded>
-						<Signal>
-							<Raster type="key">HostService</Raster>
-						</Signal>
-					</Variable>
-					<Variable>
-						<Name type="key">Model Root/Innerloop_Actuator/Motor_A/motorA\n/Discrete-Time\nIntegrator/Out1</Name>
-						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
-						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
-						<Recorded type="key">-1</Recorded>
 						<Signal>
 							<Raster type="key">HostService</Raster>
 						</Signal>
@@ -1369,6 +1601,15 @@ ControlDesk version: 7.3</ItemInfoLog>
 							<Raster type="key">HostService</Raster>
 						</Signal>
 					</Variable>
+					<Variable>
+						<Name type="key">Tunable Parameters/plate_angle_sat</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
 				</SignalList>
 			</Recorder>
 			<Recorder>
@@ -1511,6 +1752,164 @@ ControlDesk version: 7.3</ItemInfoLog>
 					</Variable>
 					<Variable>
 						<Name type="key">Model Root/Innerloop_Actuator/Motor_C/Switch3/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+				</SignalList>
+			</Recorder>
+			<Recorder>
+				<Name type="key">Recorder 3</Name>
+				<UniqueKey type="key">6</UniqueKey>
+				<AutomaticSignalConfigurationEnabled type="key">0</AutomaticSignalConfigurationEnabled>
+				<WriteToFileEnabled type="key">-1</WriteToFileEnabled>
+				<MeasurementTimestampsEnabled type="key">0</MeasurementTimestampsEnabled>
+				<StartAudioSignalEnabled type="key">0</StartAudioSignalEnabled>
+				<StopAudioSignalEnabled type="key">0</StopAudioSignalEnabled>
+				<Active type="key">-1</Active>
+				<StartCondition>
+					<Enabled type="key">0</Enabled>
+					<RecordingCycleCount type="key">1</RecordingCycleCount>
+					<SelectedTriggerRule type="key"/>
+					<TriggerDelay type="key">0</TriggerDelay>
+				</StartCondition>
+				<StopCondition>
+					<RecordingStopWarningEnabled type="key">0</RecordingStopWarningEnabled>
+					<RecordingStopWarningTime type="key">60</RecordingStopWarningTime>
+					<SelectedTriggerRule type="key"/>
+					<Type type="key">0</Type>
+					<TimeLimit type="key">3600</TimeLimit>
+					<TriggerDelay type="key">0</TriggerDelay>
+				</StopCondition>
+				<StorageInformation>
+					<AddToExperimentEnabled type="key">-1</AddToExperimentEnabled>
+					<AutomaticSaveDialogEnabled type="key">0</AutomaticSaveDialogEnabled>
+					<AutomaticExportEnabled type="key">0</AutomaticExportEnabled>
+					<AutomaticExportFileNamePrefix type="key">exp3_</AutomaticExportFileNamePrefix>
+					<AutomaticExportFileType type="key">ASAM MDF 4.1 Files (*.mf4)</AutomaticExportFileType>
+					<AutomaticExportFolder type="key"/>
+					<AutomaticNamingEnabled type="key">-1</AutomaticNamingEnabled>
+					<AutomaticNamingMinimunDigits type="key">3</AutomaticNamingMinimunDigits>
+					<AutomaticNamingStartIndex type="key">7</AutomaticNamingStartIndex>
+					<Description type="key"/>
+					<FileNamePrefix type="key">rec3_</FileNamePrefix>
+					<OpenInMeasurementDataPoolEnabled type="key">0</OpenInMeasurementDataPoolEnabled>
+					<RecordingFileType type="key">ASAM MDF 4.1 Files (*.mf4)</RecordingFileType>
+				</StorageInformation>
+				<SignalList>
+					<Variable>
+						<Name type="key">Model Root/Alpha_sat\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Beta_sat\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/enable_circ_ref\n\n/Value</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/enable_outer_controller/Value</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/enable_square_ref\n/Value</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/First Order Hold/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/First Order Hold1/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Alpha_out</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/Innerloop_Actuator/Beta_out</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/x_dot_obs/In1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/x_obs/In1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/y_dot_obs/In1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/y_obs/In1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>
