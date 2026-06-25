@@ -132,7 +132,7 @@ mpcobj = mpc(sys_mpc_d, Ts_Outer, Nmpc, Nc_mpc);
 % Set Weights (Translating your Q and R matrices)
 mpcobj.Weights.OutputVariables = [Qmpc(1,1) Qmpc(2,2) Qmpc(3,3) Qmpc(4,4)];      % State weights (Q)
 mpcobj.Weights.ManipulatedVariables = [Rmpc(1,1) Rmpc(2,2)]; % Input weights (R)
-mpcobj.Weights.ManipulatedVariablesRate = [0 0]; % No penalty on slew rate (for now)
+mpcobj.Weights.ManipulatedVariablesRate = [50 50]; % No penalty on slew rate (for now)
 % mpcobj.Weights.TerminalState = diag(Pmpc); % doesnt work yet
 
 % Set Physical Constraints
@@ -162,7 +162,11 @@ disp('MPC Object created successfully!');
 R = 0.1;
 Tcircle = 5;
 N_circles = 10;
-[r, a] = generate_circular_trajectory(R, Tcircle, N_circles, Ts_Inner);
+[r_circ, a_circ] = generate_circular_trajectory(R, Tcircle, N_circles, Ts_Inner);
+
+Tsquare = 10;
+N_squares = 3;
+[r_square, a_square] = generate_square_trajectory(R, Tsquare, N_squares, Ts_Inner);
 
 %% done
 disp('Initialization complete. Ready for Simulink simulation.');
