@@ -12,7 +12,7 @@ classdef PlateVisualizer < matlab.System
             coder.extrinsic('figure', 'axes', 'patch', 'line', 'grid', 'view', 'axis', 'xlabel', 'ylabel', 'zlabel', 'title', 'daspect', 'assignin');
             
             % Initialize the variables in the base workspace at startup so they always exist
-            assignin('base', 'outer_loop_enable', 0);
+            assignin('base', 'outer_loop_enable', 1);
             assignin('base', 'inner_loop_enable', 1);
             assignin('base', 'sim_reset', 0);
             
@@ -72,10 +72,11 @@ classdef PlateVisualizer < matlab.System
             outerCmd = ['val = get(gcbo, ''Value''); assignin(''base'', ''outer_loop_enable'', val); ' ...
                         'if val, set(gcbo, ''String'', ''Outer Loop ON'', ''BackgroundColor'', [0.6 1.0 0.6]); ' ...
                         'else, set(gcbo, ''String'', ''Outer Loop OFF'', ''BackgroundColor'', [1.0 0.6 0.6]); end'];
+            
             uicontrol('Parent', gcf, 'Style', 'togglebutton', ...
-                      'String', 'Outer Loop OFF', ...
-                      'Value', 0, ...
-                      'BackgroundColor', [1.0 0.6 0.6], ...
+                      'String', 'Outer Loop ON', ...           % CHANGED: Start with ON text
+                      'Value', 1, ...
+                      'BackgroundColor', [0.6 1.0 0.6], ...    % CHANGED: Start with Green color
                       'Position', [180 20 140 30], ... 
                       'Callback', outerCmd, ...
                       'Tag', 'OuterLoopToggle');
@@ -91,9 +92,20 @@ classdef PlateVisualizer < matlab.System
                       'Position', [340 20 140 30], ... 
                       'Callback', innerCmd, ...
                       'Tag', 'InnerLoopToggle');
+
+            % Live Time Display (Bottom Right Corner)
+            % Using normalized units so it stays in the corner if you resize the window
+            uicontrol('Parent', gcf, 'Style', 'text', ...
+                      'String', 'Time: 0.00 s', ...
+                      'FontSize', 11, 'FontWeight', 'bold', ...
+                      'Units', 'normalized', ... 
+                      'Position', [0.75 0.02 0.22 0.08], ... 
+                      'BackgroundColor', get(gcf, 'Color'), ...
+                      'HorizontalAlignment', 'right', ...
+                      'Tag', 'TimeLabel');
         end
         
-        function stepImpl(obj, alpha, beta, z_plate, x_ball, y_ball)
+        function stepImpl(obj, alpha, beta, z_plate, x_ball, y_ball, sim_time)
             % Declare runtime graphic functions as extrinsic
             coder.extrinsic('findobj', 'set', 'drawnow');
             
@@ -146,6 +158,12 @@ classdef PlateVisualizer < matlab.System
             if ~isempty(hActC)
                 set(hActC, 'XData', [obj.JointsOrig(1,3); rot_joints(1,3)], 'YData', [obj.JointsOrig(2,3); rot_joints(2,3)], 'ZData', [-0.05; rot_joints(3,3)]);
             end
+
+            % Update Live Time Display
+            hTime = findobj('Tag', 'TimeLabel');
+            if ~isempty(hTime)
+                set(hTime, 'String', sprintf('Time: %.2f s', sim_time));
+            end
             
             drawnow limitrate;
         end
@@ -159,7 +177,7 @@ classdef PlateVisualizer < matlab.System
         end
         
         function num = getNumInputsImpl(~)
-            num = 5; % Alpha, Beta, Z_plate, X_ball, Y_ball
+            num = 6; % Alpha, Beta, Z_plate, X_ball, Y_ball, sim_time
         end
     end
 end
