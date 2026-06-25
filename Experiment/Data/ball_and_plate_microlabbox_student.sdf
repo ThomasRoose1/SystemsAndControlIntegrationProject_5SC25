@@ -1,0 +1,15 @@
+[System]
+Version=2.2
+SystemType=SingleProcessorSystem
+DAQService=DsDAQ
+DsDAQBackground=1
+Status=Start
+File=ball_and_plate_microlabbox_student.rta
+RTP=Master
+
+[Master]
+Type=DS1202
+State=Enabled
+ServiceID=1
+TraceFile=ball_and_plate_microlabbox_student.trc
+ID=4E8DE94A-0953-46AF-A727-F331C8BC461C
