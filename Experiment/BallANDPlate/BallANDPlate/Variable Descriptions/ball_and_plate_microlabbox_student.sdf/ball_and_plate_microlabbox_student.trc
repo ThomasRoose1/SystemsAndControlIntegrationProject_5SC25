@@ -3,7 +3,7 @@
 --  Trace file: Ball_and_Plate_MicroLabBox_student.trc
 --
 --  RTI1202 7.15 (02-Nov-2020)
---  Thu Jun 25 15:22:32 2026
+--  Thu Jun 25 16:30:03 2026
 --
 --  Copyright 2026, dSPACE GmbH. All rights reserved.
 --
@@ -26,7 +26,7 @@
 
 _genname     "RTI"
 _genversion  "7.15"
-_gendate     "06/25/2026 15:22:37"
+_gendate     "06/25/2026 16:30:07"
 _description ""
 _author      "RTI1202 7.15 (02-Nov-2020)"
 _model       "Ball_and_Plate_MicroLabBox_student"
@@ -97,7 +97,7 @@ finalTime
  desc:  "Simulation stop time. When reached, simState switches to STOP."
  flags:  READONLY
  unit:  "s"
- addr:    0x489BBD64
+ addr:    0x489BB7FC
 }
 
 currentTime
@@ -107,7 +107,7 @@ currentTime
  desc:  "Current simulation time. Increments with execution of Timer Task 1."
  flags: READONLY
  unit:  "s"
- addr:    0x489BBD60
+ addr:    0x489BB7F8
 }
 
 modelStepSize
@@ -117,7 +117,7 @@ modelStepSize
  desc:  "Fixed step size of the model, sample time of Timer Task 1."
  flags: READONLY
  unit:  "s"
- addr:    0x489BBD68
+ addr:    0x489BB800
 }
 
 simState
@@ -126,7 +126,7 @@ simState
  alias: "simState"
  desc:  "Simulation state: STOP=0 RUN=2"
  unit:  "-"
- addr:    0x489B63D0
+ addr:    0x489B5E40
 }
 
 p_msg_last_error_no
@@ -136,7 +136,7 @@ p_msg_last_error_no
  desc:  "Error number of last error message (zero if no error)."
  unit:  "-"
  flags: READONLY
- addr:    0x48056010
+ addr:    0x48056660
 }
 
 p_dsts_sum_of_reset_time
@@ -146,7 +146,7 @@ p_dsts_sum_of_reset_time
  desc:  "Internal variable for summing up reset time."
  unit:  "s"
  flags: READONLY|HIDDEN
- addr:    0x4805600C
+ addr:    0x4805665C
 }
 
 
@@ -165,64 +165,64 @@ group "Task Info"
    type:  flt(64,IEEE)*
    alias: "sampleTime"
    flags: READONLY
- addr:    0x489BBD8C
+ addr:    0x489BB824
 }
   pRti_TIMERA_TTime
   {
    type:  flt(64,IEEE)*
    alias: "turnaroundTime"
    flags: READONLY
-		 addr:    0x489BBD90
+		 addr:    0x489BB828
 		}
   pRti_TIMERA_TState
   {
    type:  int(32)*
    alias: "state"
    flags: READONLY
-		 addr:    0x489BBD94
-		}
+ addr:    0x489BB82C
+}
   pRti_TIMERA_OType
   {
    type:  int(32)*
    alias: "overrunCheckType"
    flags: READONLY
-		 addr:    0x489BBD98
+		 addr:    0x489BB830
 		}
   pRti_TIMERA_OMax
   {
    type:  int(32)*
    alias: "overrunQueueMax"
    flags: READONLY
- addr:    0x489BBD9C
-}
+		 addr:    0x489BB834
+		}
   pRti_TIMERA_ORpt
   {
    type:  int(32)*
    alias: "overrunQueueCount"
    flags: READONLY
- addr:    0x489BBDA0
+ addr:    0x489BB838
 }
   pRti_TIMERA_OCnt
   {
    type:  int(32)*
    alias: "overrunCount"
    flags: READONLY
- addr:    0x489BBDA4
-}
+		 addr:    0x489BB83C
+		}
   pRti_TIMERA_TCnt
   {
    type:  flt(64,IEEE)*
    alias: "taskCallCount"
    flags: READONLY
- addr:    0x489BBDA8
+ addr:    0x489BB840
 }
   pRti_TIMERA_Prio
   {
    type:  int(32)*
    alias: "priority"
    flags: READONLY
- addr:    0x489BBDAC
-}
+		 addr:    0x489BB844
+		}
   endgroup
 
 
@@ -241,7 +241,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "In1"
 		 flags:   READONLY
- addr:    0x489BBD24
+ addr:    0x489BB7BC
 }
 
 
@@ -257,7 +257,7 @@ group "Model Root"
 		 type:    uint(32)*
 		 alias:   "In1"
 		 flags:   READONLY
- addr:    0x489BBD28
+ addr:    0x489BB7C0
 }
 
 
@@ -273,8 +273,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "In1"
 		 flags:   READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 
@@ -289,7 +289,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "In1"
 		 flags:   READONLY
-		 addr:    0x489BBD2C
+		 addr:    0x489BB7C4
 		}
 
 
@@ -305,7 +305,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "In1"
 		 flags:   READONLY
- addr:    0x489BBD2C
+ addr:    0x489BB7C4
 }
 
 
@@ -321,7 +321,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "In1"
 		 flags:   READONLY
- addr:    0x489BBD2C
+ addr:    0x489BB7C4
 }
 
 
@@ -337,8 +337,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "In1"
 		 flags:   READONLY
- addr:    0x489BBD2C
-}
+		 addr:    0x489BB7C4
+		}
 
 
 
@@ -354,14 +354,14 @@ group "Model Root"
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "Q_kf"
 		 alias:    "Q_kf"
-}
+		}
 		trcref0_Value
 		{
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "Q_kf"
 		 alias:    "Value"
 		 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 	endgroup -- block-group "Constant"
@@ -376,14 +376,14 @@ group "Model Root"
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "R_kf"
 		 alias:    "R_kf"
-		}
+}
 		trcref0_Value
 		{
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "R_kf"
 		 alias:    "Value"
 		 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 	endgroup -- block-group "Constant1"
@@ -405,7 +405,7 @@ group "Model Root"
 		 refvar:   "a_square"
 		 alias:    "Value"
 		 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 	endgroup -- block-group "Constant10"
@@ -427,7 +427,7 @@ group "Model Root"
 		 refvar:   "Ts_Inner"
 		 alias:    "Value"
 		 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 	endgroup -- block-group "Constant2"
@@ -442,8 +442,8 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "Value"
 		 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 	endgroup -- block-group "Constant3"
@@ -480,7 +480,7 @@ group "Model Root"
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "a_circ"
 		 alias:    "a_circ"
-		}
+}
 		trcref0_Value
 		{
 		 refgroup: "/Tunable Parameters"
@@ -502,8 +502,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
 		 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 	endgroup -- block-group "Constant7"
@@ -518,8 +518,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 	endgroup -- block-group "Constant8"
@@ -556,8 +556,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 	endgroup -- block-group "Controller_select"
@@ -572,7 +572,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
 		 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -588,8 +588,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 	endgroup -- block-group "enable_circ_ref\n\n"
@@ -604,7 +604,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
 		 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -620,7 +620,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -636,7 +636,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -651,7 +651,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -666,7 +666,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -681,8 +681,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 		trcref0_Ts_Outer
 		{
 		 refgroup: "/Tunable Parameters"
@@ -698,19 +698,19 @@ group "Model Root"
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1100]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 		trcref0_K_lqr
 		{
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "K_lqr"
 		 alias:    "K_lqr"
-}
+		}
 		trcref0_Gain
 		{
 		 refgroup: "/Tunable Parameters"
@@ -731,14 +731,14 @@ group "Model Root"
 		 type:    flt(32,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC50
-		}
+ addr:    0x489BB6E8
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real32_T_3[0]
 		{
 		 type:    flt(32,IEEE)*
 		 alias:   "Gain"
 		 flags:   PARAM
- addr:    0x489BBCA4
+ addr:    0x489BB73C
 }
 
 
@@ -753,14 +753,14 @@ group "Model Root"
 		 type:    flt(32,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC50
-}
+		 addr:    0x489BB6E8
+		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real32_T_3[1]
 		{
 		 type:    flt(32,IEEE)*
 		 alias:   "Gain"
 		 flags:   PARAM
- addr:    0x489BBCA4
+ addr:    0x489BB73C
 }
 
 
@@ -775,15 +775,15 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[146]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
 		 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 	endgroup -- block-group "Gain4"
@@ -797,14 +797,14 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[154]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -814,20 +814,20 @@ group "Model Root"
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1103]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1105]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[6]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
 		 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 	endgroup -- block-group "Gain8"
@@ -836,12 +836,12 @@ group "Model Root"
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1105]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1107]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 		trcref0_g
 		{
@@ -858,12 +858,12 @@ group "Model Root"
 	{
 	 block: "Gain"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1108]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 		trcref0_g
 		{
@@ -885,7 +885,7 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -900,8 +900,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 	endgroup -- block-group "Rate Transition3"
@@ -915,8 +915,8 @@ group "Model Root"
 		 type:    flt(32,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC50
-}
+		 addr:    0x489BB6E8
+		}
 
 
 	endgroup -- block-group "Rate Transition4"
@@ -930,7 +930,7 @@ group "Model Root"
 		 type:    flt(32,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC50
+		 addr:    0x489BB6E8
 		}
 
 
@@ -945,14 +945,14 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 		trcref0_plate_angle_sat
 		{
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "plate_angle_sat"
 		 alias:    "plate_angle_sat"
-		}
+}
 		-- Skipping parameter "plate_angle_sat"
 		trcref0_UpperLimit
 		{
@@ -960,7 +960,7 @@ group "Model Root"
 		 refvar:   "plate_angle_sat"
 		 alias:    "UpperLimit"
 		 flags:    DEPRECATED|HIDDEN
-		}
+}
 		-- Skipping parameter "LowerLimit"
 
 
@@ -975,14 +975,14 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 		trcref0_plate_angle_sat
 		{
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "plate_angle_sat"
 		 alias:    "plate_angle_sat"
-}
+		}
 		-- Skipping parameter "plate_angle_sat"
 		trcref0_UpperLimit
 		{
@@ -990,7 +990,7 @@ group "Model Root"
 		 refvar:   "plate_angle_sat"
 		 alias:    "UpperLimit"
 		 flags:    DEPRECATED|HIDDEN
-		}
+}
 		-- Skipping parameter "LowerLimit"
 
 
@@ -1005,7 +1005,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBD2C
+ addr:    0x489BB7C4
 }
 		trcref0_ball_vel_sat
 		{
@@ -1020,7 +1020,7 @@ group "Model Root"
 		 refvar:   "ball_vel_sat"
 		 alias:    "UpperLimit"
 		 flags:    DEPRECATED|HIDDEN
-}
+		}
 		-- Skipping parameter "LowerLimit"
 
 
@@ -1035,8 +1035,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBD2C
-		}
+ addr:    0x489BB7C4
+}
 		trcref0_ball_vel_sat
 		{
 		 refgroup: "/Tunable Parameters"
@@ -1065,14 +1065,14 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBD2C
-		}
+ addr:    0x489BB7C4
+}
 		trcref0_ball_pos_sat
 		{
 		 refgroup: "/Tunable Parameters"
 		 refvar:   "ball_pos_sat"
 		 alias:    "ball_pos_sat"
-		}
+}
 		-- Skipping parameter "ball_pos_sat"
 		trcref0_UpperLimit
 		{
@@ -1095,7 +1095,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBD2C
+ addr:    0x489BB7C4
 }
 		trcref0_ball_pos_sat
 		{
@@ -1110,7 +1110,7 @@ group "Model Root"
 		 refvar:   "ball_pos_sat"
 		 alias:    "UpperLimit"
 		 flags:    DEPRECATED|HIDDEN
-		}
+}
 		-- Skipping parameter "LowerLimit"
 
 
@@ -1120,12 +1120,12 @@ group "Model Root"
 	{
 	 block: "Sum"
 	}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1096]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1098]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -1140,8 +1140,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 	endgroup -- block-group "Add1"
@@ -1155,8 +1155,8 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 	endgroup -- block-group "Add2"
@@ -1170,7 +1170,7 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -1185,8 +1185,8 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 	endgroup -- block-group "Add4"
@@ -1200,8 +1200,8 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 	endgroup -- block-group "Add5"
@@ -1215,7 +1215,7 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_25_4_Col*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -1230,14 +1230,14 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[66]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Threshold"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -1252,14 +1252,14 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[144]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Threshold"
 		 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1274,14 +1274,14 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[145]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Threshold"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -1296,14 +1296,14 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[162]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialCondition"
 		 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1318,21 +1318,21 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[60]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialOutput"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[61]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "ErrorTolerance"
 		 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1347,21 +1347,21 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[62]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialOutput"
 		 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[63]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "ErrorTolerance"
 		 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1376,16 +1376,16 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Y"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227449]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "ICPrevInput"
 		 flags:   PARAM
- addr:    0x489BBC98
-}
+		 addr:    0x489BB730
+		}
 
 		group "Diff" -- block-group
 		{
@@ -1397,8 +1397,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 		endgroup -- block-group "Diff"
@@ -1413,7 +1413,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 			trcref0_ICPrevInput
 			{
@@ -1444,42 +1444,42 @@ group "Model Root"
 		 type:    uint(32)*
 		 alias:   "Status\n"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBD28
+		 addr:    0x489BB7C0
 		}
 		p_5_Ball_and_Plate_MicroLabBox_student_real_T_0[0]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Frames\n"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBD24
+ addr:    0x489BB7BC
 }
 		p_0_Ball_and_Plate_MicroLabBox_student_real32_T_2[0]
 		{
 		 type:    flt(32,IEEE)*
 		 alias:   "Xpos\n"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC50
-		}
+ addr:    0x489BB6E8
+}
 		p_0_Ball_and_Plate_MicroLabBox_student_real32_T_2[1]
 		{
 		 type:    flt(32,IEEE)*
 		 alias:   "Ypos\n"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC50
+		 addr:    0x489BB6E8
 		}
 		p_0_Ball_and_Plate_MicroLabBox_student_real32_T_2[2]
 		{
 		 type:    flt(32,IEEE)*
 		 alias:   "Zpos"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC50
-}
+		 addr:    0x489BB6E8
+		}
 		p_0_Ball_and_Plate_MicroLabBox_student_int8_T_5[0]
 		{
 		 type:    int(8)*
 		 alias:   "flag"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC5C
+ addr:    0x489BB6F4
 }
 
 
@@ -1493,7 +1493,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1510,7 +1510,7 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
+ addr:    0x489BB6F8
 }
 
 
@@ -1525,36 +1525,36 @@ group "Model Root"
 			 type:    flt(32,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC50
+		 addr:    0x489BB6E8
 		}
 			p_0_Ball_and_Plate_MicroLabBox_student_real32_T_2[1]
 			{
 			 type:    flt(32,IEEE)*
 			 alias:   "Out2"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC50
+		 addr:    0x489BB6E8
 		}
 			p_0_Ball_and_Plate_MicroLabBox_student_real32_T_2[2]
 			{
 			 type:    flt(32,IEEE)*
 			 alias:   "Out3"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC50
+ addr:    0x489BB6E8
 }
 			p_0_Ball_and_Plate_MicroLabBox_student_int8_T_5[0]
 			{
 			 type:    int(8)*
 			 alias:   "Out4"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC5C
+ addr:    0x489BB6F4
 }
 			p_0_Ball_and_Plate_MicroLabBox_student_int8_T_5[1]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT2_19*
 			 alias:   "Out5"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC5C
-		}
+ addr:    0x489BB6F4
+}
 
 
 
@@ -1570,16 +1570,16 @@ group "Model Root"
 			 alias:   "Link Status"
 			 desc:    "No data (unused channel) "
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC4C
-}
+		 addr:    0x489BB6E4
+		}
 			p_0_Ball_and_Plate_MicroLabBox_student_uint8_T_4[36]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT3_4*
 			 alias:   "Local IP"
 			 desc:    "No data (unused channel) "
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC58
-}
+		 addr:    0x489BB6F0
+		}
 
 		endgroup -- subsystem-group "ETHERNET_SETUP_BL1"
   
@@ -1591,45 +1591,45 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT3_32*
 			 alias:   "Data"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC58
-}
+		 addr:    0x489BB6F0
+		}
 			p_5_Ball_and_Plate_MicroLabBox_student_uint32_T_1[0]
 			{
 			 type:    uint(32)*
 			 alias:   "Status"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBD28
+		 addr:    0x489BB7C0
 		}
 			p_5_Ball_and_Plate_MicroLabBox_student_real_T_0[0]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Received Frames"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBD24
-}
+		 addr:    0x489BB7BC
+		}
 			p_0_Ball_and_Plate_MicroLabBox_student_uint32_T_1[0]
 			{
 			 type:    uint(32)*
 			 alias:   "Received Bytes"
 			 desc:    "No data (unused channel) "
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC4C
-		}
+ addr:    0x489BB6E4
+}
 			p_0_Ball_and_Plate_MicroLabBox_student_uint8_T_4[32]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT3_4*
 			 alias:   "Remote IP"
 			 desc:    "No data (unused channel) "
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC58
-		}
+ addr:    0x489BB6F0
+}
 			p_0_Ball_and_Plate_MicroLabBox_student_uint16_T_3[0]
 			{
 			 type:    uint(16)*
 			 alias:   "Remote Port"
 			 desc:    "No data (unused channel) "
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC54
+ addr:    0x489BB6EC
 }
 
 		endgroup -- subsystem-group "ETHERNET_UDP_RX_BL1"
@@ -1643,8 +1643,8 @@ group "Model Root"
 			 alias:   "RX Dropped Frames"
 			 desc:    "No data (unused channel) "
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 		endgroup -- subsystem-group "ETHERNET_UDP_SETUP_BL1"
 
@@ -1654,26 +1654,26 @@ group "Model Root"
   
 	group "Innerloop_Actuator" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1050]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1052]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Alpha_out"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1051]
+		 addr:    0x489BB6E0
+		}
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1053]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Beta_out"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1052]
+		 addr:    0x489BB6E0
+		}
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1054]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Psi_out"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 		-- Skipping output T_baclk
 
@@ -1683,13 +1683,13 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[8]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[7]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "Constant"
@@ -1699,12 +1699,12 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[27]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[25]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1715,13 +1715,13 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[44]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[41]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "Constant2"
@@ -1736,7 +1736,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -1747,12 +1747,12 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[176]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[195]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -1763,13 +1763,13 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[170]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[187]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "enable_inner_controller"
@@ -1784,7 +1784,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1800,8 +1800,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "enable_quintic\n\n"
@@ -1816,7 +1816,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1826,20 +1826,20 @@ group "Model Root"
 		{
 		 block: "Constant"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[380]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[382]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[243]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[249]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "reser_integrator"
@@ -1848,13 +1848,13 @@ group "Model Root"
 		{
 		 block: "Sum"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1092]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1094]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 		endgroup -- block-group "Add1"
@@ -1863,13 +1863,13 @@ group "Model Root"
 		{
 		 block: "Sum"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1077]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1081]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 		endgroup -- block-group "Add2"
@@ -1878,12 +1878,12 @@ group "Model Root"
 		{
 		 block: "Sum"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1063]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1068]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -1893,13 +1893,13 @@ group "Model Root"
   
 		group "Motor_A" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1085]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1089]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P_A"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			group "Constant" -- block-group
@@ -1907,12 +1907,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[7]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[8]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1928,7 +1928,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1939,12 +1939,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[11]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[9]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1955,12 +1955,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[178]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[197]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -1976,103 +1976,45 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "end_time_A"
-
-			group "Gain" -- block-group
-			{
-			 block: "Gain"
-			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1091]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Out1"
-				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[10]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Gain"
-				 flags:   PARAM
- addr:    0x489BBCA0
-}
-
-
-			endgroup -- block-group "Gain"
 
 			group "enable_white_noise_A\n" -- block-group
 			{
 			 block: "Gain"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[350]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[356]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[175]
+		 addr:    0x489BB6E0
+		}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[194]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "enable_white_noise_A\n"
-
-			group "Random\nNumber" -- block-group
-			{
-			 block: "RandomNumber"
-			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[349]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Out1"
-				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[172]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Mean"
-				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[173]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "StdDev"
-				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[174]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Seed"
-				 flags:   PARAM
- addr:    0x489BBCA0
-}
-
-
-			endgroup -- block-group "Random\nNumber"
 
 			group "Sum" -- block-group
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[351]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[357]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 			endgroup -- block-group "Sum"
@@ -2081,12 +2023,12 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1090]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[349]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -2101,15 +2043,15 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[167]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "Switch"
@@ -2118,19 +2060,19 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[348]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[354]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[171]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[190]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -2140,20 +2082,20 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[352]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[358]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[177]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[196]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "Switch3"
@@ -2162,23 +2104,59 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1089]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[348]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[9]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[170]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
 			endgroup -- block-group "enable_ref\n"
+
+			group "Uniform Random\nNumber" -- block-group
+			{
+			 block: "UniformRandomNumber"
+			}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[355]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[191]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Minimum"
+				 flags:   PARAM
+ addr:    0x489BB738
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[192]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Maximum"
+				 flags:   PARAM
+		 addr:    0x489BB738
+		}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[193]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Seed"
+				 flags:   PARAM
+ addr:    0x489BB738
+}
+
+
+			endgroup -- block-group "Uniform Random\nNumber"
 
   
   
@@ -2189,8 +2167,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "y"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC90
-}
+		 addr:    0x489BB728
+		}
 
 
 				group "Constant" -- block-group
@@ -2203,14 +2181,14 @@ group "Model Root"
 					 refgroup: "/Tunable Parameters"
 					 refvar:   "uA"
 					 alias:    "uA"
-		}
+}
 					trcref0_Value
 					{
 					 refgroup: "/Tunable Parameters"
 					 refvar:   "uA"
 					 alias:    "Value"
 					 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 				endgroup -- block-group "Constant"
@@ -2224,8 +2202,8 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC90
-		}
+ addr:    0x489BB728
+}
 
 
 
@@ -2244,19 +2222,19 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1087]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1091]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[14]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[12]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -2266,20 +2244,20 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1088]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1092]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[15]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[13]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "DSPscale"
@@ -2288,26 +2266,26 @@ group "Model Root"
 				{
 				 block: "Saturate"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1086]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1090]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[12]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[10]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "UpperLimit"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[13]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[11]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "LowerLimit"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -2326,19 +2304,19 @@ group "Model Root"
   
 			group "Position Measurement" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1084]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1088]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "init_current"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1085]
+ addr:    0x489BB6E0
+}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1089]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Position [m]"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -2347,13 +2325,13 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[16]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[14]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 				endgroup -- block-group "Constant"
@@ -2363,12 +2341,12 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[19]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[17]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -2379,13 +2357,13 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[17]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[15]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "ZP"
@@ -2394,20 +2372,20 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1081]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1085]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[18]
+		 addr:    0x489BB6E0
+		}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[16]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 				endgroup -- block-group "Inc2Pos"
@@ -2416,20 +2394,20 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1085]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1089]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[24]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[22]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 				endgroup -- block-group "mm2m"
@@ -2438,12 +2416,12 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1082]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1086]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -2453,19 +2431,19 @@ group "Model Root"
   
 				group "EMC_ENCODER_BL1" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1079]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1083]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Position"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1080]
+ addr:    0x489BB6E0
+}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1084]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Speed"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 				endgroup -- subsystem-group "EMC_ENCODER_BL1"
@@ -2484,27 +2462,27 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Pos_offset"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC88
-}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1084]
+		 addr:    0x489BB720
+		}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1088]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "init_current"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 					group "Abs" -- block-group
 					{
 					 block: "Abs"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1083]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1087]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -2515,12 +2493,12 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[20]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[18]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
 						 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -2531,13 +2509,13 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[21]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[19]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
 						 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 					endgroup -- block-group "Const1"
@@ -2553,8 +2531,8 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
-		}
+ addr:    0x489BB6F8
+}
 
 
 					endgroup -- block-group "Logical\nOperator2"
@@ -2570,7 +2548,7 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
+ addr:    0x489BB6F8
 }
 
 
@@ -2587,8 +2565,8 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
-		}
+ addr:    0x489BB6F8
+}
 
 
 					endgroup -- block-group "Relational\nOperator1"
@@ -2597,26 +2575,26 @@ group "Model Root"
 					{
 					 block: "TransferFcn"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1084]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1088]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[22]
+ addr:    0x489BB6E0
+}
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[20]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "A"
 						 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[23]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[21]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "C"
 						 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -2631,8 +2609,8 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC8C
-}
+		 addr:    0x489BB724
+		}
 
 
 						group "Constant" -- block-group
@@ -2645,7 +2623,7 @@ group "Model Root"
 							 type:    flt(64,IEEE)*
 							 alias:   "Value"
 							 flags:   PARAM
- addr:    0x489BBCC4
+ addr:    0x489BB75C
 }
 
 
@@ -2663,7 +2641,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC88
+ addr:    0x489BB720
 }
 
 
@@ -2676,7 +2654,7 @@ group "Model Root"
 							 type:    flt(64,IEEE)*
 							 alias:   "Out1"
 							 flags:   OUTPUT|READONLY
- addr:    0x489BBC88
+ addr:    0x489BB720
 }
 
 
@@ -2693,6 +2671,170 @@ group "Model Root"
 			endgroup -- subsystem-group "Position Measurement"
   
   
+			group "motorA\n" -- subsystem-group
+
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1093]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Output"
+				 flags:   OUTPUT|READONLY
+		 addr:    0x489BB6E0
+		}
+
+
+				group "Discrete-Time\nIntegrator" -- block-group
+				{
+				 block: "DiscreteIntegrator"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[353]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+		 addr:    0x489BB6E0
+		}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[188]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "gainval"
+					 flags:   PARAM
+ addr:    0x489BB738
+}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[189]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "InitialCondition"
+					 flags:   PARAM
+ addr:    0x489BB738
+}
+					trcref2_inner_I_sat
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "inner_I_sat"
+					 alias:    "inner_I_sat"
+}
+					-- Skipping parameter "inner_I_sat"
+					trcref2_UpperSaturationLimit
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "inner_I_sat"
+					 alias:    "UpperSaturationLimit"
+					 flags:    DEPRECATED|HIDDEN
+}
+					-- Skipping parameter "LowerSaturationLimit"
+
+
+				endgroup -- block-group "Discrete-Time\nIntegrator"
+
+				group "Gain1" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[350]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+ addr:    0x489BB6E0
+}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[171]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+ addr:    0x489BB738
+}
+
+
+				endgroup -- block-group "Gain1"
+
+				group "Dct1lowpass3" -- block-group
+				{
+				 block: "S-Function"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[352]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+		 addr:    0x489BB6E0
+		}
+
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[183]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P1"
+					 flags:   PARAM
+		 addr:    0x489BB738
+		}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[186]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P2"
+					 flags:   PARAM
+ addr:    0x489BB738
+}
+
+
+				endgroup -- block-group "Dct1lowpass3"
+
+				group "Dctleadlag2" -- block-group
+				{
+				 block: "S-Function"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[351]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+		 addr:    0x489BB6E0
+		}
+
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[174]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P1"
+					 flags:   PARAM
+		 addr:    0x489BB738
+		}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[177]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P2"
+					 flags:   PARAM
+		 addr:    0x489BB738
+		}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[180]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "P3"
+					 flags:   PARAM
+		 addr:    0x489BB738
+		}
+
+
+				endgroup -- block-group "Dctleadlag2"
+
+				group "Add" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1093]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+		 addr:    0x489BB6E0
+		}
+
+
+				endgroup -- block-group "Add"
+
+
+
+			endgroup -- subsystem-group "motorA\n"
+  
+  
 			group "MATLAB Function1" -- subsystem-group
 
 				p_0_Ball_and_Plate_MicroLabBox_student_real_T_19[0]
@@ -2700,7 +2842,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "path"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC94
+ addr:    0x489BB72C
 }
 
 
@@ -2714,12 +2856,12 @@ group "Model Root"
   
 		group "Motor_B" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1071]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1075]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P_B"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -2728,13 +2870,13 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[207]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[226]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "1_no_0_init_motion"
@@ -2744,13 +2886,13 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[25]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[23]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "Constant1"
@@ -2760,12 +2902,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[181]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[200]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -2776,13 +2918,13 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[208]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[227]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "Constant4"
@@ -2792,12 +2934,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[26]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[24]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -2808,13 +2950,13 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[212]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[231]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "enable_ID_B\n"
@@ -2824,12 +2966,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[180]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[199]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -2839,20 +2981,20 @@ group "Model Root"
 			{
 			 block: "Gain"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[362]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[368]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[205]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[224]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "enable_white_noise_B\n"
@@ -2861,34 +3003,34 @@ group "Model Root"
 			{
 			 block: "RandomNumber"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[361]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[374]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[202]
+		 addr:    0x489BB6E0
+		}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[232]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Mean"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[203]
+ addr:    0x489BB738
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[233]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "StdDev"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[204]
+		 addr:    0x489BB738
+		}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[234]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Seed"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "Random\nNumber"
@@ -2897,13 +3039,13 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[363]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[369]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Sum"
@@ -2912,12 +3054,12 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[355]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[361]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -2927,20 +3069,20 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[354]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[360]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[182]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[201]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "Switch"
@@ -2949,19 +3091,19 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[353]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[359]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[179]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[198]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -2971,20 +3113,20 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[360]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[366]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[201]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[220]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "Switch2"
@@ -2993,34 +3135,70 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[364]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[370]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[206]
+		 addr:    0x489BB6E0
+		}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[225]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
 			endgroup -- block-group "Switch3"
 
+			group "Uniform Random\nNumber" -- block-group
+			{
+			 block: "UniformRandomNumber"
+			}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[367]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[221]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Minimum"
+				 flags:   PARAM
+ addr:    0x489BB738
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[222]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Maximum"
+				 flags:   PARAM
+ addr:    0x489BB738
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[223]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Seed"
+				 flags:   PARAM
+		 addr:    0x489BB738
+		}
+
+
+			endgroup -- block-group "Uniform Random\nNumber"
+
   
   
 			group "Init_motion" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1076]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1080]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "path"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -3028,19 +3206,19 @@ group "Model Root"
 				{
 				 block: "Constant"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[366]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[372]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[210]
+		 addr:    0x489BB6E0
+		}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[229]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -3050,19 +3228,19 @@ group "Model Root"
 				{
 				 block: "Constant"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[367]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[373]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[211]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[230]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -3073,13 +3251,13 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[28]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[26]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "Constant3"
@@ -3101,7 +3279,7 @@ group "Model Root"
 					 refvar:   "path"
 					 alias:    "Value"
 					 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 				endgroup -- block-group "Constant4"
@@ -3110,19 +3288,19 @@ group "Model Root"
 				{
 				 block: "Switch"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[365]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[371]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[209]
+ addr:    0x489BB6E0
+}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[228]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Threshold"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -3132,13 +3310,13 @@ group "Model Root"
   
 				group "MATLAB Function" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1076]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1080]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 
@@ -3148,13 +3326,13 @@ group "Model Root"
   
 				group "MATLAB Function2" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1075]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1079]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "path"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 
@@ -3172,8 +3350,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "y"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC80
-}
+		 addr:    0x489BB718
+		}
 
 
 				group "Constant" -- block-group
@@ -3193,7 +3371,7 @@ group "Model Root"
 					 refvar:   "uB"
 					 alias:    "Value"
 					 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 				endgroup -- block-group "Constant"
@@ -3207,7 +3385,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC80
+ addr:    0x489BB718
 }
 
 
@@ -3227,19 +3405,19 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1073]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1077]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[31]
+		 addr:    0x489BB6E0
+		}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[29]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -3249,19 +3427,19 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1074]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1078]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[32]
+ addr:    0x489BB6E0
+}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[30]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -3271,27 +3449,27 @@ group "Model Root"
 				{
 				 block: "Saturate"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1072]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1076]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[29]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[27]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "UpperLimit"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[30]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[28]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "LowerLimit"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "Saturation"
@@ -3309,20 +3487,20 @@ group "Model Root"
   
 			group "Position Measurement" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1070]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1074]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "init_current"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1071]
+ addr:    0x489BB6E0
+}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1075]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Position [m]"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 				group "Constant" -- block-group
@@ -3330,12 +3508,12 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[33]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[31]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -3346,13 +3524,13 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[36]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[34]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "Pos_offset"
@@ -3362,13 +3540,13 @@ group "Model Root"
 				 block: "Constant"
 				}
 					-- Skipping output Out1
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[34]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[32]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 				endgroup -- block-group "ZP"
@@ -3377,19 +3555,19 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1067]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1071]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[35]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[33]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -3399,19 +3577,19 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1071]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1075]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[41]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[39]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -3421,13 +3599,13 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1068]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1072]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 				endgroup -- block-group "AbsPosition"
@@ -3436,20 +3614,20 @@ group "Model Root"
   
 				group "EMC_ENCODER_BL1" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1065]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1069]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Position"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1066]
+		 addr:    0x489BB6E0
+		}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1070]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Speed"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 				endgroup -- subsystem-group "EMC_ENCODER_BL1"
   
@@ -3467,14 +3645,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Pos_offset"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC78
+		 addr:    0x489BB710
 		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1070]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1074]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "init_current"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -3482,13 +3660,13 @@ group "Model Root"
 					{
 					 block: "Abs"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1069]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1073]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 					endgroup -- block-group "Abs"
@@ -3498,12 +3676,12 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[37]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[35]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
 						 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -3514,12 +3692,12 @@ group "Model Root"
 					 block: "Constant"
 					}
 						-- Skipping output Out1
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[38]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[36]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
 						 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -3536,7 +3714,7 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
+		 addr:    0x489BB6F8
 		}
 
 
@@ -3553,8 +3731,8 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
-}
+		 addr:    0x489BB6F8
+		}
 
 
 					endgroup -- block-group "Relational\nOperator"
@@ -3570,8 +3748,8 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
-}
+		 addr:    0x489BB6F8
+		}
 
 
 					endgroup -- block-group "Relational\nOperator1"
@@ -3580,27 +3758,27 @@ group "Model Root"
 					{
 					 block: "TransferFcn"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1070]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1074]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[39]
+		 addr:    0x489BB6E0
+		}
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[37]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "A"
 						 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
-						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[40]
+						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[38]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "C"
 						 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 					endgroup -- block-group "Transfer Fcn"
@@ -3614,7 +3792,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC7C
+ addr:    0x489BB714
 }
 
 
@@ -3628,7 +3806,7 @@ group "Model Root"
 							 type:    flt(64,IEEE)*
 							 alias:   "Value"
 							 flags:   PARAM
- addr:    0x489BBCBC
+ addr:    0x489BB754
 }
 
 
@@ -3646,8 +3824,8 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC78
-		}
+ addr:    0x489BB710
+}
 
 
 						group "In1" -- block-group
@@ -3659,7 +3837,7 @@ group "Model Root"
 							 type:    flt(64,IEEE)*
 							 alias:   "Out1"
 							 flags:   OUTPUT|READONLY
- addr:    0x489BBC78
+ addr:    0x489BB710
 }
 
 
@@ -3678,46 +3856,46 @@ group "Model Root"
   
 			group "motorB" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1078]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1082]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Output"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 				group "Discrete-Time\nIntegrator" -- block-group
 				{
 				 block: "DiscreteIntegrator"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[359]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[365]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[199]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[218]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "gainval"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[200]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[219]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "InitialCondition"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 					trcref2_inner_I_sat
 					{
 					 refgroup: "/Tunable Parameters"
 					 refvar:   "inner_I_sat"
 					 alias:    "inner_I_sat"
-		}
+}
 					-- Skipping parameter "inner_I_sat"
 					trcref2_UpperSaturationLimit
 					{
@@ -3735,20 +3913,20 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[356]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[362]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[183]
+ addr:    0x489BB6E0
+}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[202]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "Gain1"
@@ -3757,28 +3935,28 @@ group "Model Root"
 				{
 				 block: "S-Function"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[358]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[364]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[195]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[214]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA0
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[198]
+		 addr:    0x489BB738
+		}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[217]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "Dct1lowpass3"
@@ -3787,35 +3965,35 @@ group "Model Root"
 				{
 				 block: "S-Function"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[357]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[363]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[186]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[205]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[189]
+ addr:    0x489BB738
+}
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[208]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[192]
+					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[211]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "P3"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "Dctleadlag2"
@@ -3824,12 +4002,12 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1078]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1082]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -3847,7 +4025,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "path"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC84
+ addr:    0x489BB71C
 }
 
 
@@ -3861,13 +4039,13 @@ group "Model Root"
   
 		group "Motor_C" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1059]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1061]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P_C"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			group "1_to_enable_id" -- block-group
@@ -3875,13 +4053,13 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[241]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[244]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "1_to_enable_id"
@@ -3891,12 +4069,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[42]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[40]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -3907,13 +4085,13 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[215]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[237]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "Constant1"
@@ -3923,12 +4101,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[43]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[44]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -3939,12 +4117,12 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[242]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[245]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -3955,35 +4133,57 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[214]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[236]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Value"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
 			endgroup -- block-group "end_time_c\n"
 
-			group "enable_white_noise_C\n" -- block-group
+			group "Gain_controller\n" -- block-group
 			{
 			 block: "Gain"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[377]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1067]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[239]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[43]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
+
+
+			endgroup -- block-group "Gain_controller\n"
+
+			group "enable_white_noise_C\n" -- block-group
+			{
+			 block: "Gain"
+			}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[378]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[242]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Gain"
+				 flags:   PARAM
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "enable_white_noise_C\n"
@@ -3992,34 +4192,34 @@ group "Model Root"
 			{
 			 block: "RandomNumber"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[376]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[381]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[236]
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[246]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Mean"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[237]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[247]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "StdDev"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[238]
+		 addr:    0x489BB738
+		}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[248]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Seed"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "Random\nNumber"
@@ -4028,12 +4228,12 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[378]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[379]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -4043,13 +4243,13 @@ group "Model Root"
 			{
 			 block: "Sum"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[370]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1066]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 			endgroup -- block-group "Sum1"
@@ -4058,20 +4258,20 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[369]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1065]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[216]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[42]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "Switch"
@@ -4080,20 +4280,20 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[368]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[375]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[213]
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[235]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "Switch1"
@@ -4102,19 +4302,19 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[375]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[376]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[235]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[238]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -4124,23 +4324,59 @@ group "Model Root"
 			{
 			 block: "Switch"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[379]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[380]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[240]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[243]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Threshold"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "Switch3"
+
+			group "Uniform Random\nNumber" -- block-group
+			{
+			 block: "UniformRandomNumber"
+			}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[377]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[239]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Minimum"
+				 flags:   PARAM
+		 addr:    0x489BB738
+		}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[240]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Maximum"
+				 flags:   PARAM
+ addr:    0x489BB738
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[241]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Seed"
+				 flags:   PARAM
+		 addr:    0x489BB738
+		}
+
+
+			endgroup -- block-group "Uniform Random\nNumber"
 
   
   
@@ -4151,8 +4387,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "y"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC70
-		}
+ addr:    0x489BB708
+}
 
 
 				group "Constant" -- block-group
@@ -4165,7 +4401,7 @@ group "Model Root"
 					 refgroup: "/Tunable Parameters"
 					 refvar:   "uA"
 					 alias:    "uA"
-		}
+}
 					trcref0_Value
 					{
 					 refgroup: "/Tunable Parameters"
@@ -4186,8 +4422,8 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC70
-}
+		 addr:    0x489BB708
+		}
 
 
 
@@ -4205,7 +4441,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "y"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC6C
+		 addr:    0x489BB704
 		}
 
 
@@ -4226,7 +4462,7 @@ group "Model Root"
 					 refvar:   "uC"
 					 alias:    "Value"
 					 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 				endgroup -- block-group "Constant"
@@ -4240,7 +4476,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "y"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC6C
+ addr:    0x489BB704
 }
 
 
@@ -4260,19 +4496,19 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1061]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1063]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[47]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -4282,20 +4518,20 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1062]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1064]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[48]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 				endgroup -- block-group "DSPscale"
@@ -4304,26 +4540,26 @@ group "Model Root"
 				{
 				 block: "Saturate"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1060]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1062]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[45]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "UpperLimit"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[46]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "LowerLimit"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -4342,20 +4578,20 @@ group "Model Root"
   
 			group "Position Measurement" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1058]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1060]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "init_current"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1059]
+		 addr:    0x489BB6E0
+		}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1061]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Position [m]"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 				group "Constant" -- block-group
@@ -4368,8 +4604,8 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 				endgroup -- block-group "Constant"
@@ -4384,7 +4620,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -4400,7 +4636,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -4410,19 +4646,19 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1055]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1057]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[51]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -4432,19 +4668,19 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1059]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1061]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[57]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Gain"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -4454,13 +4690,13 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1056]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1058]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 				endgroup -- block-group "AbsPosition"
@@ -4469,19 +4705,19 @@ group "Model Root"
   
 				group "EMC_ENCODER_BL1" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1053]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1055]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Position"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1054]
+ addr:    0x489BB6E0
+}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1056]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Speed"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 				endgroup -- subsystem-group "EMC_ENCODER_BL1"
@@ -4500,14 +4736,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Pos_offset"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC64
-		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1058]
+ addr:    0x489BB6FC
+}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1060]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "init_current"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -4515,13 +4751,13 @@ group "Model Root"
 					{
 					 block: "Abs"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1057]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1059]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 					endgroup -- block-group "Abs"
@@ -4536,7 +4772,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
 						 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -4552,7 +4788,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Value"
 						 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -4569,8 +4805,8 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
-		}
+ addr:    0x489BB6F8
+}
 
 
 					endgroup -- block-group "Logical\nOperator2"
@@ -4586,8 +4822,8 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
-		}
+ addr:    0x489BB6F8
+}
 
 
 					endgroup -- block-group "Relational\nOperator"
@@ -4603,7 +4839,7 @@ group "Model Root"
 						 range:   < 0 ; 1 >
 						 bitmask: 0x01
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
+ addr:    0x489BB6F8
 }
 
 
@@ -4613,27 +4849,27 @@ group "Model Root"
 					{
 					 block: "TransferFcn"
 					}
-						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1058]
+						p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1060]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[55]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "A"
 						 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 						p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[56]
 						{
 						 type:    flt(64,IEEE)*
 						 alias:   "C"
 						 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 					endgroup -- block-group "Transfer Fcn"
@@ -4647,7 +4883,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC68
+		 addr:    0x489BB700
 		}
 
 
@@ -4661,7 +4897,7 @@ group "Model Root"
 							 type:    flt(64,IEEE)*
 							 alias:   "Value"
 							 flags:   PARAM
- addr:    0x489BBCB4
+ addr:    0x489BB74C
 }
 
 
@@ -4679,7 +4915,7 @@ group "Model Root"
 						 type:    flt(64,IEEE)*
 						 alias:   "Out1"
 						 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC64
+		 addr:    0x489BB6FC
 		}
 
 
@@ -4692,7 +4928,7 @@ group "Model Root"
 							 type:    flt(64,IEEE)*
 							 alias:   "Out1"
 							 flags:   OUTPUT|READONLY
- addr:    0x489BBC64
+ addr:    0x489BB6FC
 }
 
 
@@ -4709,170 +4945,6 @@ group "Model Root"
 			endgroup -- subsystem-group "Position Measurement"
   
   
-			group "motorC" -- subsystem-group
-
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1064]
-				{
-				 type:    flt(64,IEEE)*
-				 alias:   "Output"
-				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-
-
-				group "Discrete-Time\nIntegrator" -- block-group
-				{
-				 block: "DiscreteIntegrator"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[374]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[233]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "gainval"
-					 flags:   PARAM
- addr:    0x489BBCA0
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[234]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "InitialCondition"
-					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
-					trcref2_inner_I_sat
-					{
-					 refgroup: "/Tunable Parameters"
-					 refvar:   "inner_I_sat"
-					 alias:    "inner_I_sat"
-}
-					-- Skipping parameter "inner_I_sat"
-					trcref2_UpperSaturationLimit
-					{
-					 refgroup: "/Tunable Parameters"
-					 refvar:   "inner_I_sat"
-					 alias:    "UpperSaturationLimit"
-					 flags:    DEPRECATED|HIDDEN
-}
-					-- Skipping parameter "LowerSaturationLimit"
-
-
-				endgroup -- block-group "Discrete-Time\nIntegrator"
-
-				group "Gain2" -- block-group
-				{
-				 block: "Gain"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[371]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[217]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Gain"
-					 flags:   PARAM
- addr:    0x489BBCA0
-}
-
-
-				endgroup -- block-group "Gain2"
-
-				group "Dct1lowpass1" -- block-group
-				{
-				 block: "S-Function"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[373]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[229]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P1"
-					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[232]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P2"
-					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
-
-
-				endgroup -- block-group "Dct1lowpass1"
-
-				group "Dctleadlag1" -- block-group
-				{
-				 block: "S-Function"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[372]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[220]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P1"
-					 flags:   PARAM
- addr:    0x489BBCA0
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[223]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P2"
-					 flags:   PARAM
- addr:    0x489BBCA0
-}
-					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[226]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "P3"
-					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
-
-
-				endgroup -- block-group "Dctleadlag1"
-
-				group "Add" -- block-group
-				{
-				 block: "Sum"
-				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1064]
-					{
-					 type:    flt(64,IEEE)*
-					 alias:   "Out1"
-					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-
-
-				endgroup -- block-group "Add"
-
-
-
-			endgroup -- subsystem-group "motorC"
-  
-  
 			group "MATLAB Function1" -- subsystem-group
 
 				p_0_Ball_and_Plate_MicroLabBox_student_real_T_11[0]
@@ -4880,8 +4952,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "path"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC74
-}
+		 addr:    0x489BB70C
+		}
 
 
 
@@ -4894,27 +4966,27 @@ group "Model Root"
   
 		group "AngleToPos\n" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1093]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1095]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "pos1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1094]
+ addr:    0x489BB6E0
+}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1096]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "pos2"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1095]
+ addr:    0x489BB6E0
+}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1097]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "pos3"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 
@@ -4924,26 +4996,26 @@ group "Model Root"
   
 		group "PosToAngle\n" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1050]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1052]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "alpha"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1051]
+		 addr:    0x489BB6E0
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1053]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "beta"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1052]
+ addr:    0x489BB6E0
+}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1054]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "psi"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -4962,8 +5034,8 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 		 alias:   "mv"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 		group "E_zero" -- block-group
@@ -4976,8 +5048,8 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "E_zero"
@@ -4992,7 +5064,7 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -5008,8 +5080,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "G_zero"
@@ -5024,8 +5096,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "S_zero"
@@ -5040,8 +5112,8 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "du.wt_zero"
@@ -5056,8 +5128,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "ecr.wt_zero"
@@ -5072,7 +5144,7 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -5083,13 +5155,13 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[245]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[251]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "m_zero"
@@ -5104,7 +5176,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -5120,7 +5192,7 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -5131,13 +5203,13 @@ group "Model Root"
 		 block: "Constant"
 		}
 			-- Skipping output Out1
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[244]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[250]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "p_zero"
@@ -5152,8 +5224,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "switch_zero"
@@ -5168,8 +5240,8 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "u.wt_zero"
@@ -5184,7 +5256,7 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -5200,8 +5272,8 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "umin_zero"
@@ -5216,7 +5288,7 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 			 alias:   "Value"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -5232,8 +5304,8 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "ymax_zero"
@@ -5248,7 +5320,7 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 			 alias:   "Value"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -5263,56 +5335,56 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "mv"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[776]
+		 addr:    0x489BB6E0
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[778]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "cost"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[387]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[389]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_2_Col*
 			 alias:   "mv.seq"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[829]
+ addr:    0x489BB6E0
+}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[831]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col*
 			 alias:   "x.seq"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[439]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[441]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col*
 			 alias:   "y.seq"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1037]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1039]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "qp.status"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1038]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1040]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 			 alias:   "est.state"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[543]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "u0"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5321,13 +5393,13 @@ group "Model Root"
 			 block: "Constant"
 			}
 				-- Skipping output Out1
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[406]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[412]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Value"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "constant"
@@ -5342,8 +5414,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Value"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "ym_zero"
@@ -5357,7 +5429,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_25_4_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5372,7 +5444,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5387,8 +5459,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Data Type Conversion11"
@@ -5402,7 +5474,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -5417,8 +5489,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Data Type Conversion13"
@@ -5427,12 +5499,12 @@ group "Model Root"
 			{
 			 block: "DataTypeConversion"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[381]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[383]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5442,12 +5514,12 @@ group "Model Root"
 			{
 			 block: "DataTypeConversion"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[382]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[384]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5462,7 +5534,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -5477,8 +5549,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 			endgroup -- block-group "Data Type Conversion3"
@@ -5492,7 +5564,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -5507,7 +5579,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5522,8 +5594,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 			endgroup -- block-group "Data Type Conversion6"
@@ -5537,8 +5609,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Data Type Conversion7"
@@ -5552,7 +5624,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -5567,7 +5639,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5582,7 +5654,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_2_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -5597,8 +5669,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_4_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 			endgroup -- block-group "F Conversion"
@@ -5612,8 +5684,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "G Conversion"
@@ -5627,7 +5699,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5642,8 +5714,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 			endgroup -- block-group "mo or x Conversion"
@@ -5657,14 +5729,14 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[122]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Gain"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -5679,15 +5751,15 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[126]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "ext.mv_scale1"
@@ -5701,14 +5773,14 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[86]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -5723,14 +5795,14 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[82]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -5745,14 +5817,14 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[137]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Gain"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -5762,20 +5834,20 @@ group "Model Root"
 			{
 			 block: "Gain"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[543]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[408]
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[414]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "umin_scale2"
@@ -5784,20 +5856,20 @@ group "Model Root"
 			{
 			 block: "Gain"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[387]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[389]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_2_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[250]
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[256]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_2_Col*
 				 alias:   "Gain"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "umin_scale3"
@@ -5811,14 +5883,14 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_2_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[106]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -5828,20 +5900,20 @@ group "Model Root"
 			{
 			 block: "Gain"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[439]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[441]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[302]
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[308]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col*
 				 alias:   "Gain"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "umin_scale5"
@@ -5855,15 +5927,15 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[100]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Gain"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 			endgroup -- block-group "ymax_scale"
@@ -5877,14 +5949,14 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[92]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -5899,14 +5971,14 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_4_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[112]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Gain"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -5921,14 +5993,14 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[118]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Gain"
 				 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -5943,7 +6015,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_4_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5958,8 +6030,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_2_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Math\nFunction1"
@@ -5973,7 +6045,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_2_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -5990,8 +6062,8 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
-}
+		 addr:    0x489BB6F8
+		}
 				p_1_Ball_and_Plate_MicroLabBox_student_boolean_T_5[0]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT8_212*
@@ -5999,7 +6071,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   PARAM
- addr:    0x489BBCAC
+ addr:    0x489BB744
 }
 
 
@@ -6009,20 +6081,20 @@ group "Model Root"
 			{
 			 block: "Memory"
 			}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[383]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[385]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[246]
+ addr:    0x489BB6E0
+}
+				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[252]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "InitialCondition"
 				 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 			endgroup -- block-group "last_x"
@@ -6036,8 +6108,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_2_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Reshape"
@@ -6051,7 +6123,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_1_4_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -6066,7 +6138,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -6081,8 +6153,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4_1_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Reshape3"
@@ -6096,8 +6168,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_1_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Reshape4"
@@ -6111,8 +6183,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_1_Col*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 			endgroup -- block-group "Reshape5"
@@ -6126,14 +6198,14 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 				p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[73]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   "InitialCondition"
 				 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -6160,43 +6232,43 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[49]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_18*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[67]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[68]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[69]
 					{
 					 type:    uint(16)*
 					 alias:   "P5"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[70]
 					{
 					 type:    uint(16)*
 					 alias:   "P6"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 
 
 				endgroup -- block-group "Matrix Dimension Check"
@@ -6225,43 +6297,43 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[120]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_18*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[138]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[139]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[140]
 					{
 					 type:    uint(16)*
 					 alias:   "P5"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[141]
 					{
 					 type:    uint(16)*
 					 alias:   "P6"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 
 
 				endgroup -- block-group "Matrix Dimension Check"
@@ -6290,43 +6362,43 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[191]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_18*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[209]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[210]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[211]
 					{
 					 type:    uint(16)*
 					 alias:   "P5"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[212]
 					{
 					 type:    uint(16)*
 					 alias:   "P6"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 
 
 				endgroup -- block-group "Matrix Dimension Check"
@@ -6343,7 +6415,7 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_25_4_Col*
 				 alias:   "Output"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -6356,7 +6428,7 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_25_4_Col*
 					 alias:   "In1"
 					 flags:   READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -6365,28 +6437,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[262]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_3*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[265]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[266]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 
 
@@ -6416,28 +6488,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[316]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_2*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[318]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[319]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 
 
@@ -6467,28 +6539,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[369]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_4*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[373]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[374]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 
 
@@ -6518,29 +6590,29 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[424]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_4*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[428]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[429]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 
 
 				endgroup -- block-group "Matrix Dimension Check"
@@ -6569,29 +6641,29 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[479]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_5*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[484]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[485]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 
 
 				endgroup -- block-group "Matrix Dimension Check"
@@ -6620,15 +6692,15 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[535]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_6*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 
 
 				endgroup -- block-group "Vector Dimension Check"
@@ -6657,14 +6729,14 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[590]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_6*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 
 
@@ -6694,14 +6766,14 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[645]
 					{
 					 type:    uint(16)*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 
 
@@ -6731,28 +6803,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[695]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_6*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[701]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[702]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 
 
@@ -6782,28 +6854,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[752]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_18*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[770]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[771]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 
 
@@ -6821,8 +6893,8 @@ group "Model Root"
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   "Output"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 				group "Vector Dimension Check" -- block-group
@@ -6834,8 +6906,8 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 					 alias:   "In1"
 					 flags:   READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[772]
@@ -6843,28 +6915,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[821]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_6*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[827]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[828]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 
 
@@ -6894,29 +6966,29 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[878]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_4*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[882]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[883]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 
 
 				endgroup -- block-group "Vector Dimension Check"
@@ -6945,28 +7017,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[933]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_4*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[937]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[938]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 
 
@@ -6996,28 +7068,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[988]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_4*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[992]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[993]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 
 
@@ -7047,29 +7119,29 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
-		}
+ addr:    0x489BB740
+}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[1043]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_4*
 					 alias:   "P2"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[1047]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[1048]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
-}
+		 addr:    0x489BB740
+		}
 
 
 				endgroup -- block-group "Vector Dimension Check"
@@ -7098,28 +7170,28 @@ group "Model Root"
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_49*
 					 alias:   "P1"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[1098]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT5_9*
 					 alias:   "P2"
 					 flags:   PARAM
-		 addr:    0x489BBCA8
+		 addr:    0x489BB740
 		}
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[1107]
 					{
 					 type:    uint(16)*
 					 alias:   "P3"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_uint16_T_4[1108]
 					{
 					 type:    uint(16)*
 					 alias:   "P4"
 					 flags:   PARAM
- addr:    0x489BBCA8
+ addr:    0x489BB740
 }
 
 
@@ -7132,61 +7204,61 @@ group "Model Root"
   
 			group "optimizer" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[770]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[772]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   " xk1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[774]
+		 addr:    0x489BB6E0
+		}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[776]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 				 alias:   " u"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[776]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[778]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   " cost"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[777]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[779]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_2_Col*
 				 alias:   " useq"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[829]
+		 addr:    0x489BB6E0
+		}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[831]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col*
 				 alias:   " xseq"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[933]
+ addr:    0x489BB6E0
+}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[935]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col*
 				 alias:   " yseq"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1037]
+ addr:    0x489BB6E0
+}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1039]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   " status"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1038]
+		 addr:    0x489BB6E0
+		}
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1040]
 				{
 				 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 				 alias:   " xest"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 				p_0_Ball_and_Plate_MicroLabBox_student_boolean_T_6[217]
 				{
@@ -7195,7 +7267,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
+ addr:    0x489BB6F8
 }
 
 
@@ -7203,62 +7275,62 @@ group "Model Root"
   
 				group "optimizer" -- subsystem-group
 
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[770]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[772]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 					 alias:   "xk1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[774]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[776]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 					 alias:   "u"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[776]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[778]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "cost"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[777]
+ addr:    0x489BB6E0
+}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[779]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_2_Col*
 					 alias:   "useq"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[829]
+ addr:    0x489BB6E0
+}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[831]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col*
 					 alias:   "xseq"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[933]
+ addr:    0x489BB6E0
+}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[935]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_26_4_Col*
 					 alias:   "yseq"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1037]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1039]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "status"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1038]
+ addr:    0x489BB6E0
+}
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1040]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 					 alias:   "xest"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 					p_0_Ball_and_Plate_MicroLabBox_student_boolean_T_6[217]
 					{
 					 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT8_212*
@@ -7266,7 +7338,7 @@ group "Model Root"
 					 range:   < 0 ; 1 >
 					 bitmask: 0x01
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
+		 addr:    0x489BB6F8
 		}
 
 
@@ -7286,12 +7358,12 @@ group "Model Root"
   
 	group "PID Controller" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "y"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227457]
@@ -7299,54 +7371,54 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "P"
 		 flags:   PARAM
-		 addr:    0x489BBC98
-		}
+ addr:    0x489BB730
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227447]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "I"
 		 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227446]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "D"
 		 flags:   PARAM
-		 addr:    0x489BBC98
+		 addr:    0x489BB730
 		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227455]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "N"
 		 flags:   PARAM
- addr:    0x489BBC98
-}
+		 addr:    0x489BB730
+		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227453]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialConditionForIntegrator"
 		 flags:   PARAM
-		 addr:    0x489BBC98
-		}
+ addr:    0x489BB730
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227451]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialConditionForFilter"
 		 flags:   PARAM
-		 addr:    0x489BBC98
-		}
+ addr:    0x489BB730
+}
 
   
   
 		group "Anti-windup" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[547]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -7354,13 +7426,13 @@ group "Model Root"
   
 			group "Passthrough" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[547]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 
@@ -7378,8 +7450,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
   
@@ -7391,8 +7463,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 				group "Derivative Gain" -- block-group
@@ -7404,21 +7476,21 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 					trcref0_D
 					{
 					 refgroup: "../../.."
 					 refvar:   "D"
 					 alias:    "D"
-		}
+}
 					trcref0_Gain
 					{
 					 refgroup: "../../.."
 					 refvar:   "D"
 					 alias:    "Gain"
 					 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 				endgroup -- block-group "Derivative Gain"
@@ -7438,8 +7510,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Y"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
   
@@ -7451,7 +7523,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Y"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -7464,15 +7536,15 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[142]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "gainval"
 					 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 					trcref1_InitialConditionForFilter
 					{
 					 refgroup: "../../.."
@@ -7499,8 +7571,8 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 				endgroup -- block-group "SumD"
@@ -7535,12 +7607,12 @@ group "Model Root"
   
 		group "I Gain" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[547]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -7548,12 +7620,12 @@ group "Model Root"
   
 			group "Internal Parameters" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[547]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -7561,12 +7633,12 @@ group "Model Root"
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[547]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 					trcref0_I
 					{
@@ -7580,7 +7652,7 @@ group "Model Root"
 					 refvar:   "I"
 					 alias:    "Gain"
 					 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 				endgroup -- block-group "Integral Gain"
@@ -7595,26 +7667,26 @@ group "Model Root"
   
 		group "Ideal P Gain" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
   
   
 			group "Passthrough" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 
@@ -7652,8 +7724,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "out"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
   
@@ -7665,8 +7737,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "out"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 				-- Skipping output state
 
 
@@ -7679,14 +7751,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[141]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "gainval"
 					 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 					trcref1_InitialConditionForIntegrator
 					{
@@ -7700,7 +7772,7 @@ group "Model Root"
 					 refvar:   "InitialConditionForIntegrator"
 					 alias:    "InitialCondition"
 					 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 				endgroup -- block-group "Integrator"
@@ -7759,8 +7831,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
   
@@ -7772,8 +7844,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 				group "Filter Coefficient" -- block-group
@@ -7785,21 +7857,21 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 					trcref0_N
 					{
 					 refgroup: "../../.."
 					 refvar:   "N"
 					 alias:    "N"
-		}
+}
 					trcref0_Gain
 					{
 					 refgroup: "../../.."
 					 refvar:   "N"
 					 alias:    "Gain"
 					 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 				endgroup -- block-group "Filter Coefficient"
@@ -7847,7 +7919,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -7860,8 +7932,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 				group "Proportional Gain" -- block-group
@@ -7873,21 +7945,21 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 					trcref0_P
 					{
 					 refgroup: "../../.."
 					 refvar:   "P"
 					 alias:    "P"
-		}
+}
 					trcref0_Gain
 					{
 					 refgroup: "../../.."
 					 refvar:   "P"
 					 alias:    "Gain"
 					 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 				endgroup -- block-group "Proportional Gain"
@@ -7922,26 +7994,26 @@ group "Model Root"
   
 		group "Saturation" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
   
   
 			group "Passthrough" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 
@@ -7973,12 +8045,12 @@ group "Model Root"
   
 		group "Sum" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -7986,12 +8058,12 @@ group "Model Root"
   
 			group "Sum_PID" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -7999,13 +8071,13 @@ group "Model Root"
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 				endgroup -- block-group "Sum"
@@ -8058,12 +8130,12 @@ group "Model Root"
   
 		group "Tracking Mode Sum" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[547]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8071,13 +8143,13 @@ group "Model Root"
   
 			group "Passthrough" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[545]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[547]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 
@@ -8090,12 +8162,12 @@ group "Model Root"
   
 		group "postSat Signal" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8103,12 +8175,12 @@ group "Model Root"
   
 			group "Forward_Path" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8122,12 +8194,12 @@ group "Model Root"
   
 		group "preSat Signal" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -8135,12 +8207,12 @@ group "Model Root"
   
 			group "Forward_Path" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1106]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -8157,12 +8229,12 @@ group "Model Root"
   
 	group "PID Controller1" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "y"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227456]
@@ -8170,68 +8242,68 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "P"
 		 flags:   PARAM
-		 addr:    0x489BBC98
-		}
+ addr:    0x489BB730
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227448]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "I"
 		 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227445]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "D"
 		 flags:   PARAM
-		 addr:    0x489BBC98
+		 addr:    0x489BB730
 		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227454]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "N"
 		 flags:   PARAM
-		 addr:    0x489BBC98
-		}
+ addr:    0x489BB730
+}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227452]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialConditionForIntegrator"
 		 flags:   PARAM
-		 addr:    0x489BBC98
+		 addr:    0x489BB730
 		}
 		p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227450]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "InitialConditionForFilter"
 		 flags:   PARAM
-		 addr:    0x489BBC98
-		}
+ addr:    0x489BB730
+}
 
   
   
 		group "Anti-windup" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[546]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
   
   
 			group "Passthrough" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[546]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 
@@ -8249,8 +8321,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
   
@@ -8262,7 +8334,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8275,14 +8347,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 					trcref0_D
 					{
 					 refgroup: "../../.."
 					 refvar:   "D"
 					 alias:    "D"
-		}
+}
 					trcref0_Gain
 					{
 					 refgroup: "../../.."
@@ -8309,7 +8381,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Y"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -8322,7 +8394,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Y"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8335,28 +8407,28 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[140]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "gainval"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 					trcref1_InitialConditionForFilter
 					{
 					 refgroup: "../../.."
 					 refvar:   "InitialConditionForFilter"
 					 alias:    "InitialConditionForFilter"
-}
+		}
 					trcref1_InitialCondition
 					{
 					 refgroup: "../../.."
 					 refvar:   "InitialConditionForFilter"
 					 alias:    "InitialCondition"
 					 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 				endgroup -- block-group "Filter"
@@ -8370,7 +8442,7 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -8406,12 +8478,12 @@ group "Model Root"
   
 		group "I Gain" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[546]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8419,39 +8491,39 @@ group "Model Root"
   
 			group "Internal Parameters" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[546]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 				group "Integral Gain" -- block-group
 				{
 				 block: "Gain"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[546]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 					trcref0_I
 					{
 					 refgroup: "../../.."
 					 refvar:   "I"
 					 alias:    "I"
-		}
+}
 					trcref0_Gain
 					{
 					 refgroup: "../../.."
 					 refvar:   "I"
 					 alias:    "Gain"
 					 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 				endgroup -- block-group "Integral Gain"
@@ -8466,26 +8538,26 @@ group "Model Root"
   
 		group "Ideal P Gain" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
   
   
 			group "Passthrough" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 
@@ -8523,8 +8595,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "out"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
   
@@ -8536,8 +8608,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "out"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 				-- Skipping output state
 
 
@@ -8550,15 +8622,15 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 					p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[139]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "gainval"
 					 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 					trcref1_InitialConditionForIntegrator
 					{
 					 refgroup: "../../.."
@@ -8571,7 +8643,7 @@ group "Model Root"
 					 refvar:   "InitialConditionForIntegrator"
 					 alias:    "InitialCondition"
 					 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 				endgroup -- block-group "Integrator"
@@ -8630,7 +8702,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -8643,8 +8715,8 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 				group "Filter Coefficient" -- block-group
@@ -8656,14 +8728,14 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 					trcref0_N
 					{
 					 refgroup: "../../.."
 					 refvar:   "N"
 					 alias:    "N"
-		}
+}
 					trcref0_Gain
 					{
 					 refgroup: "../../.."
@@ -8718,8 +8790,8 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
   
@@ -8731,7 +8803,7 @@ group "Model Root"
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8744,8 +8816,8 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 					trcref0_P
 					{
 					 refgroup: "../../.."
@@ -8793,25 +8865,25 @@ group "Model Root"
   
 		group "Saturation" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
   
   
 			group "Passthrough" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -8844,12 +8916,12 @@ group "Model Root"
   
 		group "Sum" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8857,25 +8929,25 @@ group "Model Root"
   
 			group "Sum_PID" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 				group "Sum" -- block-group
 				{
 				 block: "Sum"
 				}
-					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+					p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 					{
 					 type:    flt(64,IEEE)*
 					 alias:   "Out1"
 					 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8929,12 +9001,12 @@ group "Model Root"
   
 		group "Tracking Mode Sum" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[546]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -8942,13 +9014,13 @@ group "Model Root"
   
 			group "Passthrough" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[546]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 
@@ -8961,12 +9033,12 @@ group "Model Root"
   
 		group "postSat Signal" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -8974,12 +9046,12 @@ group "Model Root"
   
 			group "Forward_Path" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -8993,12 +9065,12 @@ group "Model Root"
   
 		group "preSat Signal" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -9006,12 +9078,12 @@ group "Model Root"
   
 			group "Forward_Path" -- subsystem-group
 
-				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1102]
+				p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1104]
 				{
 				 type:    flt(64,IEEE)*
 				 alias:   "Out1"
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -9039,7 +9111,7 @@ group "Model Root"
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 		 alias:   "Out1"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -9053,7 +9125,7 @@ group "Model Root"
 			 refgroup: "/Tunable Parameters"
 			 refvar:   "A_robust"
 			 alias:    "A_robust"
-}
+		}
 			trcref0_Value
 			{
 			 refgroup: "/Tunable Parameters"
@@ -9082,7 +9154,7 @@ group "Model Root"
 			 refvar:   "B_robust"
 			 alias:    "Value"
 			 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 		endgroup -- block-group "Constant1"
@@ -9141,14 +9213,14 @@ group "Model Root"
 			 refgroup: "/Tunable Parameters"
 			 refvar:   "Baw_robust"
 			 alias:    "Baw_robust"
-		}
+}
 			trcref0_Value
 			{
 			 refgroup: "/Tunable Parameters"
 			 refvar:   "Baw_robust"
 			 alias:    "Value"
 			 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 		endgroup -- block-group "Constant4"
@@ -9185,14 +9257,14 @@ group "Model Root"
 			 refgroup: "/Tunable Parameters"
 			 refvar:   "u_min_robust"
 			 alias:    "u_min_robust"
-}
+		}
 			trcref0_Value
 			{
 			 refgroup: "/Tunable Parameters"
 			 refvar:   "u_min_robust"
 			 alias:    "Value"
 			 flags:    DEPRECATED|HIDDEN
-}
+		}
 
 
 		endgroup -- block-group "Constant6"
@@ -9228,29 +9300,29 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[70]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "RisingSlewLimit"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[71]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "FallingSlewLimit"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[72]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "InitialCondition"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 		endgroup -- block-group "Rate Limiter"
@@ -9264,8 +9336,8 @@ group "Model Root"
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 		endgroup -- block-group "Sum"
@@ -9281,8 +9353,8 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
-		}
+ addr:    0x489BB6F8
+}
 
 			p_1_Ball_and_Plate_MicroLabBox_student_boolean_T_1[0]
 			{
@@ -9291,8 +9363,8 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   PARAM
- addr:    0x489BBC9C
-}
+		 addr:    0x489BB734
+		}
 
 			group "FixPt\nRelational\nOperator" -- block-group
 			{
@@ -9305,8 +9377,8 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
-}
+		 addr:    0x489BB6F8
+		}
 
 
 			endgroup -- block-group "FixPt\nRelational\nOperator"
@@ -9323,7 +9395,7 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
- addr:    0x489BBC60
+ addr:    0x489BB6F8
 }
 				trcref0_vinit
 				{
@@ -9337,7 +9409,7 @@ group "Model Root"
 				 refvar:   "vinit"
 				 alias:    "InitialCondition"
 				 flags:    DEPRECATED|HIDDEN
-		}
+}
 
 
 			endgroup -- block-group "Delay Input1"
@@ -9353,8 +9425,8 @@ group "Model Root"
 				 range:   < 0 ; 1 >
 				 bitmask: 0x01
 				 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
-		}
+ addr:    0x489BB6F8
+}
 
 
 				group "Constant" -- block-group
@@ -9367,8 +9439,8 @@ group "Model Root"
 					 type:    flt(64,IEEE)*
 					 alias:   "Value"
 					 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 
 
 				endgroup -- block-group "Constant"
@@ -9384,8 +9456,8 @@ group "Model Root"
 					 range:   < 0 ; 1 >
 					 bitmask: 0x01
 					 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
-		}
+ addr:    0x489BB6F8
+}
 
 
 				endgroup -- block-group "Compare"
@@ -9400,12 +9472,12 @@ group "Model Root"
   
 		group "MATLAB Function" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[768]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[770]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "u_total"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -9416,27 +9488,27 @@ group "Model Root"
   
 		group "MATLAB Function1" -- subsystem-group
 
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[761]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[763]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "u_cmd"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[763]
-			{
-			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
-			 alias:   "u_raw"
-			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[765]
 			{
 			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
+			 alias:   "u_raw"
+			 flags:   OUTPUT|READONLY
+		 addr:    0x489BB6E0
+		}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[767]
+			{
+			 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 			 alias:   "u_box"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 			p_0_Ball_and_Plate_MicroLabBox_student_boolean_T_6[216]
 			{
 			 type:    uint(8)*
@@ -9444,15 +9516,15 @@ group "Model Root"
 			 range:   < 0 ; 1 >
 			 bitmask: 0x01
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC60
-		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[767]
+ addr:    0x489BB6F8
+}
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[769]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "xK_norm"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 
@@ -9470,7 +9542,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Output"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -9483,14 +9555,14 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[147]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -9505,7 +9577,7 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[150]
@@ -9513,15 +9585,15 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "P1"
 			 flags:   PARAM
- addr:    0x489BBCA0
-}
+		 addr:    0x489BB738
+		}
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[153]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P2"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "Dct1lowpass2"
@@ -9538,7 +9610,7 @@ group "Model Root"
 		 type:    flt(64,IEEE)*
 		 alias:   "Output"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -9551,15 +9623,15 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[155]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "Gain1"
@@ -9573,23 +9645,23 @@ group "Model Root"
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[158]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P1"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[161]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P2"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
-		}
+ addr:    0x489BB738
+}
 
 
 		endgroup -- block-group "Dct1lowpass2"
@@ -9601,12 +9673,12 @@ group "Model Root"
   
 	group "lowpass\n6" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[550]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Output"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
 
 
@@ -9614,19 +9686,19 @@ group "Model Root"
 		{
 		 block: "Gain"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[547]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[549]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[410]
+ addr:    0x489BB6E0
+}
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[416]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
 			 flags:   PARAM
-		 addr:    0x489BBCA0
+		 addr:    0x489BB738
 		}
 
 
@@ -9636,27 +9708,27 @@ group "Model Root"
 		{
 		 block: "S-Function"
 		}
-			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[548]
+			p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[550]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[413]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[419]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P1"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
-			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[416]
+			p_1_Ball_and_Plate_MicroLabBox_student_real_T_2[422]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "P2"
 			 flags:   PARAM
- addr:    0x489BBCA0
+ addr:    0x489BB738
 }
 
 
@@ -9669,13 +9741,13 @@ group "Model Root"
   
 	group "MATLAB Function" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1046]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[1048]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "x_est"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
-}
+		 addr:    0x489BB6E0
+		}
 
 
 
@@ -9685,27 +9757,27 @@ group "Model Root"
   
 	group "circ_ref_player\n" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[655]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[657]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "rsample"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[659]
+ addr:    0x489BB6E0
+}
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[661]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 		 alias:   "asample"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[661]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[663]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_25_4_Col*
 		 alias:   "rpreview"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
-		}
+ addr:    0x489BB6E0
+}
 
 
 
@@ -9715,26 +9787,26 @@ group "Model Root"
   
 	group "square_ref_player\n" -- subsystem-group
 
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[549]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[551]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4*
 		 alias:   "rsample"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[553]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[555]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 		 alias:   "asample"
 		 flags:   OUTPUT|READONLY
-		 addr:    0x489BBC48
+		 addr:    0x489BB6E0
 		}
-		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[555]
+		p_0_Ball_and_Plate_MicroLabBox_student_real_T_0[557]
 		{
 		 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_25_4_Col*
 		 alias:   "rpreview"
 		 flags:   OUTPUT|READONLY
- addr:    0x489BBC48
+ addr:    0x489BB6E0
 }
 
 
@@ -9754,182 +9826,182 @@ group "Tunable Parameters"
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_16_16_Col*
 	 alias:   "A_robust"
 	 flags:   PARAM
- addr:    0x489BBC98
-}
+	 addr:    0x489BB730
+	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[256]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_16_4_Col*
 	 alias:   "B_robust"
 	 flags:   PARAM
-	 addr:    0x489BBC98
+	 addr:    0x489BB730
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[320]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_16_2_Col*
 	 alias:   "Baw_robust"
 	 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[352]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_16_Col*
 	 alias:   "C_robust"
 	 flags:   PARAM
- addr:    0x489BBC98
-}
+	 addr:    0x489BB730
+	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[384]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_4_Col*
 	 alias:   "D_robust"
 	 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[392]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_4_Col*
 	 alias:   "K_lqr"
 	 flags:   PARAM
-	 addr:    0x489BBC98
-	}
+ addr:    0x489BB730
+}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[400]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "Kaw_robust"
 	 flags:   PARAM
-	 addr:    0x489BBC98
+	 addr:    0x489BB730
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[401]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4_4_Col*
 	 alias:   "Q_kf"
 	 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[417]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_2_Col*
 	 alias:   "R_kf"
 	 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[421]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "Ts_Inner"
 	 flags:   PARAM
-	 addr:    0x489BBC98
-	}
+ addr:    0x489BB730
+}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[422]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "Ts_Outer"
 	 flags:   PARAM
- addr:    0x489BBC98
-}
+	 addr:    0x489BB730
+	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[423]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_56001_Col*
 	 alias:   "a_circ"
 	 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[112425]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2_48001_Col*
 	 alias:   "a_square"
 	 flags:   PARAM
- addr:    0x489BBC98
-}
+	 addr:    0x489BB730
+	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[208427]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "ball_pos_sat"
 	 flags:   PARAM
-	 addr:    0x489BBC98
-	}
+ addr:    0x489BB730
+}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[208428]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "ball_vel_sat"
 	 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[208429]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "g"
 	 flags:   PARAM
-	 addr:    0x489BBC98
+	 addr:    0x489BB730
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[208430]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "inner_I_sat"
 	 flags:   PARAM
-	 addr:    0x489BBC98
+	 addr:    0x489BB730
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[208431]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_3001*
 	 alias:   "path"
 	 flags:   PARAM
-	 addr:    0x489BBC98
+	 addr:    0x489BB730
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[211432]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "plate_angle_sat"
 	 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[211433]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4_56001_Col*
 	 alias:   "r_circ"
 	 flags:   PARAM
-	 addr:    0x489BBC98
+	 addr:    0x489BB730
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[435437]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_4_48001_Col*
 	 alias:   "r_square"
 	 flags:   PARAM
- addr:    0x489BBC98
-}
+	 addr:    0x489BB730
+	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[627441]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uA"
 	 flags:   PARAM
- addr:    0x489BBC98
-}
+	 addr:    0x489BB730
+	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[827441]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uB"
 	 flags:   PARAM
- addr:    0x489BBC98
-}
+	 addr:    0x489BB730
+	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1027441]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_200000*
 	 alias:   "uC"
 	 flags:   PARAM
-	 addr:    0x489BBC98
+	 addr:    0x489BB730
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227441]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 	 alias:   "u_max_robust"
 	 flags:   PARAM
-	 addr:    0x489BBC98
+	 addr:    0x489BB730
 	}
 	p_1_Ball_and_Plate_MicroLabBox_student_real_T_0[1227443]
 	{
 	 type:    Ball_and_Plate_MicroLabBox_student_ArrayDT0_2*
 	 alias:   "u_min_robust"
 	 flags:   PARAM
- addr:    0x489BBC98
+ addr:    0x489BB730
 }
 
 endgroup
@@ -9978,8 +10050,8 @@ group "XIL API"
       desc:    "Index of active ErrorSet or 0 if no ErrorSet is active."
       flags:   OUTPUT|READONLY
       range:   < 0 ; 4294967295 >
-	 addr:    0x489B63EC
-	}
+ addr:    0x489B5E5C
+}
 
     p_xilapi_eesport_erroractivated_uint32_T
     {
@@ -9988,8 +10060,8 @@ group "XIL API"
       desc:    "0 - no error is activated on hardware, 1 - at least one error is activated on hardware."  
       flags:   OUTPUT|READONLY
       range:   < 0 ; 1 >
-		 addr:    0x489B63E8
-		}
+	 addr:    0x489B5E58
+	}
 
     p_xilapi_eesport_errorswitching_uint32_T
     {
@@ -9998,7 +10070,7 @@ group "XIL API"
       desc:    "0 - no switching operation running on hardware, 1 -  switching operation running on hardware."
       flags:   OUTPUT|READONLY
       range:   < 0 ; 1 >
- addr:    0x489B63E4
+ addr:    0x489B5E54
 }
 
     xilapi_eesport_flags_uint32_T
@@ -10007,8 +10079,8 @@ group "XIL API"
       alias:   "Flags"
       flags:   OUTPUT|READONLY
       range:   < 0 ; 4294967295 >
- addr:    0x489BBDBC
-}
+	 addr:    0x489BB854
+	}
 
     xilapi_eesport_trigger_uint32_T
     {
@@ -10016,7 +10088,7 @@ group "XIL API"
       alias:   "Trigger"
       flags:   OUTPUT|READONLY
       range:   < 0 ; 4294967295 >
- addr:    0x489BBDB8
+ addr:    0x489BB850
 }
 
     endgroup -- "EESPort"
