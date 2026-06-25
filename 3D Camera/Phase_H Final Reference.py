@@ -707,7 +707,6 @@ try:
             print(f'Z reference set to {z_reference_mm:.1f} mm')
         if key == 27:
             break
-
         if key == ord('l'):
             REFERENCE_MODE = "LIVE"
             print("LIVE REFERENCE MODE")

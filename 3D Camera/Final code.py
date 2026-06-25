@@ -34,6 +34,7 @@ EDGE_MARGIN = 40 # Need to be calibrated
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
 USE_GAUSSIAN_BLUR = True
 USE_RADIUS_FILTER = True
+USE_HOMOGRAPHY = False
 
 BALL_RADIUS_ALPHA = 0.2 # 1.0 = no smoothing, 0.1 = max smoothing (very slow response)
 XY_FILTER_ALPHA = 0.6 # 1.0 = no filtering, 0.1 = max filtering 
@@ -82,6 +83,13 @@ with open(CALIBRATION_FILE, 'r') as f:
 plate_quad = np.array(calib['plate_quad'], dtype=np.float32)
 TL, TR, BR, BL = plate_quad
 
+# ================= HOMOGRAPHY =================
+image_points = np.array([TL, TR, BR, BL], dtype=np.float32)
+half = PLATE_SIZE_MM/2
+world_points = np.array([[-half,-half], [half,-half], [half, half], [-half, half]], dtype=np.float32)
+
+H, _ = cv2.findHomography(image_points, world_points)
+
 # Horizontal edges
 top_angle = math.degrees(math.atan2(TR[1] - TL[1], TR[0] - TL[0]))
 bottom_angle = math.degrees(math.atan2(BR[1] - BL[1], BR[0] - BL[0]))
@@ -121,9 +129,23 @@ SCALE_Y = PLATE_SIZE_MM / max((PLATE_Y2 - PLATE_Y1), 1)
 
 # ================= HELPERS =================
 def pixel_to_control_coords(pixel_xy):
-    x_mm = (pixel_xy[0] - PLATE_CENTER_X) * SCALE_X
-    y_mm = (PLATE_CENTER_Y - pixel_xy[1]) * SCALE_Y
-    return x_mm, y_mm
+
+    # -------------------------
+    # Original linear mapping
+    # -------------------------
+    if not USE_HOMOGRAPHY:
+        x_mm = (pixel_xy[0] - PLATE_CENTER_X) * SCALE_X
+        y_mm = (PLATE_CENTER_Y - pixel_xy[1]) * SCALE_Y
+
+        return (x_mm, y_mm)
+
+    # -------------------------
+    # Homography mapping
+    # -------------------------
+    pt = np.array([[[pixel_xy[0], pixel_xy[1]]]], dtype=np.float32)
+    world = cv2.perspectiveTransform(pt,H)
+
+    return (float(world[0,0,0]), float(-world[0,0,1]))
 
 def reference_pixel_to_mm(pixel_xy):
     return pixel_to_control_coords(pixel_xy)
