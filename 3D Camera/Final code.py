@@ -18,7 +18,6 @@ FPS_Depth = 90
 #Calibration parameters
 CALIBRATION_FILE = 'plate_calibration.json'
 PLATE_SIZE_MM = 390.0
-PLATE_SIZE_MM = 390.0
 GRID_SPACING_MM = 100.0
 
 # Mask parameters
