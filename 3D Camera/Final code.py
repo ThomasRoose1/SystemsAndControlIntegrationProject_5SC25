@@ -23,7 +23,7 @@ GRID_SPACING_MM = 100.0
 # Mask parameters
 MAX_TRACK_DISTANCE = 120
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
-THRESHOLD = 85 # Adjust based on lighting conditions and ball color
+THRESHOLD = 100 # Adjust based on lighting conditions and ball color
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
@@ -42,7 +42,7 @@ DEPTH_MAX_MM = 900
 XY_FILTER_ALPHA_MIN = 0.3
 XY_FILTER_ALPHA_MAX = 0.7
 ADAPTIVE_FILTER_SPEED = 50.0
-TEMPORAL_ALPHA = 0.4 # 0.0 = no temporal smoothing, 1.0 = max smoothing (very slow response)
+TEMPORAL_ALPHA = 0.6 # 0.0 = no temporal smoothing, 1.0 = max smoothing (very slow response)
 TEMPORAL_DELTA = 20 # 0 = no temporal threshold, higher values reject more sudden changes (noise) but can cause lag
 DEPTH_ROI_RADIUS = 5 # Radius for median depth calculation (11x11 window)
 
