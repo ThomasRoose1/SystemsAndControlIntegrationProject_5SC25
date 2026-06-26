@@ -16,15 +16,13 @@ G_act = (Km/m) / (s*(s + Cv/m));
 [G_act_num, G_act_den] = tfdata(G_act, 'v');
 
 % Load motor A
-load("model_motor_A_final.mat");
+load("model_motor_A.mat");
 
 % Load motor B
-load("model_motor_B_final.mat");
-G_B = G_A;
+load("model_motor_B.mat");
 
 % Load motor C
-load("model_motor_C_final.mat");
-G_C = G_A;
+load("model_motor_C.mat");
 
 
 % Actuator constraints
@@ -94,7 +92,7 @@ Ts_Outer = 1/50;
 % tuning
 Qmpc = diag([100, 10, 100, 10]); % [x, x_dot, y, y_dot]
 Rmpc = diag([100, 100]);
-dQmpc = diag([200, 200]);
+dQmpc = diag([20])
 Nmpc = 25;   % prediction horizon
 Nc_mpc = 3;  % control horizon
 
@@ -111,9 +109,8 @@ mpcobj = mpc(sys_mpc_d, Ts_Outer, Nmpc, Nc_mpc);
 
 % Set Weights (Translating your Q and R matrices)
 mpcobj.Weights.OutputVariables = [Qmpc(1,1) Qmpc(2,2) Qmpc(3,3) Qmpc(4,4)];      % State weights (Q)
-% mpcobj.Weights.OutputVariables = [0 0 0 0];      % State weights (Q)
 mpcobj.Weights.ManipulatedVariables = [Rmpc(1,1) Rmpc(2,2)]; % Input weights (R)
-mpcobj.Weights.ManipulatedVariablesRate = [dQmpc(1,1) dQmpc(2,2)]; 
+mpcobj.Weights.ManipulatedVariablesRate = [200 200]; 
 % mpcobj.Weights.TerminalState = diag(Pmpc); % doesnt work yet
 
 % Set Physical Constraints

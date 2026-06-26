@@ -28,8 +28,8 @@ beta    = data.beta_out.Data * (180/pi);    % [deg]
 u_matrix = squeeze(data.u.Data); 
 
 % Grab row 1 (alpha) and row 2 (beta), then transpose (') to match the 't' column
-u_alpha = u_matrix(1, :)' * (180/pi); % Commanded Alpha [deg]
-u_beta  = u_matrix(2, :)' * (180/pi); % Commanded Beta [deg]
+u_alpha = u_matrix(2, :)' * (180/pi); % Commanded Alpha [deg]
+u_beta  = u_matrix(1, :)' * (180/pi); % Commanded Beta [deg]
 
 %% 4. Generate Plots
 

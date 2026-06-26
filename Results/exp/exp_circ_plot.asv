@@ -4,8 +4,21 @@ clc;
 close all;
 
 %% load data
-dataset = {'circ_LQR.mat', ...
-           'circ_MPC.mat'};
+dataset = {'square_LQR.mat', ...
+           'square_MPC.mat'};
+
+% Load the first dataset to visualize
+data = load(dataset{1});
+measurements = data.square_LQR.Y;
+
+x_cam = measurements(3).Data;
+y_cam = measurements(4).Data; 
+alpha_c = measurements(1).Data;
+beta_c = measurements(2).Data;
+alpha_m = measurements(5).Data;
+beta_m = measurements(6).Data;
+
+
 
 %% Define reference
 R = 0.1; % radius
