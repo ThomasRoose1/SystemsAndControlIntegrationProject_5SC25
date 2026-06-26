@@ -75,6 +75,9 @@ try:
 
             rel = plane - depth
             rel[plate_mask==0]=np.nan
+            clip=np.clip(rel,-HEIGHT_RANGE_MM,HEIGHT_RANGE_MM)
+            norm=cv2.normalize(np.nan_to_num(clip),None,0,255,cv2.NORM_MINMAX).astype(np.uint8)
+            heat=cv2.applyColorMap(norm,cv2.COLORMAP_TURBO)
             max_index = np.nanargmax(rel)
 
             max_y, max_x = np.unravel_index(
@@ -89,15 +92,45 @@ try:
                 20,
                 2
             )
-            clip=np.clip(rel,-HEIGHT_RANGE_MM,HEIGHT_RANGE_MM)
-            norm=cv2.normalize(np.nan_to_num(clip),None,0,255,cv2.NORM_MINMAX).astype(np.uint8)
-            heat=cv2.applyColorMap(norm,cv2.COLORMAP_TURBO)
-            levels = np.arange(
-                -HEIGHT_RANGE_MM,
-                HEIGHT_RANGE_MM + 0.25,
-                0.25
+            cv2.putText(
+                heat,
+                f"{np.nanmax(rel):.2f} mm",
+                (max_x+10, max_y-10),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.6,
+                (255,255,255),
+                2
             )
             heat[plate_mask==0]=(30,30,30)
+            cv2.putText(
+                heat,
+                f"Max : {np.nanmax(rel):5.2f} mm",
+                (20,30),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.6,
+                (255,255,255),
+                2
+            )
+
+            cv2.putText(
+                heat,
+                f"Min : {np.nanmin(rel):5.2f} mm",
+                (20,55),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.6,
+                (255,255,255),
+                2
+            )
+
+            cv2.putText(
+                heat,
+                f"Std : {np.nanstd(rel):5.2f} mm",
+                (20,80),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.6,
+                (255,255,255),
+                2
+            )
             cv2.polylines(heat,[plate_quad],True,(255,255,255),2)
         if k==ord('s') and heat is not None:
             np.save("height_map.npy",rel);cv2.imwrite("height_map.png",heat)
