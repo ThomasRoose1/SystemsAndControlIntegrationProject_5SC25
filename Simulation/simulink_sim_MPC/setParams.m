@@ -15,9 +15,22 @@ s = tf('s');
 G_act = (Km/m) / (s*(s + Cv/m));  
 [G_act_num, G_act_den] = tfdata(G_act, 'v');
 
+% Load motor A
+load("model_motor_A_final.mat");
+
+% Load motor B
+load("model_motor_B_final.mat");
+G_B = G_A;
+
+% Load motor C
+load("model_motor_C_final.mat");
+G_C = G_A;
+
+
 % Actuator constraints
 x_max = 0.03; % maximum movement relative to zero position, 3 cm
 I_max = 3;    % maximum input current, 3A
+inner_I_sat = 1;
 
 % Actuator initial position
 % x_init = -0.0285;
@@ -48,33 +61,44 @@ Dc = [0 0;
 nx = size(Ac, 1); % Number of states
 nu = size(Bc, 2); % Number of inputs
 
+% ball initial conditions
+x0 = [0, 0, 0, 0];
+
 %% State observer 
-Ts_fast = 0.001; % 1000 Hz sample time matching the simulation rate
+Ts_Inner = 0.001; % 1000 Hz sample time matching the simulation rate
 
-% Discretize continuous matrices for the fast estimation rate
-sys_fast = c2d(ss(Ac, Bc, Cc, Dc), Ts_fast, 'zoh');
-A_fast = sys_fast.A;
-B_fast = sys_fast.B;
-C_fast = sys_fast.C;
+Q_kf = diag([1, 100, 1, 100]);
+R_kf = diag([0.1, 0.1]);
 
-% Define your fast observer poles (safely inside the unit circle)
-observer_poles = [0.90, 0.91, 0.92, 0.93];
+%% LQR design
+% Discrete-Time Model Conversion
+sys_c = ss(Ac, Bc, Cc, Dc);
+sys_d = c2d(sys_c, Ts_Inner, 'zoh');
+Ad = sys_d.A;
+Bd = sys_d.B;
+Cd = sys_d.C;
 
-% Compute the Observer Gain Matrix L
-L = place(A_fast', C_fast', observer_poles)';
+% Tune Q_lqr to penalize position error vs velocity.
+% Tune R_lqr to limit plate tilt acceleration/effort.
+Q_lqr = diag([100, 10, 100, 10]); % [x, x_dot, y, y_dot]
+R_lqr = diag([700, 700]);             % [alpha, beta]
+
+% Compute LQR gain
+K_lqr = dlqr(Ad, Bd, Q_lqr, R_lqr);
+% K_lqr = -K_lqr;
+
 
 %% Load Built-in MPC Toolbox Parameters
 Ts_Outer = 1/50;
 
 % tuning
-Qmpc = eye(nx); % state weight (only diag)
-Rmpc = eye(nu); % control effort weight (only diag);
+Qmpc = diag([100, 10, 100, 10]); % [x, x_dot, y, y_dot]
+Rmpc = diag([100, 100]);
+dQmpc = diag([200, 200]);
 Nmpc = 25;   % prediction horizon
 Nc_mpc = 3;  % control horizon
 
 % Define the Prediction Plant Model
-% To apply your Q = eye(4) weight, the MPC block needs to "see" all 4 states.
-% We do this by setting the C matrix to an identity matrix for the MPC object.
 sys_mpc_c = ss(Ac, Bc, eye(nx), zeros(nx, nu));
 sys_mpc_d = c2d(sys_mpc_c, Ts_Outer, 'zoh');
 
@@ -87,8 +111,9 @@ mpcobj = mpc(sys_mpc_d, Ts_Outer, Nmpc, Nc_mpc);
 
 % Set Weights (Translating your Q and R matrices)
 mpcobj.Weights.OutputVariables = [Qmpc(1,1) Qmpc(2,2) Qmpc(3,3) Qmpc(4,4)];      % State weights (Q)
+% mpcobj.Weights.OutputVariables = [0 0 0 0];      % State weights (Q)
 mpcobj.Weights.ManipulatedVariables = [Rmpc(1,1) Rmpc(2,2)]; % Input weights (R)
-mpcobj.Weights.ManipulatedVariablesRate = [0 0]; % No penalty on slew rate (for now)
+mpcobj.Weights.ManipulatedVariablesRate = [dQmpc(1,1) dQmpc(2,2)]; 
 % mpcobj.Weights.TerminalState = diag(Pmpc); % doesnt work yet
 
 % Set Physical Constraints
@@ -113,3 +138,15 @@ setEstimator(mpcobj, 'custom');
 setoutdist(mpcobj, 'model', tf(zeros(nx, 1)));
 
 disp('MPC Object created successfully!');
+
+%% Ref parameters
+R = 0.1;
+Tcircle = 5; %s
+Ncircles = 2;
+enable = 1;
+% [r, a] = generate_circular_trajectory(R, Tcircle, Ncircles, Ts_Inner);
+
+Tsquare = 1; % Sample time for square trajectory
+N_squares = 2; % Number of squares in the trajectory
+[r, a] = generate_square_trajectory(R, Tsquare, N_squares, Ts_Inner);
+

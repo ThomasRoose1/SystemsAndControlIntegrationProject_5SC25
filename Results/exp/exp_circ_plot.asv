@@ -1,0 +1,95 @@
+%% Make a 2D plot of topdown view of the plate with reference and tracked performance IEEE style
+clear;
+clc;
+close all;
+
+%% load data
+dataset = {'square_LQR.mat', ...
+           'square_MPC.mat'};
+
+% Load the first dataset to visualize
+data = load(dataset{1});
+measurements = data.square_LQR.Y;
+
+x_cam = measurements(3).Data;
+y_cam = measurements(4).Data; 
+alpha_c = measurements(1).Data;
+beta_c = measurements(2).Data;
+alpha_m = measurements(5).Data;
+beta_m = measurements(6).Data;
+
+
+
+%% Define reference
+R = 0.1; % radius
+theta = linspace(0, 2*pi, 200);
+x_ref = R * cos(theta);
+y_ref = R * sin(theta);
+
+%% Initialize Figure for IEEE 2-Column Format
+% A standard IEEE column width is ~3.5 inches. 
+figWidth = 3.5;  
+figHeight = 3.0; % Aspect ratio tailored for a top-down view
+
+fig = figure('Units', 'inches', 'Position', [1, 1, figWidth, figHeight]);
+hold on;
+grid on;
+box on;
+
+%% Plot Reference
+% Using a black dashed line so it stands out as the target path
+h_ref = plot(x_ref, y_ref, 'k--', 'LineWidth', 1.2, 'DisplayName', 'Reference');
+
+%% Load and Plot Tracked Data
+% Define styles for color contrast and B&W print readability
+colors = {'#0072BD', '#D95319'}; % MATLAB default blue and red
+lineStyles = {'-', '-'};        % Solid for LQR, Dash-Dot for MPC
+labels = {'LQR', 'MPC'};
+h_plots = gobjects(1, length(dataset)); 
+
+for i = 1:length(dataset)
+    % Load the structural data from the .mat file
+    data = load(dataset{i});
+    
+    % Extract x and y data arrays from the timeseries
+    x_data = data.out.simout.x.Data;
+    y_data = data.out.simout.y.Data;
+    
+    % Plot tracked paths
+    h_plots(i) = plot(x_data, y_data, ...
+        'Color', colors{i}, ...
+        'LineStyle', lineStyles{i}, ...
+        'LineWidth', 2, ...
+        'DisplayName', labels{i});
+end
+
+%% Formatting
+axis equal; % Crucial for top-down spatial plots so the circle doesn't look like an ellipse
+
+% Add a 20% margin around the radius for the limits
+padding = R * 1.5; 
+xlim([-padding padding]); 
+ylim([-padding padding]);
+
+% Axes Labels (IEEE prefers Times New Roman, 9pt for labels)
+xlabel('\it x \rm [m]', 'FontName', 'Times New Roman', 'FontSize', 9);
+ylabel('\it y \rm [m]', 'FontName', 'Times New Roman', 'FontSize', 9);
+
+% Legend (IEEE prefers 8pt for legends, no box to save space)
+lgd = legend([h_ref, h_plots], 'Location', 'northeast');
+set(lgd, 'FontName', 'Times New Roman', 'FontSize', 8, 'Box', 'off');
+
+% Axis Tick Properties
+ax = gca;
+ax.FontName = 'Times New Roman';
+ax.FontSize = 9;
+ax.TickDir = 'in';
+ax.XMinorTick = 'on';
+ax.YMinorTick = 'on';
+
+% Set figure background to white 
+set(fig, 'Color', 'w');
+
+%% Export high-quality vector graphic
+% Uncomment the line below to automatically save a PDF ready for LaTeX inclusion
+% exportgraphics(fig, 'Tracking_Performance.pdf', 'ContentType', 'vector');

@@ -132,7 +132,7 @@ mpcobj = mpc(sys_mpc_d, Ts_Outer, Nmpc, Nc_mpc);
 % Set Weights (Translating your Q and R matrices)
 mpcobj.Weights.OutputVariables = [Qmpc(1,1) Qmpc(2,2) Qmpc(3,3) Qmpc(4,4)];      % State weights (Q)
 mpcobj.Weights.ManipulatedVariables = [Rmpc(1,1) Rmpc(2,2)]; % Input weights (R)
-mpcobj.Weights.ManipulatedVariablesRate = [50 50]; % No penalty on slew rate (for now)
+mpcobj.Weights.ManipulatedVariablesRate = [200 200]; % No penalty on slew rate (for now)
 % mpcobj.Weights.TerminalState = diag(Pmpc); % doesnt work yet
 
 % Set Physical Constraints

@@ -1,5 +1,4 @@
 function [rsample, asample, rpreview] = ref_player(r, a, enable)
-%#codegen
 
 Npreview = 25; % number of samples preview for MPC
 

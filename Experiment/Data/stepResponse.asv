@@ -1,0 +1,120 @@
+%% Make step response plot based on experiment data
+clear;
+clc;
+close all
+
+%% Load experiment data
+load('stepA.mat');
+
+setpoint = stepA.Y(3).Data;
+pos = stepA.Y(1).Data;
+Ts = 0.001;
+
+%% Load models
+load('Final_models_controllers/model_motor_A_final.mat');
+Pss = G_A;
+
+load('Final_models_controllers\Controller_motor_A_17_06.mat');
+Ctf = shapeit_data.C_tf_z;
+
+
+%% Detect Rising Edges (Steps Up) and Falling Edges (Steps Down)
+sp_diff = diff(setpoint);
+threshold = 0.5 * max(sp_diff);
+
+% Find all rising edges
+rising_edges = find(sp_diff > threshold) + 1;
+
+% Find all falling edges
+falling_edges = find(sp_diff < -threshold) + 1;
+
+% Debounce rising edges (require at least 0.5s of flatline between steps)
+min_gap = 0.5 / Ts; 
+valid_steps = [];
+last_step = -inf;
+
+for k = 1:length(rising_edges)
+    if rising_edges(k) - last_step > min_gap
+        valid_steps(end+1) = rising_edges(k); %#ok<AGROW>
+        last_step = rising_edges(k);
+    end
+end
+
+% Isolate exactly 3 steps
+num_steps = min(3, length(valid_steps));
+valid_steps = valid_steps(1:num_steps);
+
+%% Initialize IEEE Figure
+figWidth = 3.5;
+figHeight = 2.5; 
+fig = figure('Units', 'inches', 'Position', [1, 1, figWidth, figHeight]);
+hold on; grid on; box on;
+
+% Define colors for the 3 responses 
+colors = {'#0072BD', '#D95319', '#EDB120'}; % Blue, Red, Yellow
+h_plots = gobjects(1, num_steps);
+
+t_pre = 0.1; % How much time to show before the step (0.1 seconds)
+
+%% Extract, Align, and Plot Data
+for i = 1:num_steps
+    idx_up = valid_steps(i);
+    
+    % Find the NEXT falling edge to know exactly when to cut off the plot
+    idx_down_candidates = falling_edges(falling_edges > idx_up);
+    if ~isempty(idx_down_candidates)
+        % Stop 10 samples before it drops so the drop isn't plotted
+        idx_down = idx_down_candidates(1) - 10; 
+    else
+        % Fallback if the data ends before dropping
+        idx_down = idx_up + round(1.5/Ts); 
+    end
+    
+    % Define start and end indices
+    start_idx = max(1, idx_up - round(t_pre / Ts));
+    end_idx = min(length(setpoint), idx_down);
+    
+    % Center time so that t=0 is exactly at the rising edge
+    t_seg = (start_idx:end_idx)' * Ts - (idx_up * Ts);
+    
+    % Extract the cropped data
+    sp_seg = setpoint(start_idx:end_idx);
+    pos_seg = pos(start_idx:end_idx);
+    
+    % Plot the commanded setpoint (Solid Black)
+    % We only want "Setpoint" in the legend once, so we hide the rest
+    if i == 1
+        h_sp = plot(t_seg, sp_seg, 'k-', 'LineWidth', 1.2, 'DisplayName', 'Setpoint');
+    else
+        plot(t_seg, sp_seg, 'k-', 'LineWidth', 1.2, 'HandleVisibility', 'off');
+    end
+    
+    % Plot the actual position response (Solid Colors)
+    h_plots(i) = plot(t_seg, pos_seg, ...
+        'Color', colors{i}, ...
+        'LineStyle', '-', ...
+        'LineWidth', 1.2, ...
+        'DisplayName', sprintf('Response %d', i));
+end
+
+%% Formatting (IEEE Standard)
+xlabel('Time [s]', 'FontName', 'Times New Roman', 'FontSize', 9);
+ylabel('Position [m]', 'FontName', 'Times New Roman', 'FontSize', 9);
+
+% Set X-limits dynamically based on the longest segment extracted
+xlim([-t_pre, max(t_seg)]);
+
+% Legend formatting
+lgd = legend([h_sp, h_plots], 'Location', 'southeast');
+set(lgd, 'FontName', 'Times New Roman', 'FontSize', 8, 'Box', 'off');
+
+ax = gca;
+ax.FontName = 'Times New Roman';
+ax.FontSize = 9;
+ax.TickDir = 'in';
+ax.XMinorTick = 'on';
+ax.YMinorTick = 'on';
+set(fig, 'Color', 'w');
+
+%% Export high-quality vector graphic
+% exportgraphics(fig, 'Step_Responses.pdf', 'ContentType', 'vector');
