@@ -17,21 +17,24 @@ FPS_Depth = 90
 
 #Calibration parameters
 CALIBRATION_FILE = 'plate_calibration.json'
-PLATE_SIZE_MM = 400.0
+PLATE_SIZE_MM = 390.0
 GRID_SPACING_MM = 100.0
 
 # Mask parameters
 MAX_TRACK_DISTANCE = 120
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
-THRESHOLD = 85 # Adjust based on lighting conditions and ball color
+THRESHOLD = 95 # Adjust based on lighting conditions and ball color
 MIN_CIRCULARITY = 0.75 # 1.0 is a perfect circle, lower values allow more distortion
 MIN_AREA = 200 
 MAX_AREA = 2000 # Adjust based on expected ball size in pixels
 # Potential continuous auto-calibration --> MIN_RADIUS = ball_radius_ref - 3*radius_std // MAX_RADIUS = ball_radius_ref + 3*radius_std
 MIN_RADIUS = 15 # Need to be calibrated
 MAX_RADIUS = 30 # Need to be calibrated
-EDGE_MARGIN = 30 # Need to be calibrated
+EDGE_MARGIN = 40 # Need to be calibrated
 USE_EDGE_COMPENSATION = True # If True, allows detection of partially visible balls near plate edges by compensating with expected radius
+USE_GAUSSIAN_BLUR = False
+USE_RADIUS_FILTER = False
+USE_HOMOGRAPHY = True
 
 BALL_RADIUS_ALPHA = 0.2 # 1.0 = no smoothing, 0.1 = max smoothing (very slow response)
 XY_FILTER_ALPHA = 0.6 # 1.0 = no filtering, 0.1 = max filtering 
@@ -59,7 +62,17 @@ SHOW_Z_STATS = False
 SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
 SHOW_TRACKING_DEBUG = False
-SHOW_DEPTH_ROI = True
+SHOW_DEPTH_ROI = False
+PROFILE = True
+timing_stats = {
+    "acquisition": [],
+    "detection": [],
+    "tracking": [],
+    "depth": [],
+    "udp": [],
+    "display": [],
+    "total": []
+}
 
 # Other parameters
 STATS_WINDOW = 300
@@ -68,6 +81,10 @@ y_history = deque(maxlen=STATS_WINDOW)
 z_history = deque(maxlen=STATS_WINDOW)
 radius_history = deque(maxlen=STATS_WINDOW)
 
+# Reference parameters
+REFERENCE_MODE = "" # "LIVE" = use current mouse position as reference, "PATH" = draw reference path by dragging mouse, "" = no reference
+mouse_down = False
+
 
 # ================= LOAD CALIBRATION =================
 with open(CALIBRATION_FILE, 'r') as f:
@@ -75,6 +92,13 @@ with open(CALIBRATION_FILE, 'r') as f:
 
 plate_quad = np.array(calib['plate_quad'], dtype=np.float32)
 TL, TR, BR, BL = plate_quad
+
+# ================= HOMOGRAPHY =================
+image_points = np.array([TL, TR, BR, BL], dtype=np.float32)
+half = PLATE_SIZE_MM/2
+world_points = np.array([[-half,-half], [half,-half], [half, half], [-half, half]], dtype=np.float32)
+
+H, _ = cv2.findHomography(image_points, world_points)
 
 # Horizontal edges
 top_angle = math.degrees(math.atan2(TR[1] - TL[1], TR[0] - TL[0]))
@@ -115,10 +139,46 @@ SCALE_Y = PLATE_SIZE_MM / max((PLATE_Y2 - PLATE_Y1), 1)
 
 # ================= HELPERS =================
 def pixel_to_control_coords(pixel_xy):
-    x_mm = (pixel_xy[0] - PLATE_CENTER_X) * SCALE_X
-    y_mm = (PLATE_CENTER_Y - pixel_xy[1]) * SCALE_Y
-    return x_mm, y_mm
 
+    # -------------------------
+    # Original linear mapping
+    # -------------------------
+    if not USE_HOMOGRAPHY:
+        x_mm = (pixel_xy[0] - PLATE_CENTER_X) * SCALE_X
+        y_mm = (PLATE_CENTER_Y - pixel_xy[1]) * SCALE_Y
+
+        return (x_mm, y_mm)
+
+    # -------------------------
+    # Homography mapping
+    # -------------------------
+    pt = np.array([[[pixel_xy[0], pixel_xy[1]]]], dtype=np.float32)
+    world = cv2.perspectiveTransform(pt,H)
+
+    return (float(world[0,0,0]), float(-world[0,0,1]))
+
+def reference_pixel_to_mm(pixel_xy):
+    return pixel_to_control_coords(pixel_xy)
+
+def mouse_callback(event, x, y, flags, param):
+    global ref_pixel
+    global ref_path_pixels
+    global mouse_down
+
+    if REFERENCE_MODE == "LIVE":
+        if event == cv2.EVENT_MOUSEMOVE:
+            ref_pixel = (x, y)
+
+    elif REFERENCE_MODE == "PATH":
+        if event == cv2.EVENT_LBUTTONDOWN:
+            mouse_down = True
+            ref_path_pixels = [(x, y)]
+
+        elif event == cv2.EVENT_MOUSEMOVE and mouse_down:
+            ref_path_pixels.append((x, y))
+
+        elif event == cv2.EVENT_LBUTTONUP:
+            mouse_down = False
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
 
@@ -136,6 +196,21 @@ def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
+
+def send_reference_xy(ref_xy, ref_flag):
+
+    x_ref = round(float(ref_xy[0]),2)
+    y_ref = round(float(ref_xy[1]),2)
+
+    packet = struct.pack(
+        '>ffb',
+        x_ref,
+        y_ref,
+        bool(ref_flag)
+    )
+    if DEBUG_PRINT_UDP:
+        print(f"UDP -> X_ref{x_ref}, Y_ref={y_ref}, Flag={ref_flag}")
+    UDPClientSocket.sendto(packet, ("192.168.140.8",49002))
 
 
 def get_mean_depth_mm(depth_raw, x, y, depth_scale):
@@ -253,7 +328,8 @@ def compute_adaptive_alpha(speed_px):
     return float(alpha)
 
 def detect_ball(gray, predicted=None):
-    gray = cv2.GaussianBlur(gray,(5,5),0) # gaussian Blur to reduce noise and improve thresholding
+    if USE_GAUSSIAN_BLUR:
+        gray = cv2.GaussianBlur(gray, (5,5), 0)
     _, mask = cv2.threshold(gray,THRESHOLD,255,cv2.THRESH_BINARY_INV) # binary inverse thresholding to get white ball on black background
     plate_mask = np.zeros((HEIGHT, WIDTH), dtype=np.uint8) # create empty mask for plate region
 
@@ -298,13 +374,15 @@ def detect_ball(gray, predicted=None):
                              ctr[1] < PLATE_Y1 + EDGE_MARGIN or
                              ctr[1] > PLATE_Y2 - EDGE_MARGIN)
         
-        if radius < MIN_RADIUS:
-            cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
-            continue
+        if USE_RADIUS_FILTER:
 
-        if radius > MAX_RADIUS:
-            cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
-            continue
+            if radius < MIN_RADIUS:
+                cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
+                continue
+
+            if radius > MAX_RADIUS:
+                cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2)
+                continue
 
         if not (PLATE_X1 <= ctr[0] <= PLATE_X2 and PLATE_Y1 <= ctr[1] <= PLATE_Y2):
             continue
@@ -361,6 +439,12 @@ current_depth_mask = None
 current_depth_x1 = 0
 current_depth_y1 = 0
 
+ref_pixel = (PLATE_CENTER_X, PLATE_CENTER_Y)
+ref_path_pixels = []
+
+playback_index = 0
+playback_active = False
+
 # FPS measurement
 fps_counter = 0
 fps_timer = time.perf_counter()
@@ -368,8 +452,15 @@ camera_fps = 0
 camera_fps_timestamp = 0
 prev_timestamp = None
 
+WINDOW_NAME = 'Final Code'
+cv2.namedWindow(WINDOW_NAME)
+cv2.setMouseCallback(WINDOW_NAME, mouse_callback)
+
 try:
     while True:
+        total_start = time.perf_counter()
+        t0 = time.perf_counter()
+
         frames = pipeline.wait_for_frames()
         aligned_frames = align.process(frames)
 
@@ -380,11 +471,12 @@ try:
         if not color_frame or not depth_frame:
             continue
 
-        # RealSense filtering
         depth_frame = temporal.process(depth_frame)
 
         frame = np.asanyarray(color_frame.get_data())
         depth_raw = np.asanyarray(depth_frame.get_data())
+
+        t1 = time.perf_counter()
 
         frame = cv2.warpAffine(frame, ROT_MAT, (WIDTH, HEIGHT))
         frame = cv2.flip(frame, -1)
@@ -397,7 +489,9 @@ try:
             predicted = (int(prev_pos[0] + velocity[0]), int(prev_pos[1] + velocity[1]))
             predicted_pos = predicted
 
+        t_det_start = time.perf_counter()
         result, mask, filter_vis = detect_ball(gray, predicted)
+        t2 = time.perf_counter()
 
         chosen = None
         ctrl_coords = None
@@ -421,6 +515,9 @@ try:
         vy_mm = 0
         speed_mm = 0
 
+        ref_mm = (0.0, 0.0)
+
+        t_track_start = time.perf_counter()
         if result is not None:
             contour, chosen, area, radius = result
             lost_frames = 0
@@ -466,7 +563,9 @@ try:
             chosen = filtered_pos
             ctrl_coords = pixel_to_control_coords(chosen)
 
+            t_depth_start = time.perf_counter()
             z_mm = get_mean_depth_mm(depth_raw, int(round(chosen[0])), int(round(chosen[1])), depth_scale)
+            t4 = time.perf_counter()
 
             if z_mm is not None:
                 z_display = z_mm if z_reference_mm is None else z_reference_mm - z_mm
@@ -477,8 +576,8 @@ try:
                 
             if prev_pos is not None:
                 velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
-                vx_mm = velocity[0] * SCALE_X * camera_fps
-                vy_mm = -velocity[1] * SCALE_Y * camera_fps
+                vx_mm = (ctrl_coords[0] - last_valid_ctrl_coords[0]) * camera_fps
+                vy_mm = (ctrl_coords[1] - last_valid_ctrl_coords[1]) * camera_fps
                 speed_mm = math.hypot(vx_mm, vy_mm)
             else:
                 velocity = (0, 0)
@@ -493,9 +592,17 @@ try:
                 prev_pos = None
                 velocity = None
                 filtered_pos = None
+        t3 = time.perf_counter()
 
         display = frame.copy()
         draw_coordinate_overlay(display)
+
+        if REFERENCE_MODE != "":
+            cv2.circle(display, (int(ref_pixel[0]), int(ref_pixel[1])), 8, (255,255,255), -1)
+        
+        if (REFERENCE_MODE == "PATH" and len(ref_path_pixels) > 1):
+            pts = np.array(ref_path_pixels, dtype=np.int32)
+            cv2.polylines(display, [pts], False, (255,255,255), 2)
 
         if result is not None:
 
@@ -532,6 +639,7 @@ try:
             else:
                 cv2.circle(display, filt_int, 6, (0,0,255), -1)
 
+        t_udp_start = time.perf_counter() 
         if ctrl_coords is not None and z_display is not None:
             x_history.append(ctrl_coords[0])
             y_history.append(ctrl_coords[1])
@@ -544,7 +652,7 @@ try:
                 y_std = np.std(y_history)
 
             last_valid_ctrl_coords = ctrl_coords
-            last_valid_z = z_display          
+            last_valid_z = z_display         
             send_ball_position_xyz_mm(ctrl_coords, z_display,detected_flag=1)
 
             cv2.putText(display, f'X: {ctrl_coords[0]:+6.1f} mm', (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
@@ -559,6 +667,7 @@ try:
                 cv2.putText(display, z_label, (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,255), 2)
         else:
             send_ball_position_xyz_mm(last_valid_ctrl_coords, last_valid_z, detected_flag=0)
+        t5 = time.perf_counter()
         
         # ================= FPS UPDATE =================
         fps_counter += 1
@@ -576,7 +685,7 @@ try:
             fps_timer = time.perf_counter()
 
         # ================= FPS DISPLAY =================
-        cv2.putText(display, f'Proc FPS: {camera_fps:5.1f}', (WIDTH - 180, HEIGHT - 40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+        cv2.putText(display, f'Loop FPS: {camera_fps:5.1f}', (WIDTH - 180, HEIGHT - 40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
         cv2.putText(display, f'Cam FPS: {camera_fps_timestamp:5.1f}', (WIDTH - 180, HEIGHT - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,0), 2)
 
         # ================= DEBUG OVERLAYS =================
@@ -647,18 +756,112 @@ try:
             cv2.putText(filter_vis, 'GREEN = Accepted', (10,25), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
             cv2.putText(filter_vis, 'RED = Area Reject', (10,50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,255), 2)
             cv2.putText(filter_vis, 'ORANGE = Circularity Reject', (10,75), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,165,255), 2)
-            cv2.putText(filter_vis, 'BLUE = Radius Reject', (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
+            if USE_RADIUS_FILTER:
+                cv2.putText(filter_vis, 'BLUE = Radius Reject', (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
             cv2.imshow('Final Filter Visualization', filter_vis)
+        
+        if REFERENCE_MODE == "":
+             cv2.putText(display, 'REF MODE: OFF', (WIDTH - 220, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (128,128,128), 2)
+             send_reference_xy((0,0), 0)
 
-        cv2.imshow('Phase_G3 2D Adaptative EMA + Partial KF', display)
+        elif REFERENCE_MODE == "LIVE":
+            cv2.putText(display, 'REF MODE: LIVE', (WIDTH - 220, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
+            ref_mm = reference_pixel_to_mm(ref_pixel)
+            send_reference_xy(ref_mm, 1)
+
+            cv2.putText(display, f'Xref: {ref_mm[0]:+6.1f} mm', (WIDTH - 240, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+            cv2.putText(display, f'Yref: {ref_mm[1]:+6.1f} mm', (WIDTH - 240, 85), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+
+        elif REFERENCE_MODE == "PATH":
+            if playback_active and len(ref_path_pixels) > 0:
+                color = (0,255,255)
+                text = 'REF MODE: PLAYBACK'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+
+                ref_pixel = ref_path_pixels[playback_index]
+
+                ref_mm = reference_pixel_to_mm(ref_pixel)
+                send_reference_xy(ref_mm, 1)
+
+                cv2.putText(display, f'Xref: {ref_mm[0]:+6.1f} mm', (WIDTH - 240, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+                cv2.putText(display, f'Yref: {ref_mm[1]:+6.1f} mm', (WIDTH - 240, 85), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+
+                playback_index += 1
+
+                if playback_index >= len(ref_path_pixels):
+                    playback_index = 0
+
+            elif mouse_down:
+                color = (0,0,255)
+                text = 'REF MODE: RECORDING'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+            
+            else:
+                color = (255,255,0)
+                text = 'REF MODE: READY'
+                cv2.putText(display, text, (WIDTH - 260, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+
+                send_reference_xy((0,0),0)
+
+        t_disp_start = time.perf_counter()
+        cv2.imshow('Final Code', display)
 
         key = cv2.waitKey(1) & 0xFF
+        t6 = time.perf_counter()
+
+        if PROFILE:
+
+            timing_stats["acquisition"].append((t1 - t0) * 1000)
+            timing_stats["detection"].append((t2 - t_det_start) * 1000)
+            timing_stats["tracking"].append((t3 - t_track_start) * 1000)
+            timing_stats["depth"].append((t4 - t_depth_start) * 1000)
+            timing_stats["udp"].append((t5 - t_udp_start) * 1000)
+            timing_stats["display"].append((t6 - t_disp_start) * 1000)
+            timing_stats["total"].append((t6 - total_start) * 1000)
+
         if key == ord('z') and z_mm is not None:
             z_reference_mm = z_mm
             print(f'Z reference set to {z_reference_mm:.1f} mm')
         if key == 27:
             break
+        if key == ord('l'):
+            REFERENCE_MODE = "LIVE"
+            print("LIVE REFERENCE MODE")
+
+        elif key == ord('r'):
+            REFERENCE_MODE = "PATH"
+            playback_active = False
+            print("PATH DRAW MODE")
+
+        elif key == ord(' '):
+            if len(ref_path_pixels) > 0:
+                playback_active = True
+                playback_index = 0
+                print("PATH PLAYBACK")
+
+        elif key == ord('c'):
+            ref_path_pixels.clear()
+            playback_active = False
+            print("Trajectory cleared")
+
+        elif key == ord('n'):
+            REFERENCE_MODE = ""
+            playback_active = False
+            print("REFERENCE DISABLED")
 
 finally:
     pipeline.stop()
     cv2.destroyAllWindows()
+    
+    if PROFILE:
+
+        print("\n================ FINAL SYSTEM REPORT ================")
+        for key, values in timing_stats.items():
+            if len(values):
+                print(
+                    f"{key:12s}: "
+                    f"avg = {np.mean(values):7.2f} ms | "
+                    f"max = {np.max(values):7.2f} ms | "
+                    f"min = {np.min(values):7.2f} ms"
+                )
+        print("=====================================================")
