@@ -3,21 +3,30 @@ clear;
 clc;
 close all;
 
-%% load data
-dataset = {'circ_LQR.mat', ...
-           'circ_MPC.mat'};
+%% Load data
+dataset = {'square_LQRff.mat', ...
+           'square_MPC.mat'};
 
-%% Define reference
-R = 0.1; % radius
-theta = linspace(0, 2*pi, 200);
-x_ref = R * cos(theta);
-y_ref = R * sin(theta);
+%% Extract Reference from the Simulation Data
+% Load the first dataset to grab the generated reference
+ref_data = load(dataset{1});
+
+% Extract the full state reference and squeeze out empty dimensions
+r_raw = squeeze(ref_data.out.simout.r.Data);
+
+% Ensure we are grabbing the right axes regardless of row/column orientation
+if size(r_raw, 1) > size(r_raw, 2)
+    x_ref = r_raw(:, 1);
+    y_ref = r_raw(:, 3);
+else
+    x_ref = r_raw(1, :);
+    y_ref = r_raw(3, :);
+end
 
 %% Initialize Figure for IEEE 2-Column Format
 % A standard IEEE column width is ~3.5 inches. 
 figWidth = 3.5;  
 figHeight = 3.0; % Aspect ratio tailored for a top-down view
-
 fig = figure('Units', 'inches', 'Position', [1, 1, figWidth, figHeight]);
 hold on;
 grid on;
@@ -30,7 +39,7 @@ h_ref = plot(x_ref, y_ref, 'k--', 'LineWidth', 1.2, 'DisplayName', 'Reference');
 %% Load and Plot Tracked Data
 % Define styles for color contrast and B&W print readability
 colors = {'#0072BD', '#D95319'}; % MATLAB default blue and red
-lineStyles = {'-', '-'};        % Solid for LQR, Dash-Dot for MPC
+lineStyles = {'-', '-.'};        % Solid for LQR, Dash-Dot for MPC
 labels = {'LQR', 'MPC'};
 h_plots = gobjects(1, length(dataset)); 
 
@@ -38,9 +47,9 @@ for i = 1:length(dataset)
     % Load the structural data from the .mat file
     data = load(dataset{i});
     
-    % Extract x and y data arrays from the timeseries
-    x_data = data.out.simout.x.Data;
-    y_data = data.out.simout.y.Data;
+    % Extract x and y data arrays from the timeseries (squeeze for safety)
+    x_data = squeeze(data.out.simout.x.Data);
+    y_data = squeeze(data.out.simout.y.Data);
     
     % Plot tracked paths
     h_plots(i) = plot(x_data, y_data, ...
@@ -51,10 +60,14 @@ for i = 1:length(dataset)
 end
 
 %% Formatting
-axis equal; % Crucial for top-down spatial plots so the circle doesn't look like an ellipse
+axis equal; % Crucial for top-down spatial plots so the plot isn't distorted
 
-% Add a 20% margin around the radius for the limits
-padding = R * 1.5; 
+% Dynamically set limits based on the reference size + 50% padding
+max_val = max(max(abs(x_ref)), max(abs(y_ref)));
+if max_val == 0
+    max_val = 0.1; % Fallback in case the reference is entirely zero
+end
+padding = max_val * 1.5; 
 xlim([-padding padding]); 
 ylim([-padding padding]);
 

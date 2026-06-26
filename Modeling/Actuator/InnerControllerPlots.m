@@ -4,12 +4,12 @@ close all;
 
 %% Load plant and controller
 % plant
-load('model_motor_A.mat');
+load('Final_models_controllers/model_motor_A_final.mat');
 P_ss = G_A;
 P_tf = tf(P_ss);
 
 % controller
-load('Controllers\controller_A.mat');
+load('Final_models_controllers/Controller_motor_A_17_06.mat');
 C_tf = shapeit_data.C_tf_z;
 
 %% Compute Open Loop
