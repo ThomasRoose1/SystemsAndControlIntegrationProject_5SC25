@@ -315,6 +315,60 @@
 							<LinkedItem type="key">646642654</LinkedItem>
 						</item>
 						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">400716657</UniqueID>
+							<LinkedItem type="key">972065510</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">838431823</UniqueID>
+							<LinkedItem type="key">455292358</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">933862929</UniqueID>
+							<LinkedItem type="key">30008009</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">410755500</UniqueID>
+							<LinkedItem type="key">694333092</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">155561840</UniqueID>
+							<LinkedItem type="key">483854280</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">649114712</UniqueID>
+							<LinkedItem type="key">261578490</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">777708374</UniqueID>
+							<LinkedItem type="key">505318891</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">996279983</UniqueID>
+							<LinkedItem type="key">699129942</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">365769837</UniqueID>
+							<LinkedItem type="key">425008922</LinkedItem>
+						</item>
+						<item>
 							<Component type="key">DataSetManager</Component>
 							<Name type="key">Data Sets</Name>
 							<DisplayName type="key">Data Sets</DisplayName>
@@ -332,8 +386,14 @@
 						<item>
 							<Component type="key">MeasureDataManagement</Component>
 							<Flags type="key">1380</Flags>
-							<UniqueID type="key">400716657</UniqueID>
-							<LinkedItem type="key">972065510</LinkedItem>
+							<UniqueID type="key">936454173</UniqueID>
+							<LinkedItem type="key">819810137</LinkedItem>
+						</item>
+						<item>
+							<Component type="key">MeasureDataManagement</Component>
+							<Flags type="key">1380</Flags>
+							<UniqueID type="key">881371494</UniqueID>
+							<LinkedItem type="key">964058781</LinkedItem>
 						</item>
 					</item>
 				</item>
@@ -519,12 +579,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{C7DA55EB-213E-4F18-9C5A-FBCE7BD2197B}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 14:55:10</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -539,12 +599,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{ACD1A5D4-06B3-40BA-8168-95AF7CFD4401}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 14:57:36</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -559,12 +619,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{E8D0BA02-C52C-416A-B069-F9E038A12041}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 15:02:40</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -579,12 +639,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{D9044F88-5BC5-4D8A-9DEC-3E139E28F678}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 15:06:15</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -599,12 +659,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{957F2112-4CDF-43D5-8E87-7A2574F5768B}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 15:11:08</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -619,12 +679,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{6ABB1E9E-3B39-4671-A561-020895B230F5}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 15:12:28</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -639,12 +699,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{C10F6F8D-CB06-4732-921E-B0EB3D665483}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 15:29:44</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -659,12 +719,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{9766D84C-C1B4-43D8-BA8C-6E40C6FDE666}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 15:46:38</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -679,12 +739,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{D617D1B7-64DB-40C9-AA02-F4751997D50F}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 16:05:22</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -699,12 +759,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{04F3322B-8A16-4E75-B8E1-782B4C6AD0EA}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 16:13:10</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -719,12 +779,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{CCDECFC7-5C7E-4D46-BAD6-7D2535BBFC1E}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 16:24:57</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -739,12 +799,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{50E48C6B-65FC-48A8-A309-69EC6950875A}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 16:35:13</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -759,12 +819,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{7BC25BDD-BA73-4ECA-9F9A-F6CA203F7423}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 16:42:55</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -779,12 +839,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{08B1F583-9ECD-45DB-BC3D-C7D644B27DE7}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 18:03:49</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -799,12 +859,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{9EFA070E-C723-44B0-B287-09DFF6200E0A}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 18:07:25</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -819,12 +879,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{E216DAA6-0C03-43DC-8AF1-0203EBA8C6C9}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 18:13:08</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -839,12 +899,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{42BB375C-3D4F-4494-9DB7-B484A157F3CA}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 18:24:32</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -859,12 +919,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{720EB75B-7C27-44FD-8351-5F702A0E5C5B}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 18:28:42</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -879,12 +939,12 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<EntityID type="key">{70A6F2E2-E22F-42B8-BAC8-5E84F78BE5F2}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 18:48:19</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
 Variable description: ball_and_plate_microlabbox_student.sdf
     Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
 ControlDesk version: 7.3</ItemInfoLog>
-					<ItemInfoDescr type="key"/>
 					<ItemInfoAddInfoDb type="key"/>
 					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
 				</item>
@@ -898,6 +958,206 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<UniqueID type="key">972065510</UniqueID>
 					<EntityID type="key">{6EDB535D-50D0-49B6-9DA1-3D7C5DD8C902}</EntityID>
 					<ItemInfoDate type="key">25/06/2026 18:58:35</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_014.mf4</Name>
+					<DisplayName type="key">rec3_014.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">455292358</UniqueID>
+					<EntityID type="key">{0E7E78AA-EA4C-464D-92D2-777C70765D0E}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 13:09:27</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_016.mf4</Name>
+					<DisplayName type="key">rec3_016.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">30008009</UniqueID>
+					<EntityID type="key">{4376B3DF-7A07-40E4-BFEC-9C8F937317DD}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 13:20:26</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">OptimalHInf.mf4</Name>
+					<DisplayName type="key">OptimalHInf.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">694333092</UniqueID>
+					<EntityID type="key">{A6197E35-FCC2-4282-8D41-B8002E79B78E}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 13:21:38</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_018.mf4</Name>
+					<DisplayName type="key">rec3_018.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">483854280</UniqueID>
+					<EntityID type="key">{843CDD6E-B1C7-4110-88C4-638C74F9BB82}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 14:06:08</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_019.mf4</Name>
+					<DisplayName type="key">rec3_019.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">261578490</UniqueID>
+					<EntityID type="key">{24F28562-21E1-4BCA-B7F2-3BFDCFF48D45}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 14:13:08</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_020.mf4</Name>
+					<DisplayName type="key">rec3_020.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">505318891</UniqueID>
+					<EntityID type="key">{CA77FCD6-9D01-4F92-BFF2-6D8FCD48FBA9}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 14:14:09</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_021.mf4</Name>
+					<DisplayName type="key">rec3_021.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">699129942</UniqueID>
+					<EntityID type="key">{1498D884-0FB9-4D7D-993F-130B468ECE1F}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 14:16:52</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_022.mf4</Name>
+					<DisplayName type="key">rec3_022.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">425008922</UniqueID>
+					<EntityID type="key">{D0C12A9D-A993-49FB-A1E9-D0AD808C94E8}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 14:17:51</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_023.mf4</Name>
+					<DisplayName type="key">rec3_023.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">819810137</UniqueID>
+					<EntityID type="key">{2DF133BB-64C7-4EC7-BE4D-CF7E77F0DB8E}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 14:25:04</ItemInfoDate>
+					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
+					<ItemInfoDescr type="key"/>
+					<ItemInfoLog type="key">
+Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
+Variable description: ball_and_plate_microlabbox_student.sdf
+    Platform / Device: Platform [DS1202 MicroLabBox, assigned to 'ds1202']
+ControlDesk version: 7.3</ItemInfoLog>
+					<ItemInfoAddInfoDb type="key"/>
+					<ItemInfoAuthor type="key">20242496</ItemInfoAuthor>
+				</item>
+				<item>
+					<Component type="key">MeasureDataManagement</Component>
+					<Name type="key">rec3_024.mf4</Name>
+					<DisplayName type="key">rec3_024.mf4</DisplayName>
+					<Path type="key">.\Measurement Data</Path>
+					<Flags type="key">1088</Flags>
+					<Type type="key">9</Type>
+					<UniqueID type="key">964058781</UniqueID>
+					<EntityID type="key">{A0742EB2-2252-4319-962E-283E5CF2D41B}</EntityID>
+					<ItemInfoDate type="key">26/06/2026 14:31:46</ItemInfoDate>
 					<ItemInfoPath type="key">$FPATH$</ItemInfoPath>
 					<ItemInfoLog type="key">
 Software revision: ball_and_plate_microlabbox_student.sdf, ball_and_plate_microlabbox_student.rta
@@ -1510,6 +1770,30 @@ ControlDesk version: 7.3</ItemInfoLog>
 				</Signal>
 			</Variable>
 			<Variable>
+				<Name type="key">Model Root/z_ref\n/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/z_sat\n/Out1</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">HostService</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
+				<Name type="key">Model Root/z_sine\n/Value</Name>
+				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+				<Active type="key">-1</Active>
+				<Signal>
+					<Raster type="key">OnChange</Raster>
+				</Signal>
+			</Variable>
+			<Variable>
 				<Name type="key">Tunable Parameters/plate_angle_sat</Name>
 				<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 				<Active type="key">-1</Active>
@@ -1983,6 +2267,33 @@ ControlDesk version: 7.3</ItemInfoLog>
 						</Signal>
 					</Variable>
 					<Variable>
+						<Name type="key">Model Root/z_ref\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/z_sat\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/z_sine\n/Value</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">OnChange</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
 						<Name type="key">Tunable Parameters/plate_angle_sat</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
@@ -2183,7 +2494,7 @@ ControlDesk version: 7.3</ItemInfoLog>
 					<AutomaticExportFolder type="key"/>
 					<AutomaticNamingEnabled type="key">-1</AutomaticNamingEnabled>
 					<AutomaticNamingMinimunDigits type="key">3</AutomaticNamingMinimunDigits>
-					<AutomaticNamingStartIndex type="key">14</AutomaticNamingStartIndex>
+					<AutomaticNamingStartIndex type="key">25</AutomaticNamingStartIndex>
 					<Description type="key"/>
 					<FileNamePrefix type="key">rec3_</FileNamePrefix>
 					<OpenInMeasurementDataPoolEnabled type="key">0</OpenInMeasurementDataPoolEnabled>
@@ -2300,6 +2611,24 @@ ControlDesk version: 7.3</ItemInfoLog>
 					</Variable>
 					<Variable>
 						<Name type="key">Model Root/y_obs/In1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/z_ref\n/Out1</Name>
+						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
+						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
+						<Recorded type="key">-1</Recorded>
+						<Signal>
+							<Raster type="key">HostService</Raster>
+						</Signal>
+					</Variable>
+					<Variable>
+						<Name type="key">Model Root/z_sat\n/Out1</Name>
 						<Platform type="key">4495d441-692e-4bcc-ac65-cef7b9560632</Platform>
 						<PlatformDisplayName type="key">Platform</PlatformDisplayName>
 						<Recorded type="key">-1</Recorded>
