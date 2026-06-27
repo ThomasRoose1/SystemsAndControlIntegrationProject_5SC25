@@ -139,6 +139,26 @@ setoutdist(mpcobj, 'model', tf(zeros(nx, 1)));
 
 disp('MPC Object created successfully!');
 
+%% Load robust controller
+load('optimalK.mat');
+A_robust = K.A;
+B_robust = K.B;
+C_robust = K.C;
+D_robust = K.D;
+
+nK_robust = size(A_robust,1);
+
+Kaw_robust = 0.02;
+
+alpha_lim = deg2rad(6.0);
+beta_lim  = deg2rad(6.0);
+
+u_min_robust = [-alpha_lim; -beta_lim];
+u_max_robust = [ alpha_lim;  beta_lim];
+
+aw_reg = 1e-6;
+Baw_robust = C_robust' / (C_robust*C_robust' + aw_reg*eye(2));
+
 %% Ref parameters
 R = 0.1;
 Tcircle = 5; %s

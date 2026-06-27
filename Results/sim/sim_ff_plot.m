@@ -4,13 +4,11 @@ clc;
 close all;
 
 %% Load data
-dataset = {'square_PIDff.mat', ...
-           'square_Hinf.mat', ...
-           'square_LQRff.mat', ...
-           'square_MPC.mat'};
+dataset = {'square_PID.mat', ...
+           'square_PIDff.mat'};
 
 % Ensure labels array matches the number of datasets
-labels = {'PID', 'Hinf', 'LQR', 'MPC'}; 
+labels = {'PID', 'PID + FF'}; 
 
 Ts = 0.001; % Assuming 1ms sample time for time vectors and control effort
 
@@ -203,7 +201,7 @@ end
 fprintf('=================================================================================\n\n');
 
 %% Export
-exportgraphics(fig1, 'Figures/sim_square_2D.pdf', 'ContentType', 'auto');
-exportgraphics(fig2, 'Figures/sim_square_xy.pdf', 'ContentType', 'auto');
+exportgraphics(fig1, 'Figures/sim_ff_2D.pdf', 'ContentType', 'auto');
+exportgraphics(fig2, 'Figures/sim_ff_xy.pdf', 'ContentType', 'auto');
 
 

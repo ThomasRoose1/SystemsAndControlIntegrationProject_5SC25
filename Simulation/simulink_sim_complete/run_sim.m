@@ -4,7 +4,7 @@ disp('Loading parameters...');
 setParams; % Calls setup script
 
 %% Run the Simulation
-sim_time = 0.1;
+sim_time = 20;
 disp(['Running Simulink model for ', num2str(sim_time), ' seconds...']);
 out = sim('sim_ballAndPlate_complete', 'StopTime', num2str(sim_time)); 
 disp('Simulation complete. Generating plots...');
