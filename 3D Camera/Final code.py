@@ -48,6 +48,23 @@ ADAPTIVE_FILTER_SPEED = 50.0
 TEMPORAL_ALPHA = 0.6 # 0.0 = no temporal smoothing, 1.0 = max smoothing (very slow response)
 TEMPORAL_DELTA = 20 # 0 = no temporal threshold, higher values reject more sudden changes (noise) but can cause lag
 DEPTH_ROI_RADIUS = 5 # Radius for median depth calculation (11x11 window)
+# Robust depth estimation
+USE_ROBUST_DEPTH = False
+DEPTH_OUTLIER_SIGMA = 2.0
+USE_Z_FILTER = True
+USE_ADAPTIVE_Z_FILTER = True
+
+# Z EMA parameters
+Z_FILTER_ALPHA = 0.25          # Used when adaptive filtering is disabled
+
+Z_FILTER_ALPHA_MIN = 0.2      # Strong filtering
+Z_FILTER_ALPHA_MAX = 0.65      # Weak filtering
+
+ADAPTIVE_Z_SPEED = 250.0        # mm/s
+USE_SPATIAL_FILTER = True
+SPATIAL_MAGNITUDE = 2
+SPATIAL_ALPHA = 0.5
+SPATIAL_DELTA = 20
 
 # UDP
 serverAddressPort = ("192.168.140.8", 49001)
@@ -242,10 +259,21 @@ def get_mean_depth_mm(depth_raw, x, y, depth_scale):
     current_depth_y1 = y1
 
     valid = roi[accepted_mask]
+    valid = valid.astype(np.float32)
     if valid.size == 0:
         return None
 
-    z_raw = np.mean(valid.astype(np.float32))
+    if USE_ROBUST_DEPTH:
+        median = np.median(valid)
+
+        sigma = np.std(valid)
+        if sigma > 0:
+            valid = valid[np.abs(valid - median) < DEPTH_OUTLIER_SIGMA * sigma]
+        z_raw = np.mean(valid)
+
+    else:
+        z_raw = np.mean(valid)
+
     return float(z_raw * depth_scale * 1000.0)
 
 
@@ -323,6 +351,17 @@ def compute_adaptive_alpha(speed_px):
         [0, ADAPTIVE_FILTER_SPEED],
         [XY_FILTER_ALPHA_MIN,
          XY_FILTER_ALPHA_MAX]
+    )
+
+    return float(alpha)
+
+def compute_adaptive_z_alpha(speed_mm):
+
+    alpha = np.interp(
+        speed_mm,
+        [0.0, ADAPTIVE_Z_SPEED],
+        [Z_FILTER_ALPHA_MIN,
+         Z_FILTER_ALPHA_MAX]
     )
 
     return float(alpha)
@@ -424,12 +463,18 @@ temporal = rs.temporal_filter()
 temporal.set_option(rs.option.filter_smooth_alpha, TEMPORAL_ALPHA)
 temporal.set_option(rs.option.filter_smooth_delta,TEMPORAL_DELTA)
 
+spatial = rs.spatial_filter()
+spatial.set_option(rs.option.filter_magnitude, SPATIAL_MAGNITUDE)
+spatial.set_option( rs.option.filter_smooth_alpha, SPATIAL_ALPHA)
+spatial.set_option( rs.option.filter_smooth_delta, SPATIAL_DELTA)
+
 # Values initialization
 prev_pos = None
 velocity = None
 lost_frames = 0
 LOST_TIMEOUT_FRAMES = 5
 filtered_pos = None
+filtered_z = None
 ball_radius_ref = None
 z_reference_mm = None
 last_valid_ctrl_coords = (0.0, 0.0)
@@ -470,6 +515,10 @@ try:
 
         if not color_frame or not depth_frame:
             continue
+
+        if USE_SPATIAL_FILTER:
+
+            depth_frame = spatial.process(depth_frame)
 
         depth_frame = temporal.process(depth_frame)
 
@@ -563,24 +612,63 @@ try:
             chosen = filtered_pos
             ctrl_coords = pixel_to_control_coords(chosen)
 
+            # Compute velocity before Z filtering
+            if prev_pos is not None:
+
+                velocity = (
+                    chosen[0] - prev_pos[0],
+                    chosen[1] - prev_pos[1]
+                )
+
+                vx_mm = (
+                    ctrl_coords[0]
+                    - last_valid_ctrl_coords[0]
+                ) * camera_fps
+
+                vy_mm = (
+                    ctrl_coords[1]
+                    - last_valid_ctrl_coords[1]
+                ) * camera_fps
+
+                speed_mm = math.hypot(
+                    vx_mm,
+                    vy_mm
+                )
+
+            else:
+
+                velocity = (0,0)
+                speed_mm = 0.0
+
             t_depth_start = time.perf_counter()
             z_mm = get_mean_depth_mm(depth_raw, int(round(chosen[0])), int(round(chosen[1])), depth_scale)
             t4 = time.perf_counter()
 
             if z_mm is not None:
-                z_display = z_mm if z_reference_mm is None else z_reference_mm - z_mm
+                if USE_Z_FILTER:
+                    if USE_ADAPTIVE_Z_FILTER:
+                        alpha_z = compute_adaptive_z_alpha(speed_mm)
+
+                    else:
+                        alpha_z = Z_FILTER_ALPHA
+
+                    if filtered_z is None:
+                        filtered_z = z_mm
+
+                    else:
+                        filtered_z = (alpha_z * z_mm + (1.0 - alpha_z) * filtered_z)
+
+                    z_mm = filtered_z
+
+                if z_reference_mm is None:
+                    z_display = z_mm
+
+                else:
+                    z_display = z_reference_mm - z_mm
 
             if z_display is not None:
                 last_valid_ctrl_coords = ctrl_coords
                 last_valid_z = z_display
-                
-            if prev_pos is not None:
-                velocity = (chosen[0] - prev_pos[0], chosen[1] - prev_pos[1])
-                vx_mm = (ctrl_coords[0] - last_valid_ctrl_coords[0]) * camera_fps
-                vy_mm = (ctrl_coords[1] - last_valid_ctrl_coords[1]) * camera_fps
-                speed_mm = math.hypot(vx_mm, vy_mm)
-            else:
-                velocity = (0, 0)
 
             prev_pos = chosen
         else:
@@ -592,6 +680,7 @@ try:
                 prev_pos = None
                 velocity = None
                 filtered_pos = None
+                filtered_z = None
         t3 = time.perf_counter()
 
         display = frame.copy()
