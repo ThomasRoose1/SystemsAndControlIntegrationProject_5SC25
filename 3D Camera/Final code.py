@@ -44,6 +44,7 @@ USE_EDGE_COMPENSATION = True  # Allows partial ball detection near plate edges
 USE_GAUSSIAN_BLUR = False
 USE_RADIUS_FILTER = False
 USE_HOMOGRAPHY = True
+LOST_TIMEOUT_FRAMES = 5
 
 BALL_RADIUS_ALPHA = 0.2  # 1.0 = no smoothing; 0.1 = max smoothing
 XY_FILTER_ALPHA = 0.6  # 1.0 = no filtering; 0.1 = max filtering
@@ -92,6 +93,7 @@ SHOW_EDGE_ZONE = False
 SHOW_TRACKING_DEBUG = False
 SHOW_DEPTH_ROI = False
 PROFILE = True
+WINDOW_NAME = 'Final Code'
 timing_stats = {
     "acquisition": [],
     "detection": [],
@@ -132,7 +134,6 @@ world_points = np.array(
     [[-half, -half], [half, -half], [half, half], [-half, half]],
     dtype=np.float32
 )
-
 H, _ = cv2.findHomography(image_points, world_points)
 
 # Estimate the plate rotation from all four edges so the image can be leveled.
@@ -218,6 +219,7 @@ def mouse_callback(event, x, y, flags, param):
 
         elif event == cv2.EVENT_LBUTTONUP:
             mouse_down = False
+
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
     """Pack measured ball coordinates and detection status into a UDP packet."""
@@ -386,6 +388,7 @@ def edge_compensated_center(center, radius):
 
     return (x, y)
 
+
 def compute_adaptive_alpha(speed_px):
     """Increase XY filter responsiveness as image-plane speed increases."""
     alpha = np.interp(
@@ -397,6 +400,7 @@ def compute_adaptive_alpha(speed_px):
 
     return float(alpha)
 
+
 def compute_adaptive_z_alpha(speed_mm):
     """Increase Z filter responsiveness as plate-coordinate speed increases."""
     alpha = np.interp(
@@ -407,6 +411,7 @@ def compute_adaptive_z_alpha(speed_mm):
     )
 
     return float(alpha)
+
 
 def detect_ball(gray, predicted=None):
     """Detect the most likely ball contour in the current grayscale image."""
@@ -528,7 +533,6 @@ spatial.set_option(rs.option.filter_smooth_delta, SPATIAL_DELTA)
 prev_pos = None
 velocity = None
 lost_frames = 0
-LOST_TIMEOUT_FRAMES = 5
 filtered_pos = None
 filtered_z = None
 ball_radius_ref = None
@@ -556,7 +560,6 @@ camera_fps = 0
 camera_fps_timestamp = 0
 prev_timestamp = None
 
-WINDOW_NAME = 'Final Code'
 cv2.namedWindow(WINDOW_NAME)
 cv2.setMouseCallback(WINDOW_NAME, mouse_callback)
 
@@ -578,7 +581,6 @@ try:
 
         # Filter depth before converting it to a NumPy array.
         if USE_SPATIAL_FILTER:
-
             depth_frame = spatial.process(depth_frame)
 
         depth_frame = temporal.process(depth_frame)
