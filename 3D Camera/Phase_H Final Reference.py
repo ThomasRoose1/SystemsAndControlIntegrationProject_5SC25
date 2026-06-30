@@ -122,11 +122,9 @@ def pixel_to_control_coords(pixel_xy):
     return x_mm, y_mm
 
 def reference_pixel_to_mm(pixel_xy):
-
     return pixel_to_control_coords(pixel_xy)
 
 def mouse_callback(event, x, y, flags, param):
-
     global ref_pixel
     global ref_path_pixels
     global mouse_down
@@ -147,40 +145,35 @@ def mouse_callback(event, x, y, flags, param):
             mouse_down = False
 
 def send_ball_position_xyz_mm(ctrl_xy, z_value, detected_flag):
-    x_mm = int(ctrl_xy[0])
-    y_mm = int(ctrl_xy[1])
-    z_mm = int(z_value)
 
-    x_bytes = x_mm.to_bytes(2, byteorder='little', signed=True)
-    y_bytes = y_mm.to_bytes(2, byteorder='little', signed=True)
-    z_bytes = z_mm.to_bytes(2, byteorder='little', signed=True)
+    x_mm = round(float(ctrl_xy[0]),2)
+    y_mm = round(float(ctrl_xy[1]),2)
+    z_mm = round(float(z_value),2)
 
-    packet = bytearray([
-        x_bytes[0], x_bytes[1],
-        0, 0,
-        y_bytes[0], y_bytes[1],
-        0, 0,
-        z_bytes[0], z_bytes[1],
-        detected_flag])
+    packet = struct.pack(
+        '>fffb',
+        x_mm,
+        y_mm,
+        z_mm,
+        bool(detected_flag)
+    )
     if DEBUG_PRINT_UDP:
         print(f"UDP -> X={x_mm}, Y={y_mm}, Z={z_mm}, Flag={detected_flag}")
     UDPClientSocket.sendto(packet, serverAddressPort)
 
 def send_reference_xy(ref_xy, ref_flag):
 
-    x_ref = int(ref_xy[0])
-    y_ref = int(ref_xy[1])
+    x_ref = round(float(ref_xy[0]),2)
+    y_ref = round(float(ref_xy[1]),2)
 
-    x_bytes = x_ref.to_bytes(2, byteorder='little', signed=True)
-    y_bytes = y_ref.to_bytes(2, byteorder='little', signed=True)
-
-    packet = bytearray([
-        x_bytes[0],
-        x_bytes[1],
-        y_bytes[0],
-        y_bytes[1],
-        ref_flag])
-
+    packet = struct.pack(
+        '>fffb',
+        x_ref,
+        y_ref,
+        bool(ref_flag)
+    )
+    if DEBUG_PRINT_UDP:
+        print(f"UDP -> X_ref{x_ref}, Y_ref={y_ref}, Flag={ref_flag}")
     UDPClientSocket.sendto(packet, ("192.168.140.8",49002))
 
 
@@ -714,7 +707,6 @@ try:
             print(f'Z reference set to {z_reference_mm:.1f} mm')
         if key == 27:
             break
-
         if key == ord('l'):
             REFERENCE_MODE = "LIVE"
             print("LIVE REFERENCE MODE")

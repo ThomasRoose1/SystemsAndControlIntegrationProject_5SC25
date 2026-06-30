@@ -116,9 +116,9 @@ cv2.resizeWindow("5 Final Detection", WINDOW_W, WINDOW_H)
 # Optional automatic layout
 cv2.moveWindow("1 RGB", 0, 0)
 cv2.moveWindow("2 Gaussian Blur", 650, 0)
-cv2.moveWindow("3 Threshold", 650, 0)
-cv2.moveWindow("4 Candidate Filtering", 1320, 0)
-cv2.moveWindow("5 Final Detection", 0, 520)
+cv2.moveWindow("3 Threshold", 1320, 0)
+cv2.moveWindow("4 Candidate Filtering", 0, 520)
+cv2.moveWindow("5 Final Detection", 650, 520)
 
 # =====================================================
 # FREEZE FEATURE

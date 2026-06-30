@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.165
+ * Model version              : 1.1
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Fri Jun 26 14:20:28 2026
+ * C source code generated on : Tue Jun 30 17:34:40 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -305,10 +305,12 @@ typedef struct {
   real_T Gain4;                        /* '<Root>/Gain4' */
   real_T Gain1_c;                      /* '<S12>/Gain1' */
   real_T Dct1lowpass2;                 /* '<S12>/Dct1lowpass2' */
+  real_T Dctnotch2;                    /* '<Root>/Dctnotch2' */
   real_T Alpha_sat;                    /* '<Root>/Alpha_sat ' */
   real_T Gain5;                        /* '<Root>/Gain5' */
   real_T Gain1_d;                      /* '<S13>/Gain1' */
   real_T Dct1lowpass2_g;               /* '<S13>/Dct1lowpass2' */
+  real_T Dctnotch1;                    /* '<Root>/Dctnotch1' */
   real_T Beta_sat;                     /* '<Root>/Beta_sat ' */
   real_T CastToDouble;                 /* '<Root>/Cast To Double' */
   real_T CastToDouble1;                /* '<Root>/Cast To Double1' */
@@ -382,8 +384,8 @@ typedef struct {
   real_T rsample[4];                   /* '<Root>/square_ref_player ' */
   real_T asample[2];                   /* '<Root>/square_ref_player ' */
   real_T rpreview[100];                /* '<Root>/square_ref_player ' */
-  real_T rsample_n[4];                 /* '<Root>/circ_ref_player ' */
-  real_T asample_h[2];                 /* '<Root>/circ_ref_player ' */
+  real_T rsample_e[4];                 /* '<Root>/circ_ref_player ' */
+  real_T asample_g[2];                 /* '<Root>/circ_ref_player ' */
   real_T rpreview_a[100];              /* '<Root>/circ_ref_player ' */
   real_T u_cmd[2];                     /* '<S10>/MATLAB Function1' */
   real_T u_raw[2];                     /* '<S10>/MATLAB Function1' */
@@ -451,9 +453,9 @@ typedef struct {
   real_T SineWave;                     /* '<Root>/Sine Wave' */
   uint32_T SFunction1_o4;              /* '<S18>/S-Function1' */
   uint32_T SFunction1_o1_m[3];         /* '<S17>/S-Function1' */
-  real32_T ByteUnpacking_o1;           /* '<S2>/Byte Unpacking ' */
-  real32_T ByteUnpacking_o2;           /* '<S2>/Byte Unpacking ' */
-  real32_T ByteUnpacking_o3;           /* '<S2>/Byte Unpacking ' */
+  real32_T ByteUnpacking1_o1;          /* '<S2>/Byte Unpacking 1' */
+  real32_T ByteUnpacking1_o2;          /* '<S2>/Byte Unpacking 1' */
+  real32_T ByteUnpacking1_o3;          /* '<S2>/Byte Unpacking 1' */
   real32_T Gain2_j;                    /* '<Root>/Gain2' */
   real32_T RateTransition4;            /* '<Root>/Rate Transition4' */
   real32_T Gain3;                      /* '<Root>/Gain3' */
@@ -464,8 +466,8 @@ typedef struct {
   uint8_T SFunction1_o1_c[32];         /* '<S18>/S-Function1' */
   uint8_T SFunction1_o5[4];            /* '<S18>/S-Function1' */
   uint8_T SFunction1_o2_f[4];          /* '<S17>/S-Function1' */
-  int8_T ByteUnpacking_o4;             /* '<S2>/Byte Unpacking ' */
-  int8_T ByteUnpacking_o5[19];         /* '<S2>/Byte Unpacking ' */
+  int8_T ByteUnpacking1_o4;            /* '<S2>/Byte Unpacking 1' */
+  int8_T ByteUnpacking1_o5[19];        /* '<S2>/Byte Unpacking 1' */
   boolean_T DataTypeConversion;        /* '<S2>/Data Type Conversion' */
   boolean_T Compare;                   /* '<S225>/Compare' */
   boolean_T Uk1_j;                     /* '<S223>/Delay Input1' */
@@ -532,7 +534,7 @@ typedef struct {
   real_T NextOutput_p;                 /* '<S23>/Random Number' */
   real_T last_x_PreviousInput[4];      /* '<S66>/last_x' */
   real_T idx_ref;                      /* '<Root>/square_ref_player ' */
-  real_T idx_ref_a;                    /* '<Root>/circ_ref_player ' */
+  real_T idx_ref_i;                    /* '<Root>/circ_ref_player ' */
   real_T xK[16];                       /* '<S10>/MATLAB Function1' */
   real_T u_prev[2];                    /* '<S10>/MATLAB Function1' */
   real_T x_hat[4];                     /* '<Root>/MATLAB Function' */
@@ -544,7 +546,9 @@ typedef struct {
   } SFunction1_RWORK;                  /* '<S18>/S-Function1' */
 
   real_T Dct1lowpass2_RWORK[2];        /* '<S12>/Dct1lowpass2' */
+  real_T Dctnotch2_RWORK[4];           /* '<Root>/Dctnotch2' */
   real_T Dct1lowpass2_RWORK_g[2];      /* '<S13>/Dct1lowpass2' */
+  real_T Dctnotch1_RWORK[4];           /* '<Root>/Dctnotch1' */
   struct {
     real_T RX_DROPPED_FRAMES[2];
   } SFunction1_RWORK_l;                /* '<S19>/S-Function1' */
@@ -562,7 +566,7 @@ typedef struct {
   uint32_T RandSeed_g;                 /* '<S22>/Random Number' */
   uint32_T RandSeed_c;                 /* '<S23>/Uniform Random Number' */
   uint32_T RandSeed_e2;                /* '<S23>/Random Number' */
-  int_T ByteUnpacking_IWORK[10];       /* '<S2>/Byte Unpacking ' */
+  int_T ByteUnpacking1_IWORK[10];      /* '<S2>/Byte Unpacking 1' */
   boolean_T DelayInput1_DSTATE;        /* '<S223>/Delay Input1' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
   int8_T Integrator_PrevResetState;    /* '<S161>/Integrator' */
@@ -1178,6 +1182,36 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Dct1lowpass2_P2;              /* Expression: 0.001
                                         * Referenced by: '<S12>/Dct1lowpass2'
                                         */
+  real_T Dctnotch2_P1_Size[2];         /* Computed Parameter: Dctnotch2_P1_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P1;                 /* Expression: f_num
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P2_Size[2];         /* Computed Parameter: Dctnotch2_P2_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P2;                 /* Expression: b_num
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P3_Size[2];         /* Computed Parameter: Dctnotch2_P3_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P3;                 /* Expression: f_den
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P4_Size[2];         /* Computed Parameter: Dctnotch2_P4_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P4;                 /* Expression: b_den
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P5_Size[2];         /* Computed Parameter: Dctnotch2_P5_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P5;                 /* Expression: 0.001
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
   real_T Gain5_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain5'
                                         */
@@ -1195,6 +1229,36 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                     */
   real_T Dct1lowpass2_P2_b;            /* Expression: 0.001
                                         * Referenced by: '<S13>/Dct1lowpass2'
+                                        */
+  real_T Dctnotch1_P1_Size[2];         /* Computed Parameter: Dctnotch1_P1_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P1;                 /* Expression: f_num
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P2_Size[2];         /* Computed Parameter: Dctnotch1_P2_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P2;                 /* Expression: b_num
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P3_Size[2];         /* Computed Parameter: Dctnotch1_P3_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P3;                 /* Expression: f_den
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P4_Size[2];         /* Computed Parameter: Dctnotch1_P4_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P4;                 /* Expression: b_den
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P5_Size[2];         /* Computed Parameter: Dctnotch1_P5_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P5;                 /* Expression: 0.001
+                                        * Referenced by: '<Root>/Dctnotch1'
                                         */
   real_T Constant14_Value;             /* Expression: 0
                                         * Referenced by: '<Root>/Constant14'
@@ -1850,15 +1914,15 @@ struct tag_RTM_Ball_and_Plate_MicroLabBox_student_T {
   struct {
     RTWSfcnInfo sfcnInfo;
     time_T *taskTimePtrs[3];
-    SimStruct childSFunctions[10];
-    SimStruct *childSFunctionPtrs[10];
-    struct _ssBlkInfo2 blkInfo2[10];
-    struct _ssSFcnModelMethods2 methods2[10];
-    struct _ssSFcnModelMethods3 methods3[10];
-    struct _ssSFcnModelMethods4 methods4[10];
-    struct _ssStatesInfo2 statesInfo2[10];
-    ssPeriodicStatesInfo periodicStatesInfo[10];
-    struct _ssPortInfo2 inputOutputPortInfo2[10];
+    SimStruct childSFunctions[12];
+    SimStruct *childSFunctionPtrs[12];
+    struct _ssBlkInfo2 blkInfo2[12];
+    struct _ssSFcnModelMethods2 methods2[12];
+    struct _ssSFcnModelMethods3 methods3[12];
+    struct _ssSFcnModelMethods4 methods4[12];
+    struct _ssStatesInfo2 statesInfo2[12];
+    ssPeriodicStatesInfo periodicStatesInfo[12];
+    struct _ssPortInfo2 inputOutputPortInfo2[12];
     struct {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
@@ -1887,8 +1951,8 @@ struct tag_RTM_Ball_and_Plate_MicroLabBox_student_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
+      uint_T attribs[5];
+      mxArray *params[5];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn1;
@@ -1921,8 +1985,8 @@ struct tag_RTM_Ball_and_Plate_MicroLabBox_student_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
+      uint_T attribs[5];
+      mxArray *params[5];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn3;
@@ -2023,11 +2087,45 @@ struct tag_RTM_Ball_and_Plate_MicroLabBox_student_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[3];
+      mxArray *params[3];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
+    } Sfcn9;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortInputs inputPortInfo[1];
+      struct _ssInPortUnit inputPortUnits[1];
+      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
+      real_T const *UPtrs0[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
       uint_T attribs[2];
       mxArray *params[2];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn9;
+    } Sfcn10;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortInputs inputPortInfo[1];
+      struct _ssInPortUnit inputPortUnits[1];
+      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
+      real_T const *UPtrs0[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[2];
+      mxArray *params[2];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
+    } Sfcn11;
   } NonInlinedSFcns;
 
   X_Ball_and_Plate_MicroLabBox_student_T *contStates;
