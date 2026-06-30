@@ -146,7 +146,7 @@ Ncircles = 2;
 enable = 1;
 % [r, a] = generate_circular_trajectory(R, Tcircle, Ncircles, Ts_Inner);
 
-Tsquare = 1; % Sample time for square trajectory
-N_squares = 2; % Number of squares in the trajectory
+Tsquare = 10; % Sample time for square trajectory
+N_squares = 3; % Number of squares in the trajectory
 [r, a] = generate_square_trajectory(R, Tsquare, N_squares, Ts_Inner);
 

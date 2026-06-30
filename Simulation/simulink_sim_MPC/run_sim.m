@@ -1,5 +1,4 @@
 %% Ball and Plate MPC Automation & Plotting Script
-
 %% Initialize Parameters
 disp('Loading parameters...');
 setParams; % Calls setup script
@@ -18,50 +17,61 @@ data = out.simout;
 t = data.x.Time;
 
 % Extract signals by their proper names and convert units
-x_pos   = data.x.Data * 100;            % [cm]
-y_pos   = data.y.Data * 100;            % [cm]
+x_pos   = data.x.Data;            % [m]
+y_pos   = data.y.Data;            % [m]
 alpha   = data.alpha_out.Data * (180/pi);   % [deg]
 beta    = data.beta_out.Data * (180/pi);    % [deg]
 
-% Squeeze the [2 x 1 x N] 3D array into a [2 x N] matrix (needed for LQR
-% data)
+% Squeeze the [2 x 1 x N] 3D array into a [2 x N] matrix
 u_matrix = squeeze(data.u.Data); 
 
 % Grab row 1 (alpha) and row 2 (beta), then transpose (') to match the 't' column
 u_alpha = u_matrix(2, :)' * (180/pi); % Commanded Alpha [deg]
 u_beta  = u_matrix(1, :)' * (180/pi); % Commanded Beta [deg]
 
-%% 4. Generate Plots
+% Squeeze the [4 x 1 x N] 3D array into a [4 x N] matrix
+r = squeeze(data.r.Data); %[x xdot y ydot]
 
+% Extract the X and Y position references (Rows 1 and 3)
+r_x = r(1, :)'; 
+r_y = r(3, :)'; 
+
+%% 4. Generate Plots
 % --- Plot 1: Ball Position Over Time ---
 figure('Name', 'Position Tracking', 'NumberTitle', 'off', 'Position', [100, 100, 800, 500]);
 subplot(2,1,1);
+plot(t, r_x, 'k--', 'LineWidth', 1.5); hold on;
 plot(t, x_pos, 'b', 'LineWidth', 1.5);
-yline(0, 'k--', 'LineWidth', 1);
-ylabel('X Position [cm]', 'FontWeight', 'bold');
+yline(0, 'k:', 'LineWidth', 1); % Changed to dotted so it doesn't overlap the reference
+ylabel('X Position [m]', 'FontWeight', 'bold'); % Updated to [m] based on extraction
 title('Ball Tracking Performance', 'FontSize', 12);
+legend('Reference', 'Actual', 'Location', 'best');
 grid on;
 
 subplot(2,1,2);
+plot(t, r_y, 'k--', 'LineWidth', 1.5); hold on;
 plot(t, y_pos, 'r', 'LineWidth', 1.5);
-yline(0, 'k--', 'LineWidth', 1);
+yline(0, 'k:', 'LineWidth', 1);
 xlabel('Time [s]', 'FontWeight', 'bold');
-ylabel('Y Position [cm]', 'FontWeight', 'bold');
+ylabel('Y Position [m]', 'FontWeight', 'bold');
+legend('Reference', 'Actual', 'Location', 'best');
 grid on;
 
 % --- Plot 2: 2D Ball Trajectory (Top-Down View) ---
 figure('Name', '2D Trajectory', 'NumberTitle', 'off', 'Position', [950, 100, 600, 500]);
-plot(x_pos, y_pos, 'b', 'LineWidth', 1.5);
-hold on;
-% Mark start and end points
+plot(r_x, r_y, 'k--', 'LineWidth', 1.5); hold on; % Plot the reference path
+plot(x_pos, y_pos, 'b', 'LineWidth', 1.5);        % Plot the actual path
+
+% Mark start points
 plot(x_pos(1), y_pos(1), 'go', 'MarkerSize', 8, 'MarkerFaceColor', 'g'); % Start
-% plot(0, 0, 'rx', 'MarkerSize', 10, 'LineWidth', 2); % Target
-xlabel('X Position [cm]', 'FontWeight', 'bold');
-ylabel('Y Position [cm]', 'FontWeight', 'bold');
+plot(0, 0, 'rx', 'MarkerSize', 10, 'LineWidth', 2); % Target Center
+
+xlabel('X Position [m]', 'FontWeight', 'bold');
+ylabel('Y Position [m]', 'FontWeight', 'bold');
 title('2D Plate Trajectory', 'FontSize', 12);
-legend('Trajectory', 'Start Point', 'Plate Boundary', 'Target Center', 'Location', 'best');
+legend('Reference Path', 'Actual Trajectory', 'Start Point', 'Target Center', 'Location', 'best');
 axis equal; % Keeps the square ratio realistic
-xlim([-20 20]); ylim([-20 20]);
+xlim([-0.2 0.2]); ylim([-0.2 0.2]); % Adjusted limits for meters instead of cm
 grid on;
 
 % --- Plot 3: Actuator Effort (Commanded vs Actual) ---
