@@ -36,7 +36,7 @@ r = squeeze(data.r.Data); %[x xdot y ydot]
 r_x = r(1, :)'; 
 r_y = r(3, :)'; 
 
-%% 4. Generate Plots
+%% Generate Plots
 % --- Plot 1: Ball Position Over Time ---
 figure('Name', 'Position Tracking', 'NumberTitle', 'off', 'Position', [100, 100, 800, 500]);
 subplot(2,1,1);
