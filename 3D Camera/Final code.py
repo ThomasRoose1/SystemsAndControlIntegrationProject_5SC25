@@ -59,13 +59,13 @@ TEMPORAL_ALPHA = 0.6  # 0.0 = no smoothing; 1.0 = max smoothing
 TEMPORAL_DELTA = 20  # Higher values reject sudden depth changes, but can cause lag
 DEPTH_ROI_RADIUS = 5  # Radius for median depth calculation (11x11 window)
 # Robust depth estimation
-USE_ROBUST_DEPTH = False
+USE_ROBUST_DEPTH = True
 DEPTH_OUTLIER_SIGMA = 2.0
 USE_Z_FILTER = True
 USE_ADAPTIVE_Z_FILTER = True
 
 # Z EMA parameters
-Z_FILTER_ALPHA = 0.25  # Used when adaptive filtering is disabled
+Z_FILTER_ALPHA = 0.5  # Used when adaptive filtering is disabled
 
 Z_FILTER_ALPHA_MIN = 0.2  # Strong filtering
 Z_FILTER_ALPHA_MAX = 0.65  # Weak filtering
@@ -73,8 +73,8 @@ Z_FILTER_ALPHA_MAX = 0.65  # Weak filtering
 ADAPTIVE_Z_SPEED = 250.0  # mm/s
 USE_SPATIAL_FILTER = True
 SPATIAL_MAGNITUDE = 2
-SPATIAL_ALPHA = 0.5
-SPATIAL_DELTA = 20
+SPATIAL_ALPHA = 0.55
+SPATIAL_DELTA = 5
 
 # UDP
 # The first port carries measured ball coordinates; the second carries reference coordinates.
@@ -84,10 +84,10 @@ UDP_CLIENT_SOCKET = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
 # Debug print
 DEBUG_PRINT_UDP = False
-SHOW_MASK = True
+SHOW_MASK = False
 SHOW_DEPTH_VIEW = False
 SHOW_XY_STATS = False
-SHOW_Z_STATS = False
+SHOW_Z_STATS = True
 SHOW_RADIUS_CALIBRATION = False
 SHOW_EDGE_ZONE = False
 SHOW_TRACKING_DEBUG = False
@@ -277,6 +277,8 @@ def get_mean_depth_mm(depth_raw, x, y, depth_scale):
     y2 = min(depth_raw.shape[0], y + depth_radius + 1)
 
     roi = depth_raw[y1:y2, x1:x2]
+
+    roi = roi.astype(np.uint16)
 
     # Keep only pixels inside a circular ROI. This avoids sampling background corners.
     yy, xx = np.ogrid[:roi.shape[0], :roi.shape[1]]
