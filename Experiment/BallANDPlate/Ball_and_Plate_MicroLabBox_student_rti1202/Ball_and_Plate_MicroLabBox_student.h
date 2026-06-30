@@ -9,7 +9,7 @@
  *
  * Model version              : 1.1
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Tue Jun 30 16:24:38 2026
+ * C source code generated on : Tue Jun 30 17:34:40 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -305,10 +305,12 @@ typedef struct {
   real_T Gain4;                        /* '<Root>/Gain4' */
   real_T Gain1_c;                      /* '<S12>/Gain1' */
   real_T Dct1lowpass2;                 /* '<S12>/Dct1lowpass2' */
+  real_T Dctnotch2;                    /* '<Root>/Dctnotch2' */
   real_T Alpha_sat;                    /* '<Root>/Alpha_sat ' */
   real_T Gain5;                        /* '<Root>/Gain5' */
   real_T Gain1_d;                      /* '<S13>/Gain1' */
   real_T Dct1lowpass2_g;               /* '<S13>/Dct1lowpass2' */
+  real_T Dctnotch1;                    /* '<Root>/Dctnotch1' */
   real_T Beta_sat;                     /* '<Root>/Beta_sat ' */
   real_T CastToDouble;                 /* '<Root>/Cast To Double' */
   real_T CastToDouble1;                /* '<Root>/Cast To Double1' */
@@ -544,7 +546,9 @@ typedef struct {
   } SFunction1_RWORK;                  /* '<S18>/S-Function1' */
 
   real_T Dct1lowpass2_RWORK[2];        /* '<S12>/Dct1lowpass2' */
+  real_T Dctnotch2_RWORK[4];           /* '<Root>/Dctnotch2' */
   real_T Dct1lowpass2_RWORK_g[2];      /* '<S13>/Dct1lowpass2' */
+  real_T Dctnotch1_RWORK[4];           /* '<Root>/Dctnotch1' */
   struct {
     real_T RX_DROPPED_FRAMES[2];
   } SFunction1_RWORK_l;                /* '<S19>/S-Function1' */
@@ -1178,6 +1182,36 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
   real_T Dct1lowpass2_P2;              /* Expression: 0.001
                                         * Referenced by: '<S12>/Dct1lowpass2'
                                         */
+  real_T Dctnotch2_P1_Size[2];         /* Computed Parameter: Dctnotch2_P1_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P1;                 /* Expression: f_num
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P2_Size[2];         /* Computed Parameter: Dctnotch2_P2_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P2;                 /* Expression: b_num
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P3_Size[2];         /* Computed Parameter: Dctnotch2_P3_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P3;                 /* Expression: f_den
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P4_Size[2];         /* Computed Parameter: Dctnotch2_P4_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P4;                 /* Expression: b_den
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P5_Size[2];         /* Computed Parameter: Dctnotch2_P5_Size
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P5;                 /* Expression: 0.001
+                                        * Referenced by: '<Root>/Dctnotch2'
+                                        */
   real_T Gain5_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain5'
                                         */
@@ -1195,6 +1229,36 @@ struct P_Ball_and_Plate_MicroLabBox_student_T_ {
                                     */
   real_T Dct1lowpass2_P2_b;            /* Expression: 0.001
                                         * Referenced by: '<S13>/Dct1lowpass2'
+                                        */
+  real_T Dctnotch1_P1_Size[2];         /* Computed Parameter: Dctnotch1_P1_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P1;                 /* Expression: f_num
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P2_Size[2];         /* Computed Parameter: Dctnotch1_P2_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P2;                 /* Expression: b_num
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P3_Size[2];         /* Computed Parameter: Dctnotch1_P3_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P3;                 /* Expression: f_den
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P4_Size[2];         /* Computed Parameter: Dctnotch1_P4_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P4;                 /* Expression: b_den
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P5_Size[2];         /* Computed Parameter: Dctnotch1_P5_Size
+                                        * Referenced by: '<Root>/Dctnotch1'
+                                        */
+  real_T Dctnotch1_P5;                 /* Expression: 0.001
+                                        * Referenced by: '<Root>/Dctnotch1'
                                         */
   real_T Constant14_Value;             /* Expression: 0
                                         * Referenced by: '<Root>/Constant14'
@@ -1850,15 +1914,15 @@ struct tag_RTM_Ball_and_Plate_MicroLabBox_student_T {
   struct {
     RTWSfcnInfo sfcnInfo;
     time_T *taskTimePtrs[3];
-    SimStruct childSFunctions[10];
-    SimStruct *childSFunctionPtrs[10];
-    struct _ssBlkInfo2 blkInfo2[10];
-    struct _ssSFcnModelMethods2 methods2[10];
-    struct _ssSFcnModelMethods3 methods3[10];
-    struct _ssSFcnModelMethods4 methods4[10];
-    struct _ssStatesInfo2 statesInfo2[10];
-    ssPeriodicStatesInfo periodicStatesInfo[10];
-    struct _ssPortInfo2 inputOutputPortInfo2[10];
+    SimStruct childSFunctions[12];
+    SimStruct *childSFunctionPtrs[12];
+    struct _ssBlkInfo2 blkInfo2[12];
+    struct _ssSFcnModelMethods2 methods2[12];
+    struct _ssSFcnModelMethods3 methods3[12];
+    struct _ssSFcnModelMethods4 methods4[12];
+    struct _ssStatesInfo2 statesInfo2[12];
+    ssPeriodicStatesInfo periodicStatesInfo[12];
+    struct _ssPortInfo2 inputOutputPortInfo2[12];
     struct {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
@@ -1887,8 +1951,8 @@ struct tag_RTM_Ball_and_Plate_MicroLabBox_student_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
+      uint_T attribs[5];
+      mxArray *params[5];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn1;
@@ -1921,8 +1985,8 @@ struct tag_RTM_Ball_and_Plate_MicroLabBox_student_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
+      uint_T attribs[5];
+      mxArray *params[5];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn3;
@@ -2023,11 +2087,45 @@ struct tag_RTM_Ball_and_Plate_MicroLabBox_student_T {
       struct _ssPortOutputs outputPortInfo[1];
       struct _ssOutPortUnit outputPortUnits[1];
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[3];
+      mxArray *params[3];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
+    } Sfcn9;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortInputs inputPortInfo[1];
+      struct _ssInPortUnit inputPortUnits[1];
+      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
+      real_T const *UPtrs0[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
       uint_T attribs[2];
       mxArray *params[2];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn9;
+    } Sfcn10;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortInputs inputPortInfo[1];
+      struct _ssInPortUnit inputPortUnits[1];
+      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
+      real_T const *UPtrs0[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[2];
+      mxArray *params[2];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
+    } Sfcn11;
   } NonInlinedSFcns;
 
   X_Ball_and_Plate_MicroLabBox_student_T *contStates;
