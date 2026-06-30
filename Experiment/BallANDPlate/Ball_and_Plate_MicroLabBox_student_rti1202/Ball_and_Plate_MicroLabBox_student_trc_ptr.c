@@ -5,7 +5,7 @@
    Definition of function that initializes the global TRC pointers
 
    RTI1202 7.15 (02-Nov-2020)
-   Fri Jun 26 14:20:28 2026
+   Tue Jun 30 16:24:38 2026
 
    Copyright 2026, dSPACE GmbH. All rights reserved.
 
@@ -110,13 +110,13 @@ static void rti_init_trc_pointers_0(void)
   p_0_Ball_and_Plate_MicroLabBox_student_uint32_T_1 =
     &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o4;
   p_0_Ball_and_Plate_MicroLabBox_student_real32_T_2 =
-    &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o1;
+    &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o1;
   p_0_Ball_and_Plate_MicroLabBox_student_uint16_T_3 =
     &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o6;
   p_0_Ball_and_Plate_MicroLabBox_student_uint8_T_4 =
     &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0];
   p_0_Ball_and_Plate_MicroLabBox_student_int8_T_5 =
-    &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o4;
+    &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o4;
   p_0_Ball_and_Plate_MicroLabBox_student_boolean_T_6 =
     &Ball_and_Plate_MicroLabBox_student_B.DataTypeConversion;
   p_0_Ball_and_Plate_MicroLabBox_student_real_T_7 =
@@ -174,7 +174,7 @@ static void rti_init_trc_pointers_0(void)
   p_2_Ball_and_Plate_MicroLabBox_student_uint32_T_1 =
     &Ball_and_Plate_MicroLabBox_student_DW.RandSeed;
   p_2_Ball_and_Plate_MicroLabBox_student_int_T_2 =
-    &Ball_and_Plate_MicroLabBox_student_DW.ByteUnpacking_IWORK[0];
+    &Ball_and_Plate_MicroLabBox_student_DW.ByteUnpacking1_IWORK[0];
   p_2_Ball_and_Plate_MicroLabBox_student_boolean_T_3 =
     &Ball_and_Plate_MicroLabBox_student_DW.DelayInput1_DSTATE;
   p_2_Ball_and_Plate_MicroLabBox_student_int8_T_4 =

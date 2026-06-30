@@ -73,7 +73,7 @@ Z_FILTER_ALPHA_MAX = 0.65  # Weak filtering
 ADAPTIVE_Z_SPEED = 250.0  # mm/s
 USE_SPATIAL_FILTER = True
 SPATIAL_MAGNITUDE = 2
-SPATIAL_ALPHA = 0.55
+SPATIAL_ALPHA = 0.5
 SPATIAL_DELTA = 5
 
 # UDP
@@ -84,7 +84,7 @@ UDP_CLIENT_SOCKET = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
 # Debug print
 DEBUG_PRINT_UDP = False
-SHOW_MASK = True
+SHOW_MASK = False
 SHOW_DEPTH_VIEW = False
 SHOW_XY_STATS = False
 SHOW_Z_STATS = False

@@ -184,15 +184,15 @@
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
 							<item>
-								<Name type="key">Data Sets</Name>
-								<ViewFlags type="key">1</ViewFlags>
-							</item>
-							<item>
 								<Name type="key">rec3_023.mf4</Name>
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
 							<item>
 								<Name type="key">rec3_024.mf4</Name>
+								<ViewFlags type="key">1</ViewFlags>
+							</item>
+							<item>
+								<Name type="key">Data Sets</Name>
 								<ViewFlags type="key">1</ViewFlags>
 							</item>
 						</item>
@@ -417,7 +417,4 @@
 			</Layout4>
 		</Layouts>
 	</Instrumentation>
-	<XILAPIEESPort>
-		<ErrorConfigurationDocuments Version="1"/>
-	</XILAPIEESPort>
 </Root>

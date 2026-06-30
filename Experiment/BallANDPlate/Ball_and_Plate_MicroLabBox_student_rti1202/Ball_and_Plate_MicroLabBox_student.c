@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.165
+ * Model version              : 1.1
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Fri Jun 26 14:20:28 2026
+ * C source code generated on : Tue Jun 30 16:24:38 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -54,7 +54,7 @@ static void Ball_and_Plate_MicroLa_mldivide(const real_T A[36], real_T B[6]);
 static real_T Ball_and_Plate_MicroLabBox_norm(const real_T x[3]);
 static boolean_T Ball_and_Plate_MicroL_vectorAny(const boolean_T x_data[], const
   int32_T *x_size);
-static real_T Ball_and_Plate_MicroLabB_norm_m(const real_T x[16]);
+static real_T Ball_and_Plate_MicroLabB_norm_a(const real_T x[16]);
 static void Ball_and_Plate_Mi_Unconstrained(const real_T b_Hinv[49], const
   real_T f[7], real_T x[7], int16_T n);
 static real_T Ball_and_Plate_MicroLabB_norm_g(const real_T x[7]);
@@ -705,7 +705,7 @@ static boolean_T Ball_and_Plate_MicroL_vectorAny(const boolean_T x_data[], const
 }
 
 /* Function for MATLAB Function: '<S10>/MATLAB Function1' */
-static real_T Ball_and_Plate_MicroLabB_norm_m(const real_T x[16])
+static real_T Ball_and_Plate_MicroLabB_norm_a(const real_T x[16])
 {
   real_T y;
   real_T scale;
@@ -3080,28 +3080,28 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     Ball_and_Plate_MicroLabBox_student_B.psi = asin
       (Ball_and_Plate_MicroLabBox_student_B.psi);
 
-    /* S-Function (xpcbytepacking): '<S2>/Byte Unpacking ' */
+    /* S-Function (xpcbytepacking): '<S2>/Byte Unpacking 1' */
 
-    /* Byte Unpacking: <S2>/Byte Unpacking  */
+    /* Byte Unpacking: <S2>/Byte Unpacking 1 */
     (void)memcpy((uint8_T*)
-                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o1,
+                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o1,
                  (uint8_T*)
                  &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0] + 0, 4);
     (void)memcpy((uint8_T*)
-                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o2,
+                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o2,
                  (uint8_T*)
                  &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0] + 4, 4);
     (void)memcpy((uint8_T*)
-                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o3,
+                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o3,
                  (uint8_T*)
                  &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0] + 8, 4);
     (void)memcpy((uint8_T*)
-                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o4,
+                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o4,
                  (uint8_T*)
                  &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0] + 12,
                  1);
     (void)memcpy((uint8_T*)
-                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o5[0],
+                 &Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o5[0],
                  (uint8_T*)
                  &Ball_and_Plate_MicroLabBox_student_B.SFunction1_o1_c[0] + 13,
                  19);
@@ -3203,7 +3203,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       }
     }
 
-    if (Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o4 > 0.5) {
+    if (Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o4 > 0.5) {
       /* '<S4>:1:32' */
       /* '<S4>:1:34' */
       /* '<S4>:1:35' */
@@ -3446,40 +3446,40 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* '<S11>:1:14' */
     if (Ball_and_Plate_MicroLabBox_student_P.enable_circ_ref_Value == 1.0) {
       /* '<S11>:1:23' */
-      if (Ball_and_Plate_MicroLabBox_student_DW.idx_ref_a <= 56001.0) {
+      if (Ball_and_Plate_MicroLabBox_student_DW.idx_ref_i <= 56001.0) {
         /* '<S11>:1:25' */
         /* '<S11>:1:26' */
-        r1 = (int32_T)Ball_and_Plate_MicroLabBox_student_DW.idx_ref_a;
-        Ball_and_Plate_MicroLabBox_student_B.rsample_n[0] =
+        r1 = (int32_T)Ball_and_Plate_MicroLabBox_student_DW.idx_ref_i;
+        Ball_and_Plate_MicroLabBox_student_B.rsample_e[0] =
           Ball_and_Plate_MicroLabBox_student_P.r_circ[(r1 - 1) << 2];
-        Ball_and_Plate_MicroLabBox_student_B.rsample_n[1] =
+        Ball_and_Plate_MicroLabBox_student_B.rsample_e[1] =
           Ball_and_Plate_MicroLabBox_student_P.r_circ[((r1 - 1) << 2) + 1];
-        Ball_and_Plate_MicroLabBox_student_B.rsample_n[2] =
+        Ball_and_Plate_MicroLabBox_student_B.rsample_e[2] =
           Ball_and_Plate_MicroLabBox_student_P.r_circ[((r1 - 1) << 2) + 2];
-        Ball_and_Plate_MicroLabBox_student_B.rsample_n[3] =
+        Ball_and_Plate_MicroLabBox_student_B.rsample_e[3] =
           Ball_and_Plate_MicroLabBox_student_P.r_circ[((r1 - 1) << 2) + 3];
 
         /* '<S11>:1:27' */
-        r1 = (int32_T)Ball_and_Plate_MicroLabBox_student_DW.idx_ref_a;
-        Ball_and_Plate_MicroLabBox_student_B.asample_h[0] =
+        r1 = (int32_T)Ball_and_Plate_MicroLabBox_student_DW.idx_ref_i;
+        Ball_and_Plate_MicroLabBox_student_B.asample_g[0] =
           Ball_and_Plate_MicroLabBox_student_P.a_circ[(r1 - 1) << 1];
-        Ball_and_Plate_MicroLabBox_student_B.asample_h[1] =
+        Ball_and_Plate_MicroLabBox_student_B.asample_g[1] =
           Ball_and_Plate_MicroLabBox_student_P.a_circ[((r1 - 1) << 1) + 1];
       } else {
         /* '<S11>:1:30' */
-        Ball_and_Plate_MicroLabBox_student_B.rsample_n[0] =
+        Ball_and_Plate_MicroLabBox_student_B.rsample_e[0] =
           Ball_and_Plate_MicroLabBox_student_P.r_circ[224000];
-        Ball_and_Plate_MicroLabBox_student_B.rsample_n[1] =
+        Ball_and_Plate_MicroLabBox_student_B.rsample_e[1] =
           Ball_and_Plate_MicroLabBox_student_P.r_circ[224001];
-        Ball_and_Plate_MicroLabBox_student_B.rsample_n[2] =
+        Ball_and_Plate_MicroLabBox_student_B.rsample_e[2] =
           Ball_and_Plate_MicroLabBox_student_P.r_circ[224002];
-        Ball_and_Plate_MicroLabBox_student_B.rsample_n[3] =
+        Ball_and_Plate_MicroLabBox_student_B.rsample_e[3] =
           Ball_and_Plate_MicroLabBox_student_P.r_circ[224003];
 
         /* '<S11>:1:31' */
-        Ball_and_Plate_MicroLabBox_student_B.asample_h[0] =
+        Ball_and_Plate_MicroLabBox_student_B.asample_g[0] =
           Ball_and_Plate_MicroLabBox_student_P.a_circ[112000];
-        Ball_and_Plate_MicroLabBox_student_B.asample_h[1] =
+        Ball_and_Plate_MicroLabBox_student_B.asample_g[1] =
           Ball_and_Plate_MicroLabBox_student_P.a_circ[112001];
       }
 
@@ -3489,7 +3489,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
         /* '<S11>:1:35' */
         /* '<S11>:1:36' */
         a21 = ((real_T)r1 + 1.0) +
-          Ball_and_Plate_MicroLabBox_student_DW.idx_ref_a;
+          Ball_and_Plate_MicroLabBox_student_DW.idx_ref_i;
         if (a21 <= 56001.0) {
           /* '<S11>:1:38' */
           /* '<S11>:1:40' */
@@ -3515,29 +3515,29 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
         }
       }
 
-      if (Ball_and_Plate_MicroLabBox_student_DW.idx_ref_a <= 56001.0) {
+      if (Ball_and_Plate_MicroLabBox_student_DW.idx_ref_i <= 56001.0) {
         /* '<S11>:1:48' */
         /* '<S11>:1:49' */
-        Ball_and_Plate_MicroLabBox_student_DW.idx_ref_a++;
+        Ball_and_Plate_MicroLabBox_student_DW.idx_ref_i++;
       }
     } else {
       /* '<S11>:1:54' */
-      Ball_and_Plate_MicroLabBox_student_DW.idx_ref_a = 1.0;
+      Ball_and_Plate_MicroLabBox_student_DW.idx_ref_i = 1.0;
 
       /* '<S11>:1:57' */
-      Ball_and_Plate_MicroLabBox_student_B.rsample_n[0] =
+      Ball_and_Plate_MicroLabBox_student_B.rsample_e[0] =
         Ball_and_Plate_MicroLabBox_student_P.r_circ[0];
-      Ball_and_Plate_MicroLabBox_student_B.rsample_n[1] =
+      Ball_and_Plate_MicroLabBox_student_B.rsample_e[1] =
         Ball_and_Plate_MicroLabBox_student_P.r_circ[1];
-      Ball_and_Plate_MicroLabBox_student_B.rsample_n[2] =
+      Ball_and_Plate_MicroLabBox_student_B.rsample_e[2] =
         Ball_and_Plate_MicroLabBox_student_P.r_circ[2];
-      Ball_and_Plate_MicroLabBox_student_B.rsample_n[3] =
+      Ball_and_Plate_MicroLabBox_student_B.rsample_e[3] =
         Ball_and_Plate_MicroLabBox_student_P.r_circ[3];
 
       /* '<S11>:1:58' */
-      Ball_and_Plate_MicroLabBox_student_B.asample_h[0] =
+      Ball_and_Plate_MicroLabBox_student_B.asample_g[0] =
         Ball_and_Plate_MicroLabBox_student_P.a_circ[0];
-      Ball_and_Plate_MicroLabBox_student_B.asample_h[1] =
+      Ball_and_Plate_MicroLabBox_student_B.asample_g[1] =
         Ball_and_Plate_MicroLabBox_student_P.a_circ[1];
 
       /* '<S11>:1:1' */
@@ -3682,16 +3682,16 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
     /* Sum: '<Root>/Add4' */
     Ball_and_Plate_MicroLabBox_student_B.Add4[0] =
-      Ball_and_Plate_MicroLabBox_student_B.rsample_n[0] +
+      Ball_and_Plate_MicroLabBox_student_B.rsample_e[0] +
       Ball_and_Plate_MicroLabBox_student_B.rsample[0];
     Ball_and_Plate_MicroLabBox_student_B.Add4[1] =
-      Ball_and_Plate_MicroLabBox_student_B.rsample_n[1] +
+      Ball_and_Plate_MicroLabBox_student_B.rsample_e[1] +
       Ball_and_Plate_MicroLabBox_student_B.rsample[1];
     Ball_and_Plate_MicroLabBox_student_B.Add4[2] =
-      Ball_and_Plate_MicroLabBox_student_B.rsample_n[2] +
+      Ball_and_Plate_MicroLabBox_student_B.rsample_e[2] +
       Ball_and_Plate_MicroLabBox_student_B.rsample[2];
     Ball_and_Plate_MicroLabBox_student_B.Add4[3] =
-      Ball_and_Plate_MicroLabBox_student_B.rsample_n[3] +
+      Ball_and_Plate_MicroLabBox_student_B.rsample_e[3] +
       Ball_and_Plate_MicroLabBox_student_B.rsample[3];
 
     /* Sum: '<Root>/Add' */
@@ -3955,7 +3955,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
       }
 
       if (Ball_and_Plate_MicroL_vectorAny(tmp_data, &r2) ||
-          (Ball_and_Plate_MicroLabB_norm_m(Ad) > 1.0E+8)) {
+          (Ball_and_Plate_MicroLabB_norm_a(Ad) > 1.0E+8)) {
         /* '<S224>:1:86' */
         /* '<S224>:1:87' */
         memset(&Ad[0], 0, sizeof(real_T) << 4U);
@@ -3990,7 +3990,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
       /* '<S224>:1:95' */
       Ball_and_Plate_MicroLabBox_student_B.xK_norm =
-        Ball_and_Plate_MicroLabB_norm_m(Ball_and_Plate_MicroLabBox_student_DW.xK);
+        Ball_and_Plate_MicroLabB_norm_a(Ball_and_Plate_MicroLabBox_student_DW.xK);
     }
 
     /* End of MATLAB Function: '<S10>/MATLAB Function1' */
@@ -4645,10 +4645,10 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
 
     /* Sum: '<Root>/Add5' */
     Ball_and_Plate_MicroLabBox_student_B.Add5[0] =
-      Ball_and_Plate_MicroLabBox_student_B.asample_h[0] +
+      Ball_and_Plate_MicroLabBox_student_B.asample_g[0] +
       Ball_and_Plate_MicroLabBox_student_B.asample[0];
     Ball_and_Plate_MicroLabBox_student_B.Add5[1] =
-      Ball_and_Plate_MicroLabBox_student_B.asample_h[1] +
+      Ball_and_Plate_MicroLabBox_student_B.asample_g[1] +
       Ball_and_Plate_MicroLabBox_student_B.asample[1];
 
     /* Switch: '<Root>/Switch1' incorporates:
@@ -4658,7 +4658,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     if (Ball_and_Plate_MicroLabBox_student_P.ff_enable_Value >
         Ball_and_Plate_MicroLabBox_student_P.Switch1_Threshold) {
       /* Gain: '<Root>/Gain_ff_x' */
-      a21 = -7.0 / (5.0 * Ball_and_Plate_MicroLabBox_student_P.g);
+      a21 = 7.0 / (5.0 * Ball_and_Plate_MicroLabBox_student_P.g);
       Ball_and_Plate_MicroLabBox_student_B.Gain_ff_x = a21 *
         Ball_and_Plate_MicroLabBox_student_B.Add5[1];
       Ball_and_Plate_MicroLabBox_student_B.Switch1 =
@@ -4728,7 +4728,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     if (Ball_and_Plate_MicroLabBox_student_P.ff_enable_Value >
         Ball_and_Plate_MicroLabBox_student_P.Switch2_Threshold) {
       /* Gain: '<Root>/Gain_ff_y ' */
-      a21 = 7.0 / (5.0 * Ball_and_Plate_MicroLabBox_student_P.g);
+      a21 = -7.0 / (5.0 * Ball_and_Plate_MicroLabBox_student_P.g);
       Ball_and_Plate_MicroLabBox_student_B.Gain_ff_y = a21 *
         Ball_and_Plate_MicroLabBox_student_B.Add5[0];
       Ball_and_Plate_MicroLabBox_student_B.Switch2 =
@@ -4828,12 +4828,12 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* Gain: '<Root>/Gain2' */
     Ball_and_Plate_MicroLabBox_student_B.Gain2_j =
       Ball_and_Plate_MicroLabBox_student_P.Gain2_Gain_p *
-      Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o1;
+      Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o1;
 
     /* Gain: '<Root>/Gain3' */
     Ball_and_Plate_MicroLabBox_student_B.Gain3 =
       Ball_and_Plate_MicroLabBox_student_P.Gain3_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o2;
+      Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o2;
   }
 
   /* RateTransition: '<Root>/Rate Transition4' */
@@ -4853,7 +4853,7 @@ void Ball_and_Plate_MicroLabBox_student_output(void)
     /* Gain: '<Root>/Gain6' */
     Ball_and_Plate_MicroLabBox_student_B.Gain6 =
       Ball_and_Plate_MicroLabBox_student_P.Gain6_Gain *
-      Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking_o3;
+      Ball_and_Plate_MicroLabBox_student_B.ByteUnpacking1_o3;
   }
 
   /* RateTransition: '<Root>/Rate Transition5' incorporates:
@@ -8994,7 +8994,7 @@ void Ball_and_Plate_MicroLabBox_student_initialize(void)
     Ball_and_Plate_MicroLabBox_student_DW.x_hat[3] = 0.0;
 
     /* SystemInitialize for MATLAB Function: '<Root>/circ_ref_player ' */
-    Ball_and_Plate_MicroLabBox_student_DW.idx_ref_a = 1.0;
+    Ball_and_Plate_MicroLabBox_student_DW.idx_ref_i = 1.0;
 
     /* SystemInitialize for MATLAB Function: '<Root>/square_ref_player ' */
     Ball_and_Plate_MicroLabBox_student_DW.idx_ref = 1.0;

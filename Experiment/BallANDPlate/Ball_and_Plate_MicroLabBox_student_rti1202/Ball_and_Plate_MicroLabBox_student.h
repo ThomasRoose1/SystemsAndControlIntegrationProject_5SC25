@@ -7,9 +7,9 @@
  *
  * Code generation for model "Ball_and_Plate_MicroLabBox_student".
  *
- * Model version              : 1.165
+ * Model version              : 1.1
  * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
- * C source code generated on : Fri Jun 26 14:20:28 2026
+ * C source code generated on : Tue Jun 30 16:24:38 2026
  *
  * Target selection: rti1202.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -382,8 +382,8 @@ typedef struct {
   real_T rsample[4];                   /* '<Root>/square_ref_player ' */
   real_T asample[2];                   /* '<Root>/square_ref_player ' */
   real_T rpreview[100];                /* '<Root>/square_ref_player ' */
-  real_T rsample_n[4];                 /* '<Root>/circ_ref_player ' */
-  real_T asample_h[2];                 /* '<Root>/circ_ref_player ' */
+  real_T rsample_e[4];                 /* '<Root>/circ_ref_player ' */
+  real_T asample_g[2];                 /* '<Root>/circ_ref_player ' */
   real_T rpreview_a[100];              /* '<Root>/circ_ref_player ' */
   real_T u_cmd[2];                     /* '<S10>/MATLAB Function1' */
   real_T u_raw[2];                     /* '<S10>/MATLAB Function1' */
@@ -451,9 +451,9 @@ typedef struct {
   real_T SineWave;                     /* '<Root>/Sine Wave' */
   uint32_T SFunction1_o4;              /* '<S18>/S-Function1' */
   uint32_T SFunction1_o1_m[3];         /* '<S17>/S-Function1' */
-  real32_T ByteUnpacking_o1;           /* '<S2>/Byte Unpacking ' */
-  real32_T ByteUnpacking_o2;           /* '<S2>/Byte Unpacking ' */
-  real32_T ByteUnpacking_o3;           /* '<S2>/Byte Unpacking ' */
+  real32_T ByteUnpacking1_o1;          /* '<S2>/Byte Unpacking 1' */
+  real32_T ByteUnpacking1_o2;          /* '<S2>/Byte Unpacking 1' */
+  real32_T ByteUnpacking1_o3;          /* '<S2>/Byte Unpacking 1' */
   real32_T Gain2_j;                    /* '<Root>/Gain2' */
   real32_T RateTransition4;            /* '<Root>/Rate Transition4' */
   real32_T Gain3;                      /* '<Root>/Gain3' */
@@ -464,8 +464,8 @@ typedef struct {
   uint8_T SFunction1_o1_c[32];         /* '<S18>/S-Function1' */
   uint8_T SFunction1_o5[4];            /* '<S18>/S-Function1' */
   uint8_T SFunction1_o2_f[4];          /* '<S17>/S-Function1' */
-  int8_T ByteUnpacking_o4;             /* '<S2>/Byte Unpacking ' */
-  int8_T ByteUnpacking_o5[19];         /* '<S2>/Byte Unpacking ' */
+  int8_T ByteUnpacking1_o4;            /* '<S2>/Byte Unpacking 1' */
+  int8_T ByteUnpacking1_o5[19];        /* '<S2>/Byte Unpacking 1' */
   boolean_T DataTypeConversion;        /* '<S2>/Data Type Conversion' */
   boolean_T Compare;                   /* '<S225>/Compare' */
   boolean_T Uk1_j;                     /* '<S223>/Delay Input1' */
@@ -532,7 +532,7 @@ typedef struct {
   real_T NextOutput_p;                 /* '<S23>/Random Number' */
   real_T last_x_PreviousInput[4];      /* '<S66>/last_x' */
   real_T idx_ref;                      /* '<Root>/square_ref_player ' */
-  real_T idx_ref_a;                    /* '<Root>/circ_ref_player ' */
+  real_T idx_ref_i;                    /* '<Root>/circ_ref_player ' */
   real_T xK[16];                       /* '<S10>/MATLAB Function1' */
   real_T u_prev[2];                    /* '<S10>/MATLAB Function1' */
   real_T x_hat[4];                     /* '<Root>/MATLAB Function' */
@@ -562,7 +562,7 @@ typedef struct {
   uint32_T RandSeed_g;                 /* '<S22>/Random Number' */
   uint32_T RandSeed_c;                 /* '<S23>/Uniform Random Number' */
   uint32_T RandSeed_e2;                /* '<S23>/Random Number' */
-  int_T ByteUnpacking_IWORK[10];       /* '<S2>/Byte Unpacking ' */
+  int_T ByteUnpacking1_IWORK[10];      /* '<S2>/Byte Unpacking 1' */
   boolean_T DelayInput1_DSTATE;        /* '<S223>/Delay Input1' */
   volatile int8_T RateTransition3_semaphoreTaken;/* '<Root>/Rate Transition3' */
   int8_T Integrator_PrevResetState;    /* '<S161>/Integrator' */
