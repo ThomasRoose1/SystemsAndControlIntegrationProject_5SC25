@@ -596,6 +596,7 @@ try:
         frame = cv2.warpAffine(frame, ROT_MAT, (WIDTH, HEIGHT))
         frame = cv2.flip(frame, -1)
         depth_raw = cv2.warpAffine(depth_raw, ROT_MAT, (WIDTH, HEIGHT))
+        depth_raw = cv2.flip(frame, -1)
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 

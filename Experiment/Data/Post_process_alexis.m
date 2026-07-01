@@ -1,10 +1,10 @@
 clear all; close all; clc;
 
 %% Load data
-load zsine.mat
+load zsine5.mat
 load square_PID_last.mat
 load square_MPC_z0_OFF.mat
-load square_MPC_z0_ON.mat
+load square_MPC_z0_ON2.mat
 
 %% Plate definition
 x_plate = [-0.195  0.195  0.195 -0.195 -0.195];
@@ -15,9 +15,10 @@ x_ref = [-0.1  0.1  0.1 -0.1 -0.1];
 y_ref = [-0.1 -0.1  0.1  0.1 -0.1];
 
 %% Extract data
-t_zsine = zsine.X(1).Data;
-z_ref = zsine.Y(14).Data;
-z_sat = zsine.Y(15).Data;
+t_zsine = zsine5.X(1).Data;
+z_ref = zsine5.Y(15).Data;
+z_sat = zsine5.Y(16).Data;
+z_out = zsine5.Y(3).Data;
 
 t_PID = square_PID_last.X.Data;
 x_sqr_PID = square_PID_last.Y(3).Data;
@@ -27,8 +28,8 @@ t_MPC_OFF = square_MPC_z0_OFF.X(1).Data;
 z_ref_MPC = square_MPC_z0_OFF.Y(14).Data;
 z_sat_MPC_OFF = square_MPC_z0_OFF.Y(15).Data;
 
-t_MPC_ON = square_MPC_z0_ON.X(1).Data;
-z_sat_MPC_ON = square_MPC_z0_ON.Y(15).Data;
+t_MPC_ON = square_MPC_z0_ON2.X(1).Data;
+z_sat_MPC_ON = square_MPC_z0_ON2.Y(15).Data;
 
 %% Processing
 
@@ -56,19 +57,20 @@ grid on
 figA = figure(2); % Figure 2 is the z sine alone
 
 hold on
-plot(t_zsine, z_ref*1000, 'k-','LineWidth',1.5)
-plot(t_zsine, z_sat*1000, '-','LineWidth',1.5)
+plot(t_zsine, z_ref*1000, 'k-', 'LineWidth', 1.5)
+plot(t_zsine, z_sat*1000, '-', 'LineWidth', 1.5)
+plot(t_zsine, z_out, '-', 'LineWidth', 1.5)
 hold off
 
 xlabel('Time [s]')
 xlim([0 t_zsine(end)])
 ylabel('Z [mm]')
-legend('Reference','Z measured')
+legend('Reference','Z measured', 'Z out')
 grid on
 
-format_ieee_figure(figA)
-drawnow
-exportgraphics(figA,'Z_Sine.pdf','ContentType','vector')
+% format_ieee_figure(figA)
+% drawnow
+% exportgraphics(figA,'Z_Sine.pdf','ContentType','vector')
 
 figB = figure(3); % Figure 2 is the z sine alone
 
