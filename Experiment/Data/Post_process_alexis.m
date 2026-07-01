@@ -58,14 +58,14 @@ figA = figure(2); % Figure 2 is the z sine alone
 
 hold on
 plot(t_zsine, z_ref*1000, 'k-', 'LineWidth', 1.5)
-plot(t_zsine, z_sat*1000, '-', 'LineWidth', 1.5)
+% plot(t_zsine, z_sat*1000, '-', 'LineWidth', 1.5)
 plot(t_zsine, z_out, '-', 'LineWidth', 1.5)
 hold off
 
 xlabel('Time [s]')
 xlim([0 t_zsine(end)])
 ylabel('Z [mm]')
-legend('Reference','Z measured', 'Z out')
+legend('Reference','Z measured')
 grid on
 
 % format_ieee_figure(figA)
