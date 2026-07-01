@@ -47,13 +47,12 @@ USE_HOMOGRAPHY = True
 LOST_TIMEOUT_FRAMES = 5
 
 BALL_RADIUS_ALPHA = 0.2  # 1.0 = no smoothing; 0.1 = max smoothing
-XY_FILTER_ALPHA = 0.6  # 1.0 = no filtering; 0.1 = max filtering
 
 # Depth Parameters
 DEPTH_MIN_MM = 400
 DEPTH_MAX_MM = 900
 XY_FILTER_ALPHA_MIN = 0.4
-XY_FILTER_ALPHA_MAX = 0.7
+XY_FILTER_ALPHA_MAX = 0.6
 ADAPTIVE_FILTER_SPEED = 50.0
 TEMPORAL_ALPHA = 0.6  # 0.0 = no smoothing; 1.0 = max smoothing
 TEMPORAL_DELTA = 20  # Higher values reject sudden depth changes, but can cause lag
@@ -68,10 +67,10 @@ USE_ADAPTIVE_Z_FILTER = True
 Z_FILTER_ALPHA = 0.5  # Used when adaptive filtering is disabled
 
 Z_FILTER_ALPHA_MIN = 0.2  # Strong filtering
-Z_FILTER_ALPHA_MAX = 0.65  # Weak filtering
+Z_FILTER_ALPHA_MAX = 0.8  # Weak filtering
 
-ADAPTIVE_Z_SPEED = 250.0  # mm/s
-USE_SPATIAL_FILTER = True
+ADAPTIVE_Z_SPEED = 350.0  # mm/s
+USE_SPATIAL_FILTER = False
 SPATIAL_MAGNITUDE = 2
 SPATIAL_ALPHA = 0.5
 SPATIAL_DELTA = 5
@@ -596,7 +595,7 @@ try:
         frame = cv2.warpAffine(frame, ROT_MAT, (WIDTH, HEIGHT))
         frame = cv2.flip(frame, -1)
         depth_raw = cv2.warpAffine(depth_raw, ROT_MAT, (WIDTH, HEIGHT))
-        depth_raw = cv2.flip(frame, -1)
+        depth_raw = cv2.flip(depth_raw, -1)
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 

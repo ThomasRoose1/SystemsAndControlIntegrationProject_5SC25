@@ -216,6 +216,80 @@ print("Camera ready.")
 def contour_area(contour):
     return cv2.contourArea(contour)
 
+# ============================================================
+# DRAW DEPTH LEGEND
+# ============================================================
+
+def draw_depth_legend(depth_img):
+
+    h = depth_img.shape[0]
+
+    x0 = depth_img.shape[1] - 50
+    y0 = 20
+    y1 = h - 20
+
+    for y in range(y0, y1):
+
+        ratio = (y - y0) / max((y1 - y0), 1)
+
+        depth_mm = DEPTH_MIN_MM + ratio * (DEPTH_MAX_MM - DEPTH_MIN_MM)
+
+        norm = int(
+            255 *
+            (depth_mm - DEPTH_MIN_MM) /
+            (DEPTH_MAX_MM - DEPTH_MIN_MM)
+        )
+
+        color = cv2.applyColorMap(
+            np.uint8([[norm]]),
+            cv2.COLORMAP_JET
+        )[0][0]
+
+        cv2.line(
+            depth_img,
+            (x0, y),
+            (x0 + 25, y),
+            tuple(int(c) for c in color),
+            1
+        )
+
+    cv2.rectangle(
+        depth_img,
+        (x0, y0),
+        (x0 + 25, y1),
+        (255,255,255),
+        1
+    )
+
+    cv2.putText(
+        depth_img,
+        f"{DEPTH_MIN_MM}",
+        (x0 - 65, y1 + 5),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.45,
+        (255,255,255),
+        1
+    )
+
+    cv2.putText(
+        depth_img,
+        f"{DEPTH_MAX_MM}",
+        (x0 - 65, y0 + 5),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.45,
+        (255,255,255),
+        1
+    )
+
+    cv2.putText(
+        depth_img,
+        "mm",
+        (x0 - 30, y0 - 8),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.45,
+        (255,255,255),
+        1
+    )
 
 def contour_perimeter(contour):
     return cv2.arcLength(contour, True)
@@ -554,13 +628,23 @@ while True:
         # DEPTH COLORMAP
         # ===============================================
 
-        depth_vis = np.asanyarray(
-            colorizer.colorize(depth_frame).get_data()
+        # Convert depth to millimetres
+        depth_mm = depth_image.astype(np.float32)
+
+        # Normalize only within the useful range
+        depth_norm = np.clip(
+            (depth_mm - DEPTH_MIN_MM) /
+            (DEPTH_MAX_MM - DEPTH_MIN_MM),
+            0,
+            1
         )
 
-        depth_vis = cv2.flip(
-            depth_vis,
-            -1
+        depth_uint8 = (255 * (1 - depth_norm)).astype(np.uint8)
+
+        # Apply OpenCV colormap
+        depth_vis = cv2.applyColorMap(
+            depth_uint8,
+            cv2.COLORMAP_JET
         )
 
         # ===============================================
@@ -602,12 +686,14 @@ while True:
                 cx,
                 cy
             )
+            draw_depth_legend(raw_depth_img)
 
             draw_depth_roi(
                 roi_depth_img,
                 cx,
                 cy
             )
+            draw_depth_legend(roi_depth_img)
 
             # ------------------------------------------
             # Extract ROI

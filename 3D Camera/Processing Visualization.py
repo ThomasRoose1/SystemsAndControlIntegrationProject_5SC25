@@ -13,6 +13,9 @@ WIDTH = 640
 HEIGHT = 480
 FPS = 60
 
+PLATE_SIZE_MM = 390.0
+
+
 THRESHOLD = 100
 MASK_MARGIN = 15 # Margin to erode plate mask to avoid edge artifacts
 
@@ -36,15 +39,24 @@ with open(CALIBRATION_FILE, 'r') as f:
 plate_quad = np.array(calib['plate_quad'], dtype=np.float32)
 TL, TR, BR, BL = plate_quad
 
-# Horizontal edges
+# ================= HOMOGRAPHY =================
+# Homography maps camera pixels on the plate plane to real plate coordinates.
+image_points = np.array([TL, TR, BR, BL], dtype=np.float32)
+half = PLATE_SIZE_MM / 2
+world_points = np.array(
+    [[-half, -half], [half, -half], [half, half], [-half, half]],
+    dtype=np.float32
+)
+H, _ = cv2.findHomography(image_points, world_points)
+
+# Estimate the plate rotation from all four edges so the image can be leveled.
 top_angle = math.degrees(math.atan2(TR[1] - TL[1], TR[0] - TL[0]))
 bottom_angle = math.degrees(math.atan2(BR[1] - BL[1], BR[0] - BL[0]))
 
-# Vertical edges
 left_angle = math.degrees(math.atan2(BL[1] - TL[1], BL[0] - TL[0])) - 90.0
 right_angle = math.degrees(math.atan2(BR[1] - TR[1], BR[0] - TR[0])) - 90.0
 
-angle_deg = np.mean([ top_angle, bottom_angle, left_angle, right_angle])
+angle_deg = np.mean([top_angle, bottom_angle, left_angle, right_angle])
 
 print()
 print('===== PLATE ANGLE ESTIMATION =====')
@@ -198,11 +210,11 @@ try:
                 cv2.putText(filter_vis, f"C={circ:.2f}", (ctr[0] + 5, ctr[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0,0,255), 1)
                 continue
 
-            (x,y), radius = cv2.minEnclosingCircle(contour)
-            if radius < MIN_RADIUS or radius > MAX_RADIUS:
-                cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2) # BLUE
-                cv2.putText(filter_vis, f"R={radius:.0f}", (ctr[0] + 5, ctr[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0,0,255), 1)
-                continue
+            # (x,y), radius = cv2.minEnclosingCircle(contour)
+            # if radius < MIN_RADIUS or radius > MAX_RADIUS:
+            #     cv2.drawContours(filter_vis, [contour], -1, (255,0,0), 2) # BLUE
+            #     cv2.putText(filter_vis, f"R={radius:.0f}", (ctr[0] + 5, ctr[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0,0,255), 1)
+            #     continue
 
             cv2.drawContours(filter_vis, [contour], -1, (0,255,0), 2) # GREEN
             candidates.append(contour)
@@ -210,7 +222,7 @@ try:
         cv2.putText(filter_vis, "GREEN = Accepted", (10,25), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
         cv2.putText(filter_vis, "RED = Area Reject", (10,50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,255), 2)
         cv2.putText(filter_vis, "ORANGE = Circularity Reject", (10,75), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,165,255), 2)
-        cv2.putText(filter_vis, "BLUE = Radius Reject", (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
+        # cv2.putText(filter_vis, "BLUE = Radius Reject", (10,100), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
         
         # =============================================
         # FINAL DETECTION
@@ -220,6 +232,17 @@ try:
         if candidates:
             best_ball = max(candidates, key=cv2.contourArea)
             center = contour_centroid(best_ball)
+            # =============================================
+            # Convert image coordinates to plate coordinates
+            # =============================================
+
+            center_mm = cv2.perspectiveTransform(
+                np.array([[[center[0], center[1]]]], dtype=np.float32),
+                H
+            )
+
+            x_mm = float(center_mm[0,0,0])
+            y_mm = -float(center_mm[0,0,1])      # Match controller coordinate system
 
             if center is not None:
                 area = cv2.contourArea(best_ball)
@@ -231,7 +254,8 @@ try:
 
                 cv2.putText(final_img, f"Area = {area:.0f}", (20,40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
                 cv2.putText(final_img, f"Circularity = {circ:.2f}", (20,70), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,0,255), 2)
-                cv2.putText(final_img, f"Center = ({center[0]}, {center[1]})", (20,100), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
+                cv2.putText(final_img, f"X = {x_mm:+6.1f} mm", (20,100), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
+                cv2.putText(final_img, f"Y = {y_mm:+6.1f} mm", (20,130), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,0), 2)
 
         # =============================================
         # DISPLAY WINDOWS
